@@ -1,0 +1,225 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* ZombieZap */ = {
+		activeExec = 0;
+		executables = (
+			DA69F07A13018099002253AF /* ZombieZap */,
+		);
+	};
+	1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {480, 2324}}";
+			sepNavSelRange = "{3469, 0}";
+			sepNavVisRange = "{3376, 377}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = DA69F07A13018099002253AF /* ZombieZap */;
+		activeSDKPreference = iphoneos4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* ZombieZap */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* ZombieZap */,
+		);
+		breakpoints = (
+			DA69F0D51301860A002253AF /* Generator.m:62 */,
+			DA69F0E113018638002253AF /* Generator.m:63 */,
+		);
+		codeSenseManager = DA69F094130180A3002253AF /* Code sense */;
+		executables = (
+			DA69F07A13018099002253AF /* ZombieZap */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					993,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 318865561;
+			PBXWorkspaceStateSaveDate = 318865561;
+		};
+		perUserProjectItems = {
+			DA69F0BC13018178002253AF /* PBXTextBookmark */ = DA69F0BC13018178002253AF /* PBXTextBookmark */;
+			DA69F0DB13018629002253AF /* PBXTextBookmark */ = DA69F0DB13018629002253AF /* PBXTextBookmark */;
+			DA69F14513018FC8002253AF /* PBXTextBookmark */ = DA69F14513018FC8002253AF /* PBXTextBookmark */;
+			DA69F14D1301905F002253AF /* XCBuildMessageTextBookmark */ = DA69F14D1301905F002253AF /* XCBuildMessageTextBookmark */;
+			DA69F1581301944E002253AF /* PBXTextBookmark */ = DA69F1581301944E002253AF /* PBXTextBookmark */;
+		};
+		sourceControlManager = DA69F093130180A3002253AF /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	506EDC30102F528A00A389B3 /* HelloWorldScene.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 910}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 724}";
+		};
+	};
+	506EE05D10304ED200A389B3 /* cocos2d libraries */ = {
+		activeExec = 0;
+	};
+	DA69F07A13018099002253AF /* ZombieZap */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ZombieZap;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		startupPath = "<<ProjectDirectory>>";
+		variableFormatDictionary = {
+		};
+	};
+	DA69F093130180A3002253AF /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	DA69F094130180A3002253AF /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	DA69F09A130180E9002253AF /* Generator.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 826}}";
+			sepNavSelRange = "{524, 0}";
+			sepNavVisRange = "{165, 566}";
+		};
+	};
+	DA69F09B130180E9002253AF /* Generator.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3472}}";
+			sepNavSelRange = "{3662, 0}";
+			sepNavVisRange = "{3275, 1271}";
+		};
+	};
+	DA69F0BC13018178002253AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldScene.m */;
+		name = "HelloWorldScene.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 724;
+		vrLoc = 0;
+	};
+	DA69F0D51301860A002253AF /* Generator.m:62 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = DA69F09B130180E9002253AF /* Generator.m */;
+		functionName = "-update:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 62;
+		location = ZombieZap;
+		modificationTime = 318867029.238303;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	DA69F0DB13018629002253AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */;
+		name = "ZombieZapAppDelegate.m: 115";
+		rLen = 0;
+		rLoc = 3527;
+		rType = 0;
+		vrLen = 1121;
+		vrLoc = 2872;
+	};
+	DA69F0E113018638002253AF /* Generator.m:63 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = DA69F09B130180E9002253AF /* Generator.m */;
+		functionName = "-update:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 63;
+		location = ZombieZap;
+		modificationTime = 318867029.238577;
+		originalNumberOfMultipleMatches = 1;
+		state = 2;
+	};
+	DA69F14513018FC8002253AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F09A130180E9002253AF /* Generator.h */;
+		name = "Generator.h: 36";
+		rLen = 0;
+		rLoc = 524;
+		rType = 0;
+		vrLen = 566;
+		vrLoc = 165;
+	};
+	DA69F14D1301905F002253AF /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'friction' undeclared (first use in this function)";
+		fRef = DA69F09B130180E9002253AF /* Generator.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 27;
+		rType = 1;
+	};
+	DA69F1581301944E002253AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F09B130180E9002253AF /* Generator.m */;
+		name = "Generator.m: 175";
+		rLen = 0;
+		rLoc = 3662;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 3275;
+	};
+}
