@@ -39,8 +39,6 @@ typedef struct ZGPoint ZGPoint;
 	
 	NSUInteger sampleSize;
 	
-	BOOL genTouched;
-	
 	BOOL dirLock;
 	
 	CCSprite *sprite;

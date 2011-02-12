@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "GeneratorLayer.h"
 #import "BuildLayer.h"
+#import "GameLayer.h"
 #import "PButton.h"
 
 @implementation GameScene
@@ -19,10 +20,13 @@
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
-		[self addChild:generatorLayer];
+		[self addChild:generatorLayer z:2];
 		
 		BuildLayer *buildLayer = [BuildLayer node];
-		[self addChild:buildLayer];
+		[self addChild:buildLayer z: 1];
+		
+		GameLayer *gameLayer = [GameLayer node];
+		[self addChild:gameLayer z:0];
 		
 		PButton *b1 = [PButton pButton];
 		//PButton *b2 = [PButton pButton];

@@ -28,8 +28,7 @@
 		innerRadius = 35;
 		maxDeltaR = 15;
 		sampleSize = 60;
-		genTouched = NO;
-		dirLock = NO;
+		dirLock = YES;
 		touchTimer = -1;
 		
 		int i;
@@ -47,14 +46,6 @@
 - (void) rotateWheel: (CGFloat)degrees
 {
 	sprite.rotation += degrees;
-	/*
-	if (sprite.rotation >= 360) {
-		sprite.rotation -= 360;
-	}
-	else if (sprite.rotation < 0) {
-		sprite.rotation += 360;
-	}
-	 */
 }
 
 - (void) update:(ccTime)dt
@@ -180,11 +171,12 @@
 		}
 		
 		CGFloat dR = p.rot - prevRotation;
+		//NSLog(@"dR: %4.2f = %4.2f - %4.2f", dR, p.rot, prevRotation);
 
 		// Check if wheel is only allowed to spin one way
 		if ((dR < 0 && dirLock) || !dirLock) {
 			// Normal case
-			if (fabs(dR) < maxDeltaR) {
+			if (fabs(dR) < maxDeltaR || dR + 360 < maxDeltaR) {
 				[self rotateWheel:-dR];	
 			}
 			else {
@@ -203,7 +195,7 @@
 		if (touchTimer != -1) {
 			// Calculate angular momentum to keep the wheel spinning
 			CGFloat displacement = sprite.rotation - startRotation;
-			CGFloat time = touchTimer;
+			CGFloat time = touchTimer + 1; // +1 so we don't divide by 0
 			angularMomentum = displacement/time;
 			touchTimer = -1;		
 			
@@ -214,7 +206,7 @@
 			}
 			sprite.rotation = sprite.rotation - 360 * multiple;
 			
-			//NSLog(@"off generator");
+			NSLog(@"off generator");
 			//NSLog(@"disp: %4.2f time: %4.2f, a1: %4.2f", displacement, time, angularMomentum);
 		}
 	}
@@ -226,7 +218,7 @@
 {	
 	if (touchTimer != -1) {
 		CGFloat displacement = sprite.rotation - startRotation;
-		CGFloat time = touchTimer;
+		CGFloat time = touchTimer + 1; // +1 so that we don't divide by 0
 		angularMomentum = displacement/time;
 		touchTimer = -1;
 		
@@ -236,8 +228,9 @@
 			multiple++;
 		}
 		sprite.rotation = sprite.rotation - 360 * multiple;		
+		//NSLog(@"rotation: %4.2f", sprite.rotation);
 		
-		//NSLog(@"touch ended");
+		NSLog(@"touch ended");
 		//NSLog(@"disp: %4.2f time: %4.2f, a1: %4.2f", displacement, time, angularMomentum);
 
 	}
