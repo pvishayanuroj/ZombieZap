@@ -77,6 +77,9 @@
 		DA69F0A3130180E9002253AF /* GeneratorLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F09D130180E9002253AF /* GeneratorLayer.m */; };
 		DA69F0A4130180E9002253AF /* PButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F09F130180E9002253AF /* PButton.m */; };
 		DA69F0A6130180F3002253AF /* generator_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DA69F0A5130180F3002253AF /* generator_wheel.png */; };
+		DA6E8FDC13087CC700C42417 /* CharacterSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */; };
+		DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */; };
+		DA6E8FE713088B8800C42417 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FE613088B8800C42417 /* Units.plist */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -347,6 +350,9 @@
 		DA69F09E130180E9002253AF /* PButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PButton.h; sourceTree = "<group>"; };
 		DA69F09F130180E9002253AF /* PButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PButton.m; sourceTree = "<group>"; };
 		DA69F0A5130180F3002253AF /* generator_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generator_wheel.png; sourceTree = "<group>"; };
+		DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = CharacterSpriteSheet.plist; sourceTree = "<group>"; };
+		DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterSpriteSheet.png; sourceTree = "<group>"; };
+		DA6E8FE613088B8800C42417 /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -748,6 +754,9 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA6E8FE613088B8800C42417 /* Units.plist */,
+				DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */,
+				DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */,
 				DA01DAFF13034E2B00B0D88B /* map_32.png */,
 				DA01DB0013034E2B00B0D88B /* map_32.txt */,
 				DA01DA8C130347B700B0D88B /* map_64.png */,
@@ -1176,6 +1185,9 @@
 				DA01DA8F130347B700B0D88B /* map_64.txt in Resources */,
 				DA01DB0113034E2B00B0D88B /* map_32.png in Resources */,
 				DA01DB0213034E2B00B0D88B /* map_32.txt in Resources */,
+				DA6E8FDC13087CC700C42417 /* CharacterSpriteSheet.plist in Resources */,
+				DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */,
+				DA6E8FE713088B8800C42417 /* Units.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,247 @@
+{
+	texture = {};
+	width = 120;
+	height = 96;
+	frames = {
+		"Human Marine Standing 01.png" = {
+			x = 0;
+			y = 0;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Standing 02.png" = {
+			x = 24;
+			y = 0;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Standing 03.png" = {
+			x = 48;
+			y = 0;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Standing 04.png" = {
+			x = 72;
+			y = 0;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Standing 05.png" = {
+			x = 96;
+			y = 0;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Walking 01.png" = {
+			x = 0;
+			y = 24;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Walking 02.png" = {
+			x = 24;
+			y = 24;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Walking 03.png" = {
+			x = 48;
+			y = 24;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Walking 04.png" = {
+			x = 72;
+			y = 24;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Walking 05.png" = {
+			x = 96;
+			y = 24;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Fighting 01.png" = {
+			x = 0;
+			y = 48;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Fighting 02.png" = {
+			x = 24;
+			y = 48;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Fighting 03.png" = {
+			x = 48;
+			y = 48;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Fighting 04.png" = {
+			x = 72;
+			y = 48;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Fighting 05.png" = {
+			x = 96;
+			y = 48;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Dying 01.png" = {
+			x = 0;
+			y = 72;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Dying 02.png" = {
+			x = 24;
+			y = 72;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Dying 03.png" = {
+			x = 48;
+			y = 72;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Dying 04.png" = {
+			x = 72;
+			y = 72;
+			width = 24;
+			height = 24;
+		};
+		"Human Marine Dying 05.png" = {
+			x = 96;
+			y = 72;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Standing 01.png" = {
+			x = 0;
+			y = 96;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Standing 02.png" = {
+			x = 24;
+			y = 96;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Standing 03.png" = {
+			x = 48;
+			y = 96;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Standing 04.png" = {
+			x = 72;
+			y = 96;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Standing 05.png" = {
+			x = 96;
+			y = 96;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Walking 01.png" = {
+			x = 0;
+			y = 120;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Walking 02.png" = {
+			x = 24;
+			y = 120;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Walking 03.png" = {
+			x = 48;
+			y = 120;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Walking 04.png" = {
+			x = 72;
+			y = 120;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Walking 05.png" = {
+			x = 96;
+			y = 120;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Fighting 01.png" = {
+			x = 0;
+			y = 144;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Fighting 02.png" = {
+			x = 24;
+			y = 144;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Fighting 03.png" = {
+			x = 48;
+			y = 144;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Fighting 04.png" = {
+			x = 72;
+			y = 144;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Fighting 05.png" = {
+			x = 96;
+			y = 144;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Dying 01.png" = {
+			x = 0;
+			y = 168;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Dying 02.png" = {
+			x = 24;
+			y = 168;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Dying 03.png" = {
+			x = 48;
+			y = 168;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Dying 04.png" = {
+			x = 72;
+			y = 168;
+			width = 24;
+			height = 24;
+		};
+		"Zerg Zergling Dying 05.png" = {
+			x = 96;
+			y = 168;
+			width = 24;
+			height = 24;
+		};
+	};
+}

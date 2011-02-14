@@ -151,7 +151,6 @@
 	touchTimer = 0;
 	startRotation = sprite.rotation;
 	
-	
 	return YES;
 }
 

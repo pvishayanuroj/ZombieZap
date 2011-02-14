@@ -8,11 +8,10 @@
 
 #import "cocos2d.h"
 
-@class GeneratorLayer;
-
-
 @interface GameScene : CCScene {
 
 }
+
+- (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName;
 
 @end
