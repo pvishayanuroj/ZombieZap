@@ -55,10 +55,6 @@
 	NSMutableDictionary *actionDictionary;
 	NSMutableArray *frames;
 	CCAnimation *animation;
-	//CCAction *actionObj;
-	
-	// Initialize the units dictionary
-	//units = [[NSMutableDictionary dictionaryWithCapacity:6] retain];			
 	
 	// Load from the Units.plist file
 	NSString *path = [[NSBundle mainBundle] pathForResource:unitListName ofType:@"plist"];
@@ -72,7 +68,6 @@
 	// Load the spritesheet and add it to the game scene
 	path = [[NSBundle mainBundle] pathForResource:spriteSheetName ofType:@"png"];
 	CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:path];
-	//CCSpriteSheet *spriteSheet = [CCSpriteSheet spriteSheetWithFile:path];
 	[self addChild:spriteSheet];
 	
 	// Go through all units in the plist (dictionary objects)
@@ -112,10 +107,6 @@
 			
 			// Store the animation
 			[[CCAnimationCache sharedAnimationCache] addAnimation:animation name:animationName];
-			
-			// Pre-make the running forever actions and store them so we don't have to keep making them later
-			//actionObj = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animationObj]];	
-			//[actionDictionary setObject:actionObj forKey:animationName];
 			
 		} // end for-loop of animations
 	} // end for-loop of units

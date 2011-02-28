@@ -71,6 +71,7 @@
 		DA01DA98130348FE00B0D88B /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA97130348FE00B0D88B /* GameLayer.m */; };
 		DA01DB0113034E2B00B0D88B /* map_32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA01DAFF13034E2B00B0D88B /* map_32.png */; };
 		DA01DB0213034E2B00B0D88B /* map_32.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA01DB0013034E2B00B0D88B /* map_32.txt */; };
+		DA5FA46A13097412005E2411 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA46913097412005E2411 /* Pair.m */; };
 		DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F097130180E9002253AF /* BuildLayer.m */; };
 		DA69F0A1130180E9002253AF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F099130180E9002253AF /* GameScene.m */; };
 		DA69F0A2130180E9002253AF /* Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F09B130180E9002253AF /* Generator.m */; };
@@ -80,6 +81,7 @@
 		DA6E8FDC13087CC700C42417 /* CharacterSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */; };
 		DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */; };
 		DA6E8FE713088B8800C42417 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FE613088B8800C42417 /* Units.plist */; };
+		DA6E90331308D9A500C42417 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E90321308D9A500C42417 /* Zombie.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -339,6 +341,10 @@
 		DA01DA97130348FE00B0D88B /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		DA01DAFF13034E2B00B0D88B /* map_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_32.png; sourceTree = "<group>"; };
 		DA01DB0013034E2B00B0D88B /* map_32.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_32.txt; sourceTree = "<group>"; };
+		DA5FA46813097412005E2411 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
+		DA5FA46913097412005E2411 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
+		DA5FA48A130975AB005E2411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		DA5FA48B130975AB005E2411 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		DA69F096130180E9002253AF /* BuildLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildLayer.h; sourceTree = "<group>"; };
 		DA69F097130180E9002253AF /* BuildLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildLayer.m; sourceTree = "<group>"; };
 		DA69F098130180E9002253AF /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
@@ -353,6 +359,8 @@
 		DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = CharacterSpriteSheet.plist; sourceTree = "<group>"; };
 		DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterSpriteSheet.png; sourceTree = "<group>"; };
 		DA6E8FE613088B8800C42417 /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
+		DA6E90311308D9A500C42417 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
+		DA6E90321308D9A500C42417 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -624,6 +632,8 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DA5FA48A130975AB005E2411 /* Constants.h */,
+				DA5FA48B130975AB005E2411 /* Enums.h */,
 				DA01DA89130347AD00B0D88B /* Grid.h */,
 				DA01DA8A130347AD00B0D88B /* Grid.m */,
 				DA69F096130180E9002253AF /* BuildLayer.h */,
@@ -645,6 +655,10 @@
 				1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
 				DA01DA97130348FE00B0D88B /* GameLayer.m */,
+				DA6E90311308D9A500C42417 /* Zombie.h */,
+				DA6E90321308D9A500C42417 /* Zombie.m */,
+				DA5FA46813097412005E2411 /* Pair.h */,
+				DA5FA46913097412005E2411 /* Pair.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1209,6 +1223,8 @@
 				DA69F0A4130180E9002253AF /* PButton.m in Sources */,
 				DA01DA8B130347AD00B0D88B /* Grid.m in Sources */,
 				DA01DA98130348FE00B0D88B /* GameLayer.m in Sources */,
+				DA6E90331308D9A500C42417 /* Zombie.m in Sources */,
+				DA5FA46A13097412005E2411 /* Pair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

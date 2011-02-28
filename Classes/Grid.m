@@ -7,6 +7,7 @@
 //
 
 #import "Grid.h"
+#import "Pair.h"
 
 // For singleton
 static Grid *_grid = nil;
@@ -39,7 +40,7 @@ static Grid *_grid = nil;
 	if ((self = [super init]))
 	{
 		//mapObjects = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
-		//[self initAdjArray];
+		[self initAdjArray];
 	}
 	return self;
 }
@@ -47,7 +48,7 @@ static Grid *_grid = nil;
 - (void) setGridWithMap:(NSString *)mapName {
 	
 	// Background sprite
-	//[self loadElevation:mapName];
+	[self loadElevation:mapName];
 		
 	mapImage = [[CCSprite spriteWithFile:[mapName stringByAppendingString:@".png"]] retain];
 		
@@ -55,7 +56,7 @@ static Grid *_grid = nil;
 	mapImage.anchorPoint = ccp(0, 0);
 }
 
-/*
+
 - (void) initAdjArray
 {
 	adjArray = [[NSMutableArray arrayWithCapacity:8] retain];
@@ -342,47 +343,6 @@ static Grid *_grid = nil;
 	else
 		return nil;
 }
-
-- (BOOL)addGameObject:(GameObject *)gameObject toGridCoordinate:(Pair *)gridCoordinate {
-	if ([self objectsCanBeAddedToGridCoordinate:gridCoordinate]) {
-		NSMutableArray *gameObjects = [mapObjects objectForKey:gridCoordinate];
-		
-		// Checks if the GameObjects is nil if it is, then create a mutable array and replace it.
-		if(!gameObjects) {
-			gameObjects = [NSMutableArray arrayWithCapacity:2];
-			[mapObjects setObject:gameObjects forKey:gridCoordinate];
-		}
-		
-		// Add the game object to the grid's mutable array.
-		[gameObjects addObject:gameObject];
-		
-		// Let the trigger controller know about this move event
-		[[TriggerManager triggerManager] moveEvent:gridCoordinate unit:gameObject];
-
-#if DEBUG_GRIDS
-		NSLog(@"%@", [mapObjects objectForKey:gridCoordinate]);
-#endif
-		return YES;
-	}
-	return NO;
-}
-
-- (BOOL) removeGameObject:(GameObject *)gameObject atGrid:(Pair *)gridCoord 
-{
-	NSMutableArray *units = [mapObjects objectForKey:gridCoord];
-	
-	if (units == nil) 
-		return NO;
-	
-	[units removeObject: gameObject];
-	// If nothing left in the array, remove it from dictionary
-	if ([units count] == 0) {
-		[mapObjects removeObjectForKey:gridCoord];
-	}
-	
-	return YES;
-}
-*/
 
 - (void) dealloc
 {

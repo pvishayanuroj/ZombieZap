@@ -8,6 +8,8 @@
 
 #import "GameLayer.h"
 #import "Grid.h"
+#import "Zombie.h"
+#import "Pair.h"
 
 @implementation GameLayer
 
@@ -25,6 +27,11 @@
 		[grid setGridWithMap:@"map_32"];
 		[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
+		
+		Zombie *zombie = [Zombie zombieWithPos:[Pair pair:0 second:0]];
+		[self addChild:zombie];
+		
+		
 	}
 	return self;
 }
