@@ -167,6 +167,11 @@
 	y = p.y;
 }
 
+- (NSUInteger) manhattanDistance:(Pair *)p
+{
+	return abs(x - p.x) + abs(y - p.y);	
+}
+
 - (id) copyWithZone: (NSZone *)zone
 {
 	Pair *pairCopy = [[Pair allocWithZone:zone] init];

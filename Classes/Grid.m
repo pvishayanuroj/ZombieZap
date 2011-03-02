@@ -61,13 +61,13 @@ static Grid *_grid = nil;
 {
 	adjArray = [[NSMutableArray arrayWithCapacity:8] retain];
 	[adjArray addObject:[Pair pair:0 second:1]]; // up
-	[adjArray addObject:[Pair pair:1 second:1]]; // up-right
+	//[adjArray addObject:[Pair pair:1 second:1]]; // up-right
 	[adjArray addObject:[Pair pair:1 second:0]]; // right
-	[adjArray addObject:[Pair pair:1 second:-1]]; // down-right
+	//[adjArray addObject:[Pair pair:1 second:-1]]; // down-right
 	[adjArray addObject:[Pair pair:0 second:-1]]; // down
-	[adjArray addObject:[Pair pair:-1 second:-1]]; // down-left
+	//[adjArray addObject:[Pair pair:-1 second:-1]]; // down-left
 	[adjArray addObject:[Pair pair:-1 second:0]]; // left
-	[adjArray addObject:[Pair pair:-1 second:1]]; // up-left
+	//[adjArray addObject:[Pair pair:-1 second:1]]; // up-left
 }
 
 - (void) loadElevation:(NSString *)fileName

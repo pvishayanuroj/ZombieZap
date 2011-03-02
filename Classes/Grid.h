@@ -36,6 +36,11 @@
 		Associative map holding coordinate as a key and an integer value as elevation representation
 	 */
 	NSDictionary *terrain;
+	
+	/**
+		Dictionary that maps coordinates to a direction to move towards the objective
+	 */
+	NSMutableDictionary *objectiveMap;
 
 	/**
 		Associative map holding coordinate as a key and an array of gameobjects as the value

@@ -146,6 +146,13 @@
 - (void) invertPair;
 
 /**
+ Method returning the Manhattan distance from this pair to the given pair
+ @param p The pair to get the distance to
+ @returns The Manhattan distance
+ */
+- (NSUInteger) manhattanDistance:(Pair *)p;
+
+/**
  Sets the values of this pair equal to another
  @param p The pair to set this one equal to
  */

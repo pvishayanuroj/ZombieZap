@@ -15,3 +15,17 @@ typedef enum {
 	TERR_MID = 2,
 	TERR_HIGH = 3
 } TerrainType;
+
+typedef enum {
+	DIR_UP = 0,
+	DIR_DOWN = 1,
+	DIR_LEFT = 2,
+	DIR_RIGHT = 3
+} TileDirection;
+
+typedef enum {
+	ON_CLOSED = 0,
+	ON_OPEN_NOADJUST = 1,
+	ON_OPEN_ADJUST = 2,
+	ON_NONE = 3
+} ASNodeGroup;

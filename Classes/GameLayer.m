@@ -10,6 +10,7 @@
 #import "Grid.h"
 #import "Zombie.h"
 #import "Pair.h"
+#import "AStar.h"
 
 @implementation GameLayer
 
@@ -24,14 +25,35 @@
 		self.isTouchEnabled = YES;
 		
 		Grid *grid = [Grid grid];
-		[grid setGridWithMap:@"map_32"];
+		[grid setGridWithMap:@"map_64"];
 		[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
 		
-		Zombie *zombie = [Zombie zombieWithPos:[Pair pair:0 second:0]];
-		[self addChild:zombie];
+		AStar *aStar = [AStar aStar];
+		Pair *start = [Pair pair:0 second:0];
+		Pair *dest = [Pair pair:50 second:40];
+		NSDate *reftime = [NSDate date];
+
+		NSArray *path = [aStar findPathFrom:start to:dest];
+		double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
+		NSLog(@"p1: %4.9f", t1);
 		
+		reftime = [NSDate date];
+		NSArray *path2 = [grid findPathFrom:start to:dest];
+		double t2 = [[NSDate date] timeIntervalSinceDate:reftime];		
 		
+		for (int i = 0; i < [path count]; i++) {
+			[self debugGridInfo:[path objectAtIndex:i] count:i];
+		}
+		
+
+		NSLog(@"p2: %4.9f", t2);		
+		
+		//NSLog(@"PATH: %@", path);
+		//NSLog(@"PATH2: %@", path2);
+		
+		//Zombie *zombie = [Zombie zombieWithPos:[Pair pair:0 second:0]];
+		//[self addChild:zombie];
 	}
 	return self;
 }
@@ -116,6 +138,16 @@
 	
 	// Move the map
 	self.position = newPosition;
+}
+
+- (void) debugGridInfo:(Pair *)p count:(NSInteger)count
+{
+	Grid *grid = [Grid grid];
+	NSString *msg0 = [NSString stringWithFormat:@"%d", count];
+	CCLabelTTF *label0 = [CCLabelTTF labelWithString:msg0 fontName:@"Marker Felt" fontSize:12];
+	label0.position = [grid mapCoordinateAtGridCoordinate:p]; 
+	label0.color = ccc3(0,0,0);
+	[self addChild:label0 z:1];	
 }
 
 @end

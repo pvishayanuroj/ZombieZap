@@ -11,6 +11,7 @@
 #import "BuildLayer.h"
 #import "GameLayer.h"
 #import "PButton.h"
+#import "BinaryHeap.h"
 
 @implementation GameScene
 
@@ -18,7 +19,7 @@
 {
 	if ((self = [super init])) {
 		
-		[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
+	    //	[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
@@ -37,8 +38,37 @@
 		[buildLayer addButton:b1];
 		//[buildLayer addButton:b2];
 		//[buildLayer addButton:b3];
-		//[buildLayer addButton:b4];		
+		//[buildLayer addButton:b4];	
 		
+		
+		// DEBUG
+		/*
+		BinaryHeap *b = [BinaryHeap bHeapWithCapacity:10];
+		[b addObject:10];
+		[b addObject:17];
+		[b addObject:24];
+		[b addObject:20];
+		[b addObject:34];
+		[b addObject:38];
+		[b addObject:30];
+		[b addObject:30];
+		NSLog(@"b: %@", b);
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);
+		NSLog(@"b: %@", b);		
+		NSLog(@"removed: %d", [b removeFirst]);		
+		*/
 	}
 	return self;
 }
