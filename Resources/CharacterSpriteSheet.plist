@@ -1,247 +1,417 @@
-{
-	texture = {};
-	width = 120;
-	height = 96;
-	frames = {
-		"Human Marine Standing 01.png" = {
-			x = 0;
-			y = 0;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Standing 02.png" = {
-			x = 24;
-			y = 0;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Standing 03.png" = {
-			x = 48;
-			y = 0;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Standing 04.png" = {
-			x = 72;
-			y = 0;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Standing 05.png" = {
-			x = 96;
-			y = 0;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Walking 01.png" = {
-			x = 0;
-			y = 24;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Walking 02.png" = {
-			x = 24;
-			y = 24;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Walking 03.png" = {
-			x = 48;
-			y = 24;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Walking 04.png" = {
-			x = 72;
-			y = 24;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Walking 05.png" = {
-			x = 96;
-			y = 24;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Fighting 01.png" = {
-			x = 0;
-			y = 48;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Fighting 02.png" = {
-			x = 24;
-			y = 48;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Fighting 03.png" = {
-			x = 48;
-			y = 48;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Fighting 04.png" = {
-			x = 72;
-			y = 48;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Fighting 05.png" = {
-			x = 96;
-			y = 48;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Dying 01.png" = {
-			x = 0;
-			y = 72;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Dying 02.png" = {
-			x = 24;
-			y = 72;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Dying 03.png" = {
-			x = 48;
-			y = 72;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Dying 04.png" = {
-			x = 72;
-			y = 72;
-			width = 24;
-			height = 24;
-		};
-		"Human Marine Dying 05.png" = {
-			x = 96;
-			y = 72;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Standing 01.png" = {
-			x = 0;
-			y = 96;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Standing 02.png" = {
-			x = 24;
-			y = 96;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Standing 03.png" = {
-			x = 48;
-			y = 96;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Standing 04.png" = {
-			x = 72;
-			y = 96;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Standing 05.png" = {
-			x = 96;
-			y = 96;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Walking 01.png" = {
-			x = 0;
-			y = 120;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Walking 02.png" = {
-			x = 24;
-			y = 120;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Walking 03.png" = {
-			x = 48;
-			y = 120;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Walking 04.png" = {
-			x = 72;
-			y = 120;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Walking 05.png" = {
-			x = 96;
-			y = 120;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Fighting 01.png" = {
-			x = 0;
-			y = 144;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Fighting 02.png" = {
-			x = 24;
-			y = 144;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Fighting 03.png" = {
-			x = 48;
-			y = 144;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Fighting 04.png" = {
-			x = 72;
-			y = 144;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Fighting 05.png" = {
-			x = 96;
-			y = 144;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Dying 01.png" = {
-			x = 0;
-			y = 168;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Dying 02.png" = {
-			x = 24;
-			y = 168;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Dying 03.png" = {
-			x = 48;
-			y = 168;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Dying 04.png" = {
-			x = 72;
-			y = 168;
-			width = 24;
-			height = 24;
-		};
-		"Zerg Zergling Dying 05.png" = {
-			x = 96;
-			y = 168;
-			width = 24;
-			height = 24;
-		};
-	};
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>Zombie Attacking 01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Attacking 02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{24, 0}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Attacking 03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{48, 0}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Attacking 04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{72, 0}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Attacking 05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{96, 0}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Damaged 01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 24}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Damaged 02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{24, 24}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Damaged 03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{48, 24}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Damaged 04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{72, 24}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Damaged 05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{96, 24}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Death 01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 48}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Death 02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{24, 48}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Death 03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{48, 48}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Death 04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{72, 48}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Death 05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{96, 48}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Walking 01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 72}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Walking 02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{24, 72}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Walking 03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{48, 72}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Walking 04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{72, 72}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>Zombie Walking 05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array/>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {24, 24}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -0}</string>
+			<key>spriteSize</key>
+			<string>{24, 24}</string>
+			<key>spriteSourceSize</key>
+			<string>{24, 24}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{96, 72}, {24, 24}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{128, 128}</string>
+	</dict>
+</dict>
+</plist>

@@ -18,7 +18,7 @@
 		self.isTouchEnabled = YES;
 		generator = [Generator generator];
 		[self addChild:generator];
-		generator.position = CGPointMake(200, 200);
+		generator.position = CGPointMake(70, 250);
 		
 	}
 	return self;

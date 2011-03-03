@@ -25,35 +25,28 @@
 		self.isTouchEnabled = YES;
 		
 		Grid *grid = [Grid grid];
-		[grid setGridWithMap:@"map_64"];
+		[grid setGridWithMap:@"map_32"];
 		[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
 		
 		AStar *aStar = [AStar aStar];
 		Pair *start = [Pair pair:0 second:0];
-		Pair *dest = [Pair pair:50 second:40];
+		Pair *dest = [Pair pair:6 second:8];
 		NSDate *reftime = [NSDate date];
 
 		NSArray *path = [aStar findPathFrom:start to:dest];
 		double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
 		NSLog(@"p1: %4.9f", t1);
 		
-		reftime = [NSDate date];
-		NSArray *path2 = [grid findPathFrom:start to:dest];
-		double t2 = [[NSDate date] timeIntervalSinceDate:reftime];		
-		
+		[grid addPathToObjective:path];
+			
 		for (int i = 0; i < [path count]; i++) {
 			[self debugGridInfo:[path objectAtIndex:i] count:i];
 		}
 		
-
-		NSLog(@"p2: %4.9f", t2);		
-		
-		//NSLog(@"PATH: %@", path);
-		//NSLog(@"PATH2: %@", path2);
-		
-		//Zombie *zombie = [Zombie zombieWithPos:[Pair pair:0 second:0]];
-		//[self addChild:zombie];
+		Zombie *zombie = [Zombie zombieWithPos:start];
+		[self addChild:zombie];
+		[zombie test];
 	}
 	return self;
 }
@@ -75,9 +68,9 @@
 		// Store the current location of the map
 		layerPosStart = self.position;
 		
-#if DEBUG_TOUCHES
+//#if DEBUG_TOUCHES
 		NSLog(@"Touch began: %4.2f, %4.2f", finger1Start.x, finger1Start.y);
-#endif
+//#endif
 	}
 }
 

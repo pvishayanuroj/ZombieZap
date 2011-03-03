@@ -24,9 +24,9 @@
 		[self addChild:sprite];
 		sprite.position = CGPointZero;
 		
-		outerRadius = 80;
-		innerRadius = 35;
-		maxDeltaR = 15;
+		outerRadius = 60;
+		innerRadius = 30;
+		maxDeltaR = 10;
 		sampleSize = 60;
 		dirLock = YES;
 		touchTimer = -1;
@@ -78,7 +78,7 @@
 	}
 
 	if (angularMomentum != 0) {
-		angularMomentum *= 0.95;
+		angularMomentum *= 0.98;
 		if (fabs(angularMomentum) < 0.5) {
 			angularMomentum = 0;
 		}
@@ -146,6 +146,8 @@
 	CGPoint touchLocation = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];	
 	ZGPoint p = [self closestPoint:touchLocation];
 	prevRotation = p.rot;
+	
+	NSLog(@"Touch @radius: %3.0f", p.dist);
 	
 	angularMomentum = 0;
 	touchTimer = 0;

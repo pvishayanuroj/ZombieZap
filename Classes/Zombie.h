@@ -16,16 +16,18 @@
 	
 	Pair *objective_;
 	
+	Pair *currentDest_;
+	
 }
 
 + (id) zombieWithPos:(Pair *)startPos;
 
 + (id) zombieWithObj:(Pair *)objective startPos:(Pair *)startPos;
 
-- (id) initZombie;
-
 - (id) initZombieWithPos:(Pair *)startPos;
 
 - (id) initZombieWithObjective:(Pair *)objective startPos:(Pair *)startPos;
+
+-(void)test;
 
 @end

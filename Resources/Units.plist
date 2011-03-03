@@ -4,12 +4,12 @@
 <array>
 	<dict>
 		<key>Name</key>
-		<string>Human Marine</string>
+		<string>Zombie</string>
 		<key>Animations</key>
 		<array>
 			<dict>
 				<key>Name</key>
-				<string>Standing</string>
+				<string>Attacking</string>
 				<key>Num Frames</key>
 				<integer>5</integer>
 				<key>Animate Delay</key>
@@ -25,7 +25,7 @@
 			</dict>
 			<dict>
 				<key>Name</key>
-				<string>Fighting</string>
+				<string>Damaged</string>
 				<key>Num Frames</key>
 				<integer>5</integer>
 				<key>Animate Delay</key>
@@ -33,46 +33,7 @@
 			</dict>
 			<dict>
 				<key>Name</key>
-				<string>Dying</string>
-				<key>Num Frames</key>
-				<integer>5</integer>
-				<key>Animate Delay</key>
-				<real>0.2</real>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Zerg Zergling</string>
-		<key>Animations</key>
-		<array>
-			<dict>
-				<key>Name</key>
-				<string>Standing</string>
-				<key>Num Frames</key>
-				<integer>5</integer>
-				<key>Animate Delay</key>
-				<real>0.2</real>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>Walking</string>
-				<key>Num Frames</key>
-				<integer>5</integer>
-				<key>Animate Delay</key>
-				<real>0.2</real>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>Fighting</string>
-				<key>Num Frames</key>
-				<integer>5</integer>
-				<key>Animate Delay</key>
-				<real>0.2</real>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>Dying</string>
+				<string>Death</string>
 				<key>Num Frames</key>
 				<integer>5</integer>
 				<key>Animate Delay</key>

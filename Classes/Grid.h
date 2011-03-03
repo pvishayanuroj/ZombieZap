@@ -40,17 +40,12 @@
 	/**
 		Dictionary that maps coordinates to a direction to move towards the objective
 	 */
-	NSMutableDictionary *objectiveMap;
+	NSMutableDictionary *objectiveMap_;
 
 	/**
 		Associative map holding coordinate as a key and an array of gameobjects as the value
 	 */	
 	NSMutableDictionary *mapObjects;
-	
-	/**
-	 An array that has vectors to each adjacent cell. Used for unit pathfinding
-	 */
-	NSMutableArray *adjArray;
 	
 }
 
@@ -59,6 +54,7 @@
 @property(nonatomic, readonly)	CCSprite *mapImage;
 @property(nonatomic, readonly)	NSDictionary *terrain;
 @property(nonatomic, readonly)	NSDictionary *mapObjects;
+@property(nonatomic, readonly)	NSMutableDictionary *objectiveMap;
 
 /**
 	Returns the Grid singleton. Initializes a new one if one does not exist
@@ -78,20 +74,10 @@
 - (void) setGridWithMap:(NSString *)mapName;
 
 /**
-	Function to set up the adjacents array
- */
-- (void) initAdjArray;
-
-/**
 	Method to read elevation data from a CSV file
 	@param fileName Name of the elevation file (just the name, don't need the .txt)
  */
 - (void) loadElevation:(NSString *)fileName;
-
-/**
-	Initializes the grid to all zeros
- */
-- (void) zeroGrid;
 
 /**
 	Method that converts the map coordinate into a grid coordinate.
@@ -114,21 +100,14 @@
  */
 - (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate;
 
+- (void) addPathToObjective:(NSArray *)path;
+
 /**
 	Method to check if an object can be added to a specified grid coordinate, basically if it is full or impassable.
 	@param gridCoordinate Grid coordinate that you need to check if it is full impassable.
 	@returns YES if objects can be added, NO if objects can't be added.
  */
 //- (BOOL)objectsCanBeAddedToGridCoordinate:(Pair *)gridCoordinate;
-
-/**
-	Method that generates a path from the current cell to the destination cell using the A* pathfinding algorithm
-	Will add moves to the move queue
-	@param start The grid coordinate where you are starting.
-	@param dest The grid coordinate of the destination.
-	@returns Returns an array of movement for the unit's move queue.
- */
-- (NSMutableArray *) findPathFrom:(Pair *)start to:(Pair *)dest;
 
 /**
 	Adds the reference of the game object to the grid with the grid coordinate as the key.

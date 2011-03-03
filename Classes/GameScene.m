@@ -19,7 +19,7 @@
 {
 	if ((self = [super init])) {
 		
-	    //	[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
+		[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
@@ -117,6 +117,7 @@
 			
 			// Parse the animation specific information 
 			animationName = [unitAnimation objectForKey:@"Name"];		
+			animationName = [NSString stringWithFormat:@"%@ %@", unitName, animationName];
 			numFr = [[unitAnimation objectForKey:@"Num Frames"] intValue];
 			delay = [[unitAnimation objectForKey:@"Animate Delay"] floatValue];
 			
@@ -127,15 +128,18 @@
 				
 				// Formulate the frame name based off the unit's name and the animation's name and add each frame
 				// to the animation array
-				NSString *frameName = [NSString stringWithFormat:@"%@ %@ %02d.png", unitName, animationName, i+1];
+				NSString *frameName = [NSString stringWithFormat:@"%@ %02d.png", animationName, i+1];
+				NSLog(@"frName: %@", frameName);
 				CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
 				[frames addObject:frame];
 			}
 			
 			// Create the animation object from the frames we just processed
-			animation = [CCAnimation animationWithFrames:frames];
+			//animation = [CCAnimation animationWithFrames:frames];
+			animation = [CCAnimation animationWithFrames:frames delay:0.1f];
 			
 			// Store the animation
+			NSLog(@"Storing animation: %@", animationName);
 			[[CCAnimationCache sharedAnimationCache] addAnimation:animation name:animationName];
 			
 		} // end for-loop of animations
