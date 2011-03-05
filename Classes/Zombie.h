@@ -18,7 +18,18 @@
 	
 	Pair *currentDest_;
 	
+	CCAction *walkingAnimation_;
+	
+	CCAction *attackingAnimation_;
+	
+	CCAction *takingDmgAnimation_;
+	
+	CCAction *dyingAnimation_;
+	
+	BOOL isDead_;
 }
+
+@property(nonatomic, readonly) BOOL isDead;
 
 + (id) zombieWithPos:(Pair *)startPos;
 
@@ -28,6 +39,18 @@
 
 - (id) initZombieWithObjective:(Pair *)objective startPos:(Pair *)startPos;
 
--(void)test;
+- (void) initActions;
+
+- (void) showWalking;
+
+- (void) showAttacking;
+
+- (void) showTakingDamage;
+
+- (void) showDying;
+
+- (void) reachedNext;
+
+- (void) moveTo:(Pair *)dest;
 
 @end

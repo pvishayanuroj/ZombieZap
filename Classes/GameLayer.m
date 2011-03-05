@@ -7,8 +7,10 @@
 //
 
 #import "GameLayer.h"
+#import "GameManager.h"
 #import "Grid.h"
 #import "Zombie.h"
+#import "Turret.h"
 #import "Pair.h"
 #import "AStar.h"
 
@@ -29,26 +31,36 @@
 		[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
 		
-		AStar *aStar = [AStar aStar];
-		Pair *start = [Pair pair:0 second:0];
-		Pair *dest = [Pair pair:6 second:8];
-		NSDate *reftime = [NSDate date];
-
-		NSArray *path = [aStar findPathFrom:start to:dest];
-		double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
-		NSLog(@"p1: %4.9f", t1);
-		
-		[grid addPathToObjective:path];
-			
-		for (int i = 0; i < [path count]; i++) {
-			[self debugGridInfo:[path objectAtIndex:i] count:i];
-		}
-		
-		Zombie *zombie = [Zombie zombieWithPos:start];
-		[self addChild:zombie];
-		[zombie test];
+		[self debugCode];
 	}
 	return self;
+}
+
+- (void) debugCode
+{
+	AStar *aStar = [AStar aStar];
+	Pair *start = [Pair pair:0 second:0];
+	Pair *dest = [Pair pair:6 second:8];
+	NSDate *reftime = [NSDate date];
+	
+	NSArray *path = [aStar findPathFrom:start to:dest];
+	double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
+	NSLog(@"p1: %4.9f", t1);
+	
+	[[Grid grid] addPathToObjective:path];
+	
+	for (int i = 0; i < [path count]; i++) {
+		[self debugGridInfo:[path objectAtIndex:i] count:i];
+	}
+	
+	// Add some zombies
+	Zombie *zombie = [Zombie zombieWithPos:start];
+	[self addChild:zombie];
+	[[GameManager gameManager] addZombie:zombie];
+	
+	// Add some turrets
+	Turret *turret = [Turret turretWithPos:[Pair pair:1 second:1]];
+	[self addChild:turret];
 }
 
 /**

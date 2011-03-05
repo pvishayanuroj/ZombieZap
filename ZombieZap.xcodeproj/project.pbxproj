@@ -69,6 +69,7 @@
 		DA01DA98130348FE00B0D88B /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA97130348FE00B0D88B /* GameLayer.m */; };
 		DA251507131B5EE700AAE3A5 /* AStar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA251506131B5EE700AAE3A5 /* AStar.m */; };
 		DA2515C9131C038800AAE3A5 /* BinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2515C8131C038800AAE3A5 /* BinaryHeap.m */; };
+		DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA424AFE13228D08006EDFB8 /* GameManager.m */; };
 		DA5FA46A13097412005E2411 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA46913097412005E2411 /* Pair.m */; };
 		DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F097130180E9002253AF /* BuildLayer.m */; };
 		DA69F0A1130180E9002253AF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F099130180E9002253AF /* GameScene.m */; };
@@ -89,6 +90,7 @@
 		DA6E8FE713088B8800C42417 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FE613088B8800C42417 /* Units.plist */; };
 		DA6E90331308D9A500C42417 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E90321308D9A500C42417 /* Zombie.m */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
+		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
 		DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD74E2A131C30B100974D50 /* AStarHeap.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
@@ -349,6 +351,8 @@
 		DA251506131B5EE700AAE3A5 /* AStar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStar.m; sourceTree = "<group>"; };
 		DA2515C7131C038800AAE3A5 /* BinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryHeap.h; sourceTree = "<group>"; };
 		DA2515C8131C038800AAE3A5 /* BinaryHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryHeap.m; sourceTree = "<group>"; };
+		DA424AFD13228D08006EDFB8 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		DA424AFE13228D08006EDFB8 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		DA5FA46813097412005E2411 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
 		DA5FA46913097412005E2411 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		DA5FA48A130975AB005E2411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 		DA6E90321308D9A500C42417 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
 		DA878D9B131C949B00FFE90B /* ASNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNode.h; sourceTree = "<group>"; };
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
+		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
+		DA8F6DBE132048A50096CF18 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
 		DAD74E29131C30B100974D50 /* AStarHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarHeap.h; sourceTree = "<group>"; };
 		DAD74E2A131C30B100974D50 /* AStarHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStarHeap.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -677,6 +683,8 @@
 				DA01DA97130348FE00B0D88B /* GameLayer.m */,
 				DA6E90311308D9A500C42417 /* Zombie.h */,
 				DA6E90321308D9A500C42417 /* Zombie.m */,
+				DA8F6DBD132048A50096CF18 /* Turret.h */,
+				DA8F6DBE132048A50096CF18 /* Turret.m */,
 				DA5FA46813097412005E2411 /* Pair.h */,
 				DA5FA46913097412005E2411 /* Pair.m */,
 				DA878D9B131C949B00FFE90B /* ASNode.h */,
@@ -687,6 +695,8 @@
 				DA2515C8131C038800AAE3A5 /* BinaryHeap.m */,
 				DAD74E29131C30B100974D50 /* AStarHeap.h */,
 				DAD74E2A131C30B100974D50 /* AStarHeap.m */,
+				DA424AFD13228D08006EDFB8 /* GameManager.h */,
+				DA424AFE13228D08006EDFB8 /* GameManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1273,6 +1283,8 @@
 				DA2515C9131C038800AAE3A5 /* BinaryHeap.m in Sources */,
 				DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */,
 				DA878D9D131C949B00FFE90B /* ASNode.m in Sources */,
+				DA8F6DBF132048A50096CF18 /* Turret.m in Sources */,
+				DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

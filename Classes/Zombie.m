@@ -12,6 +12,8 @@
 
 @implementation Zombie
 
+@synthesize isDead = isDead_;
+
 + (id) zombieWithPos:(Pair *)startPos
 {
 	return [[[self alloc] initZombieWithPos:startPos] autorelease];
@@ -26,17 +28,21 @@
 {
 	if ((self = [super init])) {
 		
-		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Attacking 05.png"] retain];
+		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Walking 01.png"] retain];
 		[self addChild:sprite_];		
 		
 		Grid *grid = [Grid grid];
 		CGPoint startCoord = [grid mapCoordinateAtGridCoordinate:startPos];
 		self.position = startCoord;
-
-
-	
+		
+		isDead_ = NO;
+		
+		[self initActions];
+		
 		currentDest_ = [startPos retain];
 		[self reachedNext];		
+		
+		[self showWalking];
 		
 	}
 	return self;
@@ -50,13 +56,44 @@
 	return self;
 }
 
-- (void) test
+- (void) initActions
 {
-	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Attacking"];
+	CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Walking"];
 	CCActionInterval *animate = [CCAnimate actionWithAnimation:animation];
-	//CCActionInterval *animate = [CCAnimate actionWithDuration:1 animation:animation restoreOriginalFrame:YES];
-	[sprite_ runAction:[CCRepeatForever actionWithAction:animate]];	
-	//[sprite_ runAction: [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
+	walkingAnimation_ = [[CCRepeatForever actionWithAction:animate] retain];		
+
+	animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Attacking"];
+	attackingAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
+	
+	animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Damaged"];
+	takingDmgAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
+	
+	animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Death"];
+	dyingAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
+}
+
+- (void) showWalking
+{
+	[sprite_ stopAllActions];
+	[sprite_ runAction:walkingAnimation_];	
+}
+
+- (void) showAttacking
+{
+	[sprite_ stopAllActions];	
+	[sprite_ runAction:attackingAnimation_];
+}
+
+- (void) showTakingDamage
+{
+	[sprite_ stopAllActions];	
+	[sprite_ runAction:takingDmgAnimation_];
+}
+
+- (void) showDying
+{
+	[sprite_ stopAllActions];	
+	[sprite_ runAction:dyingAnimation_];
 }
 
 - (void) reachedNext
@@ -70,8 +107,7 @@
 	
 	[currentDest_ release];
 	
-	[self moveTo:next];
-	
+	[self moveTo:next];	
 }
 
 - (void) moveTo:(Pair *)dest
@@ -88,6 +124,12 @@
 {
 	[sprite_ release];
 	[objective_ release];
+	
+	[walkingAnimation_ release];
+	[attackingAnimation_ release];
+	[dyingAnimation_ release];
+	[takingDmgAnimation_ release];
+	
 	[super dealloc];
 }
 			 

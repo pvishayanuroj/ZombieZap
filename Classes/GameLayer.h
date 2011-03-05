@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 
+@class Pair;
 
 @interface GameLayer : CCLayer {
 
@@ -15,5 +16,9 @@
 	CGPoint finger1Start;
 	
 }
+
+- (void) debugCode;
+
+- (void) debugGridInfo:(Pair *)p count:(NSInteger)count;
 
 @end

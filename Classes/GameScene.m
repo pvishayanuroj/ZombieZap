@@ -129,7 +129,6 @@
 				// Formulate the frame name based off the unit's name and the animation's name and add each frame
 				// to the animation array
 				NSString *frameName = [NSString stringWithFormat:@"%@ %02d.png", animationName, i+1];
-				NSLog(@"frName: %@", frameName);
 				CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
 				[frames addObject:frame];
 			}
@@ -139,7 +138,6 @@
 			animation = [CCAnimation animationWithFrames:frames delay:0.1f];
 			
 			// Store the animation
-			NSLog(@"Storing animation: %@", animationName);
 			[[CCAnimationCache sharedAnimationCache] addAnimation:animation name:animationName];
 			
 		} // end for-loop of animations

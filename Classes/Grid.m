@@ -34,6 +34,7 @@ static Grid *_grid = nil;
 + (void) purgeGrid
 {
 	[_grid release];
+	_grid = nil;
 }
 
 - (id) init
