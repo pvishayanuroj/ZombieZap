@@ -32,6 +32,10 @@
 	NSUInteger attackSpeed_;
 	
 	BOOL isLinedUp_;
+	
+	CGFloat damage_;
+	
+	NSUInteger unitID_;
 }
 
 + (id) turretWithPos:(Pair *)startPos;

@@ -12,21 +12,41 @@
 
 @interface Zombie : CCNode {
 
+	/** Sprite representing the zombie */
 	CCSprite *sprite_;
-	
+
+	/** Where the zombie will move to (not currently used) */
 	Pair *objective_;
-	
+
+	/** The tile that the zombie is currently walking to */
 	Pair *currentDest_;
-	
+
+	/** Stored walking animation (this is RepeatForever action) */
 	CCAction *walkingAnimation_;
-	
+
+	/** Stored attacking animation */
 	CCAction *attackingAnimation_;
-	
+
+	/** Stored animation of the zombie taking damage */
 	CCAction *takingDmgAnimation_;
-	
+
+	/** Stored death animation */
 	CCAction *dyingAnimation_;
-	
+
+	/** How fast the zombie moves */
+	CGFloat moveRate_;
+
+	/** How long it takes the zombie to move one tile at its current move rate */
+	CGFloat adjMoveTime_;
+
+	/** If the zombie is dead (philosophically speaking this should always be true) */
 	BOOL isDead_;
+	
+	/** Zombie's health points */	
+	CGFloat HP_;
+	
+	/** Zombie's ID number */		
+	NSUInteger unitID_;
 }
 
 @property(nonatomic, readonly) BOOL isDead;
@@ -51,6 +71,14 @@
 
 - (void) reachedNext;
 
+- (CGFloat) euclideanDistance:(CGPoint)a b:(CGPoint)b;
+
 - (void) moveTo:(Pair *)dest;
+
+- (void) resumeWalking;
+
+- (void) takeDamage:(CGFloat)damage;
+
+- (void) zombieDeath;
 
 @end

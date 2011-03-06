@@ -13,6 +13,8 @@
 
 @implementation Turret
 
+static NSUInteger countID = 0;
+
 + (id) turretWithPos:(Pair *)startPos
 {
 	return [[[self alloc] initTurretWithPos:startPos] autorelease];
@@ -29,17 +31,23 @@
 		CGPoint startCoord = [grid mapCoordinateAtGridCoordinate:startPos];
 		self.position = startCoord;
 		
+		unitID_ = countID++;
+		
 		[self initActions];
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];			
 		
 		isLinedUp_ = NO;
 		target_ = nil;
-		range_ = 64;
-		rangeSquared_ = range_*range_;
-		rotationSpeed_ = 8.0f;
 		attackTimer_ = 0;
-		attackSpeed_ = 60;
+		
+		// Tower attributes
+		range_ = 64;
+		rotationSpeed_ = 8.0f;
+		attackSpeed_ = 90;
+		damage_ = 2.0f;
+		
+		rangeSquared_ = range_*range_;
 		
 	}
 	return self;
@@ -107,9 +115,10 @@
 				return;
 			}
 		}
+		NSLog(@"%@ releasing %@", self, target_);
 		// Target is dead or out of range
 		[target_ release];
-		target_ = nil;		
+		target_ = nil;	
 	}
 	
 	Zombie *closestZombie = nil;
@@ -117,17 +126,21 @@
 	
 	for (Zombie *z in zombies) {
 
-		distance = [self distanceNoRoot:z.position b:self.position];
-		//NSLog(@"(%2.0f, %2.0f) to (%2.0f, %2.0f) - - Rdist: %6.2f\n", z.position.x, z.position.y, self.position.x, self.position.y, sqrt(distance));		
-		if (distance < rangeSquared_ && distance < shortestDistance) {
-			shortestDistance = distance;
-			closestZombie = z;
-		}			
+		// Zombies that are dying are not taken out of the manager array yet, so we need to double check
+		if (!z.isDead) {
+			distance = [self distanceNoRoot:z.position b:self.position];
+			//NSLog(@"(%2.0f, %2.0f) to (%2.0f, %2.0f) - - Rdist: %6.2f\n", z.position.x, z.position.y, self.position.x, self.position.y, sqrt(distance));		
+			if (distance < rangeSquared_ && distance < shortestDistance) {
+				shortestDistance = distance;
+				closestZombie = z;
+			}			
+		}
 	}
 		
 	if (closestZombie) {
 		target_ = closestZombie;
 		[target_ retain];
+		NSLog(@"%@ is retaining %@", self, target_);
 	}
 }
 
@@ -190,9 +203,16 @@
 	if (target_ && isLinedUp_) {
 		if (attackTimer_ == 0) {
 			[self showAttacking];
+			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
 		}
 	}
+}
+
+// Override the description method to give us something more useful than a pointer address
+- (NSString *) description
+{
+	return [NSString stringWithFormat:@"Turret %d", unitID_];
 }
 
 - (void) dealloc

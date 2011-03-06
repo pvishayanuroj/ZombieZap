@@ -91,6 +91,7 @@
 		DA6E90331308D9A500C42417 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E90321308D9A500C42417 /* Zombie.m */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
+		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
 		DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD74E2A131C30B100974D50 /* AStarHeap.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
@@ -385,6 +386,8 @@
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
 		DA8F6DBE132048A50096CF18 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		DAB896521323DC2500A871BF /* TargetedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetedAction.h; sourceTree = "<group>"; };
+		DAB896531323DC2500A871BF /* TargetedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetedAction.m; sourceTree = "<group>"; };
 		DAD74E29131C30B100974D50 /* AStarHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarHeap.h; sourceTree = "<group>"; };
 		DAD74E2A131C30B100974D50 /* AStarHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStarHeap.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -658,6 +661,8 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAB896521323DC2500A871BF /* TargetedAction.h */,
+				DAB896531323DC2500A871BF /* TargetedAction.m */,
 				DA5FA48A130975AB005E2411 /* Constants.h */,
 				DA5FA48B130975AB005E2411 /* Enums.h */,
 				DA01DA89130347AD00B0D88B /* Grid.h */,
@@ -1285,6 +1290,7 @@
 				DA878D9D131C949B00FFE90B /* ASNode.m in Sources */,
 				DA8F6DBF132048A50096CF18 /* Turret.m in Sources */,
 				DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */,
+				DAB896541323DC2500A871BF /* TargetedAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

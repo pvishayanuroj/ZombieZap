@@ -20,22 +20,27 @@
 	/**
 		How many cells across the grid is
 	 */
-	NSUInteger gridX;
+	NSUInteger gridX_;
 
 	/**
 		How many cells top to bottom the grid is
 	 */
-	NSUInteger gridY;
+	NSUInteger gridY_;
+
+	/**
+		Width and height of a cell in pixels (cells must be square)
+	 */	
+	NSUInteger gridSize_;
 	
 	/**
 		The background image we are using
 	 */
-	CCSprite *mapImage;
+	CCSprite *mapImage_;
 	
 	/**
 		Associative map holding coordinate as a key and an integer value as elevation representation
 	 */
-	NSDictionary *terrain;
+	NSDictionary *terrain_;
 	
 	/**
 		Dictionary that maps coordinates to a direction to move towards the objective
@@ -45,12 +50,13 @@
 	/**
 		Associative map holding coordinate as a key and an array of gameobjects as the value
 	 */	
-	NSMutableDictionary *mapObjects;
+	NSMutableDictionary *mapObjects_;
 	
 }
 
 @property(nonatomic, readonly)	NSUInteger gridX;
 @property(nonatomic, readonly)	NSUInteger gridY;
+@property(nonatomic, readonly)	NSUInteger gridSize;
 @property(nonatomic, readonly)	CCSprite *mapImage;
 @property(nonatomic, readonly)	NSDictionary *terrain;
 @property(nonatomic, readonly)	NSDictionary *mapObjects;

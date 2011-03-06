@@ -14,7 +14,12 @@ static Grid *_grid = nil;
 
 @implementation Grid
 
-@synthesize gridX, gridY, mapImage, terrain, mapObjects;
+@synthesize gridX = gridX_;
+@synthesize gridY = gridY_;
+@synthesize gridSize = gridSize_;
+@synthesize mapImage = mapImage_;
+@synthesize terrain = terrain_;
+@synthesize mapObjects = mapObjects_;
 @synthesize objectiveMap = objectiveMap_;
 
 + (Grid *) grid
@@ -47,14 +52,15 @@ static Grid *_grid = nil;
 }
 
 - (void) setGridWithMap:(NSString *)mapName {
+
+	// Image must be set first, since loadElevation depends on this
+	mapImage_ = [[CCSprite spriteWithFile:[mapName stringByAppendingString:@".png"]] retain];
+	
+	// By default this is 0.5, 0.5 (center of node), we want bottom-left corner
+	mapImage_.anchorPoint = ccp(0, 0);	
 	
 	// Background sprite
 	[self loadElevation:mapName];
-		
-	mapImage = [[CCSprite spriteWithFile:[mapName stringByAppendingString:@".png"]] retain];
-		
-	// By default this is 0.5, 0.5 (center of node), we want bottom-left corner
-	mapImage.anchorPoint = ccp(0, 0);
 }
 
 - (void) loadElevation:(NSString *)fileName
@@ -83,23 +89,23 @@ static Grid *_grid = nil;
 		
 		if(count == 0) {
 			[scanner scanInteger:&val];
-			gridX = val;
+			gridX_ = val;
 		}
 		else if(count == 1) {
 			[scanner scanInteger:&val];
-			gridY = val;
+			gridY_ = val;
 			
 			// Initialize the arrays with exactly the correct number of grids needed.
-			keys = [NSMutableArray arrayWithCapacity: gridX * gridY];
-			vals = [NSMutableArray arrayWithCapacity: gridX * gridY];
+			keys = [NSMutableArray arrayWithCapacity: gridX_ * gridY_];
+			vals = [NSMutableArray arrayWithCapacity: gridX_ * gridY_];
 		}
 		else {
 			
 			[scanner scanInteger:&val];
 			
 			// Calculate what coordinate we are on based off the count
-			x = (count-2) % gridX;
-			y = (gridY - 1) - ((count-2) / gridY);
+			x = (count-2) % gridX_;
+			y = (gridY_ - 1) - ((count-2) / gridY_);
 			
 			// Create the pair and store it along with elevation
 			pair = [Pair pair:x second:y];
@@ -112,27 +118,29 @@ static Grid *_grid = nil;
 		count++;
 	}
 	
-	// Exception in case map file is wrong
+	NSUInteger gridSizeX = mapImage_.contentSize.width / gridX_;
+	NSUInteger gridSizeY = mapImage_.contentSize.height / gridY_;		
+	
+	// Map checks
+	NSAssert((int)mapImage_.contentSize.width % gridX_ == 0, @"Map width does not result in a divisible amount of specified X cells");
+	NSAssert((int)mapImage_.contentSize.height % gridY_ == 0, @"Map height does not result in a divisible amount of specified Y cells");	
+	
 	NSAssert((count-2) == self.gridX * self.gridY, @"Map cells do not match with grid constants");
-		 
+	NSAssert(gridSizeX == gridSizeY, @"Map cells must be square");
+	
+	gridSize_ = gridSizeX;
+	
 	// Create the terrain dictionary	 
-	terrain = [[NSDictionary dictionaryWithObjects:vals forKeys:keys] retain];
+	terrain_ = [[NSDictionary dictionaryWithObjects:vals forKeys:keys] retain];
 	
 #if DEBUG_MAPLOADER
-	NSLog(@"terrain: %@", terrain);
+	NSLog(@"terrain: %@", terrain_);
 #endif
 }
 
 - (Pair *)gridCoordinateAtMapCoordinate:(CGPoint)mapCoordinate {
-	NSAssert((int)mapImage.contentSize.width % gridX == 0, @"Map width does not divide perfectly into the number of grids X.");
-	NSAssert((int)mapImage.contentSize.height % gridX == 0, @"Map width does not divide perfectly into the number of grids Y.");
 	
-	NSUInteger gridSizeX = mapImage.contentSize.width / gridX;
-	NSUInteger gridSizeY = mapImage.contentSize.height / gridY;
-	
-	Pair *gridCoordinate = [Pair pair:mapCoordinate.x / gridSizeX second:mapCoordinate.y / gridSizeY];
-	
-	return gridCoordinate;
+	return [Pair pair:mapCoordinate.x / gridSize_ second:mapCoordinate.y / gridSize_];
 }
 
 - (TerrainType)terrainAtGridCoordinate:(Pair *)gridCoordinate 
@@ -140,17 +148,13 @@ static Grid *_grid = nil;
 	if (gridCoordinate.x < 0 || gridCoordinate.y < 0 || gridCoordinate.x >= self.gridX || gridCoordinate.y >= self.gridY) 
 		return TERR_IMPASS;
 		
-	NSUInteger terrainType = [[terrain objectForKey:gridCoordinate] intValue];
+	NSUInteger terrainType = [[terrain_ objectForKey:gridCoordinate] intValue];
 	return (TerrainType)terrainType;
 }
 
 - (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate 
-{
-	NSUInteger gridSizeX = mapImage.contentSize.width / gridX;
-	NSUInteger gridSizeY = mapImage.contentSize.height / gridY;
-	
-	CGPoint mapCoordinate = CGPointMake(((gridCoordinate.x+1) * gridSizeX) - gridSizeX/2, ((gridCoordinate.y+1) * gridSizeY) - gridSizeY/2);
-	return mapCoordinate;
+{	
+	return CGPointMake(((gridCoordinate.x+1) * gridSize_) - gridSize_/2, ((gridCoordinate.y+1) * gridSize_) - gridSize_/2);
 }
 
 - (BOOL)objectsCanBeAddedToGridCoordinate:(Pair *)gridCoordinate 
@@ -173,8 +177,8 @@ static Grid *_grid = nil;
 
 - (void) dealloc
 {
-	[mapImage release];
-	[terrain release];
+	[mapImage_ release];
+	[terrain_ release];
 	[objectiveMap_ release];
 	
 	_grid = nil;

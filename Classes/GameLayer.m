@@ -28,7 +28,7 @@
 		
 		Grid *grid = [Grid grid];
 		[grid setGridWithMap:@"map_32"];
-		[grid.mapImage setPosition:ccp(0, 0)];
+		//[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
 		
 		[self debugCode];
@@ -57,10 +57,14 @@
 	Zombie *zombie = [Zombie zombieWithPos:start];
 	[self addChild:zombie];
 	[[GameManager gameManager] addZombie:zombie];
+	NSLog(@"Added %@, RC: %d\n", zombie, [zombie retainCount]);
 	
 	// Add some turrets
-	Turret *turret = [Turret turretWithPos:[Pair pair:2 second:4]];
-	[self addChild:turret];
+	Turret *turret1 = [Turret turretWithPos:[Pair pair:2 second:4]];
+	[self addChild:turret1];
+	
+	Turret *turret2 = [Turret turretWithPos:[Pair pair:2 second:2]];
+	[self addChild:turret2];	
 }
 
 /**
