@@ -33,11 +33,13 @@
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];			
 		
+		isLinedUp_ = NO;
 		target_ = nil;
-		range_ = 128;
+		range_ = 64;
+		rangeSquared_ = range_*range_;
+		rotationSpeed_ = 8.0f;
 		attackTimer_ = 0;
 		attackSpeed_ = 60;
-		rangeSquared_ = range_*range_;
 		
 	}
 	return self;
@@ -71,9 +73,25 @@
 	return t1*t1 + t2*t2;
 }
 
+// Returns values between -pi/2 and 3*pi/2
+- (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b
+{
+	// Interesting note, floats can divide by zero
+	CGFloat tempX = b.x - a.x;
+	CGFloat tempY = b.y - a.y;
+	
+	CGFloat radians = atan(tempY/tempX);
+	
+	if (b.x < a.x)
+		radians	+= M_PI;
+	
+	return radians;
+}
+
 - (void) update:(ccTime)dt
 {
 	[self targettingRoutine];
+	[self trackingRoutine];
 	[self attackingRoutine];
 }
 
@@ -113,13 +131,63 @@
 	}
 }
 
+- (void) trackingRoutine
+{
+	if (target_) {
+		CGFloat theta = [self getAngleFrom:self.position to:target_.position];
+		theta = CC_RADIANS_TO_DEGREES(theta);
+
+		// Convert from one system to another - at this point, theta is between -pi and +pi
+		theta = 90 - theta;
+		
+		// Determine which way we need to turn
+		CGFloat delta = theta - self.rotation;
+		CGFloat absDelta = delta; 
+		
+		// Figure out the absolute distance we need to rotate to get to the desired state
+		// Three cases to consider: Crossing the -180/+180 boundary CCW, crossing it CW, and the non-boundary case
+		if (self.rotation < -90 && theta > 90) { // Case 1: CCW over boundary
+			absDelta = (360 - theta) + self.rotation;
+		}
+		else if (self.rotation > 90 && theta < -90) { // Case 2: CW over boundary
+			absDelta = (360 + theta) - self.rotation;
+		}
+		
+		// If the needed rotation is close enough, then just set to the desired angle		
+		if (fabs(absDelta) < rotationSpeed_) {
+			self.rotation = theta;
+			isLinedUp_ = YES;
+			return;
+		}
+		
+		isLinedUp_ = NO;		
+		
+		// From -360 to +360, the direction to spin is expressed as CW, CCW, CW, CCW (in equal intervals of 180)
+		if (delta < -180 || (delta > 0 && delta < 180)) { 
+			// Rotate CW
+			self.rotation += rotationSpeed_;
+			if (self.rotation > 180) {
+				self.rotation -= 360.0f;
+			}
+		}
+		else {
+			// Rotate CCW
+			self.rotation -= rotationSpeed_;
+			if (self.rotation < -180) {
+				self.rotation += 360.0f;
+			}
+		}
+		//NSLog(@"myrot: %3.0f\n", self.rotation);
+	}
+}
+
 - (void) attackingRoutine
 {
 	if (attackTimer_ > 0) {
 		attackTimer_--;
 	}
 	
-	if (target_) {
+	if (target_ && isLinedUp_) {
 		if (attackTimer_ == 0) {
 			[self showAttacking];
 			attackTimer_ = attackSpeed_;

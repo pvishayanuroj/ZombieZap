@@ -23,11 +23,15 @@
 	
 	CGFloat rangeSquared_;
 	
+	CGFloat rotationSpeed_;
+	
 	Zombie *target_;
 	
 	NSUInteger attackTimer_;
 	
 	NSUInteger attackSpeed_;
+	
+	BOOL isLinedUp_;
 }
 
 + (id) turretWithPos:(Pair *)startPos;
@@ -41,6 +45,8 @@
 - (void) showDying;
 
 - (void) targettingRoutine;
+
+- (void) trackingRoutine;
 
 - (void) attackingRoutine;
 

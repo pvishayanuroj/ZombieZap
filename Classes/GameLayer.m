@@ -59,7 +59,7 @@
 	[[GameManager gameManager] addZombie:zombie];
 	
 	// Add some turrets
-	Turret *turret = [Turret turretWithPos:[Pair pair:1 second:1]];
+	Turret *turret = [Turret turretWithPos:[Pair pair:2 second:4]];
 	[self addChild:turret];
 }
 
