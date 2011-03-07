@@ -9,6 +9,7 @@
 #import "GameManager.h"
 #import "GameLayer.h"
 #import "Zombie.h"
+#import "Turret.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -63,6 +64,14 @@ static GameManager *_gameManager = nil;
 	[gameLayer_ addChild:zombie];
 }
 
+- (void) addTurret:(Turret *)turret
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
+	
+	// Add to the array that keeps track of all zombies, and add to the game layer
+	[gameLayer_ addChild:turret];
+}
+
 - (void) addZombieWithPos:(Pair *)pos
 {
 	Zombie *zombie = [Zombie zombieWithPos:pos];
@@ -72,6 +81,12 @@ static GameManager *_gameManager = nil;
 - (void) removeZombie:(Zombie *)zombie
 {
 	[zombies_ removeObject:zombie];
+}
+
+- (void) addTurretWithPos:(Pair *)pos
+{
+	Turret *turret = [Turret turretWithPos:pos];
+	[self addTurret:turret];
 }
 
 - (void) dealloc

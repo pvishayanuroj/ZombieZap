@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 
 @class Zombie;
+@class Turret;
 @class Pair;
 @class GameLayer;
 
@@ -34,5 +35,9 @@
 - (void) addZombieWithPos:(Pair *)pos;
 
 - (void) removeZombie:(Zombie *)zombie;
+
+- (void) addTurret:(Turret *)turret;
+
+- (void) addTurretWithPos:(Pair *)pos;
 
 @end

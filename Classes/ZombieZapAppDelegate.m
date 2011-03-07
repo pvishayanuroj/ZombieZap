@@ -10,7 +10,6 @@
 
 #import "ZombieZapAppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldScene.h"
 #import "RootViewController.h"
 #import "GameScene.h"
 
@@ -71,8 +70,8 @@
 	[director setOpenGLView:glView];
 	
 //	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director enableRetinaDisplay:YES] )
-//		CCLOG(@"Retina Display Not supported");
+	//if( ! [director enableRetinaDisplay:YES] )
+	//3	CCLOG(@"Retina Display Not supported");
 	
 	//
 	// VERY IMPORTANT:

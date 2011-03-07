@@ -32,13 +32,13 @@
 		[self addChild:gameLayer z:0];
 		
 		PButton *b1 = [PButton pButton];
-		//PButton *b2 = [PButton pButton];
-		//PButton *b3 = [PButton pButton];
-		//PButton *b4 = [PButton pButton];		
+		PButton *b2 = [PButton pButton];
+		PButton *b3 = [PButton pButton];
+		PButton *b4 = [PButton pButton];		
 		[buildLayer addButton:b1];
-		//[buildLayer addButton:b2];
-		//[buildLayer addButton:b3];
-		//[buildLayer addButton:b4];	
+		[buildLayer addButton:b2];
+		[buildLayer addButton:b3];
+		[buildLayer addButton:b4];	
 		
 		
 		// DEBUG

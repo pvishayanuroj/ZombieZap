@@ -6,6 +6,14 @@
 		<key>Start</key>
 		<string>(0, 0)</string>
 		<key>Interval</key>
+		<integer>1</integer>
+		<key>Objective</key>
+		<string>(10, 10)</string>
+	</dict>
+	<dict>
+		<key>Start</key>
+		<string>(6, 0)</string>
+		<key>Interval</key>
 		<integer>2</integer>
 		<key>Objective</key>
 		<string>(10, 10)</string>
@@ -14,7 +22,7 @@
 		<key>Start</key>
 		<string>(3, 0)</string>
 		<key>Interval</key>
-		<integer>1</integer>
+		<real>1.5</real>
 		<key>Objective</key>
 		<string>(10, 10)</string>
 	</dict>

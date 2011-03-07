@@ -18,23 +18,24 @@
 		self.isTouchEnabled = YES;
 		
 		rows = 5;
-		columns = 4;
-		buttonSize = 50;
-		offset = CGPointMake(20, 200);
+		columns = 3;
+		buttonSize = 30;
+		offset = CGPointMake(38, 180);
 			
 		buttons = [[NSMutableArray arrayWithCapacity:16] retain];
 	}
 	return self;
 }
-
+	
 - (void) addButton:(PButton *)button
 {
 	[buttons addObject:button];
 	[self addChild:button];
 	
 	NSUInteger n = [buttons count];
-	NSUInteger x = (n - 1) % rows;
-	NSUInteger y = (n - 1) / rows;
+	NSUInteger x = (n - 1) % columns;
+	NSUInteger y = (n - 1) / columns;
+	NSLog(@"(x,y): (%d,%d)", x,y);
 	
 	CGPoint pos = CGPointMake(offset.x + x * buttonSize, offset.y - y * buttonSize);
 	

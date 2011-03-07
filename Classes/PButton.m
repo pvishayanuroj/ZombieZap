@@ -7,6 +7,9 @@
 //
 
 #import "PButton.h"
+#import "Grid.h"
+#import "Pair.h"
+#import "GameManager.h"
 
 @implementation PButton
 
@@ -19,7 +22,7 @@
 {
 	if ((self = [super init])) {
 		
-		sprite = [[CCSprite spriteWithFile:@"Icon.png"] retain];
+		sprite = [[CCSprite spriteWithFile:@"small_icon.png"] retain];
 		[self addChild:sprite];
 	}
 	return self;
@@ -58,7 +61,7 @@
 - (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	if (placementSprite == nil) {
-		placementSprite = [[CCSprite spriteWithFile:@"Icon.png"] retain];
+		placementSprite = [[CCSprite spriteWithFile:@"small_icon.png"] retain];
 		[self addChild:placementSprite];
 	}
 	
@@ -73,6 +76,18 @@
 	[self removeChild:placementSprite cleanup:YES];
 	[placementSprite release];
 	placementSprite = nil;
+	
+	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+	touchPoint = [self convertToWorldSpace:touchPoint];
+	//NSLog(@"Built @(%3f, %3f)", point.x, point.y);
+	CGPoint gameOffset = [[[GameManager gameManager] gameLayer] position];
+	//NSLog(@"Game offset: (%3f, %3f)", gameOffset.x, gameOffset.y);
+	
+	CGPoint pos = CGPointMake(touchPoint.x - gameOffset.x, touchPoint.y - gameOffset.y);
+	
+	Pair *location = [[Grid grid] gridCoordinateAtMapCoordinate:pos];
+	//NSLog(@"Build @%@", location);
+	[[GameManager gameManager] addTurretWithPos:location];
 }
 
 - (void) dealloc

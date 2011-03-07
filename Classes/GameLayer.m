@@ -64,15 +64,11 @@
 	NSLog(@"Added %@, RC: %d\n", zombie, [zombie retainCount]);
 	*/
 	// Add some turrets
-	Turret *turret1 = [Turret turretWithPos:[Pair pair:2 second:4]];
-	[self addChild:turret1];
-	
-	Turret *turret2 = [Turret turretWithPos:[Pair pair:2 second:2]];
-	[self addChild:turret2];	
-	
-	Turret *turret3 = [Turret turretWithPos:[Pair pair:6 second:3]];
-	[self addChild:turret3];		
-	
+	/*
+	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:4]];
+	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:2]];
+	[[GameManager gameManager] addTurretWithPos:[Pair pair:6 second:3]];		
+	 */
 }
 
 /**
