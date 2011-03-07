@@ -65,10 +65,6 @@
 
 - (void) showAttacking;
 
-- (void) showTakingDamage;
-
-- (void) showDying;
-
 - (void) reachedNext;
 
 - (CGFloat) euclideanDistance:(CGPoint)a b:(CGPoint)b;

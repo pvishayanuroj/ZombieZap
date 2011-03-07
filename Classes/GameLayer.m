@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "GameManager.h"
+#import "SpawnManager.h"
 #import "Grid.h"
 #import "Zombie.h"
 #import "Turret.h"
@@ -28,8 +29,11 @@
 		
 		Grid *grid = [Grid grid];
 		[grid setGridWithMap:@"map_32"];
-		//[grid.mapImage setPosition:ccp(0, 0)];
 		[self addChild:grid.mapImage z:0];
+		
+		[[GameManager gameManager] registerGameLayer:self];
+		
+		[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
 		
 		[self debugCode];
 	}
@@ -38,11 +42,11 @@
 
 - (void) debugCode
 {
+	/*
 	AStar *aStar = [AStar aStar];
 	Pair *start = [Pair pair:0 second:0];
 	Pair *dest = [Pair pair:6 second:8];
 	NSDate *reftime = [NSDate date];
-	
 	NSArray *path = [aStar findPathFrom:start to:dest];
 	double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
 	NSLog(@"p1: %4.9f", t1);
@@ -55,16 +59,20 @@
 	
 	// Add some zombies
 	Zombie *zombie = [Zombie zombieWithPos:start];
-	[self addChild:zombie];
+	//[self addChild:zombie];
 	[[GameManager gameManager] addZombie:zombie];
 	NSLog(@"Added %@, RC: %d\n", zombie, [zombie retainCount]);
-	
+	*/
 	// Add some turrets
 	Turret *turret1 = [Turret turretWithPos:[Pair pair:2 second:4]];
 	[self addChild:turret1];
 	
 	Turret *turret2 = [Turret turretWithPos:[Pair pair:2 second:2]];
 	[self addChild:turret2];	
+	
+	Turret *turret3 = [Turret turretWithPos:[Pair pair:6 second:3]];
+	[self addChild:turret3];		
+	
 }
 
 /**

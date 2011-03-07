@@ -44,8 +44,8 @@ static NSUInteger countID = 0;
 		// Tower attributes
 		range_ = 64;
 		rotationSpeed_ = 8.0f;
-		attackSpeed_ = 90;
-		damage_ = 2.0f;
+		attackSpeed_ = 50;
+		damage_ = 10.0f;
 		
 		rangeSquared_ = range_*range_;
 		
@@ -115,7 +115,7 @@ static NSUInteger countID = 0;
 				return;
 			}
 		}
-		NSLog(@"%@ releasing %@", self, target_);
+		//NSLog(@"%@ releasing %@", self, target_);
 		// Target is dead or out of range
 		[target_ release];
 		target_ = nil;	
@@ -140,7 +140,7 @@ static NSUInteger countID = 0;
 	if (closestZombie) {
 		target_ = closestZombie;
 		[target_ retain];
-		NSLog(@"%@ is retaining %@", self, target_);
+		//NSLog(@"%@ is retaining %@", self, target_);
 	}
 }
 

@@ -15,6 +15,7 @@ static GameManager *_gameManager = nil;
 
 @implementation GameManager
 
+@synthesize gameLayer = gameLayer_;
 @synthesize zombies = zombies_;
 
 + (GameManager *) gameManager
@@ -41,6 +42,7 @@ static GameManager *_gameManager = nil;
 {
 	if ((self = [super init]))
 	{
+		gameLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 	}
 	return self;
@@ -54,7 +56,17 @@ static GameManager *_gameManager = nil;
 
 - (void) addZombie:(Zombie *)zombie
 {
+	NSAssert(gameLayer_ != nil, @"Trying to add a Zombie without a registered Game Layer");
+	
+	// Add to the array that keeps track of all zombies, and add to the game layer
 	[zombies_ addObject:zombie];
+	[gameLayer_ addChild:zombie];
+}
+
+- (void) addZombieWithPos:(Pair *)pos
+{
+	Zombie *zombie = [Zombie zombieWithPos:pos];
+	[self addZombie:zombie];
 }
 
 - (void) removeZombie:(Zombie *)zombie

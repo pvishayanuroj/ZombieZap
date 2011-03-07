@@ -27,7 +27,6 @@
 		50674855107A3AF30090963A /* ZAttributedStringPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 50674852107A3AF30090963A /* ZAttributedStringPrivate.h */; };
 		506EDB88102F4C4000A389B3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDB87102F4C4000A389B3 /* libz.dylib */; };
 		506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */; };
-		506EDC31102F528A00A389B3 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 506EDC30102F528A00A389B3 /* HelloWorldScene.m */; };
 		506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EE05E10304ED200A389B3 /* libcocos2d libraries.a */; };
 		507ED63C11C638C6002ED3FC /* CDAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED63311C638C6002ED3FC /* CDAudioManager.h */; };
 		507ED63D11C638C6002ED3FC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ED63411C638C6002ED3FC /* CDAudioManager.m */; };
@@ -89,6 +88,9 @@
 		DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */; };
 		DA6E8FE713088B8800C42417 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FE613088B8800C42417 /* Units.plist */; };
 		DA6E90331308D9A500C42417 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E90321308D9A500C42417 /* Zombie.m */; };
+		DA79FA411324790E00DE91A4 /* SpawnManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA79FA401324790E00DE91A4 /* SpawnManager.m */; };
+		DA79FB2513247CE200DE91A4 /* Spawn.m in Sources */ = {isa = PBXBuildFile; fileRef = DA79FB2413247CE200DE91A4 /* Spawn.m */; };
+		DA79FB7A1324846900DE91A4 /* Test_Spawns.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA79FB791324846900DE91A4 /* Test_Spawns.plist */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
 		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
@@ -304,8 +306,6 @@
 		50674852107A3AF30090963A /* ZAttributedStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedStringPrivate.h; sourceTree = "<group>"; };
 		506EDB87102F4C4000A389B3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		506EDC2F102F528A00A389B3 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
-		506EDC30102F528A00A389B3 /* HelloWorldScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldScene.m; sourceTree = "<group>"; };
 		506EE05E10304ED200A389B3 /* libcocos2d libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		507ED63311C638C6002ED3FC /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		507ED63411C638C6002ED3FC /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
@@ -382,6 +382,11 @@
 		DA6E8FE613088B8800C42417 /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
 		DA6E90311308D9A500C42417 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
 		DA6E90321308D9A500C42417 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		DA79FA3F1324790E00DE91A4 /* SpawnManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnManager.h; sourceTree = "<group>"; };
+		DA79FA401324790E00DE91A4 /* SpawnManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpawnManager.m; sourceTree = "<group>"; };
+		DA79FB2313247CE200DE91A4 /* Spawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spawn.h; sourceTree = "<group>"; };
+		DA79FB2413247CE200DE91A4 /* Spawn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spawn.m; sourceTree = "<group>"; };
+		DA79FB791324846900DE91A4 /* Test_Spawns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Test_Spawns.plist; sourceTree = "<group>"; };
 		DA878D9B131C949B00FFE90B /* ASNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNode.h; sourceTree = "<group>"; };
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
@@ -678,8 +683,6 @@
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
 				E0F80F5D120A0182005866B8 /* GameConfig.h */,
-				506EDC2F102F528A00A389B3 /* HelloWorldScene.h */,
-				506EDC30102F528A00A389B3 /* HelloWorldScene.m */,
 				E0F80F5E120A0182005866B8 /* RootViewController.h */,
 				E0F80F5F120A0182005866B8 /* RootViewController.m */,
 				1F3B9A2C0EF2145700286867 /* ZombieZapAppDelegate.h */,
@@ -702,6 +705,10 @@
 				DAD74E2A131C30B100974D50 /* AStarHeap.m */,
 				DA424AFD13228D08006EDFB8 /* GameManager.h */,
 				DA424AFE13228D08006EDFB8 /* GameManager.m */,
+				DA79FA3F1324790E00DE91A4 /* SpawnManager.h */,
+				DA79FA401324790E00DE91A4 /* SpawnManager.m */,
+				DA79FB2313247CE200DE91A4 /* Spawn.h */,
+				DA79FB2413247CE200DE91A4 /* Spawn.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -811,6 +818,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA79FB781324843300DE91A4 /* Level Data */,
 				DA6CAAA4131ECB9F0094EB84 /* Map */,
 				DA6E8FE613088B8800C42417 /* Units.plist */,
 				DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */,
@@ -843,6 +851,14 @@
 				DA6CAAAC131ECB9F0094EB84 /* map_64.txt */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		DA79FB781324843300DE91A4 /* Level Data */ = {
+			isa = PBXGroup;
+			children = (
+				DA79FB791324846900DE91A4 /* Test_Spawns.plist */,
+			);
+			name = "Level Data";
 			sourceTree = "<group>";
 		};
 		E02BB764126CC223006E46A2 /* cocos2d */ = {
@@ -1261,6 +1277,7 @@
 				DA6CAAB2131ECB9F0094EB84 /* map_32.txt in Resources */,
 				DA6CAAB3131ECB9F0094EB84 /* map_64.png in Resources */,
 				DA6CAAB4131ECB9F0094EB84 /* map_64.txt in Resources */,
+				DA79FB7A1324846900DE91A4 /* Test_Spawns.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,7 +1290,6 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1F3B9A2D0EF2145700286867 /* ZombieZapAppDelegate.m in Sources */,
-				506EDC31102F528A00A389B3 /* HelloWorldScene.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
 				DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */,
 				DA69F0A1130180E9002253AF /* GameScene.m in Sources */,
@@ -1291,6 +1307,8 @@
 				DA8F6DBF132048A50096CF18 /* Turret.m in Sources */,
 				DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */,
 				DAB896541323DC2500A871BF /* TargetedAction.m in Sources */,
+				DA79FA411324790E00DE91A4 /* SpawnManager.m in Sources */,
+				DA79FB2513247CE200DE91A4 /* Spawn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

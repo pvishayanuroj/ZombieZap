@@ -95,18 +95,6 @@ static NSUInteger countID = 0;
 	[sprite_ runAction:attackingAnimation_];
 }
 
-- (void) showTakingDamage
-{
-	[sprite_ stopAllActions];	
-	[sprite_ runAction:takingDmgAnimation_];
-}
-
-- (void) showDying
-{
-	[sprite_ stopAllActions];	
-	[sprite_ runAction:dyingAnimation_];
-}
-
 - (void) reachedNext
 {
 	// Determine the next place tile to move to
@@ -194,7 +182,7 @@ static NSUInteger countID = 0;
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];
 	
-	NSLog(@"%@ RC: %d\n", self, [self retainCount]);	
+	//NSLog(@"%@ RC: %d\n", self, [self retainCount]);	
 }
 
 // Override the description method to give us something more useful than a pointer address
@@ -205,6 +193,8 @@ static NSUInteger countID = 0;
 
 - (void) dealloc 
 {
+	NSLog(@"%@ dealloc'd", self);
+	
 	[sprite_ release];
 	[objective_ release];
 	

@@ -9,6 +9,8 @@
 #import "cocos2d.h"
 
 @class Zombie;
+@class Pair;
+@class GameLayer;
 
 @interface GameManager : NSObject {
 
@@ -18,13 +20,18 @@
 	
 }
 
+@property (nonatomic, readonly) CCLayer *gameLayer;
 @property (nonatomic, readonly) NSMutableSet *zombies;
 
 + (GameManager *) gameManager;
 
 + (void) purgeGameManager;
 
+- (void) registerGameLayer:(GameLayer *)gameLayer;
+
 - (void) addZombie:(Zombie *)zombie;
+
+- (void) addZombieWithPos:(Pair *)pos;
 
 - (void) removeZombie:(Zombie *)zombie;
 
