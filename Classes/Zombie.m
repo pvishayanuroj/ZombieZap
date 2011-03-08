@@ -54,7 +54,6 @@ static NSUInteger countID = 0;
 		[self reachedNext];		
 		
 		[self showWalking];
-		
 	}
 	return self;
 }

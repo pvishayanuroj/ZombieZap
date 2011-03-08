@@ -35,7 +35,6 @@
 	NSUInteger n = [buttons count];
 	NSUInteger x = (n - 1) % columns;
 	NSUInteger y = (n - 1) / columns;
-	NSLog(@"(x,y): (%d,%d)", x,y);
 	
 	CGPoint pos = CGPointMake(offset.x + x * buttonSize, offset.y - y * buttonSize);
 	

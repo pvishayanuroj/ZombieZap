@@ -97,7 +97,12 @@
 		DA79FCFC132523C100DE91A4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA79FCF7132523C100DE91A4 /* Icon@2x.png */; };
 		DA79FCFD132523C100DE91A4 /* small_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA79FCF8132523C100DE91A4 /* small_icon.png */; };
 		DA7CA1201325CF9600825545 /* One_Spawn.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7CA11F1325CF9600825545 /* One_Spawn.plist */; };
+		DA7CA18E1325E52800825545 /* AWTextureFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7CA18B1325E52800825545 /* AWTextureFilter.m */; };
+		DA7CA18F1325E52800825545 /* CCTexture2DMutable.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */; };
+		DA7CA1FB1325F19D00825545 /* FogLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */; };
+		DA7CA2181325F7E500825545 /* black_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7CA2171325F7E500825545 /* black_frame.png */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
+		DA8F072A13266A5B003491BD /* black_frame_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F072913266A5B003491BD /* black_frame_trans.png */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
 		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
 		DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD74E2A131C30B100974D50 /* AStarHeap.m */; };
@@ -395,8 +400,16 @@
 		DA79FCF7132523C100DE91A4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DA79FCF8132523C100DE91A4 /* small_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon.png; sourceTree = "<group>"; };
 		DA7CA11F1325CF9600825545 /* One_Spawn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = One_Spawn.plist; sourceTree = "<group>"; };
+		DA7CA18A1325E52800825545 /* AWTextureFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWTextureFilter.h; sourceTree = "<group>"; };
+		DA7CA18B1325E52800825545 /* AWTextureFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWTextureFilter.m; sourceTree = "<group>"; };
+		DA7CA18C1325E52800825545 /* CCTexture2DMutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTexture2DMutable.h; sourceTree = "<group>"; };
+		DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTexture2DMutable.m; sourceTree = "<group>"; };
+		DA7CA1F91325F19D00825545 /* FogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FogLayer.h; sourceTree = "<group>"; };
+		DA7CA1FA1325F19D00825545 /* FogLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FogLayer.m; sourceTree = "<group>"; };
+		DA7CA2171325F7E500825545 /* black_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame.png; sourceTree = "<group>"; };
 		DA878D9B131C949B00FFE90B /* ASNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNode.h; sourceTree = "<group>"; };
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
+		DA8F072913266A5B003491BD /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
 		DA8F6DBE132048A50096CF18 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
 		DAB896521323DC2500A871BF /* TargetedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetedAction.h; sourceTree = "<group>"; };
@@ -632,6 +645,7 @@
 			children = (
 				504DFC6810AF1739006D82FE /* LICENSE.cocos2d */,
 				504DFC6910AF1739006D82FE /* LICENSE.cocosdenshion */,
+				DA7CA1891325E52800825545 /* AWTextureFilter */,
 				506EDAA3102F461B00A389B3 /* cocos2d Sources */,
 				2D500B1D0D5A766B00DBA0E3 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -693,6 +707,8 @@
 				1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
 				DA01DA97130348FE00B0D88B /* GameLayer.m */,
+				DA7CA1F91325F19D00825545 /* FogLayer.h */,
+				DA7CA1FA1325F19D00825545 /* FogLayer.m */,
 				DA6E90311308D9A500C42417 /* Zombie.h */,
 				DA6E90321308D9A500C42417 /* Zombie.m */,
 				DA8F6DBD132048A50096CF18 /* Turret.h */,
@@ -822,6 +838,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA8F072913266A5B003491BD /* black_frame_trans.png */,
+				DA7CA2171325F7E500825545 /* black_frame.png */,
 				DA79FCF4132523C100DE91A4 /* Icon-72.png */,
 				DA79FCF5132523C100DE91A4 /* Icon-Small-50.png */,
 				DA79FCF6132523C100DE91A4 /* Icon-Small@2x.png */,
@@ -865,6 +883,18 @@
 				DA79FB791324846900DE91A4 /* Test_Spawns.plist */,
 			);
 			name = "Level Data";
+			sourceTree = "<group>";
+		};
+		DA7CA1891325E52800825545 /* AWTextureFilter */ = {
+			isa = PBXGroup;
+			children = (
+				DA7CA18A1325E52800825545 /* AWTextureFilter.h */,
+				DA7CA18B1325E52800825545 /* AWTextureFilter.m */,
+				DA7CA18C1325E52800825545 /* CCTexture2DMutable.h */,
+				DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */,
+			);
+			name = AWTextureFilter;
+			path = libs/AWTextureFilter;
 			sourceTree = "<group>";
 		};
 		E02BB764126CC223006E46A2 /* cocos2d */ = {
@@ -1286,6 +1316,8 @@
 				DA79FCFC132523C100DE91A4 /* Icon@2x.png in Resources */,
 				DA79FCFD132523C100DE91A4 /* small_icon.png in Resources */,
 				DA7CA1201325CF9600825545 /* One_Spawn.plist in Resources */,
+				DA7CA2181325F7E500825545 /* black_frame.png in Resources */,
+				DA8F072A13266A5B003491BD /* black_frame_trans.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,6 +1349,9 @@
 				DAB896541323DC2500A871BF /* TargetedAction.m in Sources */,
 				DA79FA411324790E00DE91A4 /* SpawnManager.m in Sources */,
 				DA79FB2513247CE200DE91A4 /* Spawn.m in Sources */,
+				DA7CA18E1325E52800825545 /* AWTextureFilter.m in Sources */,
+				DA7CA18F1325E52800825545 /* CCTexture2DMutable.m in Sources */,
+				DA7CA1FB1325F19D00825545 /* FogLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

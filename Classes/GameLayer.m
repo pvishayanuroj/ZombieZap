@@ -15,6 +15,9 @@
 #import "Pair.h"
 #import "AStar.h"
 
+#import "CCTexture2DMutable.h"
+#import "AWTextureFilter.h"
+
 @implementation GameLayer
 
 /**
@@ -71,6 +74,8 @@
 	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:2]];
 	[[GameManager gameManager] addTurretWithPos:[Pair pair:6 second:3]];		
 	 */
+	
+
 }
 
 /**
@@ -90,9 +95,9 @@
 		// Store the current location of the map
 		layerPosStart = self.position;
 		
-//#if DEBUG_TOUCHES
+#if DEBUG_TOUCHES
 		NSLog(@"Touch began: %4.2f, %4.2f", finger1Start.x, finger1Start.y);
-//#endif
+#endif
 	}
 }
 
@@ -153,6 +158,8 @@
 	
 	// Move the map
 	self.position = newPosition;
+	//FogLayer *fogLayer = (FogLayer *)[self.parent getChildByTag:5];
+	//fogLayer.position = newPosition;
 }
 
 - (void) debugGridInfo:(Pair *)p count:(NSInteger)count

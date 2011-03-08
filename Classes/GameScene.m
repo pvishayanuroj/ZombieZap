@@ -10,6 +10,7 @@
 #import "GeneratorLayer.h"
 #import "BuildLayer.h"
 #import "GameLayer.h"
+#import "FogLayer.h"
 #import "PButton.h"
 #import "BinaryHeap.h"
 
@@ -23,10 +24,14 @@
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
-		[self addChild:generatorLayer z:2];
+		[self addChild:generatorLayer z:3];
 		
 		BuildLayer *buildLayer = [BuildLayer node];
-		[self addChild:buildLayer z: 1];
+		[self addChild:buildLayer z:2];
+		
+		//FogLayer *fogLayer = [FogLayer node];
+		//[self addChild:fogLayer z:1 tag:5];
+		//[fogLayer drawCircle];
 		
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:0];
