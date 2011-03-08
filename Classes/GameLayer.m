@@ -33,7 +33,8 @@
 		
 		[[GameManager gameManager] registerGameLayer:self];
 		
-		[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
+		//[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
+		[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
 		
 		[self debugCode];
 	}
@@ -63,6 +64,7 @@
 	[[GameManager gameManager] addZombie:zombie];
 	NSLog(@"Added %@, RC: %d\n", zombie, [zombie retainCount]);
 	*/
+	
 	// Add some turrets
 	/*
 	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:4]];

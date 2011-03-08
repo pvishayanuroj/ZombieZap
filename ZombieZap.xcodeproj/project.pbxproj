@@ -96,6 +96,7 @@
 		DA79FCFB132523C100DE91A4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA79FCF6132523C100DE91A4 /* Icon-Small@2x.png */; };
 		DA79FCFC132523C100DE91A4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA79FCF7132523C100DE91A4 /* Icon@2x.png */; };
 		DA79FCFD132523C100DE91A4 /* small_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA79FCF8132523C100DE91A4 /* small_icon.png */; };
+		DA7CA1201325CF9600825545 /* One_Spawn.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7CA11F1325CF9600825545 /* One_Spawn.plist */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
 		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
@@ -393,6 +394,7 @@
 		DA79FCF6132523C100DE91A4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		DA79FCF7132523C100DE91A4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DA79FCF8132523C100DE91A4 /* small_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_icon.png; sourceTree = "<group>"; };
+		DA7CA11F1325CF9600825545 /* One_Spawn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = One_Spawn.plist; sourceTree = "<group>"; };
 		DA878D9B131C949B00FFE90B /* ASNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNode.h; sourceTree = "<group>"; };
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 		DA79FB781324843300DE91A4 /* Level Data */ = {
 			isa = PBXGroup;
 			children = (
+				DA7CA11F1325CF9600825545 /* One_Spawn.plist */,
 				DA79FB791324846900DE91A4 /* Test_Spawns.plist */,
 			);
 			name = "Level Data";
@@ -1282,6 +1285,7 @@
 				DA79FCFB132523C100DE91A4 /* Icon-Small@2x.png in Resources */,
 				DA79FCFC132523C100DE91A4 /* Icon@2x.png in Resources */,
 				DA79FCFD132523C100DE91A4 /* small_icon.png in Resources */,
+				DA7CA1201325CF9600825545 /* One_Spawn.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1555,7 +1559,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Vishayanuroj (8GPS98FCV8)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
@@ -1565,6 +1569,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EC17AB8A-DEB4-4481-A721-C4B9B883AD72";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

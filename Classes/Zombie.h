@@ -71,6 +71,8 @@
 
 - (void) moveTo:(Pair *)dest;
 
+- (void) turnTowards:(CGPoint)pos;
+
 - (void) resumeWalking;
 
 - (void) takeDamage:(CGFloat)damage;

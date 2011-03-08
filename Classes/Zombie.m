@@ -114,6 +114,7 @@ static NSUInteger countID = 0;
 {
 	CGPoint pos = [[Grid grid] mapCoordinateAtGridCoordinate:dest];	
 
+	[self turnTowards:pos];
 	CCFiniteTimeAction *move = [CCMoveTo actionWithDuration:adjMoveTime_ position:pos];
 	CCFiniteTimeAction *done = [CCCallFunc actionWithTarget:self selector:@selector(reachedNext)];
 	currentDest_ = [dest retain];	
@@ -127,6 +128,24 @@ static NSUInteger countID = 0;
 	CGFloat t1 = a.x - b.x;
 	CGFloat t2 = a.y - b.y;
 	return sqrt(t1*t1 + t2*t2);
+}
+
+- (void) turnTowards:(CGPoint)pos
+{
+	CGPoint res = CGPointMake(pos.x - self.position.x, pos.y - self.position.y);
+	
+	if (res.x > 0) { // Turn right
+		sprite_.rotation = 90;
+	}
+	else if (res.x < 0) { // Turn left
+		sprite_.rotation = -90;
+	}
+	else if (res.y > 0) { // Turn up
+		sprite_.rotation = 0;
+	}
+	else { // Turn down
+		sprite_.rotation = 180;
+	}
 }
 
 - (void) resumeWalking
