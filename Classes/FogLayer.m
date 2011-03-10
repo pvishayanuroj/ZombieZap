@@ -46,19 +46,6 @@
 	}		
 }
 
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius a:(unsigned char)a map:(NSMutableDictionary *)map
-{
-	NSInteger x, y;
-	CGFloat resolution = [self calculateResolution:radius];
-	
-	for (double t = 0; t < 2*M_PI; t += resolution) {
-		x = origin.x + radius*cos(t);
-		y = origin.y + radius*sin(t);
-		[map setObject:[NSNumber numberWithUnsignedChar:a] forKey:[Pair pair:x second:y]];
-	}		
-}
-
-
 - (void) drawFilledCircleAt:(CGPoint)origin radius:(NSUInteger)r texture:(CCMutableTexture2D *)texture
 {
 	ccColor4B c = ccc4(0,0,0,0);
@@ -91,24 +78,6 @@
 		
 		c.a = innerT + (int)(opacityRange*(count++/radiusRange));
 		[self drawCircleAt:origin radius:i color:c texture:texture];
-	}
-	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
-	NSLog(@"Calculated opacity gradient in: %4.9f seconds", t1);		
-}
-
-- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT map:(NSMutableDictionary *)map
-{
-	NSDate *ref = [NSDate date];	
-	unsigned char a;
-	CGFloat radiusRange = outerR - innerR;
-	CGFloat opacityRange = outerT - innerT;
-	int count = 0;
-	
-	for (int i = innerR; i < outerR; i++) {
-		
-		a = innerT + (int)(opacityRange*(count++/radiusRange));
-		[self drawCircleAt:origin radius:i a:a map:map];
 	}
 	
 	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
@@ -152,43 +121,6 @@
 		[texture setPixelAt:ccp(x0 - y, y0 + x) rgba:color];			
 		[texture setPixelAt:ccp(x0 + y, y0 - x) rgba:color];			
 		[texture setPixelAt:ccp(x0 - y, y0 - x) rgba:color];			
-	}
-}
-
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius a:(unsigned char)a map:(NSMutableDictionary *)map
-{	
-	int x0 = origin.x;
-	int y0 = origin.y;
-	int f = 1 - radius;
-	int ddF_x = 1;
-	int ddF_y = -2 * radius;
-	int x = 0;
-	int y = radius;
-	
-	[map setObject:[NSNumber numberWithUnsignedChar:a] forKey:[Pair pair:x0 second:(y0 + radius)]];
-	[map setObject:[NSNumber numberWithUnsignedChar:a] forKey:[Pair pair:x0 second:(y0 - radius)]];	
-	[self drawHorizontalLine:(x0 - radius) x2:(x0 + radius) y:y0 a:a map:map];
-	
-	int c =0;
-	while(x < y)
-	{
-		//NSLog(@"inFillBCircle:%d", c++);
-		// ddF_x == 2 * x + 1;
-		// ddF_y == -2 * y;
-		// f == x*x + y*y - radius*radius + 2*x - y + 1;
-		if(f >= 0) 
-		{
-			y--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
-		x++;
-		ddF_x += 2;
-		f += ddF_x;    
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 + y) a:a map:map];
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 - y) a:a map:map];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 + x) a:a map:map];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 - x) a:a map:map];		
 	}
 }
 
@@ -275,42 +207,10 @@
 	NSLog(@"Spotlight drawn in: %4.9f seconds", t1);			
 }
 
-- (void) drawSpotlight2:(CGPoint)origin radius:(NSUInteger)radius
-{
-	NSDate *ref = [NSDate date];	
-	int gradientWidth = 40;
-	ccColor4B clear = ccc4(0,0,0,0);
-	NSMutableDictionary *changedPixels = [NSMutableDictionary dictionaryWithCapacity:1000];
-	
-	// Draw the main circle with no gradient
-	[self drawFilledBresenhamCircleAt:origin radius:radius-gradientWidth a:0 map:changedPixels];
-	// Draw the outer gradient ring
-	//[self drawOpacityGradientAt:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:255 map:changedPixels];
-	
-	NSEnumerator *enumerator = [changedPixels keyEnumerator];
-	
-	for (Pair *p in enumerator) {
-		clear.a = [[changedPixels objectForKey:p] unsignedCharValue];
-		[mutableFog_ setPixelAt:ccp(p.x, p.y) rgba:clear];
-	}
-	
-	[self updateFog];
-	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
-	NSLog(@"Spotlight 2 drawn in: %4.9f seconds", t1);			
-}
-
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
 {
 	for (int i = x1; i <= x2; i++) {
 		[texture setPixelAt:ccp(i,y) rgba:color];
-	}
-}
-
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y a:(unsigned char)a map:(NSMutableDictionary *)map
-{
-	for (int i = x1; i <= x2; i++) {
-		[map setObject:[NSNumber numberWithUnsignedChar:a] forKey:[Pair pair:i second:y]];
 	}
 }
 

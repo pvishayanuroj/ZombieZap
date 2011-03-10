@@ -19,17 +19,12 @@
 }
 
 - (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius a:(unsigned char)a map:(NSMutableDictionary *)map;
 - (void) drawFilledCircleAt:(CGPoint)origin radius:(NSUInteger)radius texture:(CCMutableTexture2D *)texture;
 - (void) drawBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
 - (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius a:(unsigned char)a map:(NSMutableDictionary *)map;
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y a:(unsigned char)a map:(NSMutableDictionary *)map;
 - (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT texture:(CCMutableTexture2D *)texture;
-- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT map:(NSMutableDictionary *)map;
 - (void) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius;
-- (void) drawSpotlight2:(CGPoint)origin radius:(NSUInteger)radius;
 - (void) updateFog;
 
 @end
