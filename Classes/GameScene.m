@@ -32,8 +32,8 @@
 		FogLayer *fogLayer = [FogLayer node];
 		[self addChild:fogLayer z:1 tag:5];
 		//[fogLayer drawSpotlight:CGPointMake(200, 800) radius:120];		
-		[fogLayer drawSpotlight:CGPointMake(400, 800) radius:120];
-		[fogLayer drawSpotlight2:CGPointMake(150, 800) radius:120];
+		[fogLayer drawSpotlight:CGPointMake(300, 800) radius:120];
+		[fogLayer drawSpotlight:CGPointMake(150, 800) radius:120];
 		
 		
 		GameLayer *gameLayer = [GameLayer node];

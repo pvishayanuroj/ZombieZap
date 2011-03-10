@@ -272,7 +272,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>34</integer>
+									<integer>19</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FogLayer.m</string>
+								<string>GameScene.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FogLayer.m</string>
+										<string>GameScene.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAF7A30B132919F700DAAD0C</string>
+										<string>DAF7A31413291AD700DAAD0C</string>
 										<key>history</key>
 										<array>
 											<string>DA5FA4B413097AFB005E2411</string>
@@ -434,9 +434,9 @@
 											<string>DAF7A2C9132914D400DAAD0C</string>
 											<string>DAF7A2CB132914D400DAAD0C</string>
 											<string>DAF7A2DF132916CC00DAAD0C</string>
-											<string>DAF7A2E1132916CC00DAAD0C</string>
-											<string>DAF7A2F21329184700DAAD0C</string>
-											<string>DAF7A2F31329184700DAAD0C</string>
+											<string>DAF7A31013291AC100DAAD0C</string>
+											<string>DAF7A31113291AC100DAAD0C</string>
+											<string>DAF7A31213291AC100DAAD0C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -639,8 +639,8 @@
 		<string>DAF79DFE13285BB000DAAD0C</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>DA69F091130180A3002253AF</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Paul/Dropbox/Projects/ZombieZap/ZombieZap.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>1 90 1440 785 0 0 1440 878 </string>

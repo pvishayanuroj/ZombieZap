@@ -96,23 +96,6 @@
 	//NSLog(@"Calculated opacity gradient in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
 }
 
-- (void) drawOpacityGradientAt2:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT texture:(CCMutableTexture2D *)texture
-{
-	//NSDate *ref = [NSDate date];	
-	ccColor4B c = ccc4(0,0,0,0);
-	CGFloat radiusRange = outerR - innerR;
-	CGFloat opacityRange = outerT - innerT;
-	int count = 0;
-	
-	for (int i = innerR; i < outerR; i++) {
-		
-		c.a = innerT + (int)(opacityRange*(count++/radiusRange));
-		[self drawCircleAt:origin radius:i color:c texture:texture];
-	}
-	
-	//NSLog(@"Calculated opacity gradient in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
-}
-
 - (void) drawBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
 {
 	int x0 = origin.x;
@@ -271,50 +254,6 @@
 	
 	double t1 = [[NSDate date] timeIntervalSinceDate:ref2];
 	NSLog(@"Spotlight drawn in: %4.9f seconds", t1);			
-	NSLog(@"------ ");
-}
-
-- (void) drawSpotlight2:(CGPoint)origin radius:(NSUInteger)radius
-{
-	NSDate *ref2 = [NSDate date];	
-	
-	// Precalculate the box of what pixels will be changed - this greatly speeds up spotlight creation
-	NSUInteger xStart = origin.x - radius;
-	NSUInteger xEnd = origin.x + radius;
-	NSUInteger yStart = origin.y - radius;
-	NSUInteger yEnd = origin.y + radius;
-	
-	//NSDate *ref = [NSDate date];	
-	CCMutableTexture2D *blank = [[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]];
-	//CCMutableTexture2D *blank = [blackFrame_ copy];
-	//NSLog(@"Setting blank takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
-	
-	int gradientWidth = 40;
-	//unsigned char a1, a2;
-	ccColor4B clear = ccc4(0,0,0,0);
-	ccColor4B a1, a2;
-	
-	// Draw the main circle with no gradient
-	[self drawFilledBresenhamCircleAt:origin radius:radius-gradientWidth color:clear texture:blank];
-	
-	// Draw the outer gradient ring
-	[self drawOpacityGradientAt2:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:255 texture:blank];
-	
-	//ref = [NSDate date];	
-	for (int i = xStart; i <= xEnd; i++) {
-		for (int j = yStart; j <= yEnd; j++) {
-			a1 = [mutableFog_ pixelAt:ccp(i,j)];
-			a2 = [blank pixelAt:ccp(i,j)];
-			a1.a = 255 * (a1.a/255.0f) * (a2.a/255.0f);
-			[mutableFog_ setPixelAt:ccp(i,j) rgba:a1];			
-		}
-	}
-	//NSLog(@"Alpha multiplying 2 takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
-	[self updateFog];
-	
-	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref2];
-	NSLog(@"Spotlight 2 drawn in: %4.9f seconds", t1);			
 }
 
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
