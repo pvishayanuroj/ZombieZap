@@ -278,7 +278,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 212}, {186, 726}}</string>
+							<string>{{0, 0}, {186, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAF7A2971329103A00DAAD0C</string>
+										<string>DAF7A30B132919F700DAAD0C</string>
 										<key>history</key>
 										<array>
 											<string>DA5FA4B413097AFB005E2411</string>
@@ -420,23 +420,23 @@
 											<string>DAF79F8C1328753B00DAAD0C</string>
 											<string>DAF79FFA1328868200DAAD0C</string>
 											<string>DAF7A007132888C600DAAD0C</string>
-											<string>DAF7A02B13288C6C00DAAD0C</string>
-											<string>DAF7A05013288EB400DAAD0C</string>
 											<string>DAF7A1451328952300DAAD0C</string>
 											<string>DAF7A1461328952300DAAD0C</string>
 											<string>DAF7A1471328952300DAAD0C</string>
-											<string>DAF7A1531328958000DAAD0C</string>
 											<string>DAF7A1621328964700DAAD0C</string>
 											<string>DAF7A1711328977200DAAD0C</string>
-											<string>DAF7A1721328977200DAAD0C</string>
 											<string>DAF7A1D21329012700DAAD0C</string>
 											<string>DAF7A1D31329012700DAAD0C</string>
 											<string>DAF7A1D61329012700DAAD0C</string>
 											<string>DAF7A25113290B2A00DAAD0C</string>
 											<string>DAF7A27C13290CB300DAAD0C</string>
-											<string>DAF7A2941329103A00DAAD0C</string>
-											<string>DAF7A2951329103A00DAAD0C</string>
-											<string>DAF7A2961329103A00DAAD0C</string>
+											<string>DAF7A2C8132914D400DAAD0C</string>
+											<string>DAF7A2C9132914D400DAAD0C</string>
+											<string>DAF7A2CB132914D400DAAD0C</string>
+											<string>DAF7A2DF132916CC00DAAD0C</string>
+											<string>DAF7A2E1132916CC00DAAD0C</string>
+											<string>DAF7A2F21329184700DAAD0C</string>
+											<string>DAF7A2F31329184700DAAD0C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -664,7 +664,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GameLayer.m</string>
+								<string>FogLayer.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

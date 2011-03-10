@@ -25,6 +25,8 @@
 
 - (ccColor4B) pixelAt:(CGPoint) pt;
 
+- (GLubyte) alphaAt:(CGPoint) pt;
+
 ///
 //	@param pt is a point to get a pixel (0,0) is top-left to (width,height) bottom-right
 //	@param c is a ccColor4B which is a colour.
@@ -32,6 +34,8 @@
 //	Remember to call apply to actually update the texture canvas.
 ///
 - (BOOL) setPixelAt:(CGPoint) pt rgba:(ccColor4B) c;
+
+- (BOOL) setAlphaAt:(CGPoint) pt a:(GLubyte)a;
 
 ///
 //	Fill with specified colour

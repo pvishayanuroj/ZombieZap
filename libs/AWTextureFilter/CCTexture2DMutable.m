@@ -97,6 +97,39 @@
 	return c;
 }
 
+- (GLubyte) alphaAt:(CGPoint) pt
+{
+	GLubyte a = 0;
+	if(!data_) return a;
+	if(pt.x < 0 || pt.y < 0) return a;
+	if(pt.x >= size_.width || pt.y >= size_.height) return a;
+	
+	uint x = pt.x, y = pt.y;
+	
+	if(format_ == kTexture2DPixelFormat_RGBA8888){
+		uint *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		a = (*pixel >> 24) & 0xff;
+	} else if(format_ == kTexture2DPixelFormat_RGBA4444){
+		GLushort *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		a = ((*pixel & 0xf) << 4) | (*pixel & 0xf);
+	} else if(format_ == kTexture2DPixelFormat_RGB5A1){
+		GLushort *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		a = (*pixel & 0x1)*255;
+	} else if(format_ == kTexture2DPixelFormat_RGB565){
+		GLushort *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		a = 255;
+	} else if(format_ == kTexture2DPixelFormat_A8){
+		GLubyte *pixel = data_;
+		a = pixel[(y * width_) + x];
+	}
+	
+	return a;
+}
+
 - (BOOL) setPixelAt:(CGPoint) pt rgba:(ccColor4B) c
 {
 	if(!data_)return NO;
@@ -127,6 +160,45 @@
 	} else if(format_ == kTexture2DPixelFormat_A8){
 		GLubyte *pixel = data_;
 		pixel[(y * width_) + x] = c.a;
+	} else {
+		dirty_ = false;
+		return NO;
+	}
+	return YES;
+}
+
+- (BOOL) setAlphaAt:(CGPoint) pt a:(GLubyte)a
+{
+	if(!data_)return NO;
+	if(pt.x < 0 || pt.y < 0) return NO;
+	if(pt.x >= size_.width || pt.y >= size_.height) return NO;
+	uint x = pt.x, y = pt.y;
+	
+	dirty_ = true;
+	
+	//	Shifted bit placement based on little-endian, let's make this more
+	//	portable =/
+	
+	if(format_ == kTexture2DPixelFormat_RGBA8888){
+		uint *pixel = data_;
+		pixel[(y * width_) + x] = a << 24;
+	} else if(format_ == kTexture2DPixelFormat_RGBA4444){
+		GLushort *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		*pixel = a >> 4;
+	} else if(format_ == kTexture2DPixelFormat_RGB5A1){
+		GLushort *pixel = data_;
+		pixel = pixel + (y * width_) + x;
+		*pixel = a > 0;
+	} else if(format_ == kTexture2DPixelFormat_RGB565){
+		//GLushort *pixel = data_;
+		//pixel = pixel + (y * width_) + x;
+		//*pixel = ((c.r >> 3) << 11) | ((c.g >> 2) << 5) | (c.b >> 3);
+		dirty_ = false;
+		return NO;
+	} else if(format_ == kTexture2DPixelFormat_A8){
+		GLubyte *pixel = data_;
+		pixel[(y * width_) + x] = a;
 	} else {
 		dirty_ = false;
 		return NO;

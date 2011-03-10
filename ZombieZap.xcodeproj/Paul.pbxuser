@@ -52,12 +52,12 @@
 			DA79FBEA132492DE00DE91A4 /* SpawnManager.m:102 */,
 			DA7CA1B91325E7E000825545 /* GameLayer.m:79 */,
 			DA7CA1BF1325E7F700825545 /* GameLayer.m:79 */,
-			DA7CA20D1325F7D000825545 /* FogLayer.m:23 */,
-			DA8F06CA132665CD003491BD /* FogLayer.m:225 */,
-			DAF79FB91328814200DAAD0C /* FogLayer.m:48 */,
-			DAF7A23513290AE600DAAD0C /* FogLayer.m:209 */,
+			DA7CA20D1325F7D000825545 /* FogLayer.m:25 */,
+			DA8F06CA132665CD003491BD /* FogLayer.m:342 */,
+			DAF79FB91328814200DAAD0C /* FogLayer.m:62 */,
+			DAF7A23513290AE600DAAD0C /* FogLayer.m:319 */,
 			DAF7A23C13290AEC00DAAD0C /* GameScene.m:36 */,
-			DAF7A26613290C2C00DAAD0C /* FogLayer.m:209 */,
+			DAF7A26613290C2C00DAAD0C /* FogLayer.m:319 */,
 		);
 		codeSenseManager = DA69F094130180A3002253AF /* Code sense */;
 		executables = (
@@ -702,6 +702,54 @@
 			DAF7A2951329103A00DAAD0C /* PBXTextBookmark */ = DAF7A2951329103A00DAAD0C /* PBXTextBookmark */;
 			DAF7A2961329103A00DAAD0C /* PBXTextBookmark */ = DAF7A2961329103A00DAAD0C /* PBXTextBookmark */;
 			DAF7A2971329103A00DAAD0C /* PBXTextBookmark */ = DAF7A2971329103A00DAAD0C /* PBXTextBookmark */;
+			DAF7A29E132910F600DAAD0C /* PBXTextBookmark */ = DAF7A29E132910F600DAAD0C /* PBXTextBookmark */;
+			DAF7A2A11329119500DAAD0C /* PBXTextBookmark */ = DAF7A2A11329119500DAAD0C /* PBXTextBookmark */;
+			DAF7A2A21329119500DAAD0C /* PBXTextBookmark */ = DAF7A2A21329119500DAAD0C /* PBXTextBookmark */;
+			DAF7A2A31329119500DAAD0C /* PBXTextBookmark */ = DAF7A2A31329119500DAAD0C /* PBXTextBookmark */;
+			DAF7A2A6132911A800DAAD0C /* PBXTextBookmark */ = DAF7A2A6132911A800DAAD0C /* PBXTextBookmark */;
+			DAF7A2A91329127400DAAD0C /* PBXTextBookmark */ = DAF7A2A91329127400DAAD0C /* PBXTextBookmark */;
+			DAF7A2AA1329127400DAAD0C /* XCBuildMessageTextBookmark */ = DAF7A2AA1329127400DAAD0C /* XCBuildMessageTextBookmark */;
+			DAF7A2AB1329127400DAAD0C /* PBXTextBookmark */ = DAF7A2AB1329127400DAAD0C /* PBXTextBookmark */;
+			DAF7A2AC1329127400DAAD0C /* PBXTextBookmark */ = DAF7A2AC1329127400DAAD0C /* PBXTextBookmark */;
+			DAF7A2B11329127D00DAAD0C /* PBXTextBookmark */ = DAF7A2B11329127D00DAAD0C /* PBXTextBookmark */;
+			DAF7A2B21329127D00DAAD0C /* PBXTextBookmark */ = DAF7A2B21329127D00DAAD0C /* PBXTextBookmark */;
+			DAF7A2B31329127D00DAAD0C /* PBXTextBookmark */ = DAF7A2B31329127D00DAAD0C /* PBXTextBookmark */;
+			DAF7A2B41329127D00DAAD0C /* PBXTextBookmark */ = DAF7A2B41329127D00DAAD0C /* PBXTextBookmark */;
+			DAF7A2B7132913F600DAAD0C /* PBXTextBookmark */ = DAF7A2B7132913F600DAAD0C /* PBXTextBookmark */;
+			DAF7A2B8132913F600DAAD0C /* XCBuildMessageTextBookmark */ = DAF7A2B8132913F600DAAD0C /* XCBuildMessageTextBookmark */;
+			DAF7A2B9132913F600DAAD0C /* PBXTextBookmark */ = DAF7A2B9132913F600DAAD0C /* PBXTextBookmark */;
+			DAF7A2BA132913F600DAAD0C /* PBXTextBookmark */ = DAF7A2BA132913F600DAAD0C /* PBXTextBookmark */;
+			DAF7A2BD1329148200DAAD0C /* PBXTextBookmark */ = DAF7A2BD1329148200DAAD0C /* PBXTextBookmark */;
+			DAF7A2BE1329148200DAAD0C /* PBXTextBookmark */ = DAF7A2BE1329148200DAAD0C /* PBXTextBookmark */;
+			DAF7A2C11329149A00DAAD0C /* XCBuildMessageTextBookmark */ = DAF7A2C11329149A00DAAD0C /* XCBuildMessageTextBookmark */;
+			DAF7A2C21329149A00DAAD0C /* PBXTextBookmark */ = DAF7A2C21329149A00DAAD0C /* PBXTextBookmark */;
+			DAF7A2C31329149A00DAAD0C /* PBXTextBookmark */ = DAF7A2C31329149A00DAAD0C /* PBXTextBookmark */;
+			DAF7A2C8132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2C8132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2C9132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2C9132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2CA132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2CA132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2CB132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2CB132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2CC132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2CC132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2CD132914D400DAAD0C /* PBXTextBookmark */ = DAF7A2CD132914D400DAAD0C /* PBXTextBookmark */;
+			DAF7A2D01329155400DAAD0C /* PBXTextBookmark */ = DAF7A2D01329155400DAAD0C /* PBXTextBookmark */;
+			DAF7A2D5132915A200DAAD0C /* PBXTextBookmark */ = DAF7A2D5132915A200DAAD0C /* PBXTextBookmark */;
+			DAF7A2D8132915C300DAAD0C /* PBXTextBookmark */ = DAF7A2D8132915C300DAAD0C /* PBXTextBookmark */;
+			DAF7A2DF132916CC00DAAD0C /* PBXTextBookmark */ = DAF7A2DF132916CC00DAAD0C /* PBXTextBookmark */;
+			DAF7A2E0132916CC00DAAD0C /* PBXTextBookmark */ = DAF7A2E0132916CC00DAAD0C /* PBXTextBookmark */;
+			DAF7A2E1132916CC00DAAD0C /* PBXTextBookmark */ = DAF7A2E1132916CC00DAAD0C /* PBXTextBookmark */;
+			DAF7A2E2132916CC00DAAD0C /* PBXTextBookmark */ = DAF7A2E2132916CC00DAAD0C /* PBXTextBookmark */;
+			DAF7A2E3132916CC00DAAD0C /* PBXTextBookmark */ = DAF7A2E3132916CC00DAAD0C /* PBXTextBookmark */;
+			DAF7A2EA1329175400DAAD0C /* PBXTextBookmark */ = DAF7A2EA1329175400DAAD0C /* PBXTextBookmark */;
+			DAF7A2ED1329176000DAAD0C /* PBXTextBookmark */ = DAF7A2ED1329176000DAAD0C /* PBXTextBookmark */;
+			DAF7A2F21329184700DAAD0C /* PBXTextBookmark */ = DAF7A2F21329184700DAAD0C /* PBXTextBookmark */;
+			DAF7A2F31329184700DAAD0C /* PBXTextBookmark */ = DAF7A2F31329184700DAAD0C /* PBXTextBookmark */;
+			DAF7A2F41329184700DAAD0C /* PBXTextBookmark */ = DAF7A2F41329184700DAAD0C /* PBXTextBookmark */;
+			DAF7A2F71329189C00DAAD0C /* PBXTextBookmark */ = DAF7A2F71329189C00DAAD0C /* PBXTextBookmark */;
+			DAF7A2FA132918BE00DAAD0C /* PBXTextBookmark */ = DAF7A2FA132918BE00DAAD0C /* PBXTextBookmark */;
+			DAF7A2FD132918D100DAAD0C /* PBXTextBookmark */ = DAF7A2FD132918D100DAAD0C /* PBXTextBookmark */;
+			DAF7A300132918E300DAAD0C /* PBXTextBookmark */ = DAF7A300132918E300DAAD0C /* PBXTextBookmark */;
+			DAF7A3051329198200DAAD0C /* PBXTextBookmark */ = DAF7A3051329198200DAAD0C /* PBXTextBookmark */;
+			DAF7A308132919D800DAAD0C /* PBXTextBookmark */ = DAF7A308132919D800DAAD0C /* PBXTextBookmark */;
+			DAF7A30B132919F700DAAD0C /* PBXTextBookmark */ = DAF7A30B132919F700DAAD0C /* PBXTextBookmark */;
 		};
 		sourceControlManager = DA69F093130180A3002253AF /* Source Control */;
 		userBuildSettings = {
@@ -747,9 +795,9 @@
 	};
 	DA01DA97130348FE00B0D88B /* GameLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 2422}}";
-			sepNavSelRange = "{4867, 0}";
-			sepNavVisRange = "{4818, 148}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2464}}";
+			sepNavSelRange = "{4130, 0}";
+			sepNavVisRange = "{19, 933}";
 		};
 	};
 	DA251505131B5EE700AAE3A5 /* AStar.h */ = {
@@ -816,7 +864,7 @@
 		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
 		name = "CCTexture2DMutable.m: 189";
 		rLen = 0;
-		rLoc = 5344;
+		rLoc = 7300;
 		rType = 0;
 		vrLen = 1346;
 		vrLoc = 3931;
@@ -1047,9 +1095,9 @@
 	};
 	DA69F099130180E9002253AF /* GameScene.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2450}}";
-			sepNavSelRange = "{930, 0}";
-			sepNavVisRange = "{303, 1403}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2436}}";
+			sepNavSelRange = "{870, 0}";
+			sepNavVisRange = "{303, 1294}";
 		};
 	};
 	DA69F09A130180E9002253AF /* Generator.h */ = {
@@ -1251,7 +1299,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 1162}}";
 			sepNavSelRange = "{1581, 0}";
-			sepNavVisRange = "{587, 1081}";
+			sepNavVisRange = "{672, 996}";
 		};
 	};
 	DA6E90321308D9A500C42417 /* Zombie.m */ = {
@@ -1759,16 +1807,16 @@
 	};
 	DA7CA18C1325E52800825545 /* CCTexture2DMutable.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 826}}";
-			sepNavSelRange = "{519, 0}";
-			sepNavVisRange = "{145, 1166}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 854}}";
+			sepNavSelRange = "{569, 0}";
+			sepNavVisRange = "{125, 1187}";
 		};
 	};
 	DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3150}}";
-			sepNavSelRange = "{3549, 0}";
-			sepNavVisRange = "{2763, 1423}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 4130}}";
+			sepNavSelRange = "{3418, 0}";
+			sepNavVisRange = "{4705, 1260}";
 		};
 	};
 	DA7CA1B21325E7C100825545 /* PBXTextBookmark */ = {
@@ -1858,16 +1906,16 @@
 	};
 	DA7CA1F91325F19D00825545 /* FogLayer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 707}}";
-			sepNavSelRange = "{1184, 0}";
-			sepNavVisRange = "{0, 1211}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 684}}";
+			sepNavSelRange = "{347, 0}";
+			sepNavVisRange = "{0, 1766}";
 		};
 	};
 	DA7CA1FA1325F19D00825545 /* FogLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3304}}";
-			sepNavSelRange = "{1463, 0}";
-			sepNavVisRange = "{4913, 1674}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 4984}}";
+			sepNavSelRange = "{3029, 0}";
+			sepNavVisRange = "{1972, 1709}";
 		};
 	};
 	DA7CA1FE1325F6AE00825545 /* PBXTextBookmark */ = {
@@ -1880,7 +1928,7 @@
 		vrLen = 891;
 		vrLoc = 0;
 	};
-	DA7CA20D1325F7D000825545 /* FogLayer.m:23 */ = {
+	DA7CA20D1325F7D000825545 /* FogLayer.m:25 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1892,7 +1940,7 @@
 		functionName = "-init";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 23;
+		lineNumber = 25;
 		location = ZombieZap;
 		modificationTime = 321457202.779845;
 		originalNumberOfMultipleMatches = 1;
@@ -2179,7 +2227,7 @@
 		vrLen = 1081;
 		vrLoc = 587;
 	};
-	DA8F06CA132665CD003491BD /* FogLayer.m:225 */ = {
+	DA8F06CA132665CD003491BD /* FogLayer.m:342 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2191,7 +2239,7 @@
 		functionName = "-drawCircle";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 225;
+		lineNumber = 342;
 		location = ZombieZap;
 		modificationTime = 321457202.779985;
 		originalNumberOfMultipleMatches = 1;
@@ -2252,7 +2300,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 19";
 		rLen = 0;
-		rLoc = 516;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 248;
 		vrLoc = 0;
@@ -2690,7 +2738,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 41";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 220;
@@ -2730,7 +2778,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 38";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1168;
 		vrLoc = 35;
@@ -2740,7 +2788,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 38";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1171;
 		vrLoc = 35;
@@ -2780,7 +2828,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1234;
 		vrLoc = 747;
@@ -2790,7 +2838,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 59";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 1035;
@@ -2810,7 +2858,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1246;
 		vrLoc = 694;
@@ -2820,7 +2868,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1147;
 		vrLoc = 671;
@@ -2830,7 +2878,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1146;
 		vrLoc = 671;
@@ -2840,7 +2888,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 45";
 		rLen = 0;
-		rLoc = 1286;
+		rLoc = 1876;
 		rType = 0;
 		vrLen = 1171;
 		vrLoc = 534;
@@ -2910,7 +2958,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 20";
 		rLen = 0;
-		rLoc = 407;
+		rLoc = 610;
 		rType = 0;
 		vrLen = 416;
 		vrLoc = 0;
@@ -2920,7 +2968,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 29";
 		rLen = 58;
-		rLoc = 811;
+		rLoc = 1030;
 		rType = 0;
 		vrLen = 1137;
 		vrLoc = 508;
@@ -2930,7 +2978,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 64";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 955;
@@ -2960,7 +3008,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 20";
 		rLen = 0;
-		rLoc = 338;
+		rLoc = 411;
 		rType = 0;
 		vrLen = 420;
 		vrLoc = 0;
@@ -2970,7 +3018,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 29";
 		rLen = 0;
-		rLoc = 867;
+		rLoc = 1086;
 		rType = 0;
 		vrLen = 1150;
 		vrLoc = 195;
@@ -2980,7 +3028,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 33";
 		rLen = 0;
-		rLoc = 1014;
+		rLoc = 1233;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 195;
@@ -2990,7 +3038,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 1049;
+		rLoc = 1268;
 		rType = 0;
 		vrLen = 1125;
 		vrLoc = 220;
@@ -3000,7 +3048,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 32";
 		rLen = 0;
-		rLoc = 954;
+		rLoc = 1173;
 		rType = 0;
 		vrLen = 1139;
 		vrLoc = 141;
@@ -3010,7 +3058,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 45";
 		rLen = 0;
-		rLoc = 1286;
+		rLoc = 1876;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 268;
@@ -3020,7 +3068,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 1062;
+		rLoc = 1281;
 		rType = 0;
 		vrLen = 1150;
 		vrLoc = 268;
@@ -3030,7 +3078,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 1062;
+		rLoc = 1281;
 		rType = 0;
 		vrLen = 1150;
 		vrLoc = 268;
@@ -3052,7 +3100,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 20";
 		rLen = 0;
-		rLoc = 406;
+		rLoc = 479;
 		rType = 0;
 		vrLen = 444;
 		vrLoc = 0;
@@ -3062,7 +3110,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 48";
 		rLen = 0;
-		rLoc = 1460;
+		rLoc = 2050;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 268;
@@ -3072,7 +3120,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 37";
 		rLen = 0;
-		rLoc = 1129;
+		rLoc = 1348;
 		rType = 0;
 		vrLen = 1174;
 		vrLoc = 400;
@@ -3082,7 +3130,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 29";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1154;
 		rType = 0;
 		vrLen = 1052;
 		vrLoc = 652;
@@ -3092,7 +3140,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 54";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 880;
 		vrLoc = 652;
@@ -3102,7 +3150,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 52";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 913;
 		vrLoc = 652;
@@ -3112,7 +3160,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 49";
 		rLen = 0;
-		rLoc = 1432;
+		rLoc = 2022;
 		rType = 0;
 		vrLen = 905;
 		vrLoc = 652;
@@ -3122,7 +3170,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 54";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 874;
 		vrLoc = 652;
@@ -3132,7 +3180,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 53";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 652;
@@ -3142,7 +3190,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 48";
 		rLen = 0;
-		rLoc = 1410;
+		rLoc = 2000;
 		rType = 0;
 		vrLen = 871;
 		vrLoc = 652;
@@ -3152,7 +3200,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 55";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 858;
 		vrLoc = 652;
@@ -3162,7 +3210,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 53";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 854;
 		vrLoc = 652;
@@ -3172,7 +3220,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 50";
 		rLen = 0;
-		rLoc = 1435;
+		rLoc = 2025;
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 652;
@@ -3182,7 +3230,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 49";
 		rLen = 0;
-		rLoc = 1410;
+		rLoc = 2000;
 		rType = 0;
 		vrLen = 873;
 		vrLoc = 652;
@@ -3192,7 +3240,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 51";
 		rLen = 0;
-		rLoc = 1417;
+		rLoc = 2007;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 652;
@@ -3202,7 +3250,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 50";
 		rLen = 0;
-		rLoc = 1410;
+		rLoc = 2000;
 		rType = 0;
 		vrLen = 918;
 		vrLoc = 652;
@@ -3212,7 +3260,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 51";
 		rLen = 0;
-		rLoc = 1418;
+		rLoc = 2008;
 		rType = 0;
 		vrLen = 903;
 		vrLoc = 652;
@@ -3242,7 +3290,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 46";
 		rLen = 0;
-		rLoc = 1350;
+		rLoc = 1940;
 		rType = 0;
 		vrLen = 923;
 		vrLoc = 652;
@@ -3252,7 +3300,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 47";
 		rLen = 0;
-		rLoc = 1328;
+		rLoc = 1918;
 		rType = 0;
 		vrLen = 1027;
 		vrLoc = 672;
@@ -3272,7 +3320,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 54";
 		rLen = 0;
-		rLoc = 1444;
+		rLoc = 2034;
 		rType = 0;
 		vrLen = 980;
 		vrLoc = 672;
@@ -3282,7 +3330,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 20";
 		rLen = 0;
-		rLoc = 281;
+		rLoc = 354;
 		rType = 0;
 		vrLen = 401;
 		vrLoc = 0;
@@ -3292,7 +3340,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 68";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 934;
 		vrLoc = 671;
@@ -3302,7 +3350,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 1052;
+		rLoc = 1271;
 		rType = 0;
 		vrLen = 1046;
 		vrLoc = 473;
@@ -3322,7 +3370,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 57";
 		rLen = 0;
-		rLoc = 1472;
+		rLoc = 2062;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 473;
@@ -3332,7 +3380,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 46";
 		rLen = 0;
-		rLoc = 1316;
+		rLoc = 1906;
 		rType = 0;
 		vrLen = 1033;
 		vrLoc = 473;
@@ -3342,7 +3390,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 1052;
+		rLoc = 1271;
 		rType = 0;
 		vrLen = 1032;
 		vrLoc = 473;
@@ -3352,7 +3400,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 31";
 		rLen = 0;
-		rLoc = 807;
+		rLoc = 1026;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 473;
@@ -3372,7 +3420,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 22";
 		rLen = 0;
-		rLoc = 516;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 417;
 		vrLoc = 0;
@@ -3382,7 +3430,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 47";
 		rLen = 38;
-		rLoc = 1182;
+		rLoc = 1772;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 473;
@@ -3392,7 +3440,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 1094;
+		rLoc = 1313;
 		rType = 0;
 		vrLen = 1050;
 		vrLoc = 473;
@@ -3402,7 +3450,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 31";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 473;
@@ -3412,7 +3460,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 31";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 473;
@@ -3422,7 +3470,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 33";
 		rLen = 0;
-		rLoc = 791;
+		rLoc = 1010;
 		rType = 0;
 		vrLen = 1197;
 		vrLoc = 473;
@@ -3432,7 +3480,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 32";
 		rLen = 0;
-		rLoc = 742;
+		rLoc = 961;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 473;
@@ -3442,7 +3490,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 473;
@@ -3452,7 +3500,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 473;
@@ -3462,7 +3510,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 473;
@@ -3472,7 +3520,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 52";
 		rLen = 0;
-		rLoc = 1286;
+		rLoc = 1876;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 473;
@@ -3482,7 +3530,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 473;
@@ -3492,7 +3540,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 31";
 		rLen = 0;
-		rLoc = 622;
+		rLoc = 841;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 473;
@@ -3502,7 +3550,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 785;
+		rLoc = 1004;
 		rType = 0;
 		vrLen = 1094;
 		vrLoc = 473;
@@ -3512,7 +3560,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 34";
 		rLen = 0;
-		rLoc = 791;
+		rLoc = 1010;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 473;
@@ -3522,7 +3570,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1100;
 		vrLoc = 473;
@@ -3532,7 +3580,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 473;
@@ -3542,7 +3590,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 60";
 		rLen = 0;
-		rLoc = 1403;
+		rLoc = 1993;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 473;
@@ -3552,7 +3600,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 60";
 		rLen = 0;
-		rLoc = 1403;
+		rLoc = 1993;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 473;
@@ -3562,7 +3610,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 60";
 		rLen = 0;
-		rLoc = 1402;
+		rLoc = 1992;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 473;
@@ -3582,7 +3630,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 23";
 		rLen = 0;
-		rLoc = 516;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -3592,7 +3640,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 79";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 983;
 		vrLoc = 1500;
@@ -3602,7 +3650,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 89";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 977;
 		vrLoc = 1500;
@@ -3612,7 +3660,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 88";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1020;
 		vrLoc = 1372;
@@ -3622,7 +3670,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 88";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1020;
 		vrLoc = 1372;
@@ -3632,7 +3680,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 88";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1020;
 		vrLoc = 1372;
@@ -3642,7 +3690,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 152";
 		rLen = 0;
-		rLoc = 6651;
+		rLoc = 10876;
 		rType = 0;
 		vrLen = 1065;
 		vrLoc = 2280;
@@ -3672,7 +3720,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 25";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1760;
 		rType = 0;
 		vrLen = 549;
 		vrLoc = 0;
@@ -3682,7 +3730,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 115";
 		rLen = 0;
-		rLoc = 2539;
+		rLoc = 3735;
 		rType = 0;
 		vrLen = 1225;
 		vrLoc = 1612;
@@ -3722,7 +3770,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1760;
 		rType = 0;
 		vrLen = 573;
 		vrLoc = 0;
@@ -3732,7 +3780,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 143";
 		rLen = 18;
-		rLoc = 6394;
+		rLoc = 10570;
 		rType = 0;
 		vrLen = 1231;
 		vrLoc = 2414;
@@ -3742,7 +3790,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 68";
 		rLen = 0;
-		rLoc = 1510;
+		rLoc = 2100;
 		rType = 0;
 		vrLen = 1147;
 		vrLoc = 2397;
@@ -3752,7 +3800,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 106";
 		rLen = 0;
-		rLoc = 2638;
+		rLoc = 3834;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 2017;
@@ -3762,7 +3810,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 0;
@@ -3792,7 +3840,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 172";
 		rLen = 0;
-		rLoc = 4503;
+		rLoc = 5732;
 		rType = 0;
 		vrLen = 1540;
 		vrLoc = 2760;
@@ -3802,7 +3850,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 180";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1016;
 		vrLoc = 3760;
@@ -3812,7 +3860,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 152";
 		rLen = 0;
-		rLoc = 3931;
+		rLoc = 5160;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 3067;
@@ -3822,7 +3870,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 152";
 		rLen = 0;
-		rLoc = 3931;
+		rLoc = 5160;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 3067;
@@ -3832,7 +3880,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 149";
 		rLen = 0;
-		rLoc = 3724;
+		rLoc = 4953;
 		rType = 0;
 		vrLen = 1530;
 		vrLoc = 2728;
@@ -3842,7 +3890,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 72";
 		rLen = 0;
-		rLoc = 1624;
+		rLoc = 2197;
 		rType = 0;
 		vrLen = 1045;
 		vrLoc = 1270;
@@ -3862,7 +3910,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 22";
 		rLen = 0;
-		rLoc = 516;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 735;
 		vrLoc = 0;
@@ -3922,7 +3970,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 24";
 		rLen = 0;
-		rLoc = 688;
+		rLoc = 891;
 		rType = 0;
 		vrLen = 769;
 		vrLoc = 0;
@@ -3932,7 +3980,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 45";
 		rLen = 0;
-		rLoc = 1110;
+		rLoc = 1329;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 235;
@@ -3942,7 +3990,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 64";
 		rLen = 0;
-		rLoc = 1465;
+		rLoc = 2055;
 		rType = 0;
 		vrLen = 1094;
 		vrLoc = 1189;
@@ -3982,7 +4030,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 77";
 		rLen = 0;
-		rLoc = 2468;
+		rLoc = 3664;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 1189;
@@ -3992,7 +4040,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 155";
 		rLen = 0;
-		rLoc = 4506;
+		rLoc = 5843;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 3391;
@@ -4002,7 +4050,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 155";
 		rLen = 0;
-		rLoc = 4506;
+		rLoc = 5843;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 3391;
@@ -4012,7 +4060,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 155";
 		rLen = 0;
-		rLoc = 4506;
+		rLoc = 5843;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 3391;
@@ -4052,7 +4100,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 37";
 		rLen = 0;
-		rLoc = 979;
+		rLoc = 978;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 238;
@@ -4062,7 +4110,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 155";
 		rLen = 0;
-		rLoc = 4506;
+		rLoc = 5843;
 		rType = 0;
 		vrLen = 1123;
 		vrLoc = 3388;
@@ -4072,7 +4120,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 164";
 		rLen = 0;
-		rLoc = 5261;
+		rLoc = 7901;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 3376;
@@ -4082,7 +4130,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 164";
 		rLen = 0;
-		rLoc = 5261;
+		rLoc = 7901;
 		rType = 0;
 		vrLen = 1343;
 		vrLoc = 3376;
@@ -4102,7 +4150,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 1298;
 		vrLoc = 238;
@@ -4112,7 +4160,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 1298;
 		vrLoc = 238;
@@ -4132,7 +4180,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 158";
 		rLen = 64;
-		rLoc = 4510;
+		rLoc = 7048;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 3393;
@@ -4142,7 +4190,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 24";
 		rLen = 0;
-		rLoc = 688;
+		rLoc = 891;
 		rType = 0;
 		vrLen = 769;
 		vrLoc = 0;
@@ -4152,7 +4200,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 834;
 		vrLoc = 0;
@@ -4162,7 +4210,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 0;
@@ -4192,7 +4240,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 0;
@@ -4202,7 +4250,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 165";
 		rLen = 0;
-		rLoc = 5261;
+		rLoc = 7901;
 		rType = 0;
 		vrLen = 1275;
 		vrLoc = 3491;
@@ -4212,7 +4260,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 83";
 		rLen = 0;
-		rLoc = 2268;
+		rLoc = 2830;
 		rType = 0;
 		vrLen = 1156;
 		vrLoc = 1279;
@@ -4222,7 +4270,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 75";
 		rLen = 0;
-		rLoc = 1846;
+		rLoc = 2421;
 		rType = 0;
 		vrLen = 1060;
 		vrLoc = 1279;
@@ -4232,7 +4280,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 87";
 		rLen = 0;
-		rLoc = 2266;
+		rLoc = 2828;
 		rType = 0;
 		vrLen = 1069;
 		vrLoc = 1279;
@@ -4242,7 +4290,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 81";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2619;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 1279;
@@ -4252,7 +4300,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 81";
 		rLen = 0;
-		rLoc = 2143;
+		rLoc = 2720;
 		rType = 0;
 		vrLen = 1118;
 		vrLoc = 1279;
@@ -4262,7 +4310,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 79";
 		rLen = 0;
-		rLoc = 2009;
+		rLoc = 2584;
 		rType = 0;
 		vrLen = 1112;
 		vrLoc = 1279;
@@ -4272,7 +4320,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 82";
 		rLen = 0;
-		rLoc = 2065;
+		rLoc = 2640;
 		rType = 0;
 		vrLen = 1123;
 		vrLoc = 1279;
@@ -4282,7 +4330,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 82";
 		rLen = 0;
-		rLoc = 2065;
+		rLoc = 2640;
 		rType = 0;
 		vrLen = 1371;
 		vrLoc = 3641;
@@ -4332,7 +4380,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 37";
 		rLen = 0;
-		rLoc = 936;
+		rLoc = 935;
 		rType = 0;
 		vrLen = 1367;
 		vrLoc = 238;
@@ -4352,7 +4400,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 66";
 		rLen = 0;
-		rLoc = 1510;
+		rLoc = 2100;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 723;
@@ -4362,7 +4410,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 66";
 		rLen = 0;
-		rLoc = 1510;
+		rLoc = 2100;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 723;
@@ -4412,7 +4460,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1227;
 		vrLoc = 216;
@@ -4422,7 +4470,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 216;
@@ -4452,7 +4500,7 @@
 		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
 		name = "CCTexture2DMutable.m: 189";
 		rLen = 0;
-		rLoc = 5344;
+		rLoc = 7300;
 		rType = 0;
 		vrLen = 1346;
 		vrLoc = 3931;
@@ -4472,7 +4520,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 60";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1332;
 		vrLoc = 537;
@@ -4482,7 +4530,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 61";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1329;
 		vrLoc = 537;
@@ -4539,7 +4587,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 51";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 537;
@@ -4549,7 +4597,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 50";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1349;
 		vrLoc = 537;
@@ -4559,7 +4607,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 50";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 537;
@@ -4569,7 +4617,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 216;
@@ -4579,7 +4627,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 216;
@@ -4589,7 +4637,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 40";
 		rLen = 0;
-		rLoc = 1015;
+		rLoc = 1014;
 		rType = 0;
 		vrLen = 1674;
 		vrLoc = 1445;
@@ -4599,7 +4647,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 50";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1262;
 		vrLoc = 655;
@@ -4629,7 +4677,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1283;
 		vrLoc = 655;
@@ -4639,7 +4687,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1324;
 		vrLoc = 655;
@@ -4649,7 +4697,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 40";
 		rLen = 0;
-		rLoc = 1015;
+		rLoc = 1014;
 		rType = 0;
 		vrLen = 1697;
 		vrLoc = 1425;
@@ -4659,7 +4707,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1228;
 		vrLoc = 279;
@@ -4669,7 +4717,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 279;
@@ -4689,7 +4737,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 64";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 672;
@@ -4699,7 +4747,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 101";
 		rLen = 0;
-		rLoc = 2143;
+		rLoc = 2720;
 		rType = 0;
 		vrLen = 1126;
 		vrLoc = 1823;
@@ -4709,7 +4757,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 819;
@@ -4719,7 +4767,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1287;
 		vrLoc = 819;
@@ -4729,7 +4777,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 65";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1312;
 		vrLoc = 819;
@@ -4739,12 +4787,12 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 67";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 819;
 	};
-	DAF79FB91328814200DAAD0C /* FogLayer.m:48 */ = {
+	DAF79FB91328814200DAAD0C /* FogLayer.m:62 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -4756,7 +4804,7 @@
 		functionName = "-drawOpacityCircleAt:radius:alpha:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 48;
+		lineNumber = 62;
 		location = ZombieZap;
 		modificationTime = 321457202.780119;
 		originalNumberOfMultipleMatches = 1;
@@ -4767,7 +4815,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 819;
@@ -4777,7 +4825,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 63";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 819;
@@ -4807,7 +4855,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 64";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 819;
@@ -4817,7 +4865,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 55";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1027;
@@ -4837,7 +4885,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 64";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 1027;
@@ -4847,7 +4895,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 195";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 7694;
 		rType = 0;
 		vrLen = 1342;
 		vrLoc = 4542;
@@ -4857,7 +4905,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 195";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 7694;
 		rType = 0;
 		vrLen = 1361;
 		vrLoc = 4542;
@@ -4877,7 +4925,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 37";
 		rLen = 0;
-		rLoc = 936;
+		rLoc = 935;
 		rType = 0;
 		vrLen = 1229;
 		vrLoc = 279;
@@ -4907,7 +4955,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 44";
 		rLen = 0;
-		rLoc = 1157;
+		rLoc = 1156;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 302;
@@ -4917,7 +4965,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 41";
 		rLen = 0;
-		rLoc = 1030;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 302;
@@ -4927,7 +4975,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 195";
 		rLen = 0;
-		rLoc = 5029;
+		rLoc = 7694;
 		rType = 0;
 		vrLen = 1336;
 		vrLoc = 4567;
@@ -4937,7 +4985,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 67";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 1279;
@@ -4947,7 +4995,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 655;
@@ -4977,7 +5025,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 67";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1415;
 		vrLoc = 655;
@@ -5007,7 +5055,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 67";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1201;
 		vrLoc = 1100;
@@ -5017,7 +5065,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1464;
 		vrLoc = 537;
@@ -5027,7 +5075,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 68";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1466;
 		vrLoc = 537;
@@ -5057,7 +5105,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1467;
 		vrLoc = 534;
@@ -5067,7 +5115,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 40";
 		rLen = 0;
-		rLoc = 954;
+		rLoc = 1173;
 		rType = 0;
 		vrLen = 1444;
 		vrLoc = 655;
@@ -5077,7 +5125,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 41";
 		rLen = 0;
-		rLoc = 1030;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 302;
@@ -5107,7 +5155,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 202";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1463;
 		vrLoc = 4413;
@@ -5117,7 +5165,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 39";
 		rLen = 0;
-		rLoc = 1009;
+		rLoc = 1008;
 		rType = 0;
 		vrLen = 2111;
 		vrLoc = 2783;
@@ -5127,7 +5175,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1202;
 		vrLoc = 143;
@@ -5147,7 +5195,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 202";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1463;
 		vrLoc = 4413;
@@ -5157,7 +5205,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 201";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1403;
 		vrLoc = 4473;
@@ -5187,7 +5235,7 @@
 		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
 		name = "CCTexture2DMutable.m: 202";
 		rLen = 0;
-		rLoc = 5879;
+		rLoc = 7835;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 0;
@@ -5197,7 +5245,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 17";
 		rLen = 0;
-		rLoc = 276;
+		rLoc = 349;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 0;
@@ -5207,7 +5255,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 177";
 		rLen = 0;
-		rLoc = 4072;
+		rLoc = 5301;
 		rType = 0;
 		vrLen = 1494;
 		vrLoc = 508;
@@ -5217,7 +5265,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 67";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 1771;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 2583;
@@ -5227,7 +5275,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 206";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1384;
 		vrLoc = 4741;
@@ -5237,7 +5285,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 1023;
 		rType = 0;
 		vrLen = 1361;
 		vrLoc = 18;
@@ -5247,7 +5295,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 35";
 		rLen = 0;
-		rLoc = 805;
+		rLoc = 1024;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 18;
@@ -5257,7 +5305,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 109";
 		rLen = 0;
-		rLoc = 2118;
+		rLoc = 2655;
 		rType = 0;
 		vrLen = 1158;
 		vrLoc = 2034;
@@ -5267,7 +5315,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 110";
 		rLen = 0;
-		rLoc = 2143;
+		rLoc = 2720;
 		rType = 0;
 		vrLen = 1286;
 		vrLoc = 2166;
@@ -5297,7 +5345,7 @@
 		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
 		name = "CCTexture2DMutable.m: 166";
 		rLen = 0;
-		rLoc = 4716;
+		rLoc = 6672;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 3978;
@@ -5317,7 +5365,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 203";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1268;
 		vrLoc = 4879;
@@ -5327,7 +5375,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 209";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 4675;
@@ -5337,7 +5385,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 210";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 4675;
@@ -5347,7 +5395,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 107";
 		rLen = 0;
-		rLoc = 2083;
+		rLoc = 2655;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 2083;
@@ -5357,7 +5405,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 210";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1520;
 		vrLoc = 4660;
@@ -5367,7 +5415,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 24";
 		rLen = 0;
-		rLoc = 523;
+		rLoc = 742;
 		rType = 0;
 		vrLen = 1266;
 		vrLoc = 0;
@@ -5377,7 +5425,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 24";
 		rLen = 0;
-		rLoc = 523;
+		rLoc = 742;
 		rType = 0;
 		vrLen = 1365;
 		vrLoc = 0;
@@ -5397,7 +5445,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1200;
 		vrLoc = 143;
@@ -5407,7 +5455,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1240;
 		vrLoc = 143;
@@ -5417,7 +5465,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 24";
 		rLen = 0;
-		rLoc = 523;
+		rLoc = 742;
 		rType = 0;
 		vrLen = 1365;
 		vrLoc = 0;
@@ -5427,7 +5475,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 210";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 4648;
@@ -5437,7 +5485,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 209";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1547;
 		vrLoc = 4648;
@@ -5447,7 +5495,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 209";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1548;
 		vrLoc = 4648;
@@ -5457,7 +5505,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1240;
 		vrLoc = 143;
@@ -5467,7 +5515,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1237;
 		vrLoc = 166;
@@ -5477,7 +5525,7 @@
 		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
 		name = "CCTexture2DMutable.m: 121";
 		rLen = 0;
-		rLoc = 3549;
+		rLoc = 4441;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 2763;
@@ -5487,7 +5535,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 166;
@@ -5497,7 +5545,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 210";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1619;
 		vrLoc = 4571;
@@ -5507,7 +5555,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 209";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1467;
 		vrLoc = 4636;
@@ -5517,7 +5565,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 208";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 4636;
@@ -5527,7 +5575,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 166;
@@ -5537,7 +5585,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1219;
 		vrLoc = 166;
@@ -5547,7 +5595,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 211";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1471;
 		vrLoc = 4636;
@@ -5557,7 +5605,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 166;
@@ -5567,7 +5615,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 166;
@@ -5577,7 +5625,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 166;
@@ -5587,7 +5635,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 211";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1471;
 		vrLoc = 4636;
@@ -5597,7 +5645,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 210";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1526;
 		vrLoc = 4636;
@@ -5607,7 +5655,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 211";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1595;
 		vrLoc = 4571;
@@ -5617,7 +5665,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 214";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1576;
 		vrLoc = 4571;
@@ -5627,7 +5675,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 213";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1588;
 		vrLoc = 4703;
@@ -5637,7 +5685,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 213";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1597;
 		vrLoc = 4703;
@@ -5647,7 +5695,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 213";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1600;
 		vrLoc = 4703;
@@ -5657,7 +5705,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 166;
@@ -5697,7 +5745,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 211";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1571;
 		vrLoc = 4682;
@@ -5707,7 +5755,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 220";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1617;
 		vrLoc = 4721;
@@ -5717,7 +5765,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 212";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1577;
 		vrLoc = 4703;
@@ -5727,7 +5775,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 211";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1662;
 		vrLoc = 4703;
@@ -5737,7 +5785,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 166;
@@ -5747,7 +5795,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 166;
@@ -5814,7 +5862,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 166;
@@ -5874,7 +5922,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 248";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 969;
 		vrLoc = 5964;
@@ -5884,7 +5932,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 248";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 977;
 		vrLoc = 5964;
@@ -5934,7 +5982,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 250";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1002;
 		vrLoc = 5996;
@@ -5944,7 +5992,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 252";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 5996;
@@ -5954,7 +6002,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 252";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 5996;
@@ -5964,7 +6012,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 252";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1008;
 		vrLoc = 5996;
@@ -5974,7 +6022,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 166;
@@ -5994,7 +6042,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 17";
 		rLen = 0;
-		rLoc = 276;
+		rLoc = 349;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 0;
@@ -6004,7 +6052,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 252";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1008;
 		vrLoc = 5996;
@@ -6014,7 +6062,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 254";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1107;
 		vrLoc = 5996;
@@ -6024,7 +6072,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 254";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1287;
 		vrLoc = 5746;
@@ -6034,7 +6082,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 217";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1616;
 		vrLoc = 4735;
@@ -6044,7 +6092,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 215";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1636;
 		vrLoc = 4735;
@@ -6074,7 +6122,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 256";
 		rLen = 0;
-		rLoc = 6588;
+		rLoc = 10764;
 		rType = 0;
 		vrLen = 1114;
 		vrLoc = 6128;
@@ -6084,7 +6132,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 215";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 5175;
@@ -6094,7 +6142,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 239";
 		rLen = 0;
-		rLoc = 6476;
+		rLoc = 10652;
 		rType = 0;
 		vrLen = 1108;
 		vrLoc = 6128;
@@ -6104,7 +6152,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 220";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1588;
 		vrLoc = 4668;
@@ -6114,7 +6162,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 237";
 		rLen = 0;
-		rLoc = 6436;
+		rLoc = 10612;
 		rType = 0;
 		vrLen = 1663;
 		vrLoc = 4680;
@@ -6124,7 +6172,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 35";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1259;
 		vrLoc = 144;
@@ -6134,7 +6182,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 1241;
 		vrLoc = 144;
@@ -6144,7 +6192,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1084;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 144;
@@ -6154,7 +6202,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1084;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 144;
@@ -6164,7 +6212,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 237";
 		rLen = 0;
-		rLoc = 6436;
+		rLoc = 10612;
 		rType = 0;
 		vrLen = 1633;
 		vrLoc = 4710;
@@ -6174,7 +6222,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 215";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1633;
 		vrLoc = 4710;
@@ -6184,7 +6232,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 215";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 5052;
@@ -6194,7 +6242,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1084;
 		rType = 0;
 		vrLen = 1219;
 		vrLoc = 144;
@@ -6224,7 +6272,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 19";
 		rLen = 0;
-		rLoc = 276;
+		rLoc = 349;
 		rType = 0;
 		vrLen = 867;
 		vrLoc = 0;
@@ -6234,7 +6282,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 233";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 5422;
@@ -6244,7 +6292,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 205";
 		rLen = 0;
-		rLoc = 4911;
+		rLoc = 7441;
 		rType = 0;
 		vrLen = 1516;
 		vrLoc = 5333;
@@ -6311,7 +6359,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 1118;
+		rLoc = 1606;
 		rType = 0;
 		vrLen = 1211;
 		vrLoc = 0;
@@ -6321,7 +6369,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 72";
 		rLen = 188;
-		rLoc = 1626;
+		rLoc = 2199;
 		rType = 0;
 		vrLen = 1419;
 		vrLoc = 1327;
@@ -6331,7 +6379,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 193";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1753;
 		vrLoc = 4228;
@@ -6341,7 +6389,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 174";
 		rLen = 0;
-		rLoc = 4847;
+		rLoc = 7441;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 4177;
@@ -6351,7 +6399,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 174";
 		rLen = 0;
-		rLoc = 4847;
+		rLoc = 7441;
 		rType = 0;
 		vrLen = 1806;
 		vrLoc = 4177;
@@ -6497,7 +6545,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 24";
 		rLen = 0;
-		rLoc = 661;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1221;
 		vrLoc = 0;
@@ -6507,7 +6555,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 129";
 		rLen = 0;
-		rLoc = 3444;
+		rLoc = 4640;
 		rType = 0;
 		vrLen = 1513;
 		vrLoc = 2623;
@@ -6517,7 +6565,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 170";
 		rLen = 0;
-		rLoc = 4506;
+		rLoc = 5843;
 		rType = 0;
 		vrLen = 1686;
 		vrLoc = 3785;
@@ -6527,7 +6575,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 71";
 		rLen = 0;
-		rLoc = 1633;
+		rLoc = 2206;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 1214;
@@ -6537,7 +6585,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 83";
 		rLen = 0;
-		rLoc = 2143;
+		rLoc = 2720;
 		rType = 0;
 		vrLen = 1390;
 		vrLoc = 1214;
@@ -6547,7 +6595,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 209";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 5302;
@@ -6557,7 +6605,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 928;
+		rLoc = 1416;
 		rType = 0;
 		vrLen = 1348;
 		vrLoc = 0;
@@ -6567,7 +6615,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 216";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 5302;
@@ -6577,7 +6625,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 219";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1472;
 		vrLoc = 5302;
@@ -6587,7 +6635,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 26";
 		rLen = 0;
-		rLoc = 928;
+		rLoc = 1416;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 0;
@@ -6597,7 +6645,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 216";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 5302;
@@ -6607,7 +6655,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 219";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 5549;
@@ -6617,7 +6665,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 219";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 10568;
 		rType = 0;
 		vrLen = 1311;
 		vrLoc = 5549;
@@ -6666,7 +6714,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 30";
 		rLen = 0;
-		rLoc = 1118;
+		rLoc = 1606;
 		rType = 0;
 		vrLen = 1764;
 		vrLoc = 0;
@@ -6676,7 +6724,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 100";
 		rLen = 0;
-		rLoc = 2270;
+		rLoc = 3466;
 		rType = 0;
 		vrLen = 1755;
 		vrLoc = 2026;
@@ -6686,7 +6734,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 267";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 6911;
@@ -6696,7 +6744,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 270";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1730;
 		vrLoc = 6911;
@@ -6706,7 +6754,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 272";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1729;
 		vrLoc = 6869;
@@ -6716,7 +6764,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 895;
+		rLoc = 894;
 		rType = 0;
 		vrLen = 1400;
 		vrLoc = 329;
@@ -6726,7 +6774,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 256";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1718;
 		vrLoc = 7210;
@@ -6736,7 +6784,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 30";
 		rLen = 0;
-		rLoc = 1118;
+		rLoc = 1606;
 		rType = 0;
 		vrLen = 1764;
 		vrLoc = 0;
@@ -6746,7 +6794,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 32";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 1831;
 		vrLoc = 0;
@@ -6806,7 +6854,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 32";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 1831;
 		vrLoc = 0;
@@ -6816,7 +6864,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1050;
+		rLoc = 1049;
 		rType = 0;
 		vrLen = 1376;
 		vrLoc = 329;
@@ -6826,7 +6874,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 256";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1718;
 		vrLoc = 7210;
@@ -6836,7 +6884,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 272";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1671;
 		vrLoc = 7009;
@@ -6861,7 +6909,7 @@
 		vrLen = 319;
 		vrLoc = 2801;
 	};
-	DAF7A23513290AE600DAAD0C /* FogLayer.m:209 */ = {
+	DAF7A23513290AE600DAAD0C /* FogLayer.m:319 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -6873,7 +6921,7 @@
 		functionName = "-drawSpotlight2:radius:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 209;
+		lineNumber = 319;
 		location = ZombieZap;
 		modificationTime = 321457202.780252;
 		originalNumberOfMultipleMatches = 1;
@@ -6884,7 +6932,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 272";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1674;
 		vrLoc = 7009;
@@ -6894,7 +6942,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 272";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1671;
 		vrLoc = 7009;
@@ -6922,7 +6970,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 272";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1671;
 		vrLoc = 7009;
@@ -6932,7 +6980,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1050;
+		rLoc = 1049;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 329;
@@ -6942,7 +6990,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 42";
 		rLen = 0;
-		rLoc = 1050;
+		rLoc = 1049;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 329;
@@ -7017,7 +7065,7 @@
 		isa = PBXTextBookmark;
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		rLen = 0;
-		rLoc = 208;
+		rLoc = 318;
 		rType = 1;
 	};
 	DAF7A25413290B2A00DAAD0C /* PBXTextBookmark */ = {
@@ -7025,7 +7073,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 274";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1560;
 		vrLoc = 7158;
@@ -7035,7 +7083,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 260";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 7438;
@@ -7045,12 +7093,12 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 266";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1568;
 		vrLoc = 7383;
 	};
-	DAF7A26613290C2C00DAAD0C /* FogLayer.m:209 */ = {
+	DAF7A26613290C2C00DAAD0C /* FogLayer.m:319 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -7062,7 +7110,7 @@
 		functionName = "-drawSpotlight2:radius:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 209;
+		lineNumber = 319;
 		location = ZombieZap;
 		modificationTime = 321457227.016836;
 		originalNumberOfMultipleMatches = 1;
@@ -7073,7 +7121,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 266";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1813;
 		vrLoc = 6868;
@@ -7083,7 +7131,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 266";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1810;
 		vrLoc = 6868;
@@ -7102,7 +7150,7 @@
 		isa = PBXTextBookmark;
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		rLen = 0;
-		rLoc = 208;
+		rLoc = 318;
 		rType = 1;
 	};
 	DAF7A27113290C3E00DAAD0C /* PBXTextBookmark */ = {
@@ -7110,7 +7158,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 264";
 		rLen = 0;
-		rLoc = 6172;
+		rLoc = 10126;
 		rType = 0;
 		vrLen = 1768;
 		vrLoc = 6910;
@@ -7140,7 +7188,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 175";
 		rLen = 0;
-		rLoc = 3447;
+		rLoc = 4643;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 4224;
@@ -7150,7 +7198,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 175";
 		rLen = 0;
-		rLoc = 3447;
+		rLoc = 4643;
 		rType = 0;
 		vrLen = 1583;
 		vrLoc = 4224;
@@ -7190,7 +7238,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 175";
 		rLen = 0;
-		rLoc = 3447;
+		rLoc = 4643;
 		rType = 0;
 		vrLen = 1467;
 		vrLoc = 4340;
@@ -7200,7 +7248,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 175";
 		rLen = 0;
-		rLoc = 3447;
+		rLoc = 4643;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 5557;
@@ -7210,7 +7258,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 259";
 		rLen = 0;
-		rLoc = 6114;
+		rLoc = 8478;
 		rType = 0;
 		vrLen = 2021;
 		vrLoc = 6261;
@@ -7220,7 +7268,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 872;
+		rLoc = 870;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 329;
@@ -7230,7 +7278,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 259";
 		rLen = 0;
-		rLoc = 6114;
+		rLoc = 8478;
 		rType = 0;
 		vrLen = 1932;
 		vrLoc = 6350;
@@ -7240,7 +7288,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 269";
 		rLen = 0;
-		rLoc = 5941;
+		rLoc = 8400;
 		rType = 0;
 		vrLen = 1792;
 		vrLoc = 6439;
@@ -7250,7 +7298,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 231";
 		rLen = 0;
-		rLoc = 4576;
+		rLoc = 7114;
 		rType = 0;
 		vrLen = 1793;
 		vrLoc = 6439;
@@ -7260,7 +7308,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 193";
 		rLen = 0;
-		rLoc = 3497;
+		rLoc = 4693;
 		rType = 0;
 		vrLen = 1894;
 		vrLoc = 6836;
@@ -7270,7 +7318,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 254";
 		rLen = 0;
-		rLoc = 5466;
+		rLoc = 8115;
 		rType = 0;
 		vrLen = 2003;
 		vrLoc = 6884;
@@ -7300,7 +7348,7 @@
 		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
 		name = "FogLayer.h: 27";
 		rLen = 0;
-		rLoc = 1184;
+		rLoc = 1739;
 		rType = 0;
 		vrLen = 1211;
 		vrLoc = 0;
@@ -7310,7 +7358,7 @@
 		fRef = DA69F099130180E9002253AF /* GameScene.m */;
 		name = "GameScene.m: 36";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 929;
 		rType = 0;
 		vrLen = 1403;
 		vrLoc = 303;
@@ -7320,7 +7368,7 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 47";
 		rLen = 0;
-		rLoc = 1180;
+		rLoc = 1399;
 		rType = 0;
 		vrLen = 1463;
 		vrLoc = 808;
@@ -7330,10 +7378,487 @@
 		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
 		name = "FogLayer.m: 62";
 		rLen = 0;
-		rLoc = 1463;
+		rLoc = 2053;
 		rType = 0;
 		vrLen = 1674;
 		vrLoc = 4913;
+	};
+	DAF7A29E132910F600DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 64";
+		rLen = 0;
+		rLoc = 2102;
+		rType = 0;
+		vrLen = 1495;
+		vrLoc = 1181;
+	};
+	DAF7A2A11329119500DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
+		name = "FogLayer.h: 19";
+		rLen = 0;
+		rLoc = 310;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 0;
+	};
+	DAF7A2A21329119500DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 174";
+		rLen = 0;
+		rLoc = 7575;
+		rType = 0;
+		vrLen = 1904;
+		vrLoc = 4070;
+	};
+	DAF7A2A31329119500DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 173";
+		rLen = 0;
+		rLoc = 7406;
+		rType = 0;
+		vrLen = 1944;
+		vrLoc = 4171;
+	};
+	DAF7A2A6132911A800DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 176";
+		rLen = 0;
+		rLoc = 7441;
+		rType = 0;
+		vrLen = 1944;
+		vrLoc = 4171;
+	};
+	DAF7A2A91329127400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA01DA97130348FE00B0D88B /* GameLayer.m */;
+		name = "GameLayer.m: 162";
+		rLen = 0;
+		rLoc = 4867;
+		rType = 0;
+		vrLen = 148;
+		vrLoc = 4818;
+	};
+	DAF7A2AA1329127400DAAD0C /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected ';' before '}' token";
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 184;
+		rType = 1;
+	};
+	DAF7A2AB1329127400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		name = "CCTexture2DMutable.m: 152";
+		rLen = 0;
+		rLoc = 5283;
+		rType = 0;
+		vrLen = 191;
+		vrLoc = 4289;
+	};
+	DAF7A2AC1329127400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB7DC126CC224006E46A2 /* ccTypes.h */;
+		name = "ccTypes.h: 75";
+		rLen = 0;
+		rLoc = 2375;
+		rType = 0;
+		vrLen = 319;
+		vrLoc = 2801;
+	};
+	DAF7A2B11329127D00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18C1325E52800825545 /* CCTexture2DMutable.h */;
+		name = "CCTexture2DMutable.h: 36";
+		rLen = 0;
+		rLoc = 902;
+		rType = 0;
+		vrLen = 1165;
+		vrLoc = 145;
+	};
+	DAF7A2B21329127D00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		name = "CCTexture2DMutable.m: 151";
+		rLen = 0;
+		rLoc = 5282;
+		rType = 0;
+		vrLen = 1317;
+		vrLoc = 3813;
+	};
+	DAF7A2B31329127D00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 194";
+		rLen = 0;
+		rLoc = 8275;
+		rType = 0;
+		vrLen = 1772;
+		vrLoc = 4719;
+	};
+	DAF7A2B41329127D00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 196";
+		rLen = 0;
+		rLoc = 8400;
+		rType = 0;
+		vrLen = 1753;
+		vrLoc = 4719;
+	};
+	DAF7A2B7132913F600DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		name = "CCTexture2DMutable.m: 152";
+		rLen = 0;
+		rLoc = 5283;
+		rType = 0;
+		vrLen = 135;
+		vrLoc = 4473;
+	};
+	DAF7A2B8132913F600DAAD0C /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'CCMutableTexture2D' may not respond to '-setAlphaAt:rgba:'";
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 264;
+		rType = 1;
+	};
+	DAF7A2B9132913F600DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 244";
+		rLen = 0;
+		rLoc = 8251;
+		rType = 0;
+		vrLen = 100;
+		vrLoc = 7481;
+	};
+	DAF7A2BA132913F600DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB7DC126CC224006E46A2 /* ccTypes.h */;
+		name = "ccTypes.h: 75";
+		rLen = 0;
+		rLoc = 2375;
+		rType = 0;
+		vrLen = 299;
+		vrLoc = 2801;
+	};
+	DAF7A2BD1329148200DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 244";
+		rLen = 0;
+		rLoc = 8251;
+		rType = 0;
+		vrLen = 99;
+		vrLoc = 7481;
+	};
+	DAF7A2BE1329148200DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB7DC126CC224006E46A2 /* ccTypes.h */;
+		name = "ccTypes.h: 75";
+		rLen = 0;
+		rLoc = 2375;
+		rType = 0;
+		vrLen = 299;
+		vrLoc = 2801;
+	};
+	DAF7A2C11329149A00DAAD0C /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Unused variable 'clear'";
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 250;
+		rType = 1;
+	};
+	DAF7A2C21329149A00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 231";
+		rLen = 0;
+		rLoc = 7719;
+		rType = 0;
+		vrLen = 55;
+		vrLoc = 6963;
+	};
+	DAF7A2C31329149A00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB7DC126CC224006E46A2 /* ccTypes.h */;
+		name = "ccTypes.h: 75";
+		rLen = 0;
+		rLoc = 2375;
+		rType = 0;
+		vrLen = 299;
+		vrLoc = 2801;
+	};
+	DAF7A2C8132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA01DA97130348FE00B0D88B /* GameLayer.m */;
+		name = "GameLayer.m: 149";
+		rLen = 0;
+		rLoc = 4130;
+		rType = 0;
+		vrLen = 933;
+		vrLoc = 19;
+	};
+	DAF7A2C9132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA6E90311308D9A500C42417 /* Zombie.h */;
+		name = "Zombie.h: 74";
+		rLen = 0;
+		rLoc = 1581;
+		rType = 0;
+		vrLen = 996;
+		vrLoc = 672;
+	};
+	DAF7A2CA132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
+		name = "FogLayer.h: 27";
+		rLen = 0;
+		rLoc = 913;
+		rType = 0;
+		vrLen = 1662;
+		vrLoc = 0;
+	};
+	DAF7A2CB132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18C1325E52800825545 /* CCTexture2DMutable.h */;
+		name = "CCTexture2DMutable.h: 28";
+		rLen = 0;
+		rLoc = 569;
+		rType = 0;
+		vrLen = 1187;
+		vrLoc = 125;
+	};
+	DAF7A2CC132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		name = "CCTexture2DMutable.m: 102";
+		rLen = 0;
+		rLoc = 2829;
+		rType = 0;
+		vrLen = 1216;
+		vrLoc = 2763;
+	};
+	DAF7A2CD132914D400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 244";
+		rLen = 0;
+		rLoc = 8225;
+		rType = 0;
+		vrLen = 1865;
+		vrLoc = 6181;
+	};
+	DAF7A2D01329155400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 234";
+		rLen = 0;
+		rLoc = 7763;
+		rType = 0;
+		vrLen = 1879;
+		vrLoc = 6375;
+	};
+	DAF7A2D5132915A200DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 77";
+		rLen = 0;
+		rLoc = 2102;
+		rType = 0;
+		vrLen = 1352;
+		vrLoc = 636;
+	};
+	DAF7A2D8132915C300DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 93";
+		rLen = 0;
+		rLoc = 2698;
+		rType = 0;
+		vrLen = 1497;
+		vrLoc = 1797;
+	};
+	DAF7A2DF132916CC00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA18D1325E52800825545 /* CCTexture2DMutable.m */;
+		name = "CCTexture2DMutable.m: 120";
+		rLen = 0;
+		rLoc = 3418;
+		rType = 0;
+		vrLen = 1260;
+		vrLoc = 4705;
+	};
+	DAF7A2E0132916CC00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
+		name = "FogLayer.h: 33";
+		rLen = 0;
+		rLoc = 1696;
+		rType = 0;
+		vrLen = 1729;
+		vrLoc = 0;
+	};
+	DAF7A2E1132916CC00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F099130180E9002253AF /* GameScene.m */;
+		name = "GameScene.m: 36";
+		rLen = 0;
+		rLoc = 870;
+		rType = 0;
+		vrLen = 1294;
+		vrLoc = 303;
+	};
+	DAF7A2E2132916CC00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 273";
+		rLen = 0;
+		rLoc = 8580;
+		rType = 0;
+		vrLen = 1852;
+		vrLoc = 7241;
+	};
+	DAF7A2E3132916CC00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 247";
+		rLen = 0;
+		rLoc = 7719;
+		rType = 0;
+		vrLen = 1883;
+		vrLoc = 7201;
+	};
+	DAF7A2EA1329175400DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 288";
+		rLen = 0;
+		rLoc = 9238;
+		rType = 0;
+		vrLen = 1811;
+		vrLoc = 8293;
+	};
+	DAF7A2ED1329176000DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 301";
+		rLen = 0;
+		rLoc = 9752;
+		rType = 0;
+		vrLen = 1814;
+		vrLoc = 8293;
+	};
+	DAF7A2F21329184700DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1F91325F19D00825545 /* FogLayer.h */;
+		name = "FogLayer.h: 21";
+		rLen = 0;
+		rLoc = 347;
+		rType = 0;
+		vrLen = 1766;
+		vrLoc = 0;
+	};
+	DAF7A2F31329184700DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 284";
+		rLen = 0;
+		rLoc = 9207;
+		rType = 0;
+		vrLen = 1891;
+		vrLoc = 7023;
+	};
+	DAF7A2F41329184700DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 258";
+		rLen = 0;
+		rLoc = 8046;
+		rType = 0;
+		vrLen = 1686;
+		vrLoc = 6925;
+	};
+	DAF7A2F71329189C00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 245";
+		rLen = 0;
+		rLoc = 7563;
+		rType = 0;
+		vrLen = 1688;
+		vrLoc = 6925;
+	};
+	DAF7A2FA132918BE00DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 265";
+		rLen = 0;
+		rLoc = 8296;
+		rType = 0;
+		vrLen = 1851;
+		vrLoc = 7558;
+	};
+	DAF7A2FD132918D100DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 274";
+		rLen = 0;
+		rLoc = 8553;
+		rType = 0;
+		vrLen = 1764;
+		vrLoc = 7558;
+	};
+	DAF7A300132918E300DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 276";
+		rLen = 0;
+		rLoc = 8556;
+		rType = 0;
+		vrLen = 1771;
+		vrLoc = 7558;
+	};
+	DAF7A3051329198200DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 268";
+		rLen = 0;
+		rLoc = 8307;
+		rType = 0;
+		vrLen = 1766;
+		vrLoc = 7133;
+	};
+	DAF7A308132919D800DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 88";
+		rLen = 0;
+		rLoc = 2549;
+		rType = 0;
+		vrLen = 1705;
+		vrLoc = 1972;
+	};
+	DAF7A30B132919F700DAAD0C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 101";
+		rLen = 0;
+		rLoc = 3029;
+		rType = 0;
+		vrLen = 1709;
+		vrLoc = 1972;
 	};
 	E02BB765126CC223006E46A2 /* CCAction.h */ = {
 		uiCtxt = {
@@ -7598,7 +8123,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1244, 3486}}";
 			sepNavSelRange = "{2375, 0}";
-			sepNavVisRange = "{2801, 319}";
+			sepNavVisRange = "{2801, 299}";
 		};
 	};
 	E02BB7DE126CC224006E46A2 /* cocos2d.m */ = {
