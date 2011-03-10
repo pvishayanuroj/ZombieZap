@@ -183,7 +183,8 @@
 - (NSUInteger) hash
 {
 	// Not the best hash function, but it will do
-	NSUInteger hashNum = x + y;
+	//NSUInteger hashNum = x + y;
+	NSUInteger hashNum = 1024*x + y;
 	return hashNum;	
 }
 

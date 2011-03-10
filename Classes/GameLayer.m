@@ -17,6 +17,7 @@
 
 #import "CCTexture2DMutable.h"
 #import "AWTextureFilter.h"
+#import "FogLayer.h"
 
 @implementation GameLayer
 
@@ -158,8 +159,8 @@
 	
 	// Move the map
 	self.position = newPosition;
-	//FogLayer *fogLayer = (FogLayer *)[self.parent getChildByTag:5];
-	//fogLayer.position = newPosition;
+	FogLayer *fogLayer = (FogLayer *)[self.parent getChildByTag:5];
+	fogLayer.position = newPosition;
 }
 
 - (void) debugGridInfo:(Pair *)p count:(NSInteger)count

@@ -29,9 +29,12 @@
 		BuildLayer *buildLayer = [BuildLayer node];
 		[self addChild:buildLayer z:2];
 		
-		//FogLayer *fogLayer = [FogLayer node];
-		//[self addChild:fogLayer z:1 tag:5];
-		//[fogLayer drawCircle];
+		FogLayer *fogLayer = [FogLayer node];
+		[self addChild:fogLayer z:1 tag:5];
+		//[fogLayer drawSpotlight:CGPointMake(200, 800) radius:120];		
+		[fogLayer drawSpotlight:CGPointMake(400, 800) radius:120];
+		//[fogLayer drawSpotlight:CGPointMake(150, 800) radius:120];
+		
 		
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:0];

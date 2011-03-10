@@ -6,8 +6,6 @@
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 /**
  A useful pair class to hold integers
  */
@@ -24,8 +22,8 @@
 	NSInteger y;
 }
 
-@property (nonatomic) NSInteger x;
-@property (nonatomic) NSInteger y;
+@property (nonatomic, assign) NSInteger x;
+@property (nonatomic, assign) NSInteger y;
 
 /**
  Pair class convenience constructor. Returns a pair initialized to (0, 0)
