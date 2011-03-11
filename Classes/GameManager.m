@@ -8,6 +8,7 @@
 
 #import "GameManager.h"
 #import "GameLayer.h"
+#import "FogLayer.h"
 #import "Zombie.h"
 #import "Turret.h"
 
@@ -55,6 +56,12 @@ static GameManager *_gameManager = nil;
 	[gameLayer_ retain];
 }
 
+- (void) registerFogLayer:(FogLayer *)fogLayer
+{
+	fogLayer_ = fogLayer;
+	[fogLayer_ retain];
+}
+
 - (void) addZombie:(Zombie *)zombie
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Zombie without a registered Game Layer");
@@ -67,9 +74,13 @@ static GameManager *_gameManager = nil;
 - (void) addTurret:(Turret *)turret
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
+	NSAssert(fogLayer_ != nil, @"Trying to add a Turret without a registered Fog Layer");
 	
 	// Add to the array that keeps track of all zombies, and add to the game layer
 	[gameLayer_ addChild:turret];
+	// Draw the spotlight
+	CGPoint inverseY = CGPointMake(turret.position.x, 1023 - turret.position.y);
+	[fogLayer_ drawSpotlight:inverseY radius:100];
 }
 
 - (void) addZombieWithPos:(Pair *)pos
@@ -93,6 +104,7 @@ static GameManager *_gameManager = nil;
 {
 	[zombies_ release];
 	[gameLayer_ release];
+	[fogLayer_ release];
 	
 	[super dealloc];
 }

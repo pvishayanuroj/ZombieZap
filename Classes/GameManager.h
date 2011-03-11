@@ -12,10 +12,13 @@
 @class Turret;
 @class Pair;
 @class GameLayer;
+@class FogLayer;
 
 @interface GameManager : NSObject {
 
-	CCLayer *gameLayer_;
+	GameLayer *gameLayer_;
+	
+	FogLayer *fogLayer_;
 	
 	NSMutableSet *zombies_;
 	
@@ -29,6 +32,8 @@
 + (void) purgeGameManager;
 
 - (void) registerGameLayer:(GameLayer *)gameLayer;
+
+- (void) registerFogLayer:(FogLayer *)fogLayer;
 
 - (void) addZombie:(Zombie *)zombie;
 

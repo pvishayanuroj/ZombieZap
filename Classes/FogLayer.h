@@ -15,22 +15,24 @@
 	CCSprite *fog_;
 	
 	CCMutableTexture2D *mutableFog_;
-	
-	CCMutableTexture2D *blackFrame_;
-	
+		
 	CCMutableTexture2D *tempTexture_;
+	
+	GLubyte fogAlpha_;
+	
+	NSMutableArray *changedAlphas_;
 	
 }
 
 - (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture;
+- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture;
 - (void) drawFilledCircleAt:(CGPoint)origin radius:(NSUInteger)radius texture:(CCMutableTexture2D *)texture;
 - (void) drawBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
 - (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture;
+- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture;
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y color:(ccColor4B)color texture:(CCMutableTexture2D *)texture;
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture;
-- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT texture:(CCMutableTexture2D *)texture;
+- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture;
+- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(GLubyte)innerT outerT:(GLubyte)outerT texture:(CCMutableTexture2D *)texture;
 - (void) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius;
 - (void) updateFog;
 

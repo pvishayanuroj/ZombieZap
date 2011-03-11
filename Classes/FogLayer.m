@@ -9,6 +9,7 @@
 #import "FogLayer.h"
 #import "CCTexture2DMutable.h"
 #import "Pair.h"
+#import "GameManager.h"
 
 @implementation FogLayer
 
@@ -16,15 +17,26 @@
 {
 	if ((self = [super init])) {
 				
-		fog_ = [[CCSprite spriteWithFile:@"black_frame.png"] retain];
+		[[GameManager gameManager] registerFogLayer:self];
+		
+		fog_ = [[CCSprite spriteWithFile:@"black_frame_trans.png"] retain];
 		fog_.anchorPoint = ccp(0, 0);			
 		[self addChild:fog_];		
 		
-		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
-		blackFrame_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
+		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];
 		tempTexture_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
+		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
+		changedAlphas_ = [[NSMutableArray arrayWithCapacity:1000] retain];
+		NSLog(@"fog alpha: %d", fogAlpha_);
+		
+		//[self schedule:@selector(update:) interval:120.0/60.0];					
 	}
 	return self;
+}
+
+- (void) update:(ccTime)dt
+{
+	[self off];
 }
 
 - (CGFloat) calculateResolution:(NSUInteger)radius
@@ -48,7 +60,7 @@
 	}		
 }
 
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture
+- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
 {
 	NSInteger x, y;
 	CGFloat resolution = [self calculateResolution:radius];
@@ -79,7 +91,7 @@
 	NSLog(@"Filled circle done in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
 }
 
-- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(NSUInteger)innerT outerT:(NSUInteger)outerT texture:(CCMutableTexture2D *)texture
+- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(GLubyte)innerT outerT:(GLubyte)outerT texture:(CCMutableTexture2D *)texture
 {
 	//NSDate *ref = [NSDate date];	
 	ccColor4B c = ccc4(0,0,0,0);
@@ -88,8 +100,8 @@
 	int count = 0;
 	
 	for (int i = innerR; i < outerR; i++) {
-		
 		c.a = innerT + (int)(opacityRange*(count++/radiusRange));
+		//NSLog(@"Circle @r=%d, A=%d", i, c.a);		
 		[self drawCircleAt:origin radius:i alpha:c.a texture:texture];
 	}
 	
@@ -174,7 +186,7 @@
 	//NSLog(@"Drew filled Bresenham circle in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
 }
 
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture
+- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
 {	
 	//NSDate *ref = [NSDate date];	
 	int x0 = origin.x;
@@ -230,13 +242,14 @@
 	}
 	//NSLog(@"Setting blank takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
 	
-	int gradientWidth = 40;
+	int gradientWidth = (int)radius*0.33f;
 	unsigned char a1, a2;
 	
 	// Draw the main circle with no gradient
 	[self drawFilledBresenhamCircleAt:origin radius:radius-gradientWidth alpha:0 texture:tempTexture_];
 	
 	// Draw the outer gradient ring
+	//[self drawOpacityGradientAt:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:fogAlpha_ texture:tempTexture_];
 	[self drawOpacityGradientAt:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:255 texture:tempTexture_];
 	
 	//ref = [NSDate date];	
@@ -246,6 +259,7 @@
 			a2 = [tempTexture_ alphaAt:ccp(i,j)];
 			a1 = 255 * (a1/255.0f) * (a2/255.0f);
 			[mutableFog_ setAlphaAt:ccp(i,j) a:a1];			
+			[changedAlphas_ addObject:[Pair pair:i second:j]];
 		}
 	}
 	//NSLog(@"Alpha multiplying takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
@@ -263,11 +277,20 @@
 	}
 }
 
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(unsigned char)alpha texture:(CCMutableTexture2D *)texture
+- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
 {
 	for (int i = x1; i <= x2; i++) {
 		[texture setAlphaAt:ccp(i,y) a:alpha];
 	}
+}
+
+- (void) off
+{
+	for (Pair *p in changedAlphas_) {
+		[mutableFog_ setAlphaAt:ccp(p.x, p.y) a:fogAlpha_];
+	}
+	
+	[self updateFog];
 }
 
 - (void) updateFog
@@ -284,8 +307,8 @@
 {
 	[fog_ release];
 	[mutableFog_ release];
-	[blackFrame_ release];
 	[tempTexture_ release];
+	[changedAlphas_ release];
 	
 	[super dealloc];
 }
