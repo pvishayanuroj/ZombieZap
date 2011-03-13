@@ -8,8 +8,11 @@
 
 #import "FogLayer.h"
 #import "CCTexture2DMutable.h"
+#import "MutableTextureExtension.h"
 #import "Pair.h"
+#import "Triplet.h"
 #import "GameManager.h"
+#import "Spotlight.h"
 
 @implementation FogLayer
 
@@ -24,264 +27,101 @@
 		[self addChild:fog_];		
 		
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];
-		tempTexture_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
+		tempTexture_ = [[[MutableTextureExtension alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
 		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
 		changedAlphas_ = [[NSMutableArray arrayWithCapacity:1000] retain];
-		NSLog(@"fog alpha: %d", fogAlpha_);
-		
-		//[self schedule:@selector(update:) interval:120.0/60.0];					
+		NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);
 	}
 	return self;
 }
 
-- (void) update:(ccTime)dt
+- (Spotlight *) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius
 {
-	[self off];
-}
-
-- (CGFloat) calculateResolution:(NSUInteger)radius
-{
-	// There's probably some formula for this, but I have no idea, so will just do some testing.
-	// Acceptable resolution for the follow radii are:
-	// R = 20, res = 0.01f
-	// R = 60, res = 0.005f
-	return 0.001f;
-}
-
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
-{
-	NSInteger x, y;
-	CGFloat resolution = [self calculateResolution:radius];
-		
-	for (double t = 0; t < 2*M_PI; t += resolution) {
-		x = origin.x + radius*cos(t);
-		y = origin.y + radius*sin(t);
-		[texture setPixelAt:ccp(x,y) rgba:color];
-	}		
-}
-
-- (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
-{
-	NSInteger x, y;
-	CGFloat resolution = [self calculateResolution:radius];
-	
-	for (double t = 0; t < 2*M_PI; t += resolution) {
-		x = origin.x + radius*cos(t);
-		y = origin.y + radius*sin(t);
-		[texture setAlphaAt:ccp(x,y) a:alpha];
-	}		
-}
-
-- (void) drawFilledCircleAt:(CGPoint)origin radius:(NSUInteger)r texture:(CCMutableTexture2D *)texture
-{
-	ccColor4B c = ccc4(0,0,0,0);
-	
-	NSDate *ref = [NSDate date];
-	
-	for (int i = 0; i < r; i++) {
-		
-		int t = 255 - 20*(r-i);
-		if (t > 0) {
-			c.a = t;
-		}
-		
-		[self drawCircleAt:origin radius:i color:c texture:texture];
-	}
-	
-	NSLog(@"Filled circle done in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
-}
-
-- (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(GLubyte)innerT outerT:(GLubyte)outerT texture:(CCMutableTexture2D *)texture
-{
-	//NSDate *ref = [NSDate date];	
-	ccColor4B c = ccc4(0,0,0,0);
-	CGFloat radiusRange = outerR - innerR;
-	CGFloat opacityRange = outerT - innerT;
-	int count = 0;
-	
-	for (int i = innerR; i < outerR; i++) {
-		c.a = innerT + (int)(opacityRange*(count++/radiusRange));
-		//NSLog(@"Circle @r=%d, A=%d", i, c.a);		
-		[self drawCircleAt:origin radius:i alpha:c.a texture:texture];
-	}
-	
-	//NSLog(@"Calculated opacity gradient in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
-}
-
-- (void) drawBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
-{
-	int x0 = origin.x;
-	int y0 = origin.y;
-	int f = 1 - radius;
-	int ddF_x = 1;
-	int ddF_y = -2 * radius;
-	int x = 0;
-	int y = radius;
-	
-	[texture setPixelAt:ccp(x0, y0 + radius) rgba:color];	
-	[texture setPixelAt:ccp(x0, y0 - radius) rgba:color];	
-	[texture setPixelAt:ccp(x0 + radius, y0) rgba:color];	
-	[texture setPixelAt:ccp(x0 - radius, y0) rgba:color];	
-
-	while(x < y)
-	{
-		// ddF_x == 2 * x + 1;
-		// ddF_y == -2 * y;
-		// f == x*x + y*y - radius*radius + 2*x - y + 1;
-		if(f >= 0) 
-		{
-			y--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
-		x++;
-		ddF_x += 2;
-		f += ddF_x;    
-		[texture setPixelAt:ccp(x0 + x, y0 + y) rgba:color];
-		[texture setPixelAt:ccp(x0 - x, y0 + y) rgba:color];			
-		[texture setPixelAt:ccp(x0 + x, y0 - y) rgba:color];			
-		[texture setPixelAt:ccp(x0 - x, y0 - y) rgba:color];			
-		[texture setPixelAt:ccp(x0 + y, y0 + x) rgba:color];			
-		[texture setPixelAt:ccp(x0 - y, y0 + x) rgba:color];			
-		[texture setPixelAt:ccp(x0 + y, y0 - x) rgba:color];			
-		[texture setPixelAt:ccp(x0 - y, y0 - x) rgba:color];			
-	}
-}
-
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
-{	
-	//NSDate *ref = [NSDate date];	
-	int x0 = origin.x;
-	int y0 = origin.y;
-	int f = 1 - radius;
-	int ddF_x = 1;
-	int ddF_y = -2 * radius;
-	int x = 0;
-	int y = radius;
-	
-	[texture setPixelAt:ccp(x0, y0 + radius) rgba:color];	
-	[texture setPixelAt:ccp(x0, y0 - radius) rgba:color];		
-	[self drawHorizontalLine:(x0 - radius) x2:(x0 + radius) y:y0 color:color texture:texture];
-	
-	while(x < y)
-	{
-		// ddF_x == 2 * x + 1;
-		// ddF_y == -2 * y;
-		// f == x*x + y*y - radius*radius + 2*x - y + 1;
-		if(f >= 0) 
-		{
-			y--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
-		x++;
-		ddF_x += 2;
-		f += ddF_x;    
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 + y) color:color texture:texture];
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 - y) color:color texture:texture];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 + x) color:color texture:texture];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 - x) color:color texture:texture];		
-	}
-	
-	//NSLog(@"Drew filled Bresenham circle in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
-}
-
-- (void) drawFilledBresenhamCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
-{	
-	//NSDate *ref = [NSDate date];	
-	int x0 = origin.x;
-	int y0 = origin.y;
-	int f = 1 - radius;
-	int ddF_x = 1;
-	int ddF_y = -2 * radius;
-	int x = 0;
-	int y = radius;
-	
-	[texture setAlphaAt:ccp(x0, y0 + radius) a:alpha];	
-	[texture setAlphaAt:ccp(x0, y0 - radius) a:alpha];		
-	[self drawHorizontalLine:(x0 - radius) x2:(x0 + radius) y:y0 alpha:alpha texture:texture];
-	
-	while(x < y)
-	{
-		// ddF_x == 2 * x + 1;
-		// ddF_y == -2 * y;
-		// f == x*x + y*y - radius*radius + 2*x - y + 1;
-		if(f >= 0) 
-		{
-			y--;
-			ddF_y += 2;
-			f += ddF_y;
-		}
-		x++;
-		ddF_x += 2;
-		f += ddF_x;    
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 + y) alpha:alpha texture:texture];
-		[self drawHorizontalLine:(x0 - x) x2:(x0 + x) y:(y0 - y) alpha:alpha texture:texture];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 + x) alpha:alpha texture:texture];
-		[self drawHorizontalLine:(x0 - y) x2:(x0 + y) y:(y0 - x) alpha:alpha texture:texture];		
-	}
-	
-	//NSLog(@"Drew filled Bresenham circle in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
-}
-
-- (void) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius
-{
-	NSDate *ref2 = [NSDate date];	
+	NSDate *ref = [NSDate date];	
+	unsigned char a1, a2, a3;	
 	
 	// Precalculate the box of what pixels will be changed - this greatly speeds up spotlight creation
 	NSUInteger xStart = origin.x - radius;
 	NSUInteger xEnd = origin.x + radius;
 	NSUInteger yStart = origin.y - radius;
 	NSUInteger yEnd = origin.y + radius;
-	
-	//NSDate *ref = [NSDate date];	
+
 	for (int i = xStart; i <= xEnd; i++) {
 		for (int j = yStart; j <= yEnd; j++) {
 			[tempTexture_ setAlphaAt:ccp(i,j) a:255];			
 		}
 	}
-	//NSLog(@"Setting blank takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
 	
-	int gradientWidth = (int)radius*0.33f;
-	unsigned char a1, a2;
-	
-	// Draw the main circle with no gradient
-	[self drawFilledBresenhamCircleAt:origin radius:radius-gradientWidth alpha:0 texture:tempTexture_];
-	
-	// Draw the outer gradient ring
-	//[self drawOpacityGradientAt:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:fogAlpha_ texture:tempTexture_];
-	[self drawOpacityGradientAt:origin innerR:radius-gradientWidth outerR:radius innerT:0 outerT:255 texture:tempTexture_];
-	
-	//ref = [NSDate date];	
+	Spotlight *spotlight = [Spotlight spotlight:origin radius:radius texture:tempTexture_];
+
+	//NSDate *ref2 = [NSDate date];	
 	for (int i = xStart; i <= xEnd; i++) {
 		for (int j = yStart; j <= yEnd; j++) {
-			a1 = [mutableFog_ alphaAt:ccp(i,j)];
 			a2 = [tempTexture_ alphaAt:ccp(i,j)];
-			a1 = 255 * (a1/255.0f) * (a2/255.0f);
-			[mutableFog_ setAlphaAt:ccp(i,j) a:a1];			
-			[changedAlphas_ addObject:[Pair pair:i second:j]];
+			if (a2 != 255) {
+				a1 = [mutableFog_ alphaAt:ccp(i,j)];
+				a3 = 255 * (a1/255.0f) * (a2/255.0f);
+				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];			
+				[changedAlphas_ addObject:[Pair pair:i second:j]];		
+				[spotlight addPixel:ccp(i,j) alpha:a2];
+			}
 		}
 	}
-	//NSLog(@"Alpha multiplying takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
+	//NSLog(@"Alpha multiplying takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref2]);		
 	[self updateFog];
 	
 	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref2];
-	NSLog(@"Spotlight drawn in: %4.9f seconds", t1);			
+	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
+	NSLog(@"Spotlight drawn in: %4.9f seconds", t1);
+	
+	return spotlight;
 }
 
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y color:(ccColor4B)color texture:(CCMutableTexture2D *)texture
+- (void) removeSpotlight:(Spotlight *)spotlight
 {
-	for (int i = x1; i <= x2; i++) {
-		[texture setPixelAt:ccp(i,y) rgba:color];
+	NSDate *ref = [NSDate date];	
+	
+	NSMutableArray *affectedLights = [NSMutableArray arrayWithCapacity:5];
+	CGFloat limitDist;
+	
+	// Figure out which spotlight's areas may be affected by the removal of this spotlight	
+	for (Spotlight *s in [[GameManager gameManager] spotlights]) {
+		limitDist = s.radius + spotlight.radius;
+		if (ccpDistance(s.position, spotlight.position) <= limitDist) {
+			[affectedLights	addObject:s];
+		}
 	}
-}
 
-- (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(GLubyte)alpha texture:(CCMutableTexture2D *)texture
-{
-	for (int i = x1; i <= x2; i++) {
-		[texture setAlphaAt:ccp(i,y) a:alpha];
+	// Calculate the box to zero out
+	NSUInteger xStart = spotlight.position.x - spotlight.radius;
+	NSUInteger xEnd = spotlight.position.x + spotlight.radius;
+	NSUInteger yStart = spotlight.position.y - spotlight.radius;
+	NSUInteger yEnd = spotlight.position.y + spotlight.radius;
+	
+	for (int i = xStart; i <= xEnd; i++) {
+		for (int j = yStart; j <= yEnd; j++) {
+			[mutableFog_ setAlphaAt:ccp(i,j) a:fogAlpha_];			
+		}
 	}
+	
+	GLubyte a1, a2;
+	// Redraw those spotlights
+	for (Spotlight *s in affectedLights) {
+		// Go through each spotlight's list of affected pixels, since we have those already
+		for (Triplet *t in s.pixels) {
+			// Make sure we're inside the original box of the removed spotlight
+			if (t.x >= xStart && t.x <= xEnd && t.y >= yStart && t.x <= yEnd) {
+				a1 = [mutableFog_ alphaAt:ccp(t.x, t.y)];
+				a2 = 255 * (a1/255.0f) * (t.z/255.0f);			
+				[mutableFog_ setAlphaAt:ccp(t.x, t.y) a:a2];
+			}
+		}
+	}
+	
+	[self updateFog];
+	
+	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
+	NSLog(@"Spotlight removed in: %4.9f seconds", t1);			
 }
 
 - (void) off
@@ -293,6 +133,16 @@
 	[self updateFog];
 }
 
+- (CGRect) getSpotlightBox:(CGPoint)pos radius:(CGFloat)radius
+{
+	NSUInteger xStart = pos.x - radius;
+	NSUInteger xEnd = pos.x + radius;
+	NSUInteger yStart = pos.y - radius;
+	NSUInteger yEnd = pos.y + radius;
+	
+	return CGRectMake(xStart, yStart, xEnd, yEnd);
+}
+	 
 - (void) updateFog
 {
 	[mutableFog_ apply];

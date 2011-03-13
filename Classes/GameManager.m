@@ -11,6 +11,8 @@
 #import "FogLayer.h"
 #import "Zombie.h"
 #import "Turret.h"
+#import "Light.h"
+#import "Spotlight.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -19,6 +21,7 @@ static GameManager *_gameManager = nil;
 
 @synthesize gameLayer = gameLayer_;
 @synthesize zombies = zombies_;
+@synthesize spotlights = spotlights_;
 
 + (GameManager *) gameManager
 {
@@ -46,6 +49,7 @@ static GameManager *_gameManager = nil;
 	{
 		gameLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
+		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
 	}
 	return self;
 }
@@ -74,13 +78,30 @@ static GameManager *_gameManager = nil;
 - (void) addTurret:(Turret *)turret
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
-	NSAssert(fogLayer_ != nil, @"Trying to add a Turret without a registered Fog Layer");
 	
-	// Add to the array that keeps track of all zombies, and add to the game layer
 	[gameLayer_ addChild:turret];
-	// Draw the spotlight
-	CGPoint inverseY = CGPointMake(turret.position.x, 1023 - turret.position.y);
-	[fogLayer_ drawSpotlight:inverseY radius:100];
+}
+
+- (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
+{
+	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
+	
+	Light *light = [Light lightWithPos:pos];
+	[gameLayer_ addChild:light];
+	
+	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
+	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
+	[spotlights_ addObject:spotlight];
+	
+	return spotlight;
+}
+
+- (void) removeSpotlight:(Spotlight *)spotlight
+{
+	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
+	[spotlights_ removeObject:spotlight];
+	[fogLayer_ removeSpotlight:spotlight];
+
 }
 
 - (void) addZombieWithPos:(Pair *)pos
@@ -103,6 +124,7 @@ static GameManager *_gameManager = nil;
 - (void) dealloc
 {
 	[zombies_ release];
+	[spotlights_ release];
 	[gameLayer_ release];
 	[fogLayer_ release];
 	

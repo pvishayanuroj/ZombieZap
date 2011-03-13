@@ -7,18 +7,26 @@
 //
 
 #import "cocos2d.h"
+#import "enums.h"
 
+@class Pair;
 
 @interface PButton : CCNode <CCTargetedTouchDelegate> {
 
-	CCSprite *sprite;
+	CCSprite *sprite_;
 	
-	CCSprite *placementSprite;
+	CCSprite *placementSprite_;
+	
+	BOOL placementAdded_;
+	
+	BuildButtonType buttonType_;
 	
 }
 
-+ (id) pButton;
++ (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType;
 
-- (id) initPButton;
+- (id) initPButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType;
+
+- (void) buildAction:(Pair *)location;
 
 @end

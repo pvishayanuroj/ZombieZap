@@ -7,10 +7,18 @@
 //
 
 #import "cocos2d.h"
+#import "Enums.h"
+
+@class Spotlight;
+@class BuildLayer;
 
 @interface GameScene : CCScene {
 
+	Spotlight *s1, *s2, *s3;
+	
 }
+
+- (void) addButtons:(BuildLayer *)buildLayer;
 
 - (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName;
 

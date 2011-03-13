@@ -29,3 +29,9 @@ typedef enum {
 	ON_OPEN_ADJUST = 2,
 	ON_NONE = 3
 } ASNodeGroup;
+
+typedef enum {
+	B_WIRE = 0, 
+	B_LIGHT = 1,
+	B_TASER = 2
+} BuildButtonType;

@@ -13,6 +13,7 @@
 #import "FogLayer.h"
 #import "PButton.h"
 #import "BinaryHeap.h"
+#import "GameManager.h"
 
 @implementation GameScene
 
@@ -31,23 +32,20 @@
 		
 		FogLayer *fogLayer = [FogLayer node];
 		[self addChild:fogLayer z:1 tag:5];
-		[fogLayer drawSpotlight:CGPointMake(200, 700) radius:120];		
-		//[fogLayer drawSpotlight:CGPointMake(300, 800) radius:120];
+		//Spotlight *s1 = [fogLayer drawSpotlight:CGPointMake(200, 800) radius:120];		
+		//Spotlight *s2 = [fogLayer drawSpotlight:CGPointMake(300, 800) radius:120];
+		//[fogLayer removeSpotlight:s1];
 		//[fogLayer drawSpotlight:CGPointMake(150, 800) radius:120];
 		
 		
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:0];
 		
-		PButton *b1 = [PButton pButton];
-		PButton *b2 = [PButton pButton];
-		PButton *b3 = [PButton pButton];
-		PButton *b4 = [PButton pButton];		
-		[buildLayer addButton:b1];
-		[buildLayer addButton:b2];
-		[buildLayer addButton:b3];
-		[buildLayer addButton:b4];	
+		[self addButtons:buildLayer];
 		
+		//s1 = [[[GameManager gameManager] addLightWithPos:CGPointMake(200, 800) radius:120] retain];
+		//s2 = [[[GameManager gameManager] addLightWithPos:CGPointMake(300, 800) radius:120] retain];		
+		//s3 = [[[GameManager gameManager] addLightWithPos:CGPointMake(250, 700) radius:120] retain];		
 		
 		// DEBUG
 		/*
@@ -77,8 +75,26 @@
 		NSLog(@"b: %@", b);		
 		NSLog(@"removed: %d", [b removeFirst]);		
 		*/
+		
+		[self schedule:@selector(update:) interval:120.0f/60.0f];
 	}
 	return self;
+}
+
+- (void) update:(ccTime)dt
+{
+	//[[GameManager gameManager] removeSpotlight:s1];
+	//[[GameManager gameManager] removeSpotlight:s2];			
+}
+
+- (void) addButtons:(BuildLayer *)buildLayer
+{
+	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"taser_button.png" buttonType:B_TASER];
+	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"light_button.png" buttonType:B_LIGHT];
+	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"wire_button.png" buttonType:B_WIRE];	
+	[buildLayer addButton:taser];
+	[buildLayer addButton:light];
+	[buildLayer addButton:wire];	
 }
 
 - (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName

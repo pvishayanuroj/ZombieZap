@@ -19,7 +19,7 @@
 		
 		rows = 5;
 		columns = 3;
-		buttonSize = 30;
+		buttonSize = 32;
 		offset = CGPointMake(38, 180);
 			
 		buttons = [[NSMutableArray arrayWithCapacity:16] retain];

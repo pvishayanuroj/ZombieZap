@@ -13,6 +13,7 @@
 @class Pair;
 @class GameLayer;
 @class FogLayer;
+@class Spotlight;
 
 @interface GameManager : NSObject {
 
@@ -22,10 +23,13 @@
 	
 	NSMutableSet *zombies_;
 	
+	NSMutableSet *spotlights_;
+	
 }
 
 @property (nonatomic, readonly) CCLayer *gameLayer;
 @property (nonatomic, readonly) NSMutableSet *zombies;
+@property (nonatomic, readonly) NSMutableSet *spotlights;
 
 + (GameManager *) gameManager;
 
@@ -44,5 +48,9 @@
 - (void) addTurret:(Turret *)turret;
 
 - (void) addTurretWithPos:(Pair *)pos;
+
+- (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
+
+- (void) removeSpotlight:(Spotlight *)spotlight;
 
 @end

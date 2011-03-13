@@ -13,17 +13,22 @@
 
 @implementation PButton
 
-+ (id) pButton
++ (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType
 {
-	return [[[self alloc] initPButton] autorelease];		
+	return [[[self alloc] initPButton:buttonImage placementImage:placementImage buttonType:buttonType] autorelease];		
 }
 
-- (id) initPButton
+- (id) initPButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType
 {
 	if ((self = [super init])) {
+
+		buttonType_ = buttonType;
 		
-		sprite = [[CCSprite spriteWithFile:@"small_icon.png"] retain];
-		[self addChild:sprite];
+		placementSprite_ = [[CCSprite spriteWithFile:placementImage] retain];		
+		placementAdded_ = NO;
+		
+		sprite_ = [CCSprite spriteWithFile:buttonImage];
+		[self addChild:sprite_];		
 	}
 	return self;
 }
@@ -42,8 +47,8 @@
 
 - (BOOL) containsTouchLocation:(UITouch *)touch
 {
-	CGRect r = sprite.textureRect;	
-	r = CGRectMake(sprite.position.x - r.size.width / 2, sprite.position.y - r.size.height / 2, r.size.width, r.size.height);	
+	CGRect r = sprite_.textureRect;	
+	r = CGRectMake(sprite_.position.x - r.size.width / 2, sprite_.position.y - r.size.height / 2, r.size.width, r.size.height);	
 	
 	return CGRectContainsPoint(r, [self convertTouchToNodeSpaceAR:touch]);
 }
@@ -53,29 +58,26 @@
 	if (![self containsTouchLocation:touch])
 		return NO;
 	
-	NSLog(@"button touch began");
-	
 	return YES;
 }
 
 - (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	if (placementSprite == nil) {
-		placementSprite = [[CCSprite spriteWithFile:@"small_icon.png"] retain];
-		[self addChild:placementSprite];
+	if (!placementAdded_) {
+		[self addChild:placementSprite_];
+		placementAdded_ = YES;
 	}
 	
 	CGPoint point = [self convertTouchToNodeSpaceAR:touch];
 	//NSLog(@"gen Touch location @(%4f, %4f)", point.x, point.y);	
 	
-	placementSprite.position = point;
+	placementSprite_.position = point;
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {	
-	[self removeChild:placementSprite cleanup:YES];
-	[placementSprite release];
-	placementSprite = nil;
+	[self removeChild:placementSprite_ cleanup:YES];
+	placementAdded_ = NO;
 	
 	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
 	touchPoint = [self convertToWorldSpace:touchPoint];
@@ -86,13 +88,29 @@
 	CGPoint pos = CGPointMake(touchPoint.x - gameOffset.x, touchPoint.y - gameOffset.y);
 	
 	Pair *location = [[Grid grid] gridCoordinateAtMapCoordinate:pos];
-	//NSLog(@"Build @%@", location);
-	[[GameManager gameManager] addTurretWithPos:location];
+
+	[self buildAction:location];
+}
+
+- (void) buildAction:(Pair *)location
+{
+	switch (buttonType_) {
+		case B_WIRE:
+			break;
+		case B_LIGHT:
+			[[GameManager gameManager] addLightWithPos:location radius:120];
+			break;
+		case B_TASER:
+			[[GameManager gameManager] addTurretWithPos:location];			
+			break;
+		default:
+			break;
+	}
 }
 
 - (void) dealloc
-{
-	[sprite release];
+{	
+	[placementSprite_ release];
 	
 	[super dealloc];
 }

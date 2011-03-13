@@ -66,8 +66,16 @@
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
 		DA01DA8B130347AD00B0D88B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA8A130347AD00B0D88B /* Grid.m */; };
 		DA01DA98130348FE00B0D88B /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA97130348FE00B0D88B /* GameLayer.m */; };
+		DA1EF809132B044D0095CBF7 /* Spotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF808132B044D0095CBF7 /* Spotlight.m */; };
+		DA1EF80C132B04AA0095CBF7 /* Triplet.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF80B132B04AA0095CBF7 /* Triplet.m */; };
+		DA1EF829132B21850095CBF7 /* MutableTextureExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF828132B21850095CBF7 /* MutableTextureExtension.m */; };
 		DA251507131B5EE700AAE3A5 /* AStar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA251506131B5EE700AAE3A5 /* AStar.m */; };
 		DA2515C9131C038800AAE3A5 /* BinaryHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2515C8131C038800AAE3A5 /* BinaryHeap.m */; };
+		DA2FD6AB132BC3E50073B8B2 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2FD6AA132BC3E50073B8B2 /* Quad.m */; };
+		DA2FD862132C600C0073B8B2 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2FD861132C600C0073B8B2 /* Light.m */; };
+		DA2FD88B132C752B0073B8B2 /* light_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2FD888132C752B0073B8B2 /* light_button.png */; };
+		DA2FD88C132C752B0073B8B2 /* taser_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2FD889132C752B0073B8B2 /* taser_button.png */; };
+		DA2FD88D132C752B0073B8B2 /* wire_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2FD88A132C752B0073B8B2 /* wire_button.png */; };
 		DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA424AFE13228D08006EDFB8 /* GameManager.m */; };
 		DA5FA46A13097412005E2411 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA46913097412005E2411 /* Pair.m */; };
 		DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F097130180E9002253AF /* BuildLayer.m */; };
@@ -355,10 +363,23 @@
 		DA01DA8A130347AD00B0D88B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		DA01DA96130348FE00B0D88B /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		DA01DA97130348FE00B0D88B /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		DA1EF807132B044D0095CBF7 /* Spotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotlight.h; sourceTree = "<group>"; };
+		DA1EF808132B044D0095CBF7 /* Spotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spotlight.m; sourceTree = "<group>"; };
+		DA1EF80A132B04AA0095CBF7 /* Triplet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triplet.h; sourceTree = "<group>"; };
+		DA1EF80B132B04AA0095CBF7 /* Triplet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Triplet.m; sourceTree = "<group>"; };
+		DA1EF827132B21850095CBF7 /* MutableTextureExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableTextureExtension.h; sourceTree = "<group>"; };
+		DA1EF828132B21850095CBF7 /* MutableTextureExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableTextureExtension.m; sourceTree = "<group>"; };
 		DA251505131B5EE700AAE3A5 /* AStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStar.h; sourceTree = "<group>"; };
 		DA251506131B5EE700AAE3A5 /* AStar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStar.m; sourceTree = "<group>"; };
 		DA2515C7131C038800AAE3A5 /* BinaryHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryHeap.h; sourceTree = "<group>"; };
 		DA2515C8131C038800AAE3A5 /* BinaryHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinaryHeap.m; sourceTree = "<group>"; };
+		DA2FD6A9132BC3E50073B8B2 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
+		DA2FD6AA132BC3E50073B8B2 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
+		DA2FD860132C600C0073B8B2 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		DA2FD861132C600C0073B8B2 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
+		DA2FD888132C752B0073B8B2 /* light_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_button.png; sourceTree = "<group>"; };
+		DA2FD889132C752B0073B8B2 /* taser_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taser_button.png; sourceTree = "<group>"; };
+		DA2FD88A132C752B0073B8B2 /* wire_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wire_button.png; sourceTree = "<group>"; };
 		DA424AFD13228D08006EDFB8 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		DA424AFE13228D08006EDFB8 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		DA5FA46813097412005E2411 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
@@ -713,6 +734,8 @@
 				DA6E90321308D9A500C42417 /* Zombie.m */,
 				DA8F6DBD132048A50096CF18 /* Turret.h */,
 				DA8F6DBE132048A50096CF18 /* Turret.m */,
+				DA2FD860132C600C0073B8B2 /* Light.h */,
+				DA2FD861132C600C0073B8B2 /* Light.m */,
 				DA5FA46813097412005E2411 /* Pair.h */,
 				DA5FA46913097412005E2411 /* Pair.m */,
 				DA878D9B131C949B00FFE90B /* ASNode.h */,
@@ -729,6 +752,14 @@
 				DA79FA401324790E00DE91A4 /* SpawnManager.m */,
 				DA79FB2313247CE200DE91A4 /* Spawn.h */,
 				DA79FB2413247CE200DE91A4 /* Spawn.m */,
+				DA1EF807132B044D0095CBF7 /* Spotlight.h */,
+				DA1EF808132B044D0095CBF7 /* Spotlight.m */,
+				DA1EF80A132B04AA0095CBF7 /* Triplet.h */,
+				DA1EF80B132B04AA0095CBF7 /* Triplet.m */,
+				DA1EF827132B21850095CBF7 /* MutableTextureExtension.h */,
+				DA1EF828132B21850095CBF7 /* MutableTextureExtension.m */,
+				DA2FD6A9132BC3E50073B8B2 /* Quad.h */,
+				DA2FD6AA132BC3E50073B8B2 /* Quad.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -838,6 +869,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA2FD887132C752B0073B8B2 /* Buttons */,
 				DA8F072913266A5B003491BD /* black_frame_trans.png */,
 				DA7CA2171325F7E500825545 /* black_frame.png */,
 				DA79FCF4132523C100DE91A4 /* Icon-72.png */,
@@ -859,6 +891,16 @@
 				50F414EF1069373D002A0D5E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA2FD887132C752B0073B8B2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DA2FD888132C752B0073B8B2 /* light_button.png */,
+				DA2FD889132C752B0073B8B2 /* taser_button.png */,
+				DA2FD88A132C752B0073B8B2 /* wire_button.png */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		DA6CAAA4131ECB9F0094EB84 /* Map */ = {
@@ -1318,6 +1360,9 @@
 				DA7CA1201325CF9600825545 /* One_Spawn.plist in Resources */,
 				DA7CA2181325F7E500825545 /* black_frame.png in Resources */,
 				DA8F072A13266A5B003491BD /* black_frame_trans.png in Resources */,
+				DA2FD88B132C752B0073B8B2 /* light_button.png in Resources */,
+				DA2FD88C132C752B0073B8B2 /* taser_button.png in Resources */,
+				DA2FD88D132C752B0073B8B2 /* wire_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1352,6 +1397,11 @@
 				DA7CA18E1325E52800825545 /* AWTextureFilter.m in Sources */,
 				DA7CA18F1325E52800825545 /* CCTexture2DMutable.m in Sources */,
 				DA7CA1FB1325F19D00825545 /* FogLayer.m in Sources */,
+				DA1EF809132B044D0095CBF7 /* Spotlight.m in Sources */,
+				DA1EF80C132B04AA0095CBF7 /* Triplet.m in Sources */,
+				DA1EF829132B21850095CBF7 /* MutableTextureExtension.m in Sources */,
+				DA2FD6AB132BC3E50073B8B2 /* Quad.m in Sources */,
+				DA2FD862132C600C0073B8B2 /* Light.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
