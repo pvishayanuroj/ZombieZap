@@ -98,7 +98,7 @@
 		case B_WIRE:
 			break;
 		case B_LIGHT:
-			[[GameManager gameManager] addLightWithPos:location radius:120];
+			[[GameManager gameManager] addLightWithPos:location radius:100];
 			break;
 		case B_TASER:
 			[[GameManager gameManager] addTurretWithPos:location];			

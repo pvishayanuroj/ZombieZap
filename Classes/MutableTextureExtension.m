@@ -17,7 +17,13 @@
 	// Acceptable resolution for the follow radii are:
 	// R = 20, res = 0.01f
 	// R = 60, res = 0.005f
-	return 0.001f;
+	// R = 120, res = 0.001f;
+	CGFloat interval = 0.001f;
+	CGFloat start = 0.001f;
+	NSInteger maxRadius = 120;
+	
+	NSInteger multiplier = (maxRadius - radius) / 10;
+	return start + multiplier*interval;
 }
 
 - (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color
@@ -36,6 +42,7 @@
 {
 	NSInteger x, y;
 	CGFloat resolution = [self calculateResolution:radius];
+	//NSLog(@"resolution = %1.4f @ R = %d", resolution, radius);
 	
 	for (double t = 0; t < 2*M_PI; t += resolution) {
 		x = origin.x + radius*cos(t);

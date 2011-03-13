@@ -29,8 +29,12 @@
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];
 		tempTexture_ = [[[MutableTextureExtension alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
 		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
-		changedAlphas_ = [[NSMutableArray arrayWithCapacity:1000] retain];
 		NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);
+		
+		for (int i = 0; i < 1024; i++) {
+			for (int j = 0; j < 1024; j++)
+			changedAlphas_[i][j] = fogAlpha_;
+		}
 	}
 	return self;
 }
@@ -61,8 +65,8 @@
 			if (a2 != 255) {
 				a1 = [mutableFog_ alphaAt:ccp(i,j)];
 				a3 = 255 * (a1/255.0f) * (a2/255.0f);
-				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];			
-				[changedAlphas_ addObject:[Pair pair:i second:j]];		
+				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];					
+				changedAlphas_[i][j] = a2;
 				[spotlight addPixel:ccp(i,j) alpha:a2];
 			}
 		}
@@ -107,13 +111,22 @@
 	GLubyte a1, a2;
 	// Redraw those spotlights
 	for (Spotlight *s in affectedLights) {
-		// Go through each spotlight's list of affected pixels, since we have those already
-		for (Triplet *t in s.pixels) {
-			// Make sure we're inside the original box of the removed spotlight
-			if (t.x >= xStart && t.x <= xEnd && t.y >= yStart && t.x <= yEnd) {
-				a1 = [mutableFog_ alphaAt:ccp(t.x, t.y)];
-				a2 = 255 * (a1/255.0f) * (t.z/255.0f);			
-				[mutableFog_ setAlphaAt:ccp(t.x, t.y) a:a2];
+
+		int count = 0;
+		int xOffset = s.pixelsOffset.x;
+		int xE = xOffset + s.pixelsYSize;
+		int yOffset = s.pixelsOffset.y;		
+		int yE = yOffset + s.pixelsYSize;
+		
+		// Go through each spotlight's list of affected pixels, since we have those already		
+		for (int x = xOffset; x < xE; x++) {
+			for (int y = yOffset; y < yE; y++) {
+				if (x >= xStart && x <= xEnd && y >= yStart && y <= yEnd && s.pixels[count] != 255) {
+					a1 = [mutableFog_ alphaAt:ccp(x, y)];
+					a2 = 255 * (a1/255.0f) * (s.pixels[count]/255.0f);			
+					[mutableFog_ setAlphaAt:ccp(x, y) a:a2];					
+				}
+				count++;
 			}
 		}
 	}
@@ -126,9 +139,11 @@
 
 - (void) off
 {
+	/*
 	for (Pair *p in changedAlphas_) {
 		[mutableFog_ setAlphaAt:ccp(p.x, p.y) a:fogAlpha_];
 	}
+	 */
 	
 	[self updateFog];
 }
@@ -158,7 +173,6 @@
 	[fog_ release];
 	[mutableFog_ release];
 	[tempTexture_ release];
-	[changedAlphas_ release];
 	
 	[super dealloc];
 }

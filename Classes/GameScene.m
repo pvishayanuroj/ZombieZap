@@ -14,6 +14,7 @@
 #import "PButton.h"
 #import "BinaryHeap.h"
 #import "GameManager.h"
+#import "Pair.h"
 
 @implementation GameScene
 
@@ -32,20 +33,18 @@
 		
 		FogLayer *fogLayer = [FogLayer node];
 		[self addChild:fogLayer z:1 tag:5];
-		//Spotlight *s1 = [fogLayer drawSpotlight:CGPointMake(200, 800) radius:120];		
-		//Spotlight *s2 = [fogLayer drawSpotlight:CGPointMake(300, 800) radius:120];
-		//[fogLayer removeSpotlight:s1];
-		//[fogLayer drawSpotlight:CGPointMake(150, 800) radius:120];
-		
-		
+
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:0];
 		
 		[self addButtons:buildLayer];
 		
-		//s1 = [[[GameManager gameManager] addLightWithPos:CGPointMake(200, 800) radius:120] retain];
-		//s2 = [[[GameManager gameManager] addLightWithPos:CGPointMake(300, 800) radius:120] retain];		
-		//s3 = [[[GameManager gameManager] addLightWithPos:CGPointMake(250, 700) radius:120] retain];		
+		/*
+		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:10 second:5] radius:120] retain];
+		s2 = [[[GameManager gameManager] addLightWithPos:[Pair pair:7 second:5] radius:120] retain];		
+		s3 = [[[GameManager gameManager] addLightWithPos:[Pair pair:8 second:8] radius:120] retain];		
+		[self schedule:@selector(update:) interval:120.0f/60.0f];		
+		*/
 		
 		// DEBUG
 		/*
@@ -75,15 +74,13 @@
 		NSLog(@"b: %@", b);		
 		NSLog(@"removed: %d", [b removeFirst]);		
 		*/
-		
-		[self schedule:@selector(update:) interval:120.0f/60.0f];
 	}
 	return self;
 }
 
 - (void) update:(ccTime)dt
 {
-	//[[GameManager gameManager] removeSpotlight:s1];
+	[[GameManager gameManager] removeSpotlight:s1];
 	//[[GameManager gameManager] removeSpotlight:s2];			
 }
 

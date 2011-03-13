@@ -32,7 +32,7 @@ typedef struct ZZBox ZZBox;
 	
 	GLubyte fogAlpha_;
 	
-	NSMutableArray *changedAlphas_;
+	unsigned char changedAlphas_[1024][1024];
 }
 
 - (Spotlight *) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius;

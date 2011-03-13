@@ -13,8 +13,6 @@
 	
 }
 
-//- (id) initWithImage:(UIImage *)image
-
 - (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius color:(ccColor4B)color;
 - (void) drawCircleAt:(CGPoint)origin radius:(NSUInteger)radius alpha:(GLubyte)alpha;
 - (void) drawFilledCircleAt:(CGPoint)origin radius:(NSUInteger)radius;

@@ -12,15 +12,24 @@
 
 @interface Spotlight : NSObject {
 
-	NSMutableArray *pixels_;
+	unsigned char *pixels_;
 	
 	CGFloat radius_;
 	
 	CGPoint position_;
 	
+	CGPoint pixelsOffset_;
+	
+	NSUInteger pixelsYSize_;
+	
+	NSUInteger pixelsSize_;
+	
 }
 
-@property (nonatomic, readonly) NSArray *pixels;
+@property (nonatomic, readonly) unsigned char *pixels;
+@property (nonatomic, readonly) NSUInteger pixelsSize;
+@property (nonatomic, readonly) NSUInteger pixelsYSize;
+@property (nonatomic, readonly) CGPoint pixelsOffset;
 @property (nonatomic, readonly) CGFloat radius;
 @property (nonatomic, readonly) CGPoint position;
 
