@@ -27,7 +27,6 @@
 - (id) initSpotlight:(CGPoint)pos radius:(CGFloat)radius texture:(MutableTextureExtension *)texture
 {
 	if ((self = [super init])) {
-
 		radius_ = radius;
 		position_ = pos;
 		NSUInteger xStart = pos.x - radius;
@@ -40,21 +39,24 @@
 		//NSLog(@"x:%d-%d, y:%d-%d, size=%d", xStart, xEnd, yStart, yEnd, pixelsSize_);
 		pixels_ = malloc(sizeof(unsigned char) * pixelsSize_);
 		
-		for (int i = 0; i < pixelsSize_; i++) {
-			pixels_[i] = 255;
-		}
+		int c = 0;
+		for (int i = xStart; i <= xEnd; i++) {
+			for (int j = yStart; j <= yEnd; j++) {
+				[texture setAlphaAt:ccp(i,j) a:255];			
+				pixels_[c++] = 255;
+			}
+		}		
 		
-		int gradientWidth = (int)radius*0.25f;
+		int threshold = radius_*0.3f;
+		texture.radiusSquared = radius_ * radius_;
+		texture.thresholdSquared = threshold * threshold;
+		texture.gradientRangeSquared = texture.radiusSquared - texture.thresholdSquared;
+		texture.center = pos;
 		
-		//NSDate *ref = [NSDate date];
+		NSDate *ref = [NSDate date];
 		// Draw the main circle with no gradient
-		[texture drawFilledBresenhamCircleAt:pos radius:radius-gradientWidth alpha:0];
-		//NSLog(@"Main circle filling takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
-		
-		//NSDate *ref2 = [NSDate date];		
-		// Draw the outer gradient ring
-		[texture drawOpacityGradientAt:pos innerR:radius-gradientWidth outerR:radius innerT:0 outerT:255];
-		//NSLog(@"Gradient drawing takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref2]);				
+		[texture drawFilledBresenhamCircleAt:pos radius:radius alpha:0];
+		NSLog(@"Main circle filling takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);						
 	}
 	return self;
 }

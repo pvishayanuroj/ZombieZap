@@ -35,6 +35,12 @@
 			for (int j = 0; j < 1024; j++)
 			changedAlphas_[i][j] = fogAlpha_;
 		}
+		
+		for (int i = 0; i < 256; i++) {
+			for (int j = 0; j < 256; j++) {
+				alphaTable_[i][j] = 255 * (i/255.0f) * (j/255.0f);				
+			}
+		}
 	}
 	return self;
 }
@@ -50,13 +56,9 @@
 	NSUInteger yStart = origin.y - radius;
 	NSUInteger yEnd = origin.y + radius;
 
-	for (int i = xStart; i <= xEnd; i++) {
-		for (int j = yStart; j <= yEnd; j++) {
-			[tempTexture_ setAlphaAt:ccp(i,j) a:255];			
-		}
-	}
-	
+	NSDate *ref3 = [NSDate date];	
 	Spotlight *spotlight = [Spotlight spotlight:origin radius:radius texture:tempTexture_];
+	NSLog(@"Spotlight init takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref3]);				
 
 	//NSDate *ref2 = [NSDate date];	
 	for (int i = xStart; i <= xEnd; i++) {
@@ -64,7 +66,7 @@
 			a2 = [tempTexture_ alphaAt:ccp(i,j)];
 			if (a2 != 255) {
 				a1 = [mutableFog_ alphaAt:ccp(i,j)];
-				a3 = 255 * (a1/255.0f) * (a2/255.0f);
+				a3 = alphaTable_[a1][a2];
 				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];					
 				changedAlphas_[i][j] = a2;
 				[spotlight addPixel:ccp(i,j) alpha:a2];

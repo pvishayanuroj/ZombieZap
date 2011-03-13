@@ -11,6 +11,11 @@
 
 @implementation MutableTextureExtension
 
+@synthesize radiusSquared = radiusSquared_;
+@synthesize thresholdSquared = thresholdSquared_;
+@synthesize gradientRangeSquared = gradientRangeSquared_;
+@synthesize center = center_;
+
 - (CGFloat) calculateResolution:(NSUInteger)radius
 {
 	// There's probably some formula for this, but I have no idea, so will just do some testing.
@@ -18,6 +23,7 @@
 	// R = 20, res = 0.01f
 	// R = 60, res = 0.005f
 	// R = 120, res = 0.001f;
+
 	CGFloat interval = 0.001f;
 	CGFloat start = 0.001f;
 	NSInteger maxRadius = 120;
@@ -73,13 +79,18 @@
 {
 	//NSDate *ref = [NSDate date];	
 	ccColor4B c = ccc4(0,0,0,0);
+	GLubyte a;
 	CGFloat radiusRange = outerR - innerR;
 	CGFloat opacityRange = outerT - innerT;
 	int count = 0;
 	
 	for (int i = innerR; i < outerR; i++) {
-		c.a = innerT + (int)(opacityRange*(count++/radiusRange));
-		[self drawCircleAt:origin radius:i alpha:c.a];
+		//c.a = innerT + (int)(opacityRange*(count++/radiusRange));
+		//[self drawCircleAt:origin radius:i alpha:c.a];
+		a = innerT + (int)(opacityRange*(count++/radiusRange));		
+		[self drawCircleAt:origin radius:i alpha:a];
+		//[self drawBresenhamCircleAt:origin radius:i color:c];
+		//[self drawCircleAt:origin radius:i alpha:c.a];
 	}
 	
 	//NSLog(@"Calculated opacity gradient in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
@@ -211,8 +222,31 @@
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(GLubyte)alpha
 {
 	for (int i = x1; i <= x2; i++) {
-		[self setAlphaAt:ccp(i,y) a:alpha];
+		[self setAlphaAt:ccp(i,y) a:[self getAlphaGradient:i y:y]];
+		//[self setAlphaAt:ccp(i,y) a:alpha];
 	}
+}
+
+- (GLubyte) getAlphaGradient:(NSInteger)x y:(NSInteger)y
+{	
+	CGFloat dist = [self distanceNoRoot:center_ b:ccp(x,y)];
+	
+	if (dist < thresholdSquared_) {
+		return 0;
+	}
+	
+	CGFloat a = (dist - thresholdSquared_)/(float)gradientRangeSquared_;
+	//NSLog(@"dist: %6.1f, A=%1.3f", dist, a);	
+	if (a > 1)
+		return 255;
+	return 255*a;
+}
+
+- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
+{
+	CGFloat t1 = a.x - b.x;
+	CGFloat t2 = a.y - b.y;
+	return t1*t1 + t2*t2;
 }
 
 - (void) dealloc
