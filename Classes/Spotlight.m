@@ -29,14 +29,14 @@
 	if ((self = [super init])) {
 		radius_ = radius;
 		position_ = pos;
-		NSUInteger xStart = pos.x - radius;
-		NSUInteger xEnd = pos.x + radius;
-		NSUInteger yStart = pos.y - radius;
-		NSUInteger yEnd = pos.y + radius;
+		NSInteger xStart = pos.x - radius;
+		NSInteger xEnd = pos.x + radius;
+		NSInteger yStart = pos.y - radius;
+		NSInteger yEnd = pos.y + radius;
+		
 		pixelsOffset_ = CGPointMake(xStart, yStart);
 		pixelsYSize_ = (yEnd - yStart + 1);
 		pixelsSize_ = (xEnd - xStart + 1) * pixelsYSize_;
-		//NSLog(@"x:%d-%d, y:%d-%d, size=%d", xStart, xEnd, yStart, yEnd, pixelsSize_);
 		pixels_ = malloc(sizeof(unsigned char) * pixelsSize_);
 		
 		int c = 0;
@@ -53,10 +53,11 @@
 		texture.gradientRangeSquared = texture.radiusSquared - texture.thresholdSquared;
 		texture.center = pos;
 		
-		NSDate *ref = [NSDate date];
-		// Draw the main circle with no gradient
+		//NSDate *ref = [NSDate date];
+		
+		// Draw circle
 		[texture drawFilledBresenhamCircleAt:pos radius:radius alpha:0];
-		NSLog(@"Main circle filling takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);						
+		//NSLog(@"Main circle filling takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);						
 	}
 	return self;
 }

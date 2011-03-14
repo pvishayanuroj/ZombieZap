@@ -223,7 +223,6 @@
 {
 	for (int i = x1; i <= x2; i++) {
 		[self setAlphaAt:ccp(i,y) a:[self getAlphaGradient:i y:y]];
-		//[self setAlphaAt:ccp(i,y) a:alpha];
 	}
 }
 

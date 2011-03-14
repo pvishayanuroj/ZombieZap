@@ -36,6 +36,7 @@
 			changedAlphas_[i][j] = fogAlpha_;
 		}
 		
+		// Precalculate all alpha multiplications
 		for (int i = 0; i < 256; i++) {
 			for (int j = 0; j < 256; j++) {
 				alphaTable_[i][j] = 255 * (i/255.0f) * (j/255.0f);				
@@ -51,14 +52,18 @@
 	unsigned char a1, a2, a3;	
 	
 	// Precalculate the box of what pixels will be changed - this greatly speeds up spotlight creation
-	NSUInteger xStart = origin.x - radius;
-	NSUInteger xEnd = origin.x + radius;
-	NSUInteger yStart = origin.y - radius;
-	NSUInteger yEnd = origin.y + radius;
-
-	NSDate *ref3 = [NSDate date];	
+	NSInteger xStart = origin.x - radius;
+	NSInteger xEnd = origin.x + radius;
+	NSInteger yStart = origin.y - radius;
+	NSInteger yEnd = origin.y + radius;
+	xStart = xStart < 0 ? 0 : xStart;
+	xEnd = xEnd > 1023 ? 1023 : xEnd; 
+	yStart = yStart < 0 ? 0 : yStart;	
+	yEnd = yEnd > 1023 ? 1023 : yEnd;	
+	
+	//NSDate *ref3 = [NSDate date];	
 	Spotlight *spotlight = [Spotlight spotlight:origin radius:radius texture:tempTexture_];
-	NSLog(@"Spotlight init takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref3]);				
+	//NSLog(@"Spotlight init takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref3]);				
 
 	//NSDate *ref2 = [NSDate date];	
 	for (int i = xStart; i <= xEnd; i++) {
@@ -73,9 +78,9 @@
 			}
 		}
 	}
-	//NSLog(@"Alpha multiplying takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref2]);		
-	[self updateFog];
 	
+	//NSLog(@"Alpha multiplying takes %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref2]);		
+	[self updateFog];	
 	
 	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
 	NSLog(@"Spotlight drawn in: %4.9f seconds", t1);
@@ -99,10 +104,10 @@
 	}
 
 	// Calculate the box to zero out
-	NSUInteger xStart = spotlight.position.x - spotlight.radius;
-	NSUInteger xEnd = spotlight.position.x + spotlight.radius;
-	NSUInteger yStart = spotlight.position.y - spotlight.radius;
-	NSUInteger yEnd = spotlight.position.y + spotlight.radius;
+	NSInteger xStart = spotlight.position.x - spotlight.radius;
+	NSInteger xEnd = spotlight.position.x + spotlight.radius;
+	NSInteger yStart = spotlight.position.y - spotlight.radius;
+	NSInteger yEnd = spotlight.position.y + spotlight.radius;
 	
 	for (int i = xStart; i <= xEnd; i++) {
 		for (int j = yStart; j <= yEnd; j++) {

@@ -40,7 +40,7 @@
 		[self addButtons:buildLayer];
 		
 		/*
-		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:10 second:5] radius:100] retain];
+		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:0 second:0] radius:120] retain];
 		s2 = [[[GameManager gameManager] addLightWithPos:[Pair pair:7 second:5] radius:120] retain];		
 		s3 = [[[GameManager gameManager] addLightWithPos:[Pair pair:8 second:8] radius:120] retain];		
 		[self schedule:@selector(update:) interval:120.0f/60.0f];		
