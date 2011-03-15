@@ -78,7 +78,7 @@
 - (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(GLubyte)innerT outerT:(GLubyte)outerT
 {
 	//NSDate *ref = [NSDate date];	
-	ccColor4B c = ccc4(0,0,0,0);
+	//ccColor4B c = ccc4(0,0,0,0);
 	GLubyte a;
 	CGFloat radiusRange = outerR - innerR;
 	CGFloat opacityRange = outerT - innerT;

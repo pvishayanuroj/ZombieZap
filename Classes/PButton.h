@@ -21,6 +21,7 @@
 	
 	BuildButtonType buttonType_;
 	
+	BOOL allowable_;
 }
 
 + (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType;

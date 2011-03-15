@@ -84,22 +84,22 @@
 	NSMutableArray *sons = [NSMutableArray arrayWithCapacity:4];
 	
 	ASNode *up = [ASNode ASNodeWithValues:n.x yVal:n.y-1 g:n.g+1 parent:n];
-	if ([[Grid grid] terrainAtGridCoordinate:up] != TERR_IMPASS) {
+	if ([[Grid grid] terrainAtGrid:up] != TERR_IMPASS) {
 		[sons addObject:up];
 	}
 
 	ASNode *down = [ASNode ASNodeWithValues:n.x yVal:n.y+1 g:n.g+1 parent:n];
-	if ([[Grid grid] terrainAtGridCoordinate:down] != TERR_IMPASS) {
+	if ([[Grid grid] terrainAtGrid:down] != TERR_IMPASS) {
 		[sons addObject:down];
 	}
 	
 	ASNode *left = [ASNode ASNodeWithValues:n.x-1 yVal:n.y g:n.g+1 parent:n];
-	if ([[Grid grid] terrainAtGridCoordinate:left] != TERR_IMPASS) {
+	if ([[Grid grid] terrainAtGrid:left] != TERR_IMPASS) {
 		[sons addObject:left];
 	}
 	
 	ASNode *right = [ASNode ASNodeWithValues:n.x+1 yVal:n.y g:n.g+1 parent:n];
-	if ([[Grid grid] terrainAtGridCoordinate:right] != TERR_IMPASS) {
+	if ([[Grid grid] terrainAtGrid:right] != TERR_IMPASS) {
 		[sons addObject:right];
 	}	
 	

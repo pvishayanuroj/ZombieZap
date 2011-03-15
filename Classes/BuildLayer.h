@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 
+@class Pair;
 @class PButton;
 
 @interface BuildLayer : CCLayer {
@@ -22,8 +23,15 @@
 	
 	CGPoint offset;
 	
+	NSMutableArray *greenGrid_;
+	NSMutableArray *redGrid_;	
+	
 }
 
 - (void) addButton:(PButton *)button;
+
+- (BOOL) buildGridAtPos:(CGPoint)pos;
+
+- (void) buildGridOff;
 
 @end

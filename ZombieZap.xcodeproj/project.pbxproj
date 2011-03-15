@@ -112,6 +112,8 @@
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
 		DA8F072A13266A5B003491BD /* black_frame_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F072913266A5B003491BD /* black_frame_trans.png */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
+		DA97B582132FAE1A00CF8E60 /* green_box.png in Resources */ = {isa = PBXBuildFile; fileRef = DA97B580132FAE1A00CF8E60 /* green_box.png */; };
+		DA97B583132FAE1A00CF8E60 /* red_box.png in Resources */ = {isa = PBXBuildFile; fileRef = DA97B581132FAE1A00CF8E60 /* red_box.png */; };
 		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
 		DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD74E2A131C30B100974D50 /* AStarHeap.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
@@ -304,8 +306,8 @@
 
 /* Begin PBXFileReference section */
 		1D6058910D05DD3D006BFB54 /* ZombieZap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieZap.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZombieZapAppDelegate.m; path = Classes/ZombieZapAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		1F3B9A2C0EF2145700286867 /* ZombieZapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZombieZapAppDelegate.h; path = Classes/ZombieZapAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZombieZapAppDelegate.m; sourceTree = "<group>"; };
+		1F3B9A2C0EF2145700286867 /* ZombieZapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombieZapAppDelegate.h; sourceTree = "<group>"; };
 		1F3B9A820EF2151B00286867 /* ZombieZap_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombieZap_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -433,6 +435,8 @@
 		DA8F072913266A5B003491BD /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
 		DA8F6DBE132048A50096CF18 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		DA97B580132FAE1A00CF8E60 /* green_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_box.png; sourceTree = "<group>"; };
+		DA97B581132FAE1A00CF8E60 /* red_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_box.png; sourceTree = "<group>"; };
 		DAB896521323DC2500A871BF /* TargetedAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetedAction.h; sourceTree = "<group>"; };
 		DAB896531323DC2500A871BF /* TargetedAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetedAction.m; sourceTree = "<group>"; };
 		DAD74E29131C30B100974D50 /* AStarHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarHeap.h; sourceTree = "<group>"; };
@@ -705,6 +709,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAE1C3BB132FE5EC00A46747 /* Cocos Setup */,
 				DAB896521323DC2500A871BF /* TargetedAction.h */,
 				DAB896531323DC2500A871BF /* TargetedAction.m */,
 				DA5FA48A130975AB005E2411 /* Constants.h */,
@@ -721,11 +726,6 @@
 				DA69F09D130180E9002253AF /* GeneratorLayer.m */,
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
-				E0F80F5D120A0182005866B8 /* GameConfig.h */,
-				E0F80F5E120A0182005866B8 /* RootViewController.h */,
-				E0F80F5F120A0182005866B8 /* RootViewController.m */,
-				1F3B9A2C0EF2145700286867 /* ZombieZapAppDelegate.h */,
-				1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
 				DA01DA97130348FE00B0D88B /* GameLayer.m */,
 				DA7CA1F91325F19D00825545 /* FogLayer.h */,
@@ -869,6 +869,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA97B580132FAE1A00CF8E60 /* green_box.png */,
+				DA97B581132FAE1A00CF8E60 /* red_box.png */,
 				DA2FD887132C752B0073B8B2 /* Buttons */,
 				DA8F072913266A5B003491BD /* black_frame_trans.png */,
 				DA7CA2171325F7E500825545 /* black_frame.png */,
@@ -937,6 +939,18 @@
 			);
 			name = AWTextureFilter;
 			path = libs/AWTextureFilter;
+			sourceTree = "<group>";
+		};
+		DAE1C3BB132FE5EC00A46747 /* Cocos Setup */ = {
+			isa = PBXGroup;
+			children = (
+				E0F80F5D120A0182005866B8 /* GameConfig.h */,
+				E0F80F5E120A0182005866B8 /* RootViewController.h */,
+				E0F80F5F120A0182005866B8 /* RootViewController.m */,
+				1F3B9A2C0EF2145700286867 /* ZombieZapAppDelegate.h */,
+				1F3B9A2B0EF2145700286867 /* ZombieZapAppDelegate.m */,
+			);
+			name = "Cocos Setup";
 			sourceTree = "<group>";
 		};
 		E02BB764126CC223006E46A2 /* cocos2d */ = {
@@ -1363,6 +1377,8 @@
 				DA2FD88B132C752B0073B8B2 /* light_button.png in Resources */,
 				DA2FD88C132C752B0073B8B2 /* taser_button.png in Resources */,
 				DA2FD88D132C752B0073B8B2 /* wire_button.png in Resources */,
+				DA97B582132FAE1A00CF8E60 /* green_box.png in Resources */,
+				DA97B583132FAE1A00CF8E60 /* red_box.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "Grid.h"
 #import "Pair.h"
+#import "GameManager.h"
 
 // For singleton
 static Grid *_grid = nil;
@@ -19,7 +20,6 @@ static Grid *_grid = nil;
 @synthesize gridSize = gridSize_;
 @synthesize mapImage = mapImage_;
 @synthesize terrain = terrain_;
-@synthesize mapObjects = mapObjects_;
 @synthesize objectiveMap = objectiveMap_;
 
 + (Grid *) grid
@@ -143,13 +143,31 @@ static Grid *_grid = nil;
 	return [Pair pair:mapCoordinate.x / gridSize_ second:mapCoordinate.y / gridSize_];
 }
 
-- (TerrainType)terrainAtGridCoordinate:(Pair *)gridCoordinate 
+- (CGPoint) localPixelToLocalGridPixel:(CGPoint)pixel
 {
-	if (gridCoordinate.x < 0 || gridCoordinate.y < 0 || gridCoordinate.x >= self.gridX || gridCoordinate.y >= self.gridY) 
-		return TERR_IMPASS;
-		
-	NSUInteger terrainType = [[terrain_ objectForKey:gridCoordinate] intValue];
-	return (TerrainType)terrainType;
+	CGPoint offset = [[GameManager gameManager] getLayerOffset];
+
+	// Local space to world space, then
+	// convert to the closest grid
+	CGPoint actual = ccpSub(pixel, offset);	
+	Pair *p = [self gridCoordinateAtMapCoordinate:actual];
+	
+	// Go from grid to pixel then readd the offset
+	CGPoint grid = [self mapCoordinateAtGridCoordinate:p];
+	return ccpAdd(grid, offset);
+}
+
+// For layers with offset
+- (Pair *) localPixelToWorldGrid:(CGPoint)pixel
+{
+	CGPoint offset = [[GameManager gameManager] getLayerOffset];
+	
+	// Local space to world space, then
+	// convert to the closest grid
+	CGPoint actual = ccpSub(pixel, offset);	
+	Pair *p = [self gridCoordinateAtMapCoordinate:actual];
+	
+	return p;
 }
 
 - (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate 
@@ -157,9 +175,18 @@ static Grid *_grid = nil;
 	return CGPointMake(((gridCoordinate.x+1) * gridSize_) - gridSize_/2, ((gridCoordinate.y+1) * gridSize_) - gridSize_/2);
 }
 
-- (BOOL)objectsCanBeAddedToGridCoordinate:(Pair *)gridCoordinate 
+- (TerrainType)terrainAtGrid:(Pair *)p 
 {
-	return [self terrainAtGridCoordinate:gridCoordinate] != TERR_IMPASS;
+	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
+		return TERR_IMPASS;
+	
+	// Check if a tower is there
+	NSSet *towers = [[GameManager gameManager] towerLocations];
+	if ([towers containsObject:p])
+		return TERR_IMPASS;
+	
+	NSUInteger terrainType = [[terrain_ objectForKey:p] intValue];
+	return (TerrainType)terrainType;
 }
 
 - (void) addPathToObjective:(NSArray *)path 

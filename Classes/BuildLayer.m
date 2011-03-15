@@ -8,6 +8,7 @@
 
 #import "BuildLayer.h"
 #import "PButton.h"
+#import "Grid.h"
 
 @implementation BuildLayer
 
@@ -23,14 +24,103 @@
 		offset = CGPointMake(38, 180);
 			
 		buttons = [[NSMutableArray arrayWithCapacity:16] retain];
+		
+		CCSprite *sprite;
+		greenGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
+		redGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
+	
+		for (int i = 0; i < 1; i++) {
+			// Green grids
+			sprite = [CCSprite spriteWithFile:@"green_box.png"];
+			[greenGrid_ addObject:sprite];
+			sprite.visible = NO;
+			[self addChild:sprite z:1];
+			// Red grids
+			sprite = [CCSprite spriteWithFile:@"red_box.png"];
+			[redGrid_ addObject:sprite];
+			[self addChild:sprite z:1];			
+			sprite.visible = NO;			
+		}
+		
 	}
 	return self;
+}
+
+- (BOOL) buildGridAtPos:(CGPoint)pos
+{
+	NSArray *color;
+	CCSprite *sprite;
+	BOOL allowable = YES;
+	
+	[self buildGridOff];
+	Pair *p = [[Grid grid] localPixelToWorldGrid:pos];
+	
+	// Determine whether to show red or green
+	TerrainType terrain = [[Grid grid] terrainAtGrid:p];
+	if (terrain == TERR_IMPASS) {
+		color = redGrid_;
+		allowable = NO;
+	}
+	else {
+		color = greenGrid_;
+	}
+	
+	CGPoint gridPos = [[Grid grid] localPixelToLocalGridPixel:pos];
+	//int count = 0;
+	//NSInteger gridSize = [[Grid grid] gridSize];
+	
+	sprite = [color objectAtIndex:0];
+	sprite.position = gridPos;
+	sprite.visible = YES;	
+	
+	/*
+	// Middle row
+	for (int i = -2; i < 3; i++) {
+		newPos = CGPointMake(pos.x + i * gridSize, pos.y);
+		sprite = [color objectAtIndex:count++];
+		sprite.position = newPos;
+		sprite.visible = YES;
+	}
+	
+	for (int i = -1; i < 2; i++) {
+		newPos = CGPointMake(pos.x + i * gridSize, pos.y + gridSize);
+		sprite = [color objectAtIndex:count++];
+		sprite.position = newPos;
+		sprite.visible = YES;
+		
+		newPos = CGPointMake(pos.x + i * gridSize, pos.y - gridSize);
+		sprite = [color objectAtIndex:count++];
+		sprite.position = newPos;		
+		sprite.visible = YES;		
+	}	
+	
+	newPos = CGPointMake(pos.x, pos.y + 2*gridSize);
+	sprite = [color objectAtIndex:count++];
+	sprite.position = newPos;
+	sprite.visible = YES;
+	newPos = CGPointMake(pos.x, pos.y - 2*gridSize);
+	sprite = [color objectAtIndex:count++];
+	sprite.position = newPos;
+	sprite.visible = YES;	
+	 */
+	
+	return allowable;
+}
+
+- (void) buildGridOff
+{	
+	for (CCSprite *s in greenGrid_) {
+		s.visible = NO;
+	}
+	for (CCSprite *s in redGrid_) {
+		s.visible = NO;
+	}	
 }
 	
 - (void) addButton:(PButton *)button
 {
 	[buttons addObject:button];
-	[self addChild:button];
+	[self addChild:button z:0];
 	
 	NSUInteger n = [buttons count];
 	NSUInteger x = (n - 1) % columns;
@@ -44,6 +134,8 @@
 - (void) dealloc
 {
 	[buttons release];
+	[greenGrid_ release];
+	[redGrid_ release];
 	 
 	[super dealloc];
 }

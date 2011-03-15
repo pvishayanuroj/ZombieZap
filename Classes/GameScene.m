@@ -85,9 +85,9 @@
 
 - (void) addButtons:(BuildLayer *)buildLayer
 {
-	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"taser_button.png" buttonType:B_TASER];
-	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"light_button.png" buttonType:B_LIGHT];
-	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"wire_button.png" buttonType:B_WIRE];	
+	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Zombie Walking 05.png" buttonType:B_TASER];
+	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_LIGHT];
+	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_WIRE];	
 	[buildLayer addButton:taser];
 	[buildLayer addButton:light];
 	[buildLayer addButton:wire];	

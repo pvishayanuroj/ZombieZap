@@ -22,6 +22,7 @@ static GameManager *_gameManager = nil;
 @synthesize gameLayer = gameLayer_;
 @synthesize zombies = zombies_;
 @synthesize spotlights = spotlights_;
+@synthesize towerLocations = towerLocations_;
 
 + (GameManager *) gameManager
 {
@@ -50,6 +51,7 @@ static GameManager *_gameManager = nil;
 		gameLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
+		towerLocations_ = [[NSMutableSet setWithCapacity:24] retain];		
 	}
 	return self;
 }
@@ -88,6 +90,7 @@ static GameManager *_gameManager = nil;
 	
 	Light *light = [Light lightWithPos:pos];
 	[gameLayer_ addChild:light];
+	[towerLocations_ addObject:pos];
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
@@ -102,6 +105,7 @@ static GameManager *_gameManager = nil;
 	
 	Light *light = [Light lightWithPos:pos];
 	[gameLayer_ addChild:light];
+	[towerLocations_ addObject:pos];	
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos];
@@ -115,7 +119,6 @@ static GameManager *_gameManager = nil;
 	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
 	[spotlights_ removeObject:spotlight];
 	[fogLayer_ removeSpotlight:spotlight];
-
 }
 
 - (void) addZombieWithPos:(Pair *)pos
@@ -133,12 +136,19 @@ static GameManager *_gameManager = nil;
 {
 	Turret *turret = [Turret turretWithPos:pos];
 	[self addTurret:turret];
+	[towerLocations_ addObject:pos];	
+}
+
+- (CGPoint) getLayerOffset
+{
+	return gameLayer_.position;
 }
 
 - (void) dealloc
 {
 	[zombies_ release];
 	[spotlights_ release];
+	[towerLocations_ release];
 	[gameLayer_ release];
 	[fogLayer_ release];
 	

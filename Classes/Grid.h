@@ -17,41 +17,23 @@
  */
 @interface Grid : NSObject {
 
-	/**
-		How many cells across the grid is
-	 */
+	/** How many cells across the grid is */
 	NSUInteger gridX_;
 
-	/**
-		How many cells top to bottom the grid is
-	 */
+	/** How many cells top to bottom the grid is */
 	NSUInteger gridY_;
 
-	/**
-		Width and height of a cell in pixels (cells must be square)
-	 */	
+	/** Width and height of a cell in pixels (cells must be square) */	
 	NSUInteger gridSize_;
 	
-	/**
-		The background image we are using
-	 */
+	/** The background image we are using */
 	CCSprite *mapImage_;
 	
-	/**
-		Associative map holding coordinate as a key and an integer value as elevation representation
-	 */
+	/** Associative map holding coordinate as a key and an integer value as elevation representation */
 	NSDictionary *terrain_;
 	
-	/**
-		Dictionary that maps coordinates to a direction to move towards the objective
-	 */
+	/** Dictionary that maps coordinates to a direction to move towards the objective */
 	NSMutableDictionary *objectiveMap_;
-
-	/**
-		Associative map holding coordinate as a key and an array of gameobjects as the value
-	 */	
-	NSMutableDictionary *mapObjects_;
-	
 }
 
 @property(nonatomic, readonly)	NSUInteger gridX;
@@ -59,7 +41,6 @@
 @property(nonatomic, readonly)	NSUInteger gridSize;
 @property(nonatomic, readonly)	CCSprite *mapImage;
 @property(nonatomic, readonly)	NSDictionary *terrain;
-@property(nonatomic, readonly)	NSDictionary *mapObjects;
 @property(nonatomic, readonly)	NSMutableDictionary *objectiveMap;
 
 /**
@@ -97,7 +78,7 @@
 	@param gridCoordinate The grid coordinate to retrieve the terrain.
 	@returns The terrain value of the grid.
  */
-- (TerrainType)terrainAtGridCoordinate:(Pair *)gridCoordinate;
+- (TerrainType)terrainAtGrid:(Pair *)p;
 
 /**
 	Method that gets the map coordinate at the center of a grid.
@@ -106,29 +87,10 @@
  */
 - (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate;
 
+- (CGPoint) localPixelToLocalGridPixel:(CGPoint)pixel;
+
+- (Pair *) localPixelToWorldGrid:(CGPoint)pixel;
+
 - (void) addPathToObjective:(NSArray *)path;
-
-/**
-	Method to check if an object can be added to a specified grid coordinate, basically if it is full or impassable.
-	@param gridCoordinate Grid coordinate that you need to check if it is full impassable.
-	@returns YES if objects can be added, NO if objects can't be added.
- */
-//- (BOOL)objectsCanBeAddedToGridCoordinate:(Pair *)gridCoordinate;
-
-/**
-	Adds the reference of the game object to the grid with the grid coordinate as the key.
-	@param gameObject The game object to be added to the grid.
-	@param gridCoordinate The grid coordinate that the unit is being added.
-	@returns YES if the unit has been added, NO if the unit was not added.
- */
-//- (BOOL)addGameObject:(GameObject *)gameObject toGridCoordinate:(Pair *)gridCoordinate;
-
-/**
-	Removes the specified game object from the dictionary
-	@param gameObject Game Object to be removed
-	@param gridCoord Grid coordinate that the object is located in
-	@returns Whether or not the operation was successful
- */
-//- (BOOL) removeGameObject:(GameObject *)gameObject atGrid:(Pair *)gridCoord;
 
 @end

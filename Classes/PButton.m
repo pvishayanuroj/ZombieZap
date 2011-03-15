@@ -10,6 +10,7 @@
 #import "Grid.h"
 #import "Pair.h"
 #import "GameManager.h"
+#import "BuildLayer.h"
 
 @implementation PButton
 
@@ -24,8 +25,10 @@
 
 		buttonType_ = buttonType;
 		
-		placementSprite_ = [[CCSprite spriteWithFile:placementImage] retain];		
+		placementSprite_ = [[CCSprite spriteWithSpriteFrameName:placementImage] retain];		
 		placementAdded_ = NO;
+		
+		allowable_ = NO;
 		
 		sprite_ = [CCSprite spriteWithFile:buttonImage];
 		[self addChild:sprite_];		
@@ -68,10 +71,19 @@
 		placementAdded_ = YES;
 	}
 	
-	CGPoint point = [self convertTouchToNodeSpaceAR:touch];
-	//NSLog(@"gen Touch location @(%4f, %4f)", point.x, point.y);	
+	// Touchpoint is relative to the node
+	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
 	
-	placementSprite_.position = point;
+	// Convert from node to local screen space
+	CGPoint localPoint = [self convertToWorldSpace:touchPoint];
+
+	// Show the build grid and returns whether or not we're allowed to build there
+	allowable_ = [(BuildLayer *)self.parent buildGridAtPos:localPoint];	
+	
+	// Returns the closest grid in local space
+	CGPoint gridPixel = [[Grid grid] localPixelToLocalGridPixel:localPoint];
+	CGPoint pos = [self convertToNodeSpace:gridPixel];
+	placementSprite_.position = pos;
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -79,17 +91,15 @@
 	[self removeChild:placementSprite_ cleanup:YES];
 	placementAdded_ = NO;
 	
-	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
-	touchPoint = [self convertToWorldSpace:touchPoint];
-	//NSLog(@"Built @(%3f, %3f)", point.x, point.y);
-	CGPoint gameOffset = [[[GameManager gameManager] gameLayer] position];
-	//NSLog(@"Game offset: (%3f, %3f)", gameOffset.x, gameOffset.y);
+	[(BuildLayer *)self.parent buildGridOff];	
 	
-	CGPoint pos = CGPointMake(touchPoint.x - gameOffset.x, touchPoint.y - gameOffset.y);
+	if (allowable_) {
+		CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+		CGPoint worldPoint = [self convertToWorldSpace:touchPoint];
 	
-	Pair *location = [[Grid grid] gridCoordinateAtMapCoordinate:pos];
-
-	[self buildAction:location];
+		Pair *p = [[Grid grid] localPixelToWorldGrid:worldPoint];
+		[self buildAction:p];
+	}
 }
 
 - (void) buildAction:(Pair *)location

@@ -25,11 +25,14 @@
 	
 	NSMutableSet *spotlights_;
 	
+	NSMutableSet *towerLocations_;
+	
 }
 
 @property (nonatomic, readonly) CCLayer *gameLayer;
 @property (nonatomic, readonly) NSMutableSet *zombies;
 @property (nonatomic, readonly) NSMutableSet *spotlights;
+@property (nonatomic, readonly) NSMutableSet *towerLocations;
 
 + (GameManager *) gameManager;
 
@@ -54,5 +57,7 @@
 - (Spotlight *) addLightWithPos:(Pair *)pos;
 
 - (void) removeSpotlight:(Spotlight *)spotlight;
+
+- (CGPoint) getLayerOffset;
 
 @end
