@@ -51,6 +51,7 @@ static SpawnManager *_spawnManager = nil;
 {
 	// Load from plist
 	NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+	NSAssert(path != nil, ([NSString stringWithFormat:@"Invalid spawn file: %@", filename]));
 	NSArray *spawn_array = [NSArray arrayWithContentsOfFile:path];	
 	
 	Spawn *spawn;

@@ -13,6 +13,8 @@
 #import "Turret.h"
 #import "Light.h"
 #import "Spotlight.h"
+#import "Home.h"
+#import "Grid.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -68,22 +70,6 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ retain];
 }
 
-- (void) addZombie:(Zombie *)zombie
-{
-	NSAssert(gameLayer_ != nil, @"Trying to add a Zombie without a registered Game Layer");
-	
-	// Add to the array that keeps track of all zombies, and add to the game layer
-	[zombies_ addObject:zombie];
-	[gameLayer_ addChild:zombie];
-}
-
-- (void) addTurret:(Turret *)turret
-{
-	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
-	
-	[gameLayer_ addChild:turret];
-}
-
 - (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
 {
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
@@ -114,6 +100,15 @@ static GameManager *_gameManager = nil;
 	return spotlight;
 }
 
+- (void) addStaticLightWithPos:(Pair *)pos
+{
+	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
+	
+	CGPoint startCoord = [[Grid grid] gridToPixel:pos];	
+	CGPoint spotlightPos = CGPointMake(startCoord.x, 1023 - startCoord.y);
+	[fogLayer_ drawSpotlight:spotlightPos];
+}
+
 - (void) removeSpotlight:(Spotlight *)spotlight
 {
 	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
@@ -121,10 +116,16 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ removeSpotlight:spotlight];
 }
 
-- (void) addZombieWithPos:(Pair *)pos
+- (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj
 {
-	Zombie *zombie = [Zombie zombieWithPos:pos];
-	[self addZombie:zombie];
+	NSAssert(gameLayer_ != nil, @"Trying to add a Zombie without a registered Game Layer");
+	
+	// Create the zombie
+	Zombie *zombie = [Zombie zombieWithPos:pos obj:obj];
+	
+	// Add to the array that keeps track of all zombies, and add to the game layer
+	[zombies_ addObject:zombie];
+	[gameLayer_ addChild:zombie z:1];
 }
 
 - (void) removeZombie:(Zombie *)zombie
@@ -134,9 +135,21 @@ static GameManager *_gameManager = nil;
 
 - (void) addTurretWithPos:(Pair *)pos
 {
+	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
+	
+	// Create the turret
 	Turret *turret = [Turret turretWithPos:pos];
-	[self addTurret:turret];
+	
 	[towerLocations_ addObject:pos];	
+	[gameLayer_ addChild:turret];
+}
+
+- (void) addHomeWithPos:(Pair *)pos
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Home without a registered Game Layer");
+	
+	Home *home = [Home homeWithPos:pos];
+	[gameLayer_ addChild:home z:10];
 }
 
 - (CGPoint) getLayerOffset

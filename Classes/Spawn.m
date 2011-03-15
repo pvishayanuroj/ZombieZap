@@ -34,7 +34,7 @@
 
 - (void) update:(ccTime)dt
 {
-	[[GameManager gameManager] addZombieWithPos:startPos_];
+	[[GameManager gameManager] addZombieWithPos:startPos_ obj:objective_];
 }
 
 - (void) dealloc

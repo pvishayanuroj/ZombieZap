@@ -131,7 +131,7 @@ static Grid *_grid = nil;
 	gridSize_ = gridSizeX;
 	
 	// Create the terrain dictionary	 
-	terrain_ = [[NSDictionary dictionaryWithObjects:vals forKeys:keys] retain];
+	terrain_ = [[NSMutableDictionary dictionaryWithObjects:vals forKeys:keys] retain];
 	
 #if DEBUG_MAPLOADER
 	NSLog(@"terrain: %@", terrain_);
@@ -186,6 +186,15 @@ static Grid *_grid = nil;
 	
 	NSUInteger terrainType = [[terrain_ objectForKey:p] intValue];
 	return (TerrainType)terrainType;
+}
+
+- (void) makeImpassable:(Pair *)p
+{
+	if (p.x >= 0 && p.y >= 0 && p.x < self.gridX && p.y < self.gridY) {
+		
+		[terrain_ removeObjectForKey:p];
+		[terrain_ setObject:[NSNumber numberWithInt:TERR_IMPASS] forKey:p];
+	}
 }
 
 - (void) addPathToObjective:(NSArray *)path 

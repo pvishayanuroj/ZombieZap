@@ -53,11 +53,11 @@
 
 + (id) zombieWithPos:(Pair *)startPos;
 
-+ (id) zombieWithObj:(Pair *)objective startPos:(Pair *)startPos;
++ (id) zombieWithPos:(Pair *)startPos obj:(Pair *)obj;
 
 - (id) initZombieWithPos:(Pair *)startPos;
 
-- (id) initZombieWithObjective:(Pair *)objective startPos:(Pair *)startPos;
+- (id) initZombieWithPos:(Pair *)startPos obj:(Pair *)obj;
 
 - (void) initActions;
 

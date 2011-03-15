@@ -30,7 +30,7 @@
 	CCSprite *mapImage_;
 	
 	/** Associative map holding coordinate as a key and an integer value as elevation representation */
-	NSDictionary *terrain_;
+	NSMutableDictionary *terrain_;
 	
 	/** Dictionary that maps coordinates to a direction to move towards the objective */
 	NSMutableDictionary *objectiveMap_;
@@ -40,7 +40,7 @@
 @property(nonatomic, readonly)	NSUInteger gridY;
 @property(nonatomic, readonly)	NSUInteger gridSize;
 @property(nonatomic, readonly)	CCSprite *mapImage;
-@property(nonatomic, readonly)	NSDictionary *terrain;
+@property(nonatomic, readonly)	NSMutableDictionary *terrain;
 @property(nonatomic, readonly)	NSMutableDictionary *objectiveMap;
 
 /**
@@ -99,7 +99,9 @@
 	@param p The grid coordinate to retrieve the terrain.
 	@returns The terrain value of the grid.
  */
-- (TerrainType)terrainAtGrid:(Pair *)p;
+- (TerrainType) terrainAtGrid:(Pair *)p;
+
+- (void) makeImpassable:(Pair *)p;
 
 - (void) addPathToObjective:(NSArray *)path;
 

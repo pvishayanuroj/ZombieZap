@@ -79,7 +79,7 @@
 
 - (void) addPixel:(CGPoint)pos alpha:(GLubyte)alpha
 {
-	CGPoint offsetPos = CGPointMake(pos.x - pixelsOffset_.x, pos.y - pixelsOffset_.y);
+	CGPoint offsetPos = ccpSub(pos, pixelsOffset_);
 	NSUInteger index = offsetPos.y * pixelsYSize_ + offsetPos.x;
 
 	NSAssert(index < pixelsSize_, ([NSString stringWithFormat:@"Array size: %d, trying to access index %d", pixelsSize_, index]));

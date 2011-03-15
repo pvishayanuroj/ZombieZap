@@ -37,8 +37,11 @@
 		
 		[[GameManager gameManager] registerGameLayer:self];
 		
+		[[GameManager gameManager] addHomeWithPos:[Pair pair:15 second:15]];
+		
 		//[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
-		[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
+		//[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
+		[[SpawnManager spawnManager] loadSpawns:@"Omni_Spawns"];
 		
 		[self debugCode];
 	}
@@ -47,21 +50,22 @@
 
 - (void) debugCode
 {
-	/*
+/*	
 	AStar *aStar = [AStar aStar];
-	Pair *start = [Pair pair:0 second:0];
-	Pair *dest = [Pair pair:6 second:8];
+	Pair *start = [Pair pair:15 second:0];
+	Pair *dest = [Pair pair:15 second:15];
 	NSDate *reftime = [NSDate date];
 	NSArray *path = [aStar findPathFrom:start to:dest];
-	double t1 = [[NSDate date] timeIntervalSinceDate:reftime];
-	NSLog(@"p1: %4.9f", t1);
+	NSLog(@"Pathfinding done in: %4.9f", [[NSDate date] timeIntervalSinceDate:reftime]);
 	
 	[[Grid grid] addPathToObjective:path];
 	
 	for (int i = 0; i < [path count]; i++) {
 		[self debugGridInfo:[path objectAtIndex:i] count:i];
 	}
+ */
 	
+	/*
 	// Add some zombies
 	Zombie *zombie = [Zombie zombieWithPos:start];
 	//[self addChild:zombie];
@@ -137,7 +141,7 @@
 #endif
 		
 		// Create the new position to move the map to using the movement
-		newPosition = CGPointMake(layerPosStart.x - movement.x, layerPosStart.y - movement.y);
+		newPosition = ccpSub(layerPosStart, movement);
 	}
 		
 	CGFloat zoomScale = 1.0f;

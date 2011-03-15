@@ -42,13 +42,9 @@
 
 - (void) registerFogLayer:(FogLayer *)fogLayer;
 
-- (void) addZombie:(Zombie *)zombie;
-
-- (void) addZombieWithPos:(Pair *)pos;
+- (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj;
 
 - (void) removeZombie:(Zombie *)zombie;
-
-- (void) addTurret:(Turret *)turret;
 
 - (void) addTurretWithPos:(Pair *)pos;
 
@@ -56,7 +52,11 @@
 
 - (Spotlight *) addLightWithPos:(Pair *)pos;
 
+- (void) addStaticLightWithPos:(Pair *)pos;
+
 - (void) removeSpotlight:(Spotlight *)spotlight;
+
+- (void) addHomeWithPos:(Pair *)pos;
 
 - (CGPoint) getLayerOffset;
 

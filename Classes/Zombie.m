@@ -23,9 +23,9 @@ static NSUInteger countID = 0;
 	return [[[self alloc] initZombieWithPos:startPos] autorelease];
 }
 
-+ (id) zombieWithObj:(Pair *)objective startPos:(Pair *)startPos
++ (id) zombieWithPos:(Pair *)startPos obj:(Pair *)obj
 {
-	return [[[self alloc] initZombieWithObjective:objective startPos:startPos] autorelease];
+	return [[[self alloc] initZombieWithPos:startPos obj:obj] autorelease];
 }			 
 
 - (id) initZombieWithPos:(Pair *)startPos
@@ -58,10 +58,10 @@ static NSUInteger countID = 0;
 	return self;
 }
 
-- (id) initZombieWithObjective:(Pair *)objective startPos:(Pair *)startPos
+- (id) initZombieWithPos:(Pair *)startPos obj:(Pair *)obj
 {
 	if ((self = [self initZombieWithPos:startPos])) {
-		objective_ = [[Pair pairWithPair:objective] retain];
+		objective_ = [[Pair pairWithPair:obj] retain];
 	}
 	return self;
 }
@@ -96,17 +96,26 @@ static NSUInteger countID = 0;
 
 - (void) reachedNext
 {
-	// Determine the next place tile to move to
-	Pair *next = [[[Grid grid] objectiveMap] objectForKey:currentDest_];
-	
-	if (!next) {
-		next = [Pair pair];
+	// Check if the goal was reached
+	if ([currentDest_ isEqual:objective_]) {
+		[currentDest_ release];
+		currentDest_ = nil;
+		[self stopAllActions];
+		[self zombieDeath];
 	}
-	
-	[currentDest_ release];
-	currentDest_ = nil;
-	
-	[self moveTo:next];	
+	else {
+		// Determine the next place tile to move to
+		Pair *next = [[[Grid grid] objectiveMap] objectForKey:currentDest_];
+		
+		if (!next) {
+			next = [Pair pair];
+		}
+		
+		[currentDest_ release];
+		currentDest_ = nil;
+		
+		[self moveTo:next];	
+	}
 }
 
 - (void) moveTo:(Pair *)dest
@@ -131,7 +140,7 @@ static NSUInteger countID = 0;
 
 - (void) turnTowards:(CGPoint)pos
 {
-	CGPoint res = CGPointMake(pos.x - self.position.x, pos.y - self.position.y);
+	CGPoint res = ccpSub(pos, self.position);
 	
 	if (res.x > 0) { // Turn right
 		sprite_.rotation = 90;
@@ -211,7 +220,7 @@ static NSUInteger countID = 0;
 
 - (void) dealloc 
 {
-	//NSLog(@"%@ dealloc'd", self);
+	NSLog(@"%@ dealloc'd", self);
 	
 	[sprite_ release];
 	[objective_ release];
