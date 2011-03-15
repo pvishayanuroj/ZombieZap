@@ -138,9 +138,14 @@ static Grid *_grid = nil;
 #endif
 }
 
-- (Pair *)gridCoordinateAtMapCoordinate:(CGPoint)mapCoordinate {
-	
-	return [Pair pair:mapCoordinate.x / gridSize_ second:mapCoordinate.y / gridSize_];
+- (Pair *) pixelToGrid:(CGPoint)p
+{
+	return [Pair pair:p.x / gridSize_ second:p.y / gridSize_];
+}
+
+- (CGPoint) gridToPixel:(Pair *)g
+{	
+	return CGPointMake(((g.x+1) * gridSize_) - gridSize_/2, ((g.y+1) * gridSize_) - gridSize_/2);
 }
 
 - (CGPoint) localPixelToLocalGridPixel:(CGPoint)pixel
@@ -150,14 +155,13 @@ static Grid *_grid = nil;
 	// Local space to world space, then
 	// convert to the closest grid
 	CGPoint actual = ccpSub(pixel, offset);	
-	Pair *p = [self gridCoordinateAtMapCoordinate:actual];
+	Pair *p = [self pixelToGrid:actual];
 	
-	// Go from grid to pixel then readd the offset
-	CGPoint grid = [self mapCoordinateAtGridCoordinate:p];
-	return ccpAdd(grid, offset);
+	// Go from grid to pixel then read the offset
+	CGPoint gridPixel = [self gridToPixel:p];
+	return ccpAdd(gridPixel, offset);
 }
 
-// For layers with offset
 - (Pair *) localPixelToWorldGrid:(CGPoint)pixel
 {
 	CGPoint offset = [[GameManager gameManager] getLayerOffset];
@@ -165,14 +169,9 @@ static Grid *_grid = nil;
 	// Local space to world space, then
 	// convert to the closest grid
 	CGPoint actual = ccpSub(pixel, offset);	
-	Pair *p = [self gridCoordinateAtMapCoordinate:actual];
+	Pair *p = [self pixelToGrid:actual];
 	
 	return p;
-}
-
-- (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate 
-{	
-	return CGPointMake(((gridCoordinate.x+1) * gridSize_) - gridSize_/2, ((gridCoordinate.y+1) * gridSize_) - gridSize_/2);
 }
 
 - (TerrainType)terrainAtGrid:(Pair *)p 

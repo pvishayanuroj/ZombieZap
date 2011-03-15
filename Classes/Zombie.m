@@ -36,7 +36,7 @@ static NSUInteger countID = 0;
 		[self addChild:sprite_];		
 		
 		Grid *grid = [Grid grid];
-		CGPoint startCoord = [grid mapCoordinateAtGridCoordinate:startPos];
+		CGPoint startCoord = [grid gridToPixel:startPos];
 		self.position = startCoord;
 		
 		unitID_ = countID++;
@@ -111,7 +111,7 @@ static NSUInteger countID = 0;
 
 - (void) moveTo:(Pair *)dest
 {
-	CGPoint pos = [[Grid grid] mapCoordinateAtGridCoordinate:dest];	
+	CGPoint pos = [[Grid grid] gridToPixel:dest];	
 
 	[self turnTowards:pos];
 	CCFiniteTimeAction *move = [CCMoveTo actionWithDuration:adjMoveTime_ position:pos];
@@ -151,7 +151,7 @@ static NSUInteger countID = 0;
 {
 	NSAssert(currentDest_ != nil, @"Current destination should never be null");
 	
-	CGPoint pos = [[Grid grid] mapCoordinateAtGridCoordinate:currentDest_];	
+	CGPoint pos = [[Grid grid] gridToPixel:currentDest_];	
 	CGFloat dist = [self euclideanDistance:self.position b:pos];
 	
 	CCFiniteTimeAction *move = [CCMoveTo actionWithDuration:dist/moveRate_ position:pos];

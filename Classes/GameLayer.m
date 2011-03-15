@@ -168,7 +168,7 @@
 	Grid *grid = [Grid grid];
 	NSString *msg0 = [NSString stringWithFormat:@"%d", count];
 	CCLabelTTF *label0 = [CCLabelTTF labelWithString:msg0 fontName:@"Marker Felt" fontSize:12];
-	label0.position = [grid mapCoordinateAtGridCoordinate:p]; 
+	label0.position = [grid gridToPixel:p]; 
 	label0.color = ccc3(0,0,0);
 	[self addChild:label0 z:1];	
 }

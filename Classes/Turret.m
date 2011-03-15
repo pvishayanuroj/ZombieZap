@@ -28,7 +28,7 @@ static NSUInteger countID = 0;
 		[self addChild:sprite_];		
 		
 		Grid *grid = [Grid grid];
-		CGPoint startCoord = [grid mapCoordinateAtGridCoordinate:startPos];
+		CGPoint startCoord = [grid gridToPixel:startPos];
 		self.position = startCoord;
 		
 		unitID_ = countID++;

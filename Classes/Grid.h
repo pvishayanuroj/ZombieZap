@@ -67,29 +67,39 @@
 - (void) loadElevation:(NSString *)fileName;
 
 /**
-	Method that converts the map coordinate into a grid coordinate.
-	@param mapCoordinate The map coordinate that you wish to get the grid coordinate for.
+	Method that converts a pixel coordinate into a grid coordinate.
+	@param p The pixel coordinate that you wish to get the grid coordinate for.
 	@return A pair of integer values representing the grid coordinate.
  */
-- (Pair *)gridCoordinateAtMapCoordinate:(CGPoint)mapCoordinate;
-
-/**
-	Method that retrieves the terrain type from the grid by taking in the grid coordinate.
-	@param gridCoordinate The grid coordinate to retrieve the terrain.
-	@returns The terrain value of the grid.
- */
-- (TerrainType)terrainAtGrid:(Pair *)p;
+- (Pair *) pixelToGrid:(CGPoint)p;
 
 /**
 	Method that gets the map coordinate at the center of a grid.
-	@param gridCoordinate The grid coordinate to get the map coordinate for.
-	@returns The mid point map coordinate value of the grid.
+	@param g The grid coordinate to get the map coordinate for.
+	@returns The mid point pixel coordinate value of the grid.
  */
-- (CGPoint)mapCoordinateAtGridCoordinate:(Pair *)gridCoordinate;
+- (CGPoint) gridToPixel:(Pair *)g;
 
+/**
+	Method that converts a local pixel coordinate into a local grid coordinate (uses GameLayer offset)
+	@param pixel The local pixel coordinate that you wish to get the local grid coordinate for.
+	@return A pair of integer values representing the local grid coordinate.
+ */
 - (CGPoint) localPixelToLocalGridPixel:(CGPoint)pixel;
 
+/**
+	Method that converts a local pixel coordinate into a world grid coordinate (uses GameLayer offset)
+	@param pixel The local pixel coordinate that you wish to get the world grid coordinate for.
+	@return A pair of integer values representing the world grid coordinate.
+ */
 - (Pair *) localPixelToWorldGrid:(CGPoint)pixel;
+
+/**
+	Method that retrieves the terrain type from the grid by taking in the grid coordinate.
+	@param p The grid coordinate to retrieve the terrain.
+	@returns The terrain value of the grid.
+ */
+- (TerrainType)terrainAtGrid:(Pair *)p;
 
 - (void) addPathToObjective:(NSArray *)path;
 
