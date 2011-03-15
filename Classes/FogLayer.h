@@ -7,6 +7,8 @@
 //
 
 #import "cocos2d.h"
+#import "Constants.h"
+#import "Enums.h"
 
 @class CCMutableTexture2D;
 @class MutableTextureExtension;
@@ -32,10 +34,14 @@ typedef struct ZZBox ZZBox;
 	
 	GLubyte fogAlpha_;
 	
+	unsigned char spotlightTable_[SPOTLIGHT_SIDE][SPOTLIGHT_SIDE];
+	
 	unsigned char changedAlphas_[1024][1024];
 	
 	unsigned char alphaTable_[256][256];
 }
+
+- (Spotlight *) drawSpotlight:(CGPoint)origin;
 
 - (Spotlight *) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius;
 

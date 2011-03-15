@@ -33,7 +33,11 @@
 @property (nonatomic, readonly) CGFloat radius;
 @property (nonatomic, readonly) CGPoint position;
 
++ (id) spotlight:(CGPoint)pos radius:(CGFloat)radius;
+
 + (id) spotlight:(CGPoint)pos radius:(CGFloat)radius texture:(MutableTextureExtension *)texture;
+
+- (id) initSpotlight:(CGPoint)pos radius:(CGFloat)radius;
 
 - (id) initSpotlight:(CGPoint)pos radius:(CGFloat)radius texture:(MutableTextureExtension *)texture;
 

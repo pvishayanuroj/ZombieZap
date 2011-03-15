@@ -25,3 +25,11 @@
 	The movement cost associated with moving diagonally
  */
 #define DIAG_MOVECOST 14
+
+/**
+	Radius of the most used spotlight, used for precomputation
+ */
+#define SPOTLIGHT_RADIUS 100
+
+#define SPOTLIGHT_SIDE SPOTLIGHT_RADIUS*2 + 1
+

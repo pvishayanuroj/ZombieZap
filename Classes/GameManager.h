@@ -51,6 +51,8 @@
 
 - (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
+- (Spotlight *) addLightWithPos:(Pair *)pos;
+
 - (void) removeSpotlight:(Spotlight *)spotlight;
 
 @end

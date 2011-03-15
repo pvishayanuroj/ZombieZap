@@ -40,12 +40,11 @@
 		[self addButtons:buildLayer];
 		
 		/*
-		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:0 second:0] radius:120] retain];
-		s2 = [[[GameManager gameManager] addLightWithPos:[Pair pair:7 second:5] radius:120] retain];		
-		s3 = [[[GameManager gameManager] addLightWithPos:[Pair pair:8 second:8] radius:120] retain];		
+		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:0 second:0]] retain];
+		s2 = [[[GameManager gameManager] addLightWithPos:[Pair pair:7 second:5]] retain];		
+		s3 = [[[GameManager gameManager] addLightWithPos:[Pair pair:8 second:8]] retain];		
 		[self schedule:@selector(update:) interval:120.0f/60.0f];		
 		*/
-		
 		// DEBUG
 		/*
 		BinaryHeap *b = [BinaryHeap bHeapWithCapacity:10];
@@ -81,7 +80,7 @@
 - (void) update:(ccTime)dt
 {
 	[[GameManager gameManager] removeSpotlight:s1];
-	//[[GameManager gameManager] removeSpotlight:s2];			
+	[[GameManager gameManager] removeSpotlight:s2];			
 }
 
 - (void) addButtons:(BuildLayer *)buildLayer

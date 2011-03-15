@@ -19,9 +19,24 @@
 @synthesize pixelsYSize = pixelsYSize_;
 @synthesize pixelsOffset = pixelsOffset_;
 
++ (id) spotlight:(CGPoint)pos radius:(CGFloat)radius
+{
+	return [[[self alloc] initSpotlight:pos radius:radius] autorelease];
+}
+
 + (id) spotlight:(CGPoint)pos radius:(CGFloat)radius texture:(MutableTextureExtension *)texture
 {
 	return [[[self alloc] initSpotlight:pos radius:radius texture:texture] autorelease];
+}
+
+- (id) initSpotlight:(CGPoint)pos radius:(CGFloat)radius
+{
+	if ((self = [super init])) {
+		pixels_ = NULL;
+		radius_ = radius;
+		position_ = pos;
+	}
+	return self;
 }
 
 - (id) initSpotlight:(CGPoint)pos radius:(CGFloat)radius texture:(MutableTextureExtension *)texture
@@ -74,7 +89,9 @@
 
 - (void) dealloc 
 {
-	free(pixels_);
+	if (pixels_ != NULL) {
+		free(pixels_);
+	}
 	
 	[super dealloc];
 }

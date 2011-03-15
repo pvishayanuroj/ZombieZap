@@ -96,6 +96,20 @@ static GameManager *_gameManager = nil;
 	return spotlight;
 }
 
+- (Spotlight *) addLightWithPos:(Pair *)pos
+{
+	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
+	
+	Light *light = [Light lightWithPos:pos];
+	[gameLayer_ addChild:light];
+	
+	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
+	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos];
+	[spotlights_ addObject:spotlight];
+	
+	return spotlight;
+}
+
 - (void) removeSpotlight:(Spotlight *)spotlight
 {
 	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
