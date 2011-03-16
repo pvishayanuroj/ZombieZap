@@ -29,7 +29,7 @@
 		greenGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
 		redGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
 	
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 5; i++) {
 			// Green grids
 			sprite = [CCSprite spriteWithFile:@"green_box.png"];
 			[greenGrid_ addObject:sprite];
@@ -66,14 +66,34 @@
 	}
 	
 	CGPoint gridPos = [[Grid grid] localPixelToLocalGridPixel:pos];
-	//int count = 0;
-	//NSInteger gridSize = [[Grid grid] gridSize];
-	
+	CGPoint newPos;
+	int count = 0;
+	NSInteger gridSize = [[Grid grid] gridSize];
+	/*
+	// 1x1 build box shading
 	sprite = [color objectAtIndex:0];
 	sprite.position = gridPos;
 	sprite.visible = YES;	
+	 */
+	
+	// "pointed" build box shading
+	for (int i = -1; i < 2; i++) {
+		newPos = CGPointMake(gridPos.x + i * gridSize, gridPos.y);
+		sprite = [color objectAtIndex:count++];
+		sprite.position = newPos;
+		sprite.visible = YES;
+	}
+	newPos = CGPointMake(gridPos.x, gridPos.y - gridSize);
+	sprite = [color objectAtIndex:count++];
+	sprite.position = newPos;
+	sprite.visible = YES;
+	newPos = CGPointMake(gridPos.x, gridPos.y + gridSize);
+	sprite = [color objectAtIndex:count++];
+	sprite.position = newPos;
+	sprite.visible = YES;	
 	
 	/*
+	// 3x3 + 1 build box shading
 	// Middle row
 	for (int i = -2; i < 3; i++) {
 		newPos = CGPointMake(pos.x + i * gridSize, pos.y);

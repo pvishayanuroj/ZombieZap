@@ -223,6 +223,11 @@
 	[self updateFog];
 }
 
+- (void) redAlert
+{
+	
+}
+
 - (CGRect) getSpotlightBox:(CGPoint)pos radius:(CGFloat)radius
 {
 	NSUInteger xStart = pos.x - radius;
