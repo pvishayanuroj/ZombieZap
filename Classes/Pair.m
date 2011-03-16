@@ -155,6 +155,26 @@
 	y -= p.y;
 }
 
+- (Pair *) leftPair
+{
+	return [Pair pair:x-1 second:y];
+}
+
+- (Pair *) rightPair
+{
+	return [Pair pair:x+1 second:y];
+}
+
+- (Pair *) topPair
+{
+	return [Pair pair:x second:y+1];
+}
+
+- (Pair *) bottomPair
+{
+	return [Pair pair:x second:y-1];
+}
+
 - (void) invertPair
 {
 	x *= -1;
@@ -205,54 +225,6 @@
 
 - (void) dealloc
 {
-	[super dealloc];
-}
-
-@end
-
-@implementation AStarPair
-
-@synthesize g, h, parent;
-
-+ (id) aStarPairWithPair:(Pair *)pair
-{	
-	return [[[self alloc] initAStarPair:pair.x second:pair.y] autorelease];
-}
-
-- (id) initAStarPair:(NSInteger)a second:(NSInteger)b
-{
-	if((self = [super initPair:a second:b])) {
-		g = 0;
-		h = 0;
-	}
-	return self;
-}
-
-- (NSUInteger) f
-{
-	return g + h;
-}
-
-- (id) copyWithZone: (NSZone *)zone
-{
-	AStarPair *aStarPairCopy = [[AStarPair allocWithZone:zone] init];
-	aStarPairCopy.x = self.x;
-	aStarPairCopy.y = self.y;
-	aStarPairCopy.parent = self.parent;
-	aStarPairCopy.g = self.g;
-	aStarPairCopy.h = self.h;
-	return aStarPairCopy;
-}
-
-// Override the description method to give us something more useful than a pointer address
-- (NSString *) description
-{
-	return [NSString stringWithFormat:@"(%d, %d, F:%d, G:%d, H:%d)", x, y, self.f, g, h];
-}
-
-- (void)dealloc
-{
-	[parent release];
 	[super dealloc];
 }
 

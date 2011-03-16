@@ -101,6 +101,13 @@
  */
 - (TerrainType) terrainAtGrid:(Pair *)p;
 
+/**
+	Method that returns whether or not there is a tower at the given grid coordinate.
+	@param p The grid coordinate to query.
+	@returns True if a tower exists, false otherwise (including out of bounds).
+ */
+- (BOOL) towerAtGrid:(Pair *)p;
+
 - (void) makeImpassable:(Pair *)p;
 
 - (void) makeNoBuild:(Pair *)p;

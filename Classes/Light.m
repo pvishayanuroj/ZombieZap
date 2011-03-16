@@ -44,6 +44,8 @@ static NSUInteger countID = 0;
 
 - (void) dealloc
 {
+	[sprite_ release];
+	
 	[super dealloc];
 }
 

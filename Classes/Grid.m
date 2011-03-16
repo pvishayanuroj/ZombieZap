@@ -174,18 +174,26 @@ static Grid *_grid = nil;
 	return p;
 }
 
-- (TerrainType)terrainAtGrid:(Pair *)p 
+- (TerrainType) terrainAtGrid:(Pair *)p 
 {
 	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
 		return TERR_IMPASS;
 	
 	// Check if a tower is there
-	NSSet *towers = [[GameManager gameManager] towerLocations];
-	if ([towers containsObject:p])
+	if ([self towerAtGrid:p])
 		return TERR_IMPASS;
 	
 	TerrainType terrainType = [[terrain_ objectForKey:p] intValue];
 	return terrainType;
+}
+
+- (BOOL) towerAtGrid:(Pair *)p
+{
+	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
+		return NO;	
+	
+	NSSet *towers = [[GameManager gameManager] towerLocations];
+	return [towers containsObject:p];
 }
 
 - (void) makeImpassable:(Pair *)p

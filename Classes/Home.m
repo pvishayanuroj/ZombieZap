@@ -11,6 +11,8 @@
 #import "Pair.h"
 #import "GameManager.h"
 
+#import "Debugging.h"
+
 @implementation Home
 
 + (id) homeWithPos:(Pair *)pos
@@ -23,7 +25,9 @@
 	if ((self = [super init])) {
 		
 		sprite_ = [[CCSprite spriteWithFile:@"home_1.png"] retain];
+#if !DEBUG_NOBASESPRITE
 		[self addChild:sprite_];				
+#endif
 		
 		Grid *grid = [Grid grid];
 		CGPoint startCoord = [grid gridToPixel:pos];
@@ -31,12 +35,12 @@
 		
 		// Make the goal and the doorway just unbuildable
 		[grid makeNoBuild:pos];
-		[grid makeNoBuild:[Pair pair:(pos.x+1) second:pos.y]];
+		[grid makeNoBuild:[pos rightPair]];
 		
 		// Make the surrounding squares impassable
-		[grid makeImpassable:[Pair pair:(pos.x-1) second:pos.y]];
-		[grid makeImpassable:[Pair pair:(pos.y) second:(pos.y-1)]];		
-		[grid makeImpassable:[Pair pair:(pos.y) second:(pos.y+1)]];				
+		[grid makeImpassable:[pos leftPair]];
+		[grid makeImpassable:[pos topPair]];
+		[grid makeImpassable:[pos bottomPair]];
 		[grid makeImpassable:[Pair pair:(pos.x+1) second:(pos.y+1)]];				
 		[grid makeImpassable:[Pair pair:(pos.x+1) second:(pos.y-1)]];				
 		[grid makeImpassable:[Pair pair:(pos.x-1) second:(pos.y+1)]];				

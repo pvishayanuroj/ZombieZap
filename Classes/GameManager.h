@@ -56,6 +56,8 @@
 
 - (void) removeSpotlight:(Spotlight *)spotlight;
 
+- (void) addWireWithPos:(Pair *)pos;
+
 - (void) addHomeWithPos:(Pair *)pos;
 
 - (CGPoint) getLayerOffset;

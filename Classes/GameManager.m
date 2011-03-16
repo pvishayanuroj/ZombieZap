@@ -13,8 +13,11 @@
 #import "Turret.h"
 #import "Light.h"
 #import "Spotlight.h"
+#import "Wire.h"
 #import "Home.h"
 #import "Grid.h"
+#import "ElectricGrid.h"
+#import "Pair.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -142,14 +145,34 @@ static GameManager *_gameManager = nil;
 	
 	[towerLocations_ addObject:pos];	
 	[gameLayer_ addChild:turret];
+	
+	// Add a wire associated with this position if there isn't already one
+	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
+		[self addWireWithPos:pos];
+	}
+	
+}
+
+- (void) addWireWithPos:(Pair *)pos
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Wire without a registered Game Layer");
+	
+	// Create the wire and add it
+	Wire *wire = [Wire wireWithPos:pos];
+	[gameLayer_ addChild:wire];
 }
 
 - (void) addHomeWithPos:(Pair *)pos
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Home without a registered Game Layer");
 	
+	// Create home base, make sure it stays above the zombies
 	Home *home = [Home homeWithPos:pos];
 	[gameLayer_ addChild:home z:10];
+	
+	// Simulate the electric nodes from the base
+	[self addWireWithPos:[pos topPair]];
+	[self addWireWithPos:[pos bottomPair]];	
 }
 
 - (CGPoint) getLayerOffset

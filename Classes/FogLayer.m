@@ -14,6 +14,8 @@
 #import "GameManager.h"
 #import "Spotlight.h"
 
+#import "Debugging.h"
+
 @implementation FogLayer
 
 - (id) init
@@ -26,7 +28,11 @@
 		fog_.anchorPoint = ccp(0, 0);			
 		[self addChild:fog_];		
 		
+#if DEBUG_NOFOG
+		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_notrans.png"]] retain];
+#else
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];
+#endif
 		tempTexture_ = [[[MutableTextureExtension alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
 		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
 		NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);

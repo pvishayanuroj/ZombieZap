@@ -106,6 +106,7 @@
 {
 	switch (buttonType_) {
 		case B_WIRE:
+			[[GameManager gameManager] addWireWithPos:location];
 			break;
 		case B_LIGHT:
 			[[GameManager gameManager] addLightWithPos:location];

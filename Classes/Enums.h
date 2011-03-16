@@ -36,3 +36,10 @@ typedef enum {
 	B_LIGHT = 1,
 	B_TASER = 2
 } BuildButtonType;
+
+typedef enum {
+	W_UP = 1,
+	W_DOWN = 2,
+	W_LEFT = 4,
+	W_RIGHT = 8
+} WireConnection;

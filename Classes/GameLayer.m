@@ -19,6 +19,8 @@
 #import "AWTextureFilter.h"
 #import "FogLayer.h"
 
+#import "Debugging.h"
+
 @implementation GameLayer
 
 /**
@@ -39,9 +41,11 @@
 		
 		[[GameManager gameManager] addHomeWithPos:[Pair pair:15 second:15]];
 		
+#if !DEBUG_NOENEMIES		
 		//[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
 		//[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
 		[[SpawnManager spawnManager] loadSpawns:@"Omni_Spawns"];
+#endif
 		
 		[self debugCode];
 	}
