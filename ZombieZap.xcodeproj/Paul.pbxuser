@@ -332,16 +332,16 @@
 	};
 	DA01DA89130347AD00B0D88B /* Grid.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 1624}}";
-			sepNavSelRange = "{1136, 0}";
-			sepNavVisRange = "{403, 1590}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 1554}}";
+			sepNavSelRange = "{3217, 0}";
+			sepNavVisRange = "{1414, 1851}";
 		};
 	};
 	DA01DA8A130347AD00B0D88B /* Grid.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3052}}";
-			sepNavSelRange = "{4949, 0}";
-			sepNavVisRange = "{4422, 981}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3108}}";
+			sepNavSelRange = "{4712, 0}";
+			sepNavVisRange = "{4143, 1203}";
 		};
 	};
 	DA01DA96130348FE00B0D88B /* GameLayer.h */ = {
@@ -353,9 +353,9 @@
 	};
 	DA01DA97130348FE00B0D88B /* GameLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1244, 2380}}";
-			sepNavSelRange = "{3859, 0}";
-			sepNavVisRange = "{3309, 994}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2520}}";
+			sepNavSelRange = "{931, 0}";
+			sepNavVisRange = "{336, 1179}";
 		};
 	};
 	DA1EF807132B044D0095CBF7 /* Spotlight.h */ = {
@@ -766,7 +766,7 @@
 	DA2FD860132C600C0073B8B2 /* Light.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 707}}";
-			sepNavSelRange = "{182, 0}";
+			sepNavSelRange = "{290, 0}";
 			sepNavVisRange = "{0, 340}";
 		};
 	};
@@ -815,12 +815,12 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 896}}";
 			sepNavSelRange = "{887, 0}";
-			sepNavVisRange = "{209, 1043}";
+			sepNavVisRange = "{196, 1056}";
 		};
 	};
 	DA424AFE13228D08006EDFB8 /* GameManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2268}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2408}}";
 			sepNavSelRange = "{3035, 0}";
 			sepNavVisRange = "{2310, 1476}";
 		};
@@ -972,8 +972,8 @@
 	DA5FA48B130975AB005E2411 /* Enums.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 707}}";
-			sepNavSelRange = "{281, 0}";
-			sepNavVisRange = "{0, 552}";
+			sepNavSelRange = "{285, 0}";
+			sepNavVisRange = "{0, 571}";
 		};
 	};
 	DA5FA4A713097AF9005E2411 /* Zombie.m:40 */ = {
@@ -1092,9 +1092,9 @@
 	};
 	DA69F099130180E9002253AF /* GameScene.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2394}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2352}}";
 			sepNavSelRange = "{3954, 0}";
-			sepNavVisRange = "{238, 1413}";
+			sepNavVisRange = "{259, 1392}";
 		};
 	};
 	DA69F09A130180E9002253AF /* Generator.h */ = {
@@ -1303,7 +1303,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 1162}}";
 			sepNavSelRange = "{1335, 0}";
-			sepNavVisRange = "{673, 973}";
+			sepNavVisRange = "{672, 974}";
 		};
 	};
 	DA6E90321308D9A500C42417 /* Zombie.m */ = {
@@ -1600,9 +1600,9 @@
 	};
 	DA7CA1FA1325F19D00825545 /* FogLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3556}}";
-			sepNavSelRange = "{5170, 0}";
-			sepNavVisRange = "{4226, 1694}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3374}}";
+			sepNavSelRange = "{4694, 0}";
+			sepNavVisRange = "{4226, 1658}";
 		};
 	};
 	DA7CA20D1325F7D000825545 /* FogLayer.m:54 */ = {
@@ -1893,12 +1893,12 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 812}}";
 			sepNavSelRange = "{264, 0}";
-			sepNavVisRange = "{30, 727}";
+			sepNavVisRange = "{30, 700}";
 		};
 	};
 	DA8F6DBE132048A50096CF18 /* Turret.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3318}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3304}}";
 			sepNavSelRange = "{312, 0}";
 			sepNavVisRange = "{136, 910}";
 			sepNavWindowFrame = "{{15, 38}, {1345, 835}}";
@@ -2015,7 +2015,7 @@
 		fRef = DA5FA48B130975AB005E2411 /* Enums.h */;
 		name = "Enums.h: 17";
 		rLen = 0;
-		rLoc = 281;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 552;
 		vrLoc = 0;
@@ -2471,9 +2471,9 @@
 	};
 	DAE1C4D213301C7800A46747 /* Home.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 784}}";
-			sepNavSelRange = "{637, 0}";
-			sepNavVisRange = "{0, 1310}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 826}}";
+			sepNavSelRange = "{648, 1}";
+			sepNavVisRange = "{31, 1362}";
 		};
 	};
 	DAE1C4E91330200000A46747 /* PBXTextBookmark */ = {
@@ -2537,7 +2537,7 @@
 		fRef = DA01DA8A130347AD00B0D88B /* Grid.m */;
 		name = "Grid.m: 195";
 		rLen = 0;
-		rLoc = 4949;
+		rLoc = 4937;
 		rType = 0;
 		vrLen = 981;
 		vrLoc = 4422;
@@ -2696,7 +2696,7 @@
 		fRef = DAE1C4D213301C7800A46747 /* Home.m */;
 		name = "Home.m: 32";
 		rLen = 0;
-		rLoc = 637;
+		rLoc = 789;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 0;
@@ -2891,7 +2891,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 78";
 		rLen = 0;
-		rLoc = 1637;
+		rLoc = 1664;
 		rType = 0;
 		vrLen = 1150;
 		vrLoc = 1027;

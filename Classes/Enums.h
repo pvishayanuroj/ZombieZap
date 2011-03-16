@@ -13,7 +13,8 @@ typedef enum {
 	TERR_IMPASS = 0,
 	TERR_LOW = 1,
 	TERR_MID = 2,
-	TERR_HIGH = 3
+	TERR_HIGH = 3,
+	TERR_NOBUILD = 4
 } TerrainType;
 
 typedef enum {

@@ -29,9 +29,12 @@
 		CGPoint startCoord = [grid gridToPixel:pos];
 		self.position = startCoord;		
 		
-		//[grid makeImpassable:pos];
+		// Make the goal and the doorway just unbuildable
+		[grid makeNoBuild:pos];
+		[grid makeNoBuild:[Pair pair:(pos.x+1) second:pos.y]];
+		
+		// Make the surrounding squares impassable
 		[grid makeImpassable:[Pair pair:(pos.x-1) second:pos.y]];
-		//[grid makeImpassable:[Pair pair:(pos.x+1) second:pos.y]];	// This is the goal node
 		[grid makeImpassable:[Pair pair:(pos.y) second:(pos.y-1)]];		
 		[grid makeImpassable:[Pair pair:(pos.y) second:(pos.y+1)]];				
 		[grid makeImpassable:[Pair pair:(pos.x+1) second:(pos.y+1)]];				

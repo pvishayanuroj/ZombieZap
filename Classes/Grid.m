@@ -184,8 +184,8 @@ static Grid *_grid = nil;
 	if ([towers containsObject:p])
 		return TERR_IMPASS;
 	
-	NSUInteger terrainType = [[terrain_ objectForKey:p] intValue];
-	return (TerrainType)terrainType;
+	TerrainType terrainType = [[terrain_ objectForKey:p] intValue];
+	return terrainType;
 }
 
 - (void) makeImpassable:(Pair *)p
@@ -194,6 +194,15 @@ static Grid *_grid = nil;
 		
 		[terrain_ removeObjectForKey:p];
 		[terrain_ setObject:[NSNumber numberWithInt:TERR_IMPASS] forKey:p];
+	}
+}
+
+- (void) makeNoBuild:(Pair *)p
+{
+	if (p.x >= 0 && p.y >= 0 && p.x < self.gridX && p.y < self.gridY) {
+		
+		[terrain_ removeObjectForKey:p];
+		[terrain_ setObject:[NSNumber numberWithInt:TERR_NOBUILD] forKey:p];
 	}
 }
 

@@ -103,6 +103,8 @@
 
 - (void) makeImpassable:(Pair *)p;
 
+- (void) makeNoBuild:(Pair *)p;
+
 - (void) addPathToObjective:(NSArray *)path;
 
 @end
