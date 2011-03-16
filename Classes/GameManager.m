@@ -18,6 +18,7 @@
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
+#import "Enums.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -78,12 +79,17 @@ static GameManager *_gameManager = nil;
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
 	
 	Light *light = [Light lightWithPos:pos];
-	[gameLayer_ addChild:light];
+	[gameLayer_ addChild:light z:kTower];
 	[towerLocations_ addObject:pos];
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
 	[spotlights_ addObject:spotlight];
+	
+	// Add a wire associated with this position if there isn't already one
+	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
+		[self addWireWithPos:pos];
+	}	
 	
 	return spotlight;
 }
@@ -93,12 +99,17 @@ static GameManager *_gameManager = nil;
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
 	
 	Light *light = [Light lightWithPos:pos];
-	[gameLayer_ addChild:light];
+	[gameLayer_ addChild:light z:kTower];
 	[towerLocations_ addObject:pos];	
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos];
 	[spotlights_ addObject:spotlight];
+	
+	// Add a wire associated with this position if there isn't already one
+	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
+		[self addWireWithPos:pos];
+	}	
 	
 	return spotlight;
 }
@@ -128,7 +139,7 @@ static GameManager *_gameManager = nil;
 	
 	// Add to the array that keeps track of all zombies, and add to the game layer
 	[zombies_ addObject:zombie];
-	[gameLayer_ addChild:zombie z:1];
+	[gameLayer_ addChild:zombie z:kZombie];
 }
 
 - (void) removeZombie:(Zombie *)zombie
@@ -144,7 +155,7 @@ static GameManager *_gameManager = nil;
 	Turret *turret = [Turret turretWithPos:pos];
 	
 	[towerLocations_ addObject:pos];	
-	[gameLayer_ addChild:turret];
+	[gameLayer_ addChild:turret z:kTower];
 	
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
@@ -159,7 +170,7 @@ static GameManager *_gameManager = nil;
 	
 	// Create the wire and add it
 	Wire *wire = [Wire wireWithPos:pos];
-	[gameLayer_ addChild:wire];
+	[gameLayer_ addChild:wire z:kWire];
 }
 
 - (void) addHomeWithPos:(Pair *)pos
@@ -168,7 +179,7 @@ static GameManager *_gameManager = nil;
 	
 	// Create home base, make sure it stays above the zombies
 	Home *home = [Home homeWithPos:pos];
-	[gameLayer_ addChild:home z:10];
+	[gameLayer_ addChild:home z:kHome];
 	
 	// Simulate the electric nodes from the base
 	[self addWireWithPos:[pos topPair]];

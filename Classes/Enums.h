@@ -38,8 +38,27 @@ typedef enum {
 } BuildButtonType;
 
 typedef enum {
+	D_VERTICAL,
+	D_HORIZONTAL
+} DirectionType;
+
+enum {
 	W_UP = 1,
 	W_DOWN = 2,
 	W_LEFT = 4,
 	W_RIGHT = 8
-} WireConnection;
+};
+
+enum {
+	kWire = 1,
+	kTower = 2,
+	kZombie = 3,	
+	kHome = 10	
+};
+
+enum {
+	kGameLayer = 0,
+	kFogLayer = 1,
+	kBuildLayer = 2,
+	kGeneratorLayer = 3
+};

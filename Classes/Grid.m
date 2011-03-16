@@ -174,6 +174,15 @@ static Grid *_grid = nil;
 	return p;
 }
 
+- (CGPoint) worldGridToLocalPixel:(Pair *)p
+{
+	CGPoint offset = [[GameManager gameManager] getLayerOffset];
+	
+	// Convert to pixels first, then add the offset
+	CGPoint gridPixel = [self gridToPixel:p];
+	return ccpAdd(gridPixel, offset);
+}
+
 - (TerrainType) terrainAtGrid:(Pair *)p 
 {
 	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
@@ -185,6 +194,15 @@ static Grid *_grid = nil;
 	
 	TerrainType terrainType = [[terrain_ objectForKey:p] intValue];
 	return terrainType;
+}
+
+- (BOOL) impassableAtGrid:(Pair *)p
+{
+	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
+		return YES;		
+	
+	TerrainType terrainType = [[terrain_ objectForKey:p] intValue];
+	return terrainType == TERR_IMPASS;
 }
 
 - (BOOL) towerAtGrid:(Pair *)p

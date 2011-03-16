@@ -9,6 +9,9 @@
 #import "BuildLayer.h"
 #import "PButton.h"
 #import "Grid.h"
+#import "Pair.h"
+#import "GameManager.h"
+#import "ElectricGrid.h"
 
 @implementation BuildLayer
 
@@ -17,6 +20,9 @@
 	if ((self = [super init])) {
 		
 		self.isTouchEnabled = YES;
+		
+		wirePlacement_ = NO;
+		dirPreference_ = D_VERTICAL;
 		
 		rows = 5;
 		columns = 3;
@@ -29,7 +35,8 @@
 		greenGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
 		redGrid_ = [[NSMutableArray arrayWithCapacity:13] retain];
 	
-		for (int i = 0; i < 5; i++) {
+		int longestWire = 25; // NEED TO CALCULATE THIS
+		for (int i = 0; i < longestWire; i++) {
 			// Green grids
 			sprite = [CCSprite spriteWithFile:@"green_box.png"];
 			[greenGrid_ addObject:sprite];
@@ -69,12 +76,6 @@
 	CGPoint newPos;
 	int count = 0;
 	NSInteger gridSize = [[Grid grid] gridSize];
-	/*
-	// 1x1 build box shading
-	sprite = [color objectAtIndex:0];
-	sprite.position = gridPos;
-	sprite.visible = YES;	
-	 */
 	
 	// "pointed" build box shading
 	for (int i = -1; i < 2; i++) {
@@ -92,38 +93,6 @@
 	sprite.position = newPos;
 	sprite.visible = YES;	
 	
-	/*
-	// 3x3 + 1 build box shading
-	// Middle row
-	for (int i = -2; i < 3; i++) {
-		newPos = CGPointMake(pos.x + i * gridSize, pos.y);
-		sprite = [color objectAtIndex:count++];
-		sprite.position = newPos;
-		sprite.visible = YES;
-	}
-	
-	for (int i = -1; i < 2; i++) {
-		newPos = CGPointMake(pos.x + i * gridSize, pos.y + gridSize);
-		sprite = [color objectAtIndex:count++];
-		sprite.position = newPos;
-		sprite.visible = YES;
-		
-		newPos = CGPointMake(pos.x + i * gridSize, pos.y - gridSize);
-		sprite = [color objectAtIndex:count++];
-		sprite.position = newPos;		
-		sprite.visible = YES;		
-	}	
-	
-	newPos = CGPointMake(pos.x, pos.y + 2*gridSize);
-	sprite = [color objectAtIndex:count++];
-	sprite.position = newPos;
-	sprite.visible = YES;
-	newPos = CGPointMake(pos.x, pos.y - 2*gridSize);
-	sprite = [color objectAtIndex:count++];
-	sprite.position = newPos;
-	sprite.visible = YES;	
-	 */
-	
 	return allowable;
 }
 
@@ -137,6 +106,104 @@
 	}	
 }
 	
+- (NSArray *) buildGridFrom:(Pair *)from to:(Pair *)to passable:(BOOL *)passable
+{
+	CCSprite *sprite;	
+	NSMutableArray *path;
+	NSArray *color = greenGrid_;
+	int count = 0;	
+	*passable = YES;
+	
+	// Get the tiles in the path
+	// Straight line path
+	if (from.x == to.x || from.y == to.y) {
+		path = [self getStraightPathFrom:from to:to passable:passable];
+		// Store the directional preference, because if we corner, the first segment will be in the same intial direction
+		dirPreference_ = (from.x == to.x) ? D_VERTICAL : D_HORIZONTAL;
+	}
+	// L-shaped path
+	else {
+		Pair *corner;
+		// If vertical preference, corner's x will stay the same as start node
+		if (dirPreference_ == D_VERTICAL) {
+			corner = [Pair pair:from.x second:to.y];
+		}
+		// Else horizontal preference, corner's y will stay the same as end node
+		else {
+			corner = [Pair pair:to.x second:from.y];			
+		}
+		
+		// Get first and second segments and form the cumulative path
+		path = [self getStraightPathFrom:from to:corner passable:passable];		
+		NSArray *p2 = [self getStraightPathFrom:corner to:to passable:passable];
+		[path addObjectsFromArray:p2];
+	}
+	
+
+	// Turn the grid red if there's an obstruction
+	if (!*passable) {
+		color = redGrid_;
+	}
+	
+	// Draw the path tiles	
+	for (Pair *p in path) {
+		sprite = [color objectAtIndex:count++];
+		sprite.position = [[Grid grid] worldGridToLocalPixel:p];
+		sprite.visible = YES;
+	}
+	
+	return path;
+}
+							 
+- (NSMutableArray *) getStraightPathFrom:(Pair *)from to:(Pair *)to passable:(BOOL *)passable
+{
+	Grid *grid = [Grid grid];
+	NSMutableArray *path = nil;
+	Pair *p;	
+	Pair *start = from;
+	Pair *end = to;
+
+	
+	// Vertical path
+	if (from.x == to.x) {
+		// Make sure the start is the one with the lower value
+		if (to.y < from.y) {
+			start = to;
+			end = from;
+		}
+		
+		path = [NSMutableArray arrayWithCapacity:(end.y - start.y + 1)];
+		// Get the path, and check to see if anything's blocking it
+		for (int i = start.y; i <= end.y; i++) {
+			p = [Pair pair:from.x second:i];
+			[path addObject:p];
+			if ([grid impassableAtGrid:p]) {
+				*passable = NO;
+			}
+		}
+	}
+	// Horizontal path
+	else if (from.y == to.y) {
+		// Make sure the start tis the one with the lower value
+		if (to.x < from.x) {
+			start = to;
+			end = from;
+		}
+		
+		path = [NSMutableArray arrayWithCapacity:(end.y - start.y + 1)];
+		// Get the path, and check to see if anything's blocking it		
+		for (int i = start.x; i <= end.x; i++) {
+			p = [Pair pair:i second:from.y];
+			[path addObject:p];
+			if ([grid impassableAtGrid:p]) {
+				*passable = NO;
+			}			
+		}
+	}
+	
+	return path;
+}
+
 - (void) addButton:(PButton *)button
 {
 	[buttons addObject:button];
@@ -149,6 +216,96 @@
 	CGPoint pos = CGPointMake(offset.x + x * buttonSize, offset.y - y * buttonSize);
 	
 	[button setPosition:pos];
+}
+
+- (void) toggleWirePlacement:(PButton *)b
+{
+	if (wirePlacement_) {
+		wirePlacement_ = NO;
+		[toggledButton_ changeToNormal];
+		[toggledButton_ release];
+	}
+	else {
+		wirePlacement_ = YES;
+		toggledButton_ = [b retain];
+	}
+}
+
+- (void) onEnter
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[super onEnter];
+}
+
+- (void) onExit
+{
+	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	[super onExit];
+}
+
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	if (wirePlacement_) {
+		
+		// Touchpoint is relative to the build layer
+		CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+		
+		wireStart_ = [[[Grid grid] localPixelToWorldGrid:touchPoint] retain];
+		wireEnd_ = [[[Grid grid] localPixelToWorldGrid:touchPoint] retain];
+		
+		// Draw the initial one tile wire build path
+		BOOL b;
+		[self buildGridFrom:wireStart_ to:wireEnd_ passable:&b];
+		
+		return YES;
+	}
+	return NO;
+}
+
+
+- (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	// Touchpoint is relative to the build layer
+	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+	
+	Pair *p = [[Grid grid] localPixelToWorldGrid:touchPoint];	
+	
+	// If the user moved their finger to new grid to end the wire
+	if (![p isEqual:wireEnd_]) {
+		[self buildGridOff];
+		[wireEnd_ release];
+		wireEnd_ = [p retain];
+		
+		// Redraw the wire build path
+		BOOL b;
+		[self buildGridFrom:wireStart_ to:wireEnd_ passable:&b];
+	}
+}
+
+- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	BOOL passable;
+	NSArray *path = [self buildGridFrom:wireStart_ to:wireEnd_ passable:&passable];
+	[self buildGridOff];
+	
+	// Reset things
+	wirePlacement_ = NO;
+	[wireStart_ release];	
+	[wireEnd_ release];
+	[toggledButton_ changeToNormal];
+	[toggledButton_ release];
+	
+	// Lay the wire down if nothing is blocking the path
+	if (passable) {
+		GameManager *gameManager = [GameManager gameManager];
+		ElectricGrid *eGrid = [ElectricGrid electricGrid];
+		// Check duplicates, since wire can go on top of wire
+		for (Pair *p in path) {
+			if (![eGrid wireAtGrid:p]) {
+				[gameManager addWireWithPos:p];
+			}
+		}
+	}
 }
 
 - (void) dealloc

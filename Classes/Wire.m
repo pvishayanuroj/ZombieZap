@@ -36,9 +36,10 @@
 		self.position = startCoord;
 		
 		// Important to add ourself to the grid, so that when our neighbors update their orientation, they see ourself
+		// Make sure only one wire ever exists for a given grid
 		if (![[ElectricGrid electricGrid] addWireAtGrid:pos wire:self]) {
 			NSAssert(NO, ([NSString stringWithFormat:@"Trying to add a Wire on top of another wire at %@", pos]));		
-		}		
+		}
 		
 		// Let adjacent wires know that their neighbor has been updated
 		if ((wireType_ & W_UP) == W_UP) {

@@ -7,11 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "Enums.h"
 
 @class Pair;
 @class PButton;
 
-@interface BuildLayer : CCLayer {
+@interface BuildLayer : CCLayer <CCTargetedTouchDelegate> {
 
 	NSUInteger rows;
 	
@@ -24,7 +25,18 @@
 	CGPoint offset;
 	
 	NSMutableArray *greenGrid_;
+	
 	NSMutableArray *redGrid_;	
+	
+	BOOL wirePlacement_;
+	
+	Pair *wireStart_;
+	
+	Pair *wireEnd_;
+	
+	DirectionType dirPreference_;
+	
+	PButton *toggledButton_;
 	
 }
 
@@ -33,5 +45,11 @@
 - (BOOL) buildGridAtPos:(CGPoint)pos;
 
 - (void) buildGridOff;
+
+- (NSArray *) buildGridFrom:(Pair *)from to:(Pair *)to passable:(BOOL *)passable;
+
+- (NSMutableArray *) getStraightPathFrom:(Pair *)from to:(Pair *)to passable:(BOOL *)passable;
+
+- (void) toggleWirePlacement:(PButton *)b;
 
 @end

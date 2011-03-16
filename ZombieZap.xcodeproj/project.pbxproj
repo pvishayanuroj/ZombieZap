@@ -66,6 +66,7 @@
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
 		DA01DA8B130347AD00B0D88B /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA8A130347AD00B0D88B /* Grid.m */; };
 		DA01DA98130348FE00B0D88B /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA01DA97130348FE00B0D88B /* GameLayer.m */; };
+		DA186D2D1331377800FCBD51 /* wire_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = DA186D2C1331377800FCBD51 /* wire_button_pressed.png */; };
 		DA1EF809132B044D0095CBF7 /* Spotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF808132B044D0095CBF7 /* Spotlight.m */; };
 		DA1EF80C132B04AA0095CBF7 /* Triplet.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF80B132B04AA0095CBF7 /* Triplet.m */; };
 		DA1EF829132B21850095CBF7 /* MutableTextureExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EF828132B21850095CBF7 /* MutableTextureExtension.m */; };
@@ -375,6 +376,7 @@
 		DA01DA8A130347AD00B0D88B /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		DA01DA96130348FE00B0D88B /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		DA01DA97130348FE00B0D88B /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		DA186D2C1331377800FCBD51 /* wire_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wire_button_pressed.png; sourceTree = "<group>"; };
 		DA1EF807132B044D0095CBF7 /* Spotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotlight.h; sourceTree = "<group>"; };
 		DA1EF808132B044D0095CBF7 /* Spotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spotlight.m; sourceTree = "<group>"; };
 		DA1EF80A132B04AA0095CBF7 /* Triplet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triplet.h; sourceTree = "<group>"; };
@@ -735,14 +737,14 @@
 				DAE1C3BB132FE5EC00A46747 /* Cocos Setup */,
 				DAE1C5991330297600A46747 /* Singletons */,
 				DAE1C5961330292500A46747 /* Utility */,
-				DA69F096130180E9002253AF /* BuildLayer.h */,
-				DA69F097130180E9002253AF /* BuildLayer.m */,
 				DA69F098130180E9002253AF /* GameScene.h */,
 				DA69F099130180E9002253AF /* GameScene.m */,
-				DA69F09A130180E9002253AF /* Generator.h */,
-				DA69F09B130180E9002253AF /* Generator.m */,
 				DA69F09C130180E9002253AF /* GeneratorLayer.h */,
 				DA69F09D130180E9002253AF /* GeneratorLayer.m */,
+				DA69F09A130180E9002253AF /* Generator.h */,
+				DA69F09B130180E9002253AF /* Generator.m */,
+				DA69F096130180E9002253AF /* BuildLayer.h */,
+				DA69F097130180E9002253AF /* BuildLayer.m */,
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
@@ -907,6 +909,7 @@
 		DA2FD887132C752B0073B8B2 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				DA186D2C1331377800FCBD51 /* wire_button_pressed.png */,
 				DA2FD888132C752B0073B8B2 /* light_button.png */,
 				DA2FD889132C752B0073B8B2 /* taser_button.png */,
 				DA2FD88A132C752B0073B8B2 /* wire_button.png */,
@@ -1447,6 +1450,7 @@
 				DAB4FC061330E9DF005E4F24 /* wire_thru.png in Resources */,
 				DAB4FC5B1330FF1C005E4F24 /* wire_end.png in Resources */,
 				DAB4FC6F1331038F005E4F24 /* wire_corner.png in Resources */,
+				DA186D2D1331377800FCBD51 /* wire_button_pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

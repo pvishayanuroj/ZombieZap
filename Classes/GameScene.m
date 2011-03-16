@@ -15,6 +15,7 @@
 #import "BinaryHeap.h"
 #import "GameManager.h"
 #import "Pair.h"
+#import "Enums.h"
 
 @implementation GameScene
 
@@ -26,16 +27,16 @@
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
-		[self addChild:generatorLayer z:3];
+		[self addChild:generatorLayer z:kGeneratorLayer];
 		
 		BuildLayer *buildLayer = [BuildLayer node];
-		[self addChild:buildLayer z:2];
+		[self addChild:buildLayer z:kBuildLayer];
 		
 		FogLayer *fogLayer = [FogLayer node];
-		[self addChild:fogLayer z:1 tag:5];
+		[self addChild:fogLayer z:kFogLayer tag:5];
 
 		GameLayer *gameLayer = [GameLayer node];
-		[self addChild:gameLayer z:0];
+		[self addChild:gameLayer z:kGameLayer];
 		
 		[self addButtons:buildLayer];
 		
@@ -87,7 +88,7 @@
 {
 	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Zombie Walking 05.png" buttonType:B_TASER];
 	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_LIGHT];
-	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_WIRE];	
+	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" toggledImage:@"wire_button_pressed.png" buttonType:B_WIRE];	
 	[buildLayer addButton:taser];
 	[buildLayer addButton:light];
 	[buildLayer addButton:wire];	

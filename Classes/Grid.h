@@ -76,7 +76,7 @@
 /**
 	Method that gets the map coordinate at the center of a grid.
 	@param g The grid coordinate to get the map coordinate for.
-	@returns The mid point pixel coordinate value of the grid.
+	@returns The midpoint pixel coordinate value of the grid.
  */
 - (CGPoint) gridToPixel:(Pair *)g;
 
@@ -95,6 +95,13 @@
 - (Pair *) localPixelToWorldGrid:(CGPoint)pixel;
 
 /**
+	Method that converts a world grid coordinate into a local pixel coordinate (uses GameLayer offset)
+	@param pixel The world grid coordinate that you wish to get the local pixel coordinate for.
+	@return The local midpoint pixel value
+ */
+- (CGPoint) worldGridToLocalPixel:(Pair *)p;
+
+/**
 	Method that retrieves the terrain type from the grid by taking in the grid coordinate.
 	@param p The grid coordinate to retrieve the terrain.
 	@returns The terrain value of the grid.
@@ -107,6 +114,8 @@
 	@returns True if a tower exists, false otherwise (including out of bounds).
  */
 - (BOOL) towerAtGrid:(Pair *)p;
+
+- (BOOL) impassableAtGrid:(Pair *)p;
 
 - (void) makeImpassable:(Pair *)p;
 

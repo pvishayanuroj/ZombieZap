@@ -19,6 +19,11 @@
 	return [[[self alloc] initPButton:buttonImage placementImage:placementImage buttonType:buttonType] autorelease];		
 }
 
++ (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage toggledImage:(NSString *)toggledImage buttonType:(BuildButtonType)buttonType
+{
+	return [[[self alloc] initPButton:buttonImage placementImage:placementImage toggledImage:toggledImage buttonType:buttonType] autorelease];
+}
+
 - (id) initPButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType
 {
 	if ((self = [super init])) {
@@ -30,8 +35,18 @@
 		
 		allowable_ = NO;
 		
-		sprite_ = [CCSprite spriteWithFile:buttonImage];
-		[self addChild:sprite_];		
+		sprite_ = [[CCSprite spriteWithFile:buttonImage] retain];
+		[self addChild:sprite_ z:0 tag:kCurrentSprite];		
+	}
+	return self;
+}
+
+- (id) initPButton:(NSString *)buttonImage placementImage:(NSString *)placementImage toggledImage:(NSString *)toggledImage buttonType:(BuildButtonType)buttonType
+{
+	if ((self = [self initPButton:buttonImage placementImage:placementImage buttonType:buttonType])) {
+			
+		toggledSprite_ = [[CCSprite spriteWithFile:toggledImage] retain];
+		
 	}
 	return self;
 }
@@ -60,46 +75,73 @@
 {
 	if (![self containsTouchLocation:touch])
 		return NO;
-	
+
 	return YES;
 }
 
 - (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	if (!placementAdded_) {
-		[self addChild:placementSprite_];
-		placementAdded_ = YES;
-	}
-	
-	// Touchpoint is relative to the node
-	CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
-	
-	// Convert from node to local screen space
-	CGPoint localPoint = [self convertToWorldSpace:touchPoint];
+	// Don't show the single placement sprite when dealing with wires
+	if (buttonType_ != B_WIRE) {
+		
+		if (!placementAdded_) {
+			[self addChild:placementSprite_];
+			placementAdded_ = YES;
+		}
+		
+		// Touchpoint is relative to the node
+		CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+		
+		// Convert from node to local screen space
+		CGPoint localPoint = [self convertToWorldSpace:touchPoint];
 
-	// Show the build grid and returns whether or not we're allowed to build there
-	allowable_ = [(BuildLayer *)self.parent buildGridAtPos:localPoint];	
-	
-	// Returns the closest grid in local space
-	CGPoint gridPixel = [[Grid grid] localPixelToLocalGridPixel:localPoint];
-	CGPoint pos = [self convertToNodeSpace:gridPixel];
-	placementSprite_.position = pos;
+		// Show the build grid and returns whether or not we're allowed to build there
+		allowable_ = [(BuildLayer *)self.parent buildGridAtPos:localPoint];	
+		
+		// Returns the closest grid in local space
+		CGPoint gridPixel = [[Grid grid] localPixelToLocalGridPixel:localPoint];
+		CGPoint pos = [self convertToNodeSpace:gridPixel];
+		placementSprite_.position = pos;
+	}
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {	
-	[self removeChild:placementSprite_ cleanup:YES];
-	placementAdded_ = NO;
-	
-	[(BuildLayer *)self.parent buildGridOff];	
-	
-	if (allowable_) {
-		CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
-		CGPoint worldPoint = [self convertToWorldSpace:touchPoint];
-	
-		Pair *p = [[Grid grid] localPixelToWorldGrid:worldPoint];
-		[self buildAction:p];
+	// For all non-wire buttons
+	if (buttonType_ != B_WIRE) {
+		[self removeChild:placementSprite_ cleanup:YES];
+		placementAdded_ = NO;
+		
+		[(BuildLayer *)self.parent buildGridOff];	
+		
+		if (allowable_) {
+			CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+			CGPoint worldPoint = [self convertToWorldSpace:touchPoint];
+		
+			Pair *p = [[Grid grid] localPixelToWorldGrid:worldPoint];
+			[self buildAction:p];
+		}
 	}
+	// Else this is a wire button
+	else {
+		// If button was pressed, toggle the wire
+		if ([self containsTouchLocation:touch]) {	
+			[self changeToToggled];
+			[(BuildLayer *)self.parent toggleWirePlacement:self];	
+		}
+	}
+}
+
+- (void) changeToToggled
+{
+	[self removeChildByTag:kCurrentSprite cleanup:YES];
+	[self addChild:toggledSprite_ z:0 tag:kCurrentSprite];
+}
+
+- (void) changeToNormal
+{
+	[self removeChildByTag:kCurrentSprite cleanup:YES];
+	[self addChild:sprite_ z:0 tag:kCurrentSprite];	
 }
 
 - (void) buildAction:(Pair *)location
@@ -121,7 +163,9 @@
 
 - (void) dealloc
 {	
+	[sprite_ release];
 	[placementSprite_ release];
+	[toggledSprite_ release];
 	
 	[super dealloc];
 }
