@@ -43,9 +43,9 @@
 			DA8EF69A131F1CD40043F959 /* Zombie.m:117 */,
 			DA8EF6E7131F23380043F959 /* GameScene.m:159 */,
 			DA8EF6FD131F23940043F959 /* AStar.m:185 */,
-			DA8F6E2E1320513C0096CF18 /* Turret.m:74 */,
-			DA8F6E391320518D0096CF18 /* Turret.m:62 */,
-			DA424C3A1322BF43006EDFB8 /* Turret.m:111 */,
+			DA8F6E2E1320513C0096CF18 /* Turret.m:78 */,
+			DA8F6E391320518D0096CF18 /* Turret.m:64 */,
+			DA424C3A1322BF43006EDFB8 /* Turret.m:120 */,
 			DAB896D01323F7F500A871BF /* GameLayer.m:48 */,
 			DAB896D81323F84B00A871BF /* Grid.m:134 */,
 			DA79FBDC132492B300DE91A4 /* SpawnManager.m:101 */,
@@ -78,8 +78,8 @@
 			DAB4FCB913310DC0005E4F24 /* GameManager.m:173 */,
 			DAB4FCCC13310E2B005E4F24 /* Wire.m:70 */,
 			DAB4FCDE13310E94005E4F24 /* ElectricGrid.m:58 */,
-			DA186D7B13313FA700FCBD51 /* BuildLayer.m:258 */,
-			DA186D8C13313FC600FCBD51 /* BuildLayer.m:320 */,
+			DA186D7B13313FA700FCBD51 /* BuildLayer.m:257 */,
+			DA186D8C13313FC600FCBD51 /* BuildLayer.m:319 */,
 		);
 		codeSenseManager = DA69F094130180A3002253AF /* Code sense */;
 		executables = (
@@ -331,6 +331,22 @@
 			DA8F213613324A58002C2B91 /* PBXTextBookmark */ = DA8F213613324A58002C2B91 /* PBXTextBookmark */;
 			DA8F213713324A58002C2B91 /* PBXTextBookmark */ = DA8F213713324A58002C2B91 /* PBXTextBookmark */;
 			DA8F213813324A58002C2B91 /* PBXTextBookmark */ = DA8F213813324A58002C2B91 /* PBXTextBookmark */;
+			DA8F213913324AD7002C2B91 /* PBXTextBookmark */ = DA8F213913324AD7002C2B91 /* PBXTextBookmark */;
+			DA8F213A13324B12002C2B91 /* PBXTextBookmark */ = DA8F213A13324B12002C2B91 /* PBXTextBookmark */;
+			DA8F213F13324BBC002C2B91 /* PBXTextBookmark */ = DA8F213F13324BBC002C2B91 /* PBXTextBookmark */;
+			DA8F214013324BBC002C2B91 /* XCBuildMessageTextBookmark */ = DA8F214013324BBC002C2B91 /* XCBuildMessageTextBookmark */;
+			DA8F214113324BBC002C2B91 /* PBXTextBookmark */ = DA8F214113324BBC002C2B91 /* PBXTextBookmark */;
+			DA8F215A13325054002C2B91 /* PBXTextBookmark */ = DA8F215A13325054002C2B91 /* PBXTextBookmark */;
+			DA8F215B13325054002C2B91 /* PBXTextBookmark */ = DA8F215B13325054002C2B91 /* PBXTextBookmark */;
+			DA8F215C13325054002C2B91 /* PlistBookmark */ = DA8F215C13325054002C2B91 /* PlistBookmark */;
+			DA8F215D13325054002C2B91 /* PlistBookmark */ = DA8F215D13325054002C2B91 /* PlistBookmark */;
+			DA8F215E13325054002C2B91 /* PBXTextBookmark */ = DA8F215E13325054002C2B91 /* PBXTextBookmark */;
+			DA8F215F13325054002C2B91 /* PBXTextBookmark */ = DA8F215F13325054002C2B91 /* PBXTextBookmark */;
+			DA8F216013325054002C2B91 /* PBXTextBookmark */ = DA8F216013325054002C2B91 /* PBXTextBookmark */;
+			DA8F216113325054002C2B91 /* PBXTextBookmark */ = DA8F216113325054002C2B91 /* PBXTextBookmark */;
+			DA8F216213325054002C2B91 /* PBXTextBookmark */ = DA8F216213325054002C2B91 /* PBXTextBookmark */;
+			DA8F216313325054002C2B91 /* PBXTextBookmark */ = DA8F216313325054002C2B91 /* PBXTextBookmark */;
+			DA8F216413325054002C2B91 /* PBXTextBookmark */ = DA8F216413325054002C2B91 /* PBXTextBookmark */;
 			DA8F6DD513204B580096CF18 = DA8F6DD513204B580096CF18 /* PBXTextBookmark */;
 			DA8F6DD613204B580096CF18 = DA8F6DD613204B580096CF18 /* PBXTextBookmark */;
 			DA8F6DD713204B580096CF18 = DA8F6DD713204B580096CF18 /* PBXTextBookmark */;
@@ -435,9 +451,9 @@
 	};
 	DA01DA97130348FE00B0D88B /* GameLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2590}}";
-			sepNavSelRange = "{3983, 11}";
-			sepNavVisRange = "{2683, 1967}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2842}}";
+			sepNavSelRange = "{977, 0}";
+			sepNavVisRange = "{305, 1132}";
 		};
 	};
 	DA186CA01331302A00FCBD51 /* PBXTextBookmark */ = {
@@ -537,7 +553,7 @@
 		vrLen = 1110;
 		vrLoc = 0;
 	};
-	DA186D7B13313FA700FCBD51 /* BuildLayer.m:258 */ = {
+	DA186D7B13313FA700FCBD51 /* BuildLayer.m:257 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -549,13 +565,13 @@
 		functionName = "-toggleWirePlacement:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 258;
+		lineNumber = 257;
 		location = ZombieZap;
 		modificationTime = 321994676.655566;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	DA186D8C13313FC600FCBD51 /* BuildLayer.m:320 */ = {
+	DA186D8C13313FC600FCBD51 /* BuildLayer.m:319 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -567,7 +583,7 @@
 		functionName = "-ccTouchEnded:withEvent:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 320;
+		lineNumber = 319;
 		location = ZombieZap;
 		modificationTime = 321994694.605073;
 		originalNumberOfMultipleMatches = 1;
@@ -1050,7 +1066,7 @@
 		vrLen = 580;
 		vrLoc = 0;
 	};
-	DA424C3A1322BF43006EDFB8 /* Turret.m:111 */ = {
+	DA424C3A1322BF43006EDFB8 /* Turret.m:120 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1062,7 +1078,7 @@
 		functionName = "-targettingRoutine";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 111;
+		lineNumber = 120;
 		location = ZombieZap;
 		modificationTime = 321994668.083317;
 		originalNumberOfMultipleMatches = 1;
@@ -1164,7 +1180,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 303";
 		rLen = 0;
-		rLoc = 8285;
+		rLoc = 8245;
 		rType = 0;
 		vrLen = 1130;
 		vrLoc = 6435;
@@ -1667,9 +1683,9 @@
 	};
 	DA69F097130180E9002253AF /* BuildLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 5110}}";
-			sepNavSelRange = "{1918, 0}";
-			sepNavVisRange = "{1167, 1256}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 4774}}";
+			sepNavSelRange = "{859, 0}";
+			sepNavVisRange = "{4023, 1318}";
 		};
 	};
 	DA69F098130180E9002253AF /* GameScene.h */ = {
@@ -1902,24 +1918,24 @@
 	};
 	DA6E90321308D9A500C42417 /* Zombie.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3318}}";
-			sepNavSelRange = "{738, 28}";
-			sepNavVisRange = "{497, 1287}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3458}}";
+			sepNavSelRange = "{4699, 0}";
+			sepNavVisRange = "{3700, 1551}";
 			sepNavWindowFrame = "{{16, 44}, {722, 830}}";
 		};
 	};
 	DA79FA3F1324790E00DE91A4 /* SpawnManager.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 448}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1032, 420}}";
 			sepNavSelRange = "{446, 0}";
-			sepNavVisRange = "{0, 435}";
+			sepNavVisRange = "{0, 454}";
 		};
 	};
 	DA79FA401324790E00DE91A4 /* SpawnManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2366}}";
-			sepNavSelRange = "{3307, 0}";
-			sepNavVisRange = "{2609, 1008}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 2422}}";
+			sepNavSelRange = "{3321, 0}";
+			sepNavVisRange = "{0, 872}";
 		};
 	};
 	DA79FB2313247CE200DE91A4 /* Spawn.h */ = {
@@ -2185,8 +2201,8 @@
 	DA7CA1FA1325F19D00825545 /* FogLayer.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 3724}}";
-			sepNavSelRange = "{336, 0}";
-			sepNavVisRange = "{18, 1500}";
+			sepNavSelRange = "{1031, 0}";
+			sepNavVisRange = "{18, 1375}";
 		};
 	};
 	DA7CA20D1325F7D000825545 /* FogLayer.m:60 */ = {
@@ -2768,7 +2784,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 76";
 		rLen = 0;
-		rLoc = 1600;
+		rLoc = 1620;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 753;
@@ -2798,7 +2814,7 @@
 		fRef = DA79FA401324790E00DE91A4 /* SpawnManager.m */;
 		name = "SpawnManager.m: 155";
 		rLen = 0;
-		rLoc = 3397;
+		rLoc = 3381;
 		rType = 0;
 		vrLen = 1007;
 		vrLoc = 2453;
@@ -2868,7 +2884,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 86";
 		rLen = 0;
-		rLoc = 3002;
+		rLoc = 2986;
 		rType = 0;
 		vrLen = 1234;
 		vrLoc = 1181;
@@ -2898,7 +2914,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 88";
 		rLen = 0;
-		rLoc = 3002;
+		rLoc = 2986;
 		rType = 0;
 		vrLen = 1236;
 		vrLoc = 1008;
@@ -2918,7 +2934,7 @@
 		fRef = DA79FA401324790E00DE91A4 /* SpawnManager.m */;
 		name = "SpawnManager.m: 154";
 		rLen = 0;
-		rLoc = 3333;
+		rLoc = 3321;
 		rType = 0;
 		vrLen = 1007;
 		vrLoc = 2609;
@@ -2988,7 +3004,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 74";
 		rLen = 0;
-		rLoc = 1600;
+		rLoc = 1620;
 		rType = 0;
 		vrLen = 1227;
 		vrLoc = 1168;
@@ -2998,7 +3014,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 123";
 		rLen = 0;
-		rLoc = 3093;
+		rLoc = 3053;
 		rType = 0;
 		vrLen = 1116;
 		vrLoc = 1680;
@@ -3068,7 +3084,7 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 85";
 		rLen = 0;
-		rLoc = 2183;
+		rLoc = 2144;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 1235;
@@ -3078,23 +3094,184 @@
 		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
 		name = "BuildLayer.m: 81";
 		rLen = 0;
-		rLoc = 1918;
+		rLoc = 1919;
 		rType = 0;
 		vrLen = 1256;
 		vrLoc = 1167;
 	};
+	DA8F213913324AD7002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA79FA3F1324790E00DE91A4 /* SpawnManager.h */;
+		name = "SpawnManager.h: 27";
+		rLen = 0;
+		rLoc = 446;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 0;
+	};
+	DA8F213A13324B12002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA79FA3F1324790E00DE91A4 /* SpawnManager.h */;
+		name = "SpawnManager.h: 27";
+		rLen = 0;
+		rLoc = 446;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 0;
+	};
+	DA8F213F13324BBC002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA79FA3F1324790E00DE91A4 /* SpawnManager.h */;
+		name = "SpawnManager.h: 27";
+		rLen = 0;
+		rLoc = 446;
+		rType = 0;
+		vrLen = 454;
+		vrLoc = 0;
+	};
+	DA8F214013324BBC002C2B91 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'allowable' undeclared (first use in this function)";
+		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 118;
+		rType = 1;
+	};
+	DA8F214113324BBC002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
+		name = "BuildLayer.m: 115";
+		rLen = 0;
+		rLoc = 2995;
+		rType = 0;
+		vrLen = 653;
+		vrLoc = 2627;
+	};
+	DA8F215A13325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA79FA401324790E00DE91A4 /* SpawnManager.m */;
+		name = "SpawnManager.m: 151";
+		rLen = 0;
+		rLoc = 3321;
+		rType = 0;
+		vrLen = 872;
+		vrLoc = 0;
+	};
+	DA8F215B13325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 38";
+		rLen = 0;
+		rLoc = 1031;
+		rType = 0;
+		vrLen = 1375;
+		vrLoc = 18;
+	};
+	DA8F215C13325054002C2B91 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DAE1C5141330224800A46747 /* Omni_Spawns.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Paul/Dropbox/Projects/ZombieZap/Resources/Game Data/Omni_Spawns.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	DA8F215D13325054002C2B91 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = DAE1C5151330224800A46747 /* One_Spawn.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/Paul/Dropbox/Projects/ZombieZap/Resources/Game Data/One_Spawn.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	DA8F215E13325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F09E130180E9002253AF /* PButton.h */;
+		name = "PButton.h: 35";
+		rLen = 0;
+		rLoc = 720;
+		rType = 0;
+		vrLen = 1110;
+		vrLoc = 0;
+	};
+	DA8F215F13325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA69F097130180E9002253AF /* BuildLayer.m */;
+		name = "BuildLayer.m: 41";
+		rLen = 0;
+		rLoc = 859;
+		rType = 0;
+		vrLen = 1318;
+		vrLoc = 4023;
+	};
+	DA8F216013325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA6E90321308D9A500C42417 /* Zombie.m */;
+		name = "Zombie.m: 196";
+		rLen = 0;
+		rLoc = 4699;
+		rType = 0;
+		vrLen = 1551;
+		vrLoc = 3700;
+	};
+	DA8F216113325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA8F6DBD132048A50096CF18 /* Turret.h */;
+		name = "Turret.h: 36";
+		rLen = 0;
+		rLoc = 491;
+		rType = 0;
+		vrLen = 705;
+		vrLoc = 16;
+	};
+	DA8F216213325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA01DA97130348FE00B0D88B /* GameLayer.m */;
+		name = "GameLayer.m: 47";
+		rLen = 0;
+		rLoc = 977;
+		rType = 0;
+		vrLen = 1132;
+		vrLoc = 305;
+	};
+	DA8F216313325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA8F6DBE132048A50096CF18 /* Turret.m */;
+		name = "Turret.m: 49";
+		rLen = 0;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1350;
+		vrLoc = 485;
+	};
+	DA8F216413325054002C2B91 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA8F6DBE132048A50096CF18 /* Turret.m */;
+		name = "Turret.m: 72";
+		rLen = 0;
+		rLoc = 1761;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 4918;
+	};
 	DA8F6DBD132048A50096CF18 /* Turret.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 798}}";
-			sepNavSelRange = "{264, 0}";
-			sepNavVisRange = "{16, 713}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 826}}";
+			sepNavSelRange = "{491, 0}";
+			sepNavVisRange = "{16, 705}";
 		};
 	};
 	DA8F6DBE132048A50096CF18 /* Turret.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3388}}";
-			sepNavSelRange = "{71, 0}";
-			sepNavVisRange = "{0, 963}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3374}}";
+			sepNavSelRange = "{1761, 0}";
+			sepNavVisRange = "{4918, 929}";
 			sepNavWindowFrame = "{{15, 38}, {1345, 835}}";
 		};
 	};
@@ -3158,7 +3335,7 @@
 		vrLen = 1084;
 		vrLoc = 3950;
 	};
-	DA8F6E2E1320513C0096CF18 /* Turret.m:74 */ = {
+	DA8F6E2E1320513C0096CF18 /* Turret.m:78 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -3170,13 +3347,13 @@
 		functionName = "-showDying";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 74;
+		lineNumber = 78;
 		location = ZombieZap;
 		modificationTime = 321994668.08328;
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	DA8F6E391320518D0096CF18 /* Turret.m:62 */ = {
+	DA8F6E391320518D0096CF18 /* Turret.m:64 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -3188,7 +3365,7 @@
 		functionName = "-initActions";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 62;
+		lineNumber = 64;
 		location = ZombieZap;
 		modificationTime = 321994668.083299;
 		originalNumberOfMultipleMatches = 1;

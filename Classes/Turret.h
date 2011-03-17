@@ -33,6 +33,8 @@
 	
 	BOOL isLinedUp_;
 	
+	BOOL isFiring_;
+	
 	CGFloat damage_;
 	
 	NSUInteger unitID_;

@@ -57,16 +57,16 @@
 }
 
 - (BOOL) buildGridAtPos:(CGPoint)pos
-{
-	NSArray *color;
-	CCSprite *sprite;
-	BOOL allowable = YES;
-	
+{	
 	Pair *p = [[Grid grid] localPixelToWorldGrid:pos];
 	
 	// Check if we've moved off the last tile we were on to save some computation time
 	// If so, then do the new calculation
 	if (![p isEqual:prevPlacement_]) {
+
+		CCSprite *sprite;		
+		NSArray *color = greenGrid_;
+		BOOL allowable = YES;		
 		
 		[self buildGridOff];		
 		
@@ -76,18 +76,16 @@
 			color = redGrid_;
 			allowable = NO;
 		}
+		// To enable the style of play where towers cannot block the path to the objective
+		/*
 		else {
-			color = greenGrid_;
-			// To enable the style of play where towers cannot block the path to the objective
-			/*
 			if ([[SpawnManager spawnManager] checkIfObjectiveBlocked:p]) {
 				color = redGrid_;
 				allowable = NO;
 			}
-			else {	
-				color = greenGrid_;
-			}*/
 		}
+		*/
+		
 		// Set values to remember for the next time we come in here
 		prevAllowable_ = allowable;
 		[prevPlacement_ setEqualWith:p];		
@@ -113,12 +111,13 @@
 		sprite = [color objectAtIndex:count++];
 		sprite.position = newPos;
 		sprite.visible = YES;
+		
+		return allowable;
 	}
 	// Else we haven't moved off the tile, just return what we returned last time
 	else {
-		allowable = prevAllowable_;		
+		return prevAllowable_;		
 	}	
-	return allowable;
 }
 
 - (void) buildGridOff

@@ -35,7 +35,7 @@
 #endif
 		tempTexture_ = [[[MutableTextureExtension alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
 		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
-		NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);
+		//NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);
 		
 		for (int i = 0; i < 1024; i++) {
 			for (int j = 0; j < 1024; j++)

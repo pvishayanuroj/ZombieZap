@@ -149,14 +149,10 @@ static SpawnManager *_spawnManager = nil;
 			b = YES;
 			break;
 		}
-		else {
-		
-		}
 	}
 	[[Grid grid] makePassable:p];	
 	
 	NSLog(@"Path checking in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);
-	NSLog(@"returning %d", b);
 	return b;
 }
 

@@ -10,6 +10,7 @@
 #import "Zombie.h"
 #import "Grid.h"
 #import "GameManager.h"
+#import "TargetedAction.h"
 
 @implementation Turret
 
@@ -38,14 +39,15 @@ static NSUInteger countID = 0;
 		[self schedule:@selector(update:) interval:1.0/60.0];			
 		
 		isLinedUp_ = NO;
+		isFiring_ = NO;
 		target_ = nil;
 		attackTimer_ = 0;
 		
 		// Tower attributes
 		range_ = 64;
-		rotationSpeed_ = 8.0f;
-		attackSpeed_ = 40;
-		damage_ = 5.0f;
+		rotationSpeed_ = 20.0f;
+		attackSpeed_ = 30;
+		damage_ = 2.0f;
 		
 		rangeSquared_ = range_*range_;
 		
@@ -64,14 +66,21 @@ static NSUInteger countID = 0;
 
 - (void) showAttacking
 {
-	[sprite_ stopAllActions];	
-	[sprite_ runAction:attackingAnimation_];
+	isFiring_ = YES;
+	TargetedAction *animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)attackingAnimation_];
+	CCFiniteTimeAction *method = [CCCallFunc actionWithTarget:self selector:@selector(doneFiring)];	
+	[self runAction:[CCSequence actions:animation, method, nil]];
 }
 
 - (void) showDying
 {
 	[sprite_ stopAllActions];
 	[sprite_ runAction:dyingAnimation_];	
+}
+
+- (void) doneFiring
+{
+	isFiring_ = NO;
 }
 
 - (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
@@ -146,7 +155,9 @@ static NSUInteger countID = 0;
 
 - (void) trackingRoutine
 {
-	if (target_) {
+	// Make sure we have a target and that we aren't already shooting 
+	// (while shooting is instantaneous, we want the turret to stay locked on while the damage animation plays)
+	if (target_ && !isFiring_) {
 		CGFloat theta = [self getAngleFrom:self.position to:target_.position];
 		theta = CC_RADIANS_TO_DEGREES(theta);
 
