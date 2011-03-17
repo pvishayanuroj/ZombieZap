@@ -117,6 +117,8 @@
 
 - (BOOL) impassableAtGrid:(Pair *)p;
 
+- (void) makePassable:(Pair *)p;
+
 - (void) makeImpassable:(Pair *)p;
 
 - (void) makeNoBuild:(Pair *)p;

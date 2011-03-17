@@ -28,6 +28,10 @@
 	
 	NSMutableArray *redGrid_;	
 	
+	Pair *prevPlacement_;
+	
+	BOOL prevAllowable_;
+	
 	BOOL wirePlacement_;
 	
 	Pair *wireStart_;

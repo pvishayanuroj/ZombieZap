@@ -45,7 +45,7 @@
 		
 		// Stop if open list is empty
 		if ([open isEmpty]) {
-			break;
+			return nil;
 		}
 		
 		// Pop the lowest F cost node off the open list

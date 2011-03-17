@@ -12,6 +12,7 @@
 #import "Pair.h"
 #import "GameManager.h"
 #import "ElectricGrid.h"
+#import "SpawnManager.h"
 
 @implementation BuildLayer
 
@@ -20,6 +21,8 @@
 	if ((self = [super init])) {
 		
 		self.isTouchEnabled = YES;
+		
+		prevPlacement_ = [[Pair pair:-1 second:-1] retain];
 		
 		wirePlacement_ = NO;
 		dirPreference_ = D_VERTICAL;
@@ -59,40 +62,62 @@
 	CCSprite *sprite;
 	BOOL allowable = YES;
 	
-	[self buildGridOff];
 	Pair *p = [[Grid grid] localPixelToWorldGrid:pos];
 	
-	// Determine whether to show red or green
-	TerrainType terrain = [[Grid grid] terrainAtGrid:p];
-	if (terrain == TERR_IMPASS || terrain == TERR_NOBUILD) {
-		color = redGrid_;
-		allowable = NO;
-	}
-	else {
-		color = greenGrid_;
-	}
-	
-	CGPoint gridPos = [[Grid grid] localPixelToLocalGridPixel:pos];
-	CGPoint newPos;
-	int count = 0;
-	NSInteger gridSize = [[Grid grid] gridSize];
-	
-	// "pointed" build box shading
-	for (int i = -1; i < 2; i++) {
-		newPos = CGPointMake(gridPos.x + i * gridSize, gridPos.y);
+	// Check if we've moved off the last tile we were on to save some computation time
+	// If so, then do the new calculation
+	if (![p isEqual:prevPlacement_]) {
+		
+		[self buildGridOff];		
+		
+		// Determine whether to show red or green
+		TerrainType terrain = [[Grid grid] terrainAtGrid:p];
+		if (terrain == TERR_IMPASS || terrain == TERR_NOBUILD) {
+			color = redGrid_;
+			allowable = NO;
+		}
+		else {
+			color = greenGrid_;
+			// To enable the style of play where towers cannot block the path to the objective
+			/*
+			if ([[SpawnManager spawnManager] checkIfObjectiveBlocked:p]) {
+				color = redGrid_;
+				allowable = NO;
+			}
+			else {	
+				color = greenGrid_;
+			}*/
+		}
+		// Set values to remember for the next time we come in here
+		prevAllowable_ = allowable;
+		[prevPlacement_ setEqualWith:p];		
+
+		// Draw the build grid
+		CGPoint gridPos = [[Grid grid] localPixelToLocalGridPixel:pos];
+		CGPoint newPos;
+		int count = 0;
+		NSInteger gridSize = [[Grid grid] gridSize];
+		
+		// "pointed" build box shading
+		for (int i = -1; i < 2; i++) {
+			newPos = CGPointMake(gridPos.x + i * gridSize, gridPos.y);
+			sprite = [color objectAtIndex:count++];
+			sprite.position = newPos;
+			sprite.visible = YES;
+		}
+		newPos = CGPointMake(gridPos.x, gridPos.y - gridSize);
+		sprite = [color objectAtIndex:count++];
+		sprite.position = newPos;
+		sprite.visible = YES;
+		newPos = CGPointMake(gridPos.x, gridPos.y + gridSize);
 		sprite = [color objectAtIndex:count++];
 		sprite.position = newPos;
 		sprite.visible = YES;
 	}
-	newPos = CGPointMake(gridPos.x, gridPos.y - gridSize);
-	sprite = [color objectAtIndex:count++];
-	sprite.position = newPos;
-	sprite.visible = YES;
-	newPos = CGPointMake(gridPos.x, gridPos.y + gridSize);
-	sprite = [color objectAtIndex:count++];
-	sprite.position = newPos;
-	sprite.visible = YES;	
-	
+	// Else we haven't moved off the tile, just return what we returned last time
+	else {
+		allowable = prevAllowable_;		
+	}	
 	return allowable;
 }
 
@@ -104,6 +129,10 @@
 	for (CCSprite *s in redGrid_) {
 		s.visible = NO;
 	}	
+	
+	// Reset this so we don't get confused next time in buildGridAtPos()
+	prevPlacement_.x = -1;
+	prevPlacement_.y = -1;
 }
 	
 - (NSArray *) buildGridFrom:(Pair *)from to:(Pair *)to passable:(BOOL *)passable
@@ -313,6 +342,8 @@
 	[buttons release];
 	[greenGrid_ release];
 	[redGrid_ release];
+	
+	[prevPlacement_ release];
 	 
 	[super dealloc];
 }

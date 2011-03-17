@@ -122,11 +122,42 @@ static SpawnManager *_spawnManager = nil;
 	for (Spawn *s in spawns_) {
 		aStar = [AStar aStar];
 		path = [aStar findPathFrom:s.startPos to:s.objective];
-		[[Grid grid] addPathToObjective:path];		
+		if (path != nil) {
+			[[Grid grid] addPathToObjective:path];		
+		}
+		else {
+			NSLog(@"No path found from %@ to %@", s.startPos, s.objective);
+		}
 	}
 	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
-	NSLog(@"Path precalculation done in: %4.9f seconds", t1);
+	NSLog(@"Path precalculation done in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);
+}
+
+- (BOOL) checkIfObjectiveBlocked:(Pair *)p
+{
+	AStar *aStar;
+	NSArray *path;
+	NSDate *ref = [NSDate date];
+	
+	BOOL b = NO;
+	[[Grid grid] makeImpassable:p];
+	
+	for (Spawn *s in spawns_) {
+		aStar = [AStar aStar];
+		path = [aStar findPathFrom:s.startPos to:s.objective];
+		if (path == nil) {
+			b = YES;
+			break;
+		}
+		else {
+		
+		}
+	}
+	[[Grid grid] makePassable:p];	
+	
+	NSLog(@"Path checking in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);
+	NSLog(@"returning %d", b);
+	return b;
 }
 
 - (void) dealloc

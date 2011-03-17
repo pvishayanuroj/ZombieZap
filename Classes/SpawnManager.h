@@ -24,4 +24,6 @@
 
 - (Pair *) parsePair:(NSString *)string;
 
+- (BOOL) checkIfObjectiveBlocked:(Pair *)p;
+
 @end

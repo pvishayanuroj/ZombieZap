@@ -214,6 +214,15 @@ static Grid *_grid = nil;
 	return [towers containsObject:p];
 }
 
+- (void) makePassable:(Pair *)p
+{
+	if (p.x >= 0 && p.y >= 0 && p.x < self.gridX && p.y < self.gridY) {
+		
+		[terrain_ removeObjectForKey:p];
+		[terrain_ setObject:[NSNumber numberWithInt:TERR_PASS] forKey:p];
+	}
+}
+
 - (void) makeImpassable:(Pair *)p
 {
 	if (p.x >= 0 && p.y >= 0 && p.x < self.gridX && p.y < self.gridY) {

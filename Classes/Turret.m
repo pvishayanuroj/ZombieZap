@@ -43,7 +43,7 @@ static NSUInteger countID = 0;
 		
 		// Tower attributes
 		range_ = 64;
-		rotationSpeed_ = 20.0f;
+		rotationSpeed_ = 8.0f;
 		attackSpeed_ = 40;
 		damage_ = 5.0f;
 		

@@ -13,7 +13,7 @@
 				<key>Num Frames</key>
 				<integer>5</integer>
 				<key>Animate Delay</key>
-				<real>0.05</real>
+				<real>0.1</real>
 			</dict>
 			<dict>
 				<key>Name</key>

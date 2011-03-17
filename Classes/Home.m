@@ -36,7 +36,7 @@
 		// Make the goal and the doorway just unbuildable
 		[grid makeNoBuild:pos];
 		[grid makeNoBuild:[pos rightPair]];
-		
+		//[grid makeImpassable:[pos rightPair]];		
 		// Make the surrounding squares impassable
 		[grid makeImpassable:[pos leftPair]];
 		[grid makeImpassable:[pos topPair]];
