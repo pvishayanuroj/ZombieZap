@@ -43,9 +43,9 @@ static NSUInteger countID = 0;
 		
 		// Tower attributes
 		range_ = 64;
-		rotationSpeed_ = 8.0f;
-		attackSpeed_ = 50;
-		damage_ = 10.0f;
+		rotationSpeed_ = 20.0f;
+		attackSpeed_ = 40;
+		damage_ = 5.0f;
 		
 		rangeSquared_ = range_*range_;
 		
@@ -203,6 +203,7 @@ static NSUInteger countID = 0;
 	if (target_ && isLinedUp_) {
 		if (attackTimer_ == 0) {
 			[self showAttacking];
+			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
 		}

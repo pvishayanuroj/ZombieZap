@@ -6,7 +6,7 @@
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#define DEBUG_NOENEMIES 1
+#define DEBUG_NOENEMIES 0
 
 #define DEBUG_NOFOG 1
 

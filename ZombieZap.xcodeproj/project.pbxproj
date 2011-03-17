@@ -77,6 +77,13 @@
 		DA2FD88C132C752B0073B8B2 /* taser_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2FD889132C752B0073B8B2 /* taser_button.png */; };
 		DA2FD88D132C752B0073B8B2 /* wire_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2FD88A132C752B0073B8B2 /* wire_button.png */; };
 		DA424AFF13228D08006EDFB8 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA424AFE13228D08006EDFB8 /* GameManager.m */; };
+		DA5AAA9413317BF20049432E /* CharacterSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA8E13317BF20049432E /* CharacterSpriteSheet.plist */; };
+		DA5AAA9513317BF20049432E /* CharacterSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA8F13317BF20049432E /* CharacterSpriteSheet.png */; };
+		DA5AAA9613317BF20049432E /* Lightning.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9013317BF20049432E /* Lightning.plist */; };
+		DA5AAA9713317BF20049432E /* LightningSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9113317BF20049432E /* LightningSpriteSheet.plist */; };
+		DA5AAA9813317BF20049432E /* LightningSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9213317BF20049432E /* LightningSpriteSheet.png */; };
+		DA5AAA9913317BF20049432E /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9313317BF20049432E /* Units.plist */; };
+		DA5AAAC613317EAB0049432E /* Damage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5AAAC513317EAB0049432E /* Damage.m */; };
 		DA5FA46A13097412005E2411 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA46913097412005E2411 /* Pair.m */; };
 		DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F097130180E9002253AF /* BuildLayer.m */; };
 		DA69F0A1130180E9002253AF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F099130180E9002253AF /* GameScene.m */; };
@@ -91,9 +98,6 @@
 		DA6CAAB2131ECB9F0094EB84 /* map_32.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA6CAAAA131ECB9F0094EB84 /* map_32.txt */; };
 		DA6CAAB3131ECB9F0094EB84 /* map_64.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6CAAAB131ECB9F0094EB84 /* map_64.png */; };
 		DA6CAAB4131ECB9F0094EB84 /* map_64.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA6CAAAC131ECB9F0094EB84 /* map_64.txt */; };
-		DA6E8FDC13087CC700C42417 /* CharacterSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */; };
-		DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */; };
-		DA6E8FE713088B8800C42417 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6E8FE613088B8800C42417 /* Units.plist */; };
 		DA6E90331308D9A500C42417 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E90321308D9A500C42417 /* Zombie.m */; };
 		DA79FA411324790E00DE91A4 /* SpawnManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA79FA401324790E00DE91A4 /* SpawnManager.m */; };
 		DA79FB2513247CE200DE91A4 /* Spawn.m in Sources */ = {isa = PBXBuildFile; fileRef = DA79FB2413247CE200DE91A4 /* Spawn.m */; };
@@ -394,6 +398,14 @@
 		DA2FD88A132C752B0073B8B2 /* wire_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wire_button.png; sourceTree = "<group>"; };
 		DA424AFD13228D08006EDFB8 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		DA424AFE13228D08006EDFB8 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		DA5AAA8E13317BF20049432E /* CharacterSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CharacterSpriteSheet.plist; sourceTree = "<group>"; };
+		DA5AAA8F13317BF20049432E /* CharacterSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterSpriteSheet.png; sourceTree = "<group>"; };
+		DA5AAA9013317BF20049432E /* Lightning.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lightning.plist; sourceTree = "<group>"; };
+		DA5AAA9113317BF20049432E /* LightningSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LightningSpriteSheet.plist; sourceTree = "<group>"; };
+		DA5AAA9213317BF20049432E /* LightningSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightningSpriteSheet.png; sourceTree = "<group>"; };
+		DA5AAA9313317BF20049432E /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
+		DA5AAAC413317EAB0049432E /* Damage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Damage.h; sourceTree = "<group>"; };
+		DA5AAAC513317EAB0049432E /* Damage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Damage.m; sourceTree = "<group>"; };
 		DA5FA46813097412005E2411 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
 		DA5FA46913097412005E2411 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		DA5FA48A130975AB005E2411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -416,9 +428,6 @@
 		DA6CAAAA131ECB9F0094EB84 /* map_32.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_32.txt; sourceTree = "<group>"; };
 		DA6CAAAB131ECB9F0094EB84 /* map_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_64.png; sourceTree = "<group>"; };
 		DA6CAAAC131ECB9F0094EB84 /* map_64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_64.txt; sourceTree = "<group>"; };
-		DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = CharacterSpriteSheet.plist; sourceTree = "<group>"; };
-		DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharacterSpriteSheet.png; sourceTree = "<group>"; };
-		DA6E8FE613088B8800C42417 /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
 		DA6E90311308D9A500C42417 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
 		DA6E90321308D9A500C42417 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
 		DA79FA3F1324790E00DE91A4 /* SpawnManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnManager.h; sourceTree = "<group>"; };
@@ -761,6 +770,8 @@
 				DAE1C4D213301C7800A46747 /* Home.m */,
 				DAB4FBD11330642A005E4F24 /* Wire.h */,
 				DAB4FBD21330642A005E4F24 /* Wire.m */,
+				DA5AAAC413317EAB0049432E /* Damage.h */,
+				DA5AAAC513317EAB0049432E /* Damage.m */,
 				DA878D9B131C949B00FFE90B /* ASNode.h */,
 				DA878D9C131C949B00FFE90B /* ASNode.m */,
 				DA251505131B5EE700AAE3A5 /* AStar.h */,
@@ -888,14 +899,12 @@
 				DAE1C4C413301C4600A46747 /* Game Art */,
 				DA2FD887132C752B0073B8B2 /* Buttons */,
 				DA6CAAA4131ECB9F0094EB84 /* Map */,
+				DA5AAA8D13317BF20049432E /* Spritesheets */,
 				DA79FCF5132523C100DE91A4 /* Icon-Small-50.png */,
 				DA79FCF4132523C100DE91A4 /* Icon-72.png */,
 				DA79FCF6132523C100DE91A4 /* Icon-Small@2x.png */,
 				DA79FCF7132523C100DE91A4 /* Icon@2x.png */,
 				DA79FCF8132523C100DE91A4 /* small_icon.png */,
-				DA6E8FE613088B8800C42417 /* Units.plist */,
-				DA6E8FDA13087CC700C42417 /* CharacterSpriteSheet.plist */,
-				DA6E8FDB13087CC700C42417 /* CharacterSpriteSheet.png */,
 				E02BB762126CC1E0006E46A2 /* iTunesArtwork */,
 				E02BB500126CA50F006E46A2 /* Icon-Small.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
@@ -915,6 +924,19 @@
 				DA2FD88A132C752B0073B8B2 /* wire_button.png */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		DA5AAA8D13317BF20049432E /* Spritesheets */ = {
+			isa = PBXGroup;
+			children = (
+				DA5AAA8E13317BF20049432E /* CharacterSpriteSheet.plist */,
+				DA5AAA8F13317BF20049432E /* CharacterSpriteSheet.png */,
+				DA5AAA9013317BF20049432E /* Lightning.plist */,
+				DA5AAA9113317BF20049432E /* LightningSpriteSheet.plist */,
+				DA5AAA9213317BF20049432E /* LightningSpriteSheet.png */,
+				DA5AAA9313317BF20049432E /* Units.plist */,
+			);
+			path = Spritesheets;
 			sourceTree = "<group>";
 		};
 		DA6CAAA4131ECB9F0094EB84 /* Map */ = {
@@ -1416,9 +1438,6 @@
 				50F414F21069373D002A0D5E /* Icon.png in Resources */,
 				E02BB506126CA50F006E46A2 /* Icon-Small.png in Resources */,
 				E02BB763126CC1E0006E46A2 /* iTunesArtwork in Resources */,
-				DA6E8FDC13087CC700C42417 /* CharacterSpriteSheet.plist in Resources */,
-				DA6E8FDD13087CC700C42417 /* CharacterSpriteSheet.png in Resources */,
-				DA6E8FE713088B8800C42417 /* Units.plist in Resources */,
 				DA6CAAAD131ECB9F0094EB84 /* map_08AStar.png in Resources */,
 				DA6CAAAE131ECB9F0094EB84 /* map_08AStar.txt in Resources */,
 				DA6CAAAF131ECB9F0094EB84 /* map_08AStar02.png in Resources */,
@@ -1451,6 +1470,12 @@
 				DAB4FC5B1330FF1C005E4F24 /* wire_end.png in Resources */,
 				DAB4FC6F1331038F005E4F24 /* wire_corner.png in Resources */,
 				DA186D2D1331377800FCBD51 /* wire_button_pressed.png in Resources */,
+				DA5AAA9413317BF20049432E /* CharacterSpriteSheet.plist in Resources */,
+				DA5AAA9513317BF20049432E /* CharacterSpriteSheet.png in Resources */,
+				DA5AAA9613317BF20049432E /* Lightning.plist in Resources */,
+				DA5AAA9713317BF20049432E /* LightningSpriteSheet.plist in Resources */,
+				DA5AAA9813317BF20049432E /* LightningSpriteSheet.png in Resources */,
+				DA5AAA9913317BF20049432E /* Units.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1492,6 +1517,7 @@
 				DAE1C4D313301C7800A46747 /* Home.m in Sources */,
 				DAB4FBD31330642A005E4F24 /* Wire.m in Sources */,
 				DAB4FC2F1330F474005E4F24 /* ElectricGrid.m in Sources */,
+				DA5AAAC613317EAB0049432E /* Damage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

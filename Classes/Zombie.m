@@ -220,7 +220,7 @@ static NSUInteger countID = 0;
 
 - (void) dealloc 
 {
-	NSLog(@"%@ dealloc'd", self);
+	//NSLog(@"%@ dealloc'd", self);
 	
 	[sprite_ release];
 	[objective_ release];

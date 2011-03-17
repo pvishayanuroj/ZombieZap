@@ -60,6 +60,8 @@
 
 - (void) addHomeWithPos:(Pair *)pos;
 
+- (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to;
+
 - (CGPoint) getLayerOffset;
 
 @end

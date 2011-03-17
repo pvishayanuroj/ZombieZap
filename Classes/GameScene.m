@@ -24,6 +24,7 @@
 	if ((self = [super init])) {
 		
 		[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
+		[self animationLoader:@"Lightning" spriteSheetName:@"LightningSpriteSheet"];
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
@@ -155,16 +156,14 @@
 			}
 			
 			// Create the animation object from the frames we just processed
-			//animation = [CCAnimation animationWithFrames:frames];
-			animation = [CCAnimation animationWithFrames:frames delay:0.1f];
+			animation = [CCAnimation animationWithFrames:frames delay:delay];
 			
+			NSLog(@"Loaded animation: %@", animationName);
 			// Store the animation
 			[[CCAnimationCache sharedAnimationCache] addAnimation:animation name:animationName];
 			
 		} // end for-loop of animations
 	} // end for-loop of units
-	
-	//NSLog(@"Units dictionary: %@", units);
 }
 
 @end

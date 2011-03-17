@@ -15,6 +15,7 @@
 #import "Spotlight.h"
 #import "Wire.h"
 #import "Home.h"
+#import "Damage.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
@@ -185,6 +186,15 @@ static GameManager *_gameManager = nil;
 	[self addWireWithPos:[pos topPair]];
 	[self addWireWithPos:[pos bottomPair]];	
 }
+
+- (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Damage without a registered Game Layer");
+	
+	Damage *damage = [Damage damageFrom:from to:to];
+	[gameLayer_ addChild:damage z:kDamage];
+}
+
 
 - (CGPoint) getLayerOffset
 {
