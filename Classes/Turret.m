@@ -14,6 +14,9 @@
 
 @implementation Turret
 
+@synthesize isDead = isDead_;
+@synthesize gridPos = gridPos_;
+
 static NSUInteger countID = 0;
 
 + (id) turretWithPos:(Pair *)startPos
@@ -31,6 +34,8 @@ static NSUInteger countID = 0;
 		Grid *grid = [Grid grid];
 		CGPoint startCoord = [grid gridToPixel:startPos];
 		self.position = startCoord;
+		gridPos_ = startPos;
+		[gridPos_ retain];
 		
 		unitID_ = countID++;
 		
@@ -40,6 +45,7 @@ static NSUInteger countID = 0;
 		
 		isLinedUp_ = NO;
 		isFiring_ = NO;
+		isDead_ = NO;
 		target_ = nil;
 		attackTimer_ = 0;
 		
@@ -48,6 +54,7 @@ static NSUInteger countID = 0;
 		rotationSpeed_ = 20.0f;
 		attackSpeed_ = 30;
 		damage_ = 2.0f;
+		HP_ = 5.0f;
 		
 		rangeSquared_ = range_*range_;
 		
@@ -211,7 +218,8 @@ static NSUInteger countID = 0;
 		attackTimer_--;
 	}
 	
-	if (target_ && isLinedUp_) {
+	// Only attack if we have a target that's lined up, we aren't dead, and our attack timer has expired
+	if (target_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			[self showAttacking];
 			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
@@ -221,6 +229,42 @@ static NSUInteger countID = 0;
 	}
 }
 
+- (void) takeDamage:(CGFloat)damage
+{
+	NSAssert(HP_ >= 0, @"Turret is dead, should not be taking damage");
+	
+	CCFiniteTimeAction *method;
+	CCFiniteTimeAction *delay;
+	
+	// Subtract health points
+	HP_ -= damage;
+	
+	// Turret dies from hit
+	if (HP_ <= 0) {
+		// Set ourselves to dead
+		isDead_ = YES;
+		
+		sprite_.visible = NO;
+		
+		// Call death function only after a delay
+		delay = [CCDelayTime actionWithDuration:1.0f];
+		method = [CCCallFunc actionWithTarget:self selector:@selector(turretDeath)];
+		[self runAction:[CCSequence actions:delay, method, nil]];			
+	}
+	// Turret just takes damage
+	else {
+
+	}
+}
+
+- (void) turretDeath
+{		
+	// Remove ourself from the list
+	[[GameManager gameManager] removeTurret:self];
+	
+	// Remove ourself from the game layer
+	[self removeFromParentAndCleanup:YES];
+}
 // Override the description method to give us something more useful than a pointer address
 - (NSString *) description
 {
@@ -229,7 +273,10 @@ static NSUInteger countID = 0;
 
 - (void) dealloc
 {
+	NSLog(@"%@ dealloc'd", self);	
+	
 	[sprite_ release];
+	[gridPos_ release];
 	
 	[attackingAnimation_ release];
 	[dyingAnimation_ release];

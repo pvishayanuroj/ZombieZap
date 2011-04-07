@@ -210,8 +210,8 @@ static Grid *_grid = nil;
 	if (p.x < 0 || p.y < 0 || p.x >= self.gridX || p.y >= self.gridY) 
 		return NO;	
 	
-	NSSet *towers = [[GameManager gameManager] towerLocations];
-	return [towers containsObject:p];
+	NSDictionary *towers = [[GameManager gameManager] towerLocations];
+	return [towers objectForKey:p] != nil;
 }
 
 - (void) makePassable:(Pair *)p

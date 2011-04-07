@@ -15,6 +15,8 @@
 
 	CCSprite *sprite_;
 	
+	Pair *gridPos_;
+	
 	CCAction *attackingAnimation_;
 	
 	CCAction *dyingAnimation_;
@@ -35,10 +37,17 @@
 	
 	BOOL isFiring_;
 	
+	BOOL isDead_;
+	
 	CGFloat damage_;
+	
+	CGFloat HP_;
 	
 	NSUInteger unitID_;
 }
+
+@property (nonatomic, readonly) BOOL isDead;
+@property (nonatomic, readonly) Pair *gridPos;
 
 + (id) turretWithPos:(Pair *)startPos;
 
@@ -55,5 +64,9 @@
 - (void) trackingRoutine;
 
 - (void) attackingRoutine;
+
+- (void) takeDamage:(CGFloat)damage;
+
+- (void) turretDeath;
 
 @end

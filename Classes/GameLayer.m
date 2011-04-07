@@ -43,8 +43,8 @@
 		
 #if !DEBUG_NOENEMIES		
 		//[[SpawnManager spawnManager] loadSpawns:@"Test_Spawns"];
-		//[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
-		[[SpawnManager spawnManager] loadSpawns:@"Omni_Spawns"];
+		[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
+		//[[SpawnManager spawnManager] loadSpawns:@"Omni_Spawns"];
 #endif
 		
 		[self debugCode];

@@ -7,6 +7,7 @@
 //
 
 #import "Zombie.h"
+#import "Turret.h"
 #import "Pair.h"
 #import "Grid.h"
 #import "GameManager.h"
@@ -42,18 +43,28 @@ static NSUInteger countID = 0;
 		unitID_ = countID++;
 		
 		// Zombie attributes
-		moveRate_ = 32.0f;
+		moveRate_ = 20.0f;
 		HP_ = 10.0f;
+		attackSpeed_ = 30;
+		range_ = 15;
+		damage_ = 1;
 		
+		rangeSquared_ = range_ * range_;
 		adjMoveTime_ = grid.gridSize/moveRate_;
+		attackTimer_ = 0;		
+		isAttacking_ = NO;
 		isDead_ = NO;
 		
 		[self initActions];
 		
 		currentDest_ = [startPos retain];
+		targetCell_ = [[Pair pair:-1 second:-1] retain];
 		[self reachedNext];		
 		
+		isWalking_ = YES;
 		[self showWalking];
+		
+		[self schedule:@selector(update:) interval:1.0/60.0];					
 	}
 	return self;
 }
@@ -82,6 +93,12 @@ static NSUInteger countID = 0;
 	dyingAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
 }
 
+- (void) update:(ccTime)dt
+{
+	[self targettingRoutine];
+	[self attackingRoutine];
+}
+
 - (void) showWalking
 {
 	[sprite_ stopAllActions];
@@ -90,16 +107,20 @@ static NSUInteger countID = 0;
 
 - (void) showAttacking
 {
+	NSLog(@"%@ STOP ALL ACTIONS attack called", self);	
 	[sprite_ stopAllActions];	
-	[sprite_ runAction:attackingAnimation_];
+	//[sprite_ runAction:attackingAnimation_];
+	
+	isAttacking_ = YES;
+	TargetedAction *animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)attackingAnimation_];
+	CCFiniteTimeAction *method = [CCCallFunc actionWithTarget:self selector:@selector(doneAttacking)];	
+	[self runAction:[CCSequence actions:animation, method, nil]];	
 }
 
 - (void) reachedNext
 {
 	// Check if the goal was reached
 	if ([currentDest_ isEqual:objective_]) {
-		[currentDest_ release];
-		currentDest_ = nil;
 		[self stopAllActions];
 		[self zombieDeath];
 	}
@@ -138,6 +159,13 @@ static NSUInteger countID = 0;
 	return sqrt(t1*t1 + t2*t2);
 }
 
+- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
+{
+	CGFloat t1 = a.x - b.x;
+	CGFloat t2 = a.y - b.y;
+	return t1*t1 + t2*t2;
+}
+
 - (void) turnTowards:(CGPoint)pos
 {
 	CGPoint res = ccpSub(pos, self.position);
@@ -156,9 +184,83 @@ static NSUInteger countID = 0;
 	}
 }
 
+- (void) targettingRoutine
+{
+	// Only check for a new target if we move to a new cell
+	if (![targetCell_ isEqual:currentDest_]) {
+		// Update the stored location
+		[targetCell_ release];
+		targetCell_ = [currentDest_ retain];
+		
+		// See if there's a tower where we're moving to
+		NSDictionary *towerLocations = [[GameManager gameManager] towerLocations];
+		Turret *t = [towerLocations objectForKey:targetCell_];
+		if (t) {
+			storedTarget_ = t;
+			[storedTarget_ retain];
+		}		
+	}
+
+	if (storedTarget_) {
+		// If tower has been destroyed before we get a chance to attack, just clear 
+		if (storedTarget_.isDead) {
+			[storedTarget_ release];
+			storedTarget_ = nil;
+		}
+		// If there's a tower, see if it's in range. If it's in range, set target
+		CGFloat dist = [self distanceNoRoot:self.position b:storedTarget_.position];		
+		if (dist < rangeSquared_) {
+			target_ = storedTarget_;
+			[storedTarget_ release];
+			storedTarget_ = nil;
+			[target_ retain];
+			[self stopAllActions];
+		}		
+	}
+	
+	if (target_ && target_.isDead) {
+		[target_ release];
+		target_ = nil;
+		[self resumeWalking];		
+	}
+	
+	if (!target_ && !isAttacking_ && !isWalking_) {
+		[self resumeWalking];
+	}
+}
+
+- (void) attackingRoutine
+{
+	if (attackTimer_ > 0) {
+		attackTimer_--;
+	}
+	
+	// Only attack if we have a target, we aren't dead, and our attack timer has expired
+	if (target_ && !isDead_) {
+		if (attackTimer_ == 0) {
+			[self showAttacking];
+			[target_ takeDamage:damage_];
+			attackTimer_ = attackSpeed_;
+		}		
+	}
+}
+
+- (void) doneAttacking
+{
+	isAttacking_ = NO;
+}
+
 - (void) resumeWalking
 {
 	NSAssert(currentDest_ != nil, @"Current destination should never be null");
+	
+	// This check ensures that resume walking is not called more than once on this zombie, otherwise its moves will be messed up
+	if (isWalking_) {
+		return;
+	}
+	isWalking_ = YES;
+	
+	[self showWalking];
 	
 	CGPoint pos = [[Grid grid] gridToPixel:currentDest_];	
 	CGFloat dist = [self euclideanDistance:self.position b:pos];
@@ -180,6 +282,7 @@ static NSUInteger countID = 0;
 	HP_ -= damage;
 	
 	// Stop walking
+	NSLog(@"%@ took damage, STOP ACTIONS", self);	
 	[self stopAllActions];	
 	
 	// Zombie dies from hit
@@ -201,6 +304,13 @@ static NSUInteger countID = 0;
 	[self runAction:[CCSequence actions:animation, method, nil]];	
 }
 
+- (void) stopAllActions
+{
+	isWalking_ = NO;
+	
+	[super stopAllActions];
+}
+
 - (void) zombieDeath
 {		
 	// Remove ourself from the list
@@ -208,8 +318,6 @@ static NSUInteger countID = 0;
 	
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];
-	
-	//NSLog(@"%@ RC: %d\n", self, [self retainCount]);	
 }
 
 // Override the description method to give us something more useful than a pointer address
@@ -229,6 +337,9 @@ static NSUInteger countID = 0;
 	[attackingAnimation_ release];
 	[dyingAnimation_ release];
 	[takingDmgAnimation_ release];
+	
+	[targetCell_ release];
+	[currentDest_ release];	
 	
 	[super dealloc];
 }

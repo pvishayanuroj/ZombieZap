@@ -58,7 +58,8 @@ static GameManager *_gameManager = nil;
 		gameLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
-		towerLocations_ = [[NSMutableSet setWithCapacity:24] retain];		
+		//towerLocations_ = [[NSMutableSet setWithCapacity:24] retain];		
+		towerLocations_ = [[NSMutableDictionary dictionaryWithCapacity:24] retain];		
 	}
 	return self;
 }
@@ -81,7 +82,8 @@ static GameManager *_gameManager = nil;
 	
 	Light *light = [Light lightWithPos:pos];
 	[gameLayer_ addChild:light z:kTower];
-	[towerLocations_ addObject:pos];
+	//[towerLocations_ addObject:pos];
+	[towerLocations_ setObject:light forKey:pos];
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
@@ -101,7 +103,8 @@ static GameManager *_gameManager = nil;
 	
 	Light *light = [Light lightWithPos:pos];
 	[gameLayer_ addChild:light z:kTower];
-	[towerLocations_ addObject:pos];	
+	//[towerLocations_ addObject:pos];	
+	[towerLocations_ setObject:light forKey:pos];	
 	
 	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos];
@@ -155,14 +158,19 @@ static GameManager *_gameManager = nil;
 	// Create the turret
 	Turret *turret = [Turret turretWithPos:pos];
 	
-	[towerLocations_ addObject:pos];	
+	//[towerLocations_ addObject:pos];	
+	[towerLocations_ setObject:turret forKey:pos];
 	[gameLayer_ addChild:turret z:kTower];
 	
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
 		[self addWireWithPos:pos];
 	}
-	
+}
+
+- (void) removeTurret:(Turret *)turret
+{
+	[towerLocations_ removeObjectForKey:turret.gridPos];
 }
 
 - (void) addWireWithPos:(Pair *)pos

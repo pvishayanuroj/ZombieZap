@@ -25,14 +25,16 @@
 	
 	NSMutableSet *spotlights_;
 	
-	NSMutableSet *towerLocations_;
+	//NSMutableSet *towerLocations_;
+	NSMutableDictionary *towerLocations_;
 	
 }
 
 @property (nonatomic, readonly) CCLayer *gameLayer;
 @property (nonatomic, readonly) NSMutableSet *zombies;
 @property (nonatomic, readonly) NSMutableSet *spotlights;
-@property (nonatomic, readonly) NSMutableSet *towerLocations;
+//@property (nonatomic, readonly) NSMutableSet *towerLocations;
+@property (nonatomic, readonly) NSMutableDictionary *towerLocations;
 
 + (GameManager *) gameManager;
 
@@ -47,6 +49,8 @@
 - (void) removeZombie:(Zombie *)zombie;
 
 - (void) addTurretWithPos:(Pair *)pos;
+
+- (void) removeTurret:(Turret *)turret;
 
 - (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
