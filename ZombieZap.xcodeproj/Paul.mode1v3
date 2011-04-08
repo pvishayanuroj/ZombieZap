@@ -265,19 +265,20 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>2D500B1D0D5A766B00DBA0E3</string>
+								<string>DAE1C5991330297600A46747</string>
 								<string>DAE1C5961330292500A46747</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>38</integer>
+									<integer>50</integer>
 									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 726}}</string>
+							<string>{{0, 222}, {186, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -326,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DADC1A82134F62EB008E6270</string>
+										<string>DADC1AF6134FA1E8008E6270</string>
 										<key>history</key>
 										<array>
 											<string>DA5FA4B413097AFB005E2411</string>
@@ -355,7 +356,6 @@
 											<string>DA79FB501324824C00DE91A4</string>
 											<string>DA79FB541324824C00DE91A4</string>
 											<string>DA79FB551324824C00DE91A4</string>
-											<string>DA79FBD61324929600DE91A4</string>
 											<string>DA7CA17F1325E4D200825545</string>
 											<string>DA7CA1801325E4D200825545</string>
 											<string>DA7CA1841325E4D200825545</string>
@@ -383,7 +383,6 @@
 											<string>DA53156E132CBAB5005454CA</string>
 											<string>DABBF57F132EA9EA00FD7CFF</string>
 											<string>DABB1012132F1C4300FD7CFF</string>
-											<string>DABB103B132F21E800FD7CFF</string>
 											<string>DA97B676132FD2FD00CF8E60</string>
 											<string>DAE1C478132FE66E00A46747</string>
 											<string>DAE1C479132FE66E00A46747</string>
@@ -407,14 +406,12 @@
 											<string>DAE1C530133023C000A46747</string>
 											<string>DAE1C531133023C000A46747</string>
 											<string>DAE1C59F133029B600A46747</string>
-											<string>DAB4FBDF13306446005E4F24</string>
 											<string>DAB4FBEB13306446005E4F24</string>
 											<string>DAB4FC9813310CE9005E4F24</string>
 											<string>DA186CD4133131FF00FCBD51</string>
 											<string>DA186D02133134E700FCBD51</string>
 											<string>DA186D171331367300FCBD51</string>
 											<string>DA186D3A13313CF200FCBD51</string>
-											<string>DA186D9B13313FF800FCBD51</string>
 											<string>DA5AAAA113317DEF0049432E</string>
 											<string>DA5AAAA213317DEF0049432E</string>
 											<string>DA5AAAA313317DEF0049432E</string>
@@ -433,7 +430,6 @@
 											<string>DA5AABCC1331AE470049432E</string>
 											<string>DA8F20C913323EC3002C2B91</string>
 											<string>DA8F20CD13323EC3002C2B91</string>
-											<string>DA8F20DE13323F46002C2B91</string>
 											<string>DA8F20DF13323F46002C2B91</string>
 											<string>DA8F20E113323F46002C2B91</string>
 											<string>DA8F20E513323FAB002C2B91</string>
@@ -446,9 +442,6 @@
 											<string>DA8F215D13325054002C2B91</string>
 											<string>DA8F215E13325054002C2B91</string>
 											<string>DA24E66C1349359D001BBC06</string>
-											<string>DA7194F2134D189000F9D42E</string>
-											<string>DA7194F9134D189000F9D42E</string>
-											<string>DA7194FB134D189000F9D42E</string>
 											<string>DA71953F134D28AE00F9D42E</string>
 											<string>DA719540134D28AE00F9D42E</string>
 											<string>DA719541134D28AE00F9D42E</string>
@@ -456,11 +449,8 @@
 											<string>DADC0ABF134E8F6C008E6270</string>
 											<string>DADC0AC7134E8F6C008E6270</string>
 											<string>DADC0AC9134E8F6C008E6270</string>
-											<string>DADC0ACA134E8F6C008E6270</string>
 											<string>DADC0ACE134E8F6C008E6270</string>
 											<string>DADC0ADA134E9134008E6270</string>
-											<string>DADC0AF6134EAB1B008E6270</string>
-											<string>DADC0AF7134EAB1B008E6270</string>
 											<string>DADC19A9134F4DC7008E6270</string>
 											<string>DADC19AA134F4DC7008E6270</string>
 											<string>DADC19AB134F4DC7008E6270</string>
@@ -469,34 +459,49 @@
 											<string>DADC19AE134F4DC7008E6270</string>
 											<string>DADC19AF134F4DC7008E6270</string>
 											<string>DADC19B0134F4DC7008E6270</string>
-											<string>DADC19F2134F52C1008E6270</string>
 											<string>DADC1A0B134F55A9008E6270</string>
-											<string>DADC1A25134F5BD8008E6270</string>
-											<string>DADC1A26134F5BD8008E6270</string>
 											<string>DADC1A27134F5BD8008E6270</string>
 											<string>DADC1A2B134F5BD8008E6270</string>
 											<string>DADC1A2C134F5BD8008E6270</string>
 											<string>DADC1A2D134F5BD8008E6270</string>
-											<string>DADC1A3D134F5C92008E6270</string>
 											<string>DADC1A3E134F5C92008E6270</string>
-											<string>DADC1A5F134F61F9008E6270</string>
 											<string>DADC1A60134F61F9008E6270</string>
 											<string>DADC1A61134F61F9008E6270</string>
-											<string>DADC1A63134F61F9008E6270</string>
-											<string>DADC1A64134F61F9008E6270</string>
 											<string>DADC1A65134F61F9008E6270</string>
-											<string>DADC1A68134F61F9008E6270</string>
 											<string>DADC1A69134F61F9008E6270</string>
 											<string>DADC1A6A134F61F9008E6270</string>
 											<string>DADC1A6B134F61F9008E6270</string>
-											<string>DADC1A70134F620C008E6270</string>
-											<string>DADC1A71134F620C008E6270</string>
-											<string>DADC1A72134F620C008E6270</string>
-											<string>DADC1A73134F620C008E6270</string>
-											<string>DADC1A77134F628D008E6270</string>
-											<string>DADC1A7B134F62AE008E6270</string>
-											<string>DADC1A7C134F62AE008E6270</string>
-											<string>DADC1A6F134F620C008E6270</string>
+											<string>DADC1A8A134F980D008E6270</string>
+											<string>DADC1A8B134F980D008E6270</string>
+											<string>DADC1A8C134F980D008E6270</string>
+											<string>DADC1A8E134F980D008E6270</string>
+											<string>DADC1AA4134F9E5B008E6270</string>
+											<string>DADC1AA5134F9E5B008E6270</string>
+											<string>DADC1AA6134F9E5B008E6270</string>
+											<string>DADC1AA8134F9E5B008E6270</string>
+											<string>DADC1AA9134F9E5B008E6270</string>
+											<string>DADC1AAA134F9E5B008E6270</string>
+											<string>DADC1AAB134F9E5B008E6270</string>
+											<string>DADC1AAD134F9E5B008E6270</string>
+											<string>DADC1AAE134F9E5B008E6270</string>
+											<string>DADC1AB2134F9E5B008E6270</string>
+											<string>DADC1AD0134FA0EF008E6270</string>
+											<string>DADC1AD1134FA0EF008E6270</string>
+											<string>DADC1AD2134FA0EF008E6270</string>
+											<string>DADC1AD3134FA0EF008E6270</string>
+											<string>DADC1AD4134FA0EF008E6270</string>
+											<string>DADC1AD5134FA0EF008E6270</string>
+											<string>DADC1AD6134FA0EF008E6270</string>
+											<string>DADC1AD7134FA0EF008E6270</string>
+											<string>DADC1AD8134FA0EF008E6270</string>
+											<string>DADC1AE0134FA109008E6270</string>
+											<string>DADC1AE5134FA13A008E6270</string>
+											<string>DADC1AEC134FA175008E6270</string>
+											<string>DADC1AEF134FA18C008E6270</string>
+											<string>DADC1AF3134FA1E8008E6270</string>
+											<string>DADC1AF4134FA1E8008E6270</string>
+											<string>DADC1AF5134FA1E8008E6270</string>
+											<string>DADC1AF0134FA18C008E6270</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -696,9 +701,9 @@
 	<array>
 		<string>DADC1A11134F55A9008E6270</string>
 		<string>DADC1A12134F55A9008E6270</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>DA69F091130180A3002253AF</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Paul/Dropbox/Projects/ZombieZap/ZombieZap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -723,7 +728,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GameManager.m</string>
+								<string>EyesLayer.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -1075,7 +1080,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

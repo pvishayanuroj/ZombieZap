@@ -9,7 +9,9 @@
 #import "GameManager.h"
 #import "GameLayer.h"
 #import "FogLayer.h"
+#import "EyesLayer.h"
 #import "Zombie.h"
+#import "ZombieEyes.h"
 #import "Turret.h"
 #import "Light.h"
 #import "Spotlight.h"
@@ -21,6 +23,7 @@
 #import "Pair.h"
 #import "Enums.h"
 #import "Constants.h"
+#import "CCTexture2DMutable.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -76,6 +79,12 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ retain];
 }
 
+- (void) registerEyesLayer:(EyesLayer *)eyesLayer
+{
+	eyesLayer_ = eyesLayer;
+	[eyesLayer_ retain];
+}
+
 - (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
 {
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
@@ -122,13 +131,16 @@ static GameManager *_gameManager = nil;
 - (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Zombie without a registered Game Layer");
+	NSAssert(eyesLayer_ != nil, @"Trying to add a Zombie without a registered Eyes Layer");	
 	
 	// Create the zombie
 	Zombie *zombie = [Zombie zombieWithPos:pos obj:obj];
+	ZombieEyes *eyes = zombie.eyes;
 	
 	// Add to the array that keeps track of all zombies, and add to the game layer
 	[zombies_ addObject:zombie];
 	[gameLayer_ addChild:zombie z:kZombie];
+	[eyesLayer_ addChild:eyes];
 }
 
 - (void) removeZombie:(Zombie *)zombie
@@ -198,6 +210,15 @@ static GameManager *_gameManager = nil;
 	return gameLayer_.position;
 }
 
+- (BOOL) isPointLit:(CGPoint)pt
+{
+	//CCTexture2DMutable *fog = fogLayer_.mutableFog;
+	//GLubyte alpha = [fog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
+	GLubyte alpha = [fogLayer_.mutableFog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
+	
+	return alpha < 240;
+}
+
 - (void) dealloc
 {
 	[zombies_ release];
@@ -205,6 +226,7 @@ static GameManager *_gameManager = nil;
 	[towerLocations_ release];
 	[gameLayer_ release];
 	[fogLayer_ release];
+	[eyesLayer_ release];
 	
 	[super dealloc];
 }

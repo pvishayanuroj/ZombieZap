@@ -10,12 +10,15 @@
 
 @class Pair;
 @class Tower;
+@class ZombieEyes;
 
 @interface Zombie : CCNode {
 
 	/** Sprite representing the zombie */
 	CCSprite *sprite_;
 
+	ZombieEyes *eyes_;
+	
 	/** Where the zombie will move to (not currently used) */
 	Pair *objective_;
 
@@ -72,7 +75,8 @@
 	NSUInteger unitID_;
 }
 
-@property(nonatomic, readonly) BOOL isDead;
+@property (nonatomic, readonly) ZombieEyes *eyes;
+@property (nonatomic, readonly) BOOL isDead;
 
 + (id) zombieWithPos:(Pair *)startPos;
 

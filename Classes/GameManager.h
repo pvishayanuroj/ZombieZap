@@ -13,6 +13,7 @@
 @class Pair;
 @class GameLayer;
 @class FogLayer;
+@class EyesLayer;
 @class Spotlight;
 @class Light;
 
@@ -21,6 +22,8 @@
 	GameLayer *gameLayer_;
 	
 	FogLayer *fogLayer_;
+	
+	EyesLayer *eyesLayer_;
 	
 	NSMutableSet *zombies_;
 	
@@ -42,6 +45,8 @@
 - (void) registerGameLayer:(GameLayer *)gameLayer;
 
 - (void) registerFogLayer:(FogLayer *)fogLayer;
+
+- (void) registerEyesLayer:(EyesLayer *)eyesLayer;
 
 - (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj;
 
@@ -68,5 +73,7 @@
 - (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
 - (CGPoint) getLayerOffset;
+
+- (BOOL) isPointLit:(CGPoint)pt;
 
 @end

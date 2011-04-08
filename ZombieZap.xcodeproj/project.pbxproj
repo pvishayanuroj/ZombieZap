@@ -121,6 +121,9 @@
 		DAB896541323DC2500A871BF /* TargetedAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB896531323DC2500A871BF /* TargetedAction.m */; };
 		DAD74E2B131C30B100974D50 /* AStarHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD74E2A131C30B100974D50 /* AStarHeap.m */; };
 		DADC1999134F43A9008E6270 /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1998134F43A9008E6270 /* Tower.m */; };
+		DADC1A96134F9A39008E6270 /* ZombieEyes.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1A95134F9A39008E6270 /* ZombieEyes.m */; };
+		DADC1A98134F9CB1008E6270 /* zombie_eyes.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1A97134F9CB1008E6270 /* zombie_eyes.png */; };
+		DADC1ABF134F9F01008E6270 /* EyesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1ABE134F9F01008E6270 /* EyesLayer.m */; };
 		DAE1C4CB13301C4600A46747 /* black_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C513301C4600A46747 /* black_frame.png */; };
 		DAE1C4CC13301C4600A46747 /* black_frame_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C613301C4600A46747 /* black_frame_trans.png */; };
 		DAE1C4CD13301C4600A46747 /* generator_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C713301C4600A46747 /* generator_wheel.png */; };
@@ -466,6 +469,11 @@
 		DAD74E2A131C30B100974D50 /* AStarHeap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStarHeap.m; sourceTree = "<group>"; };
 		DADC1997134F43A9008E6270 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		DADC1998134F43A9008E6270 /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
+		DADC1A94134F9A39008E6270 /* ZombieEyes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombieEyes.h; sourceTree = "<group>"; };
+		DADC1A95134F9A39008E6270 /* ZombieEyes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZombieEyes.m; sourceTree = "<group>"; };
+		DADC1A97134F9CB1008E6270 /* zombie_eyes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_eyes.png; sourceTree = "<group>"; };
+		DADC1ABD134F9F01008E6270 /* EyesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyesLayer.h; sourceTree = "<group>"; };
+		DADC1ABE134F9F01008E6270 /* EyesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EyesLayer.m; sourceTree = "<group>"; };
 		DAE1C4C513301C4600A46747 /* black_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame.png; sourceTree = "<group>"; };
 		DAE1C4C613301C4600A46747 /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DAE1C4C713301C4600A46747 /* generator_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generator_wheel.png; sourceTree = "<group>"; };
@@ -760,12 +768,16 @@
 				DA69F097130180E9002253AF /* BuildLayer.m */,
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
+				DADC1ABD134F9F01008E6270 /* EyesLayer.h */,
+				DADC1ABE134F9F01008E6270 /* EyesLayer.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
 				DA01DA97130348FE00B0D88B /* GameLayer.m */,
 				DA7CA1F91325F19D00825545 /* FogLayer.h */,
 				DA7CA1FA1325F19D00825545 /* FogLayer.m */,
 				DA6E90311308D9A500C42417 /* Zombie.h */,
 				DA6E90321308D9A500C42417 /* Zombie.m */,
+				DADC1A94134F9A39008E6270 /* ZombieEyes.h */,
+				DADC1A95134F9A39008E6270 /* ZombieEyes.m */,
 				DADC1997134F43A9008E6270 /* Tower.h */,
 				DADC1998134F43A9008E6270 /* Tower.m */,
 				DA8F6DBD132048A50096CF18 /* Turret.h */,
@@ -994,6 +1006,7 @@
 		DAE1C4C413301C4600A46747 /* Game Art */ = {
 			isa = PBXGroup;
 			children = (
+				DADC1A97134F9CB1008E6270 /* zombie_eyes.png */,
 				DAB4FC6E1331038F005E4F24 /* wire_corner.png */,
 				DAB4FC5A1330FF1C005E4F24 /* wire_end.png */,
 				DAB4FC011330E9DF005E4F24 /* wire_cross.png */,
@@ -1489,6 +1502,7 @@
 				DA5AAA9713317BF20049432E /* LightningSpriteSheet.plist in Resources */,
 				DA5AAA9813317BF20049432E /* LightningSpriteSheet.png in Resources */,
 				DA5AAA9913317BF20049432E /* Units.plist in Resources */,
+				DADC1A98134F9CB1008E6270 /* zombie_eyes.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1532,6 +1546,8 @@
 				DAB4FC2F1330F474005E4F24 /* ElectricGrid.m in Sources */,
 				DA5AAAC613317EAB0049432E /* Damage.m in Sources */,
 				DADC1999134F43A9008E6270 /* Tower.m in Sources */,
+				DADC1A96134F9A39008E6270 /* ZombieEyes.m in Sources */,
+				DADC1ABF134F9F01008E6270 /* EyesLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

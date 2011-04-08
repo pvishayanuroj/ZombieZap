@@ -58,6 +58,7 @@ enum {
 enum {
 	kGameLayer = 0,
 	kFogLayer = 1,
-	kBuildLayer = 2,
-	kGeneratorLayer = 3
+	kEyesLayer = 2,
+	kBuildLayer = 3,
+	kGeneratorLayer = 4
 };

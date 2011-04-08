@@ -10,7 +10,8 @@
 #import "Constants.h"
 #import "Enums.h"
 
-@class CCMutableTexture2D;
+//@class CCMutableTexture2D;
+@class CCTexture2DMutable;
 @class MutableTextureExtension;
 @class Spotlight;
 
@@ -28,7 +29,8 @@ typedef struct ZZBox ZZBox;
 
 	CCSprite *fog_;
 	
-	CCMutableTexture2D *mutableFog_;
+	//CCMutableTexture2D *mutableFog_;
+	CCTexture2DMutable *mutableFog_;
 		
 	MutableTextureExtension *tempTexture_;
 	
@@ -40,6 +42,8 @@ typedef struct ZZBox ZZBox;
 	
 	unsigned char alphaTable_[256][256];
 }
+
+@property (nonatomic, readonly) CCTexture2DMutable *mutableFog;
 
 - (Spotlight *) drawPrecomputedSpotlight:(CGPoint)origin;
 

@@ -11,6 +11,7 @@
 #import "BuildLayer.h"
 #import "GameLayer.h"
 #import "FogLayer.h"
+#import "EyesLayer.h"
 #import "PButton.h"
 #import "BinaryHeap.h"
 #import "GameManager.h"
@@ -34,7 +35,10 @@
 		[self addChild:buildLayer z:kBuildLayer];
 		
 		FogLayer *fogLayer = [FogLayer node];
-		[self addChild:fogLayer z:kFogLayer tag:5];
+		[self addChild:fogLayer z:kFogLayer tag:kFogLayer];
+		
+		EyesLayer *eyesLayer = [EyesLayer node];
+		[self addChild:eyesLayer z:kEyesLayer tag:kEyesLayer];
 
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:kGameLayer];

@@ -7,6 +7,7 @@
 //
 
 #import "Zombie.h"
+#import "ZombieEyes.h"
 #import "Tower.h"
 #import "Pair.h"
 #import "Grid.h"
@@ -15,6 +16,7 @@
 
 @implementation Zombie
 
+@synthesize eyes = eyes_;
 @synthesize isDead = isDead_;
 
 static NSUInteger countID = 0;
@@ -39,6 +41,8 @@ static NSUInteger countID = 0;
 		Grid *grid = [Grid grid];
 		CGPoint startCoord = [grid gridToPixel:startPos];
 		self.position = startCoord;
+		
+		eyes_ = [[ZombieEyes zombieEyesWithPos:startCoord] retain];
 		
 		unitID_ = countID++;
 		
@@ -96,6 +100,7 @@ static NSUInteger countID = 0;
 
 - (void) update:(ccTime)dt
 {
+	eyes_.position = self.position;
 	[self targettingRoutine];
 	[self attackingRoutine];
 }
@@ -171,15 +176,19 @@ static NSUInteger countID = 0;
 	
 	if (res.x > 0) { // Turn right
 		sprite_.rotation = 90;
+		eyes_.rotation = 90;
 	}
 	else if (res.x < 0) { // Turn left
 		sprite_.rotation = -90;
+		eyes_.rotation = -90;		
 	}
 	else if (res.y > 0) { // Turn up
 		sprite_.rotation = 0;
+		eyes_.rotation = 0;
 	}
 	else { // Turn down
 		sprite_.rotation = 180;
+		eyes_.rotation = 180;	
 	}
 }
 
@@ -316,6 +325,8 @@ static NSUInteger countID = 0;
 	// Remove ourself from the list
 	[[GameManager gameManager] removeZombie:self];
 	
+	[eyes_ removeFromParentAndCleanup:YES];
+	
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];
 }
@@ -331,6 +342,7 @@ static NSUInteger countID = 0;
 	//NSLog(@"%@ dealloc'd", self);
 	
 	[sprite_ release];
+	[eyes_ release];
 	[objective_ release];
 	
 	[walkingAnimation_ release];

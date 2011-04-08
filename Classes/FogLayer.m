@@ -18,6 +18,8 @@
 
 @implementation FogLayer
 
+@synthesize mutableFog = mutableFog_;
+
 - (id) init
 {
 	if ((self = [super init])) {

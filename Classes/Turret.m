@@ -124,7 +124,7 @@ static NSUInteger countID = 0;
 				return;
 			}
 		}
-		//NSLog(@"%@ releasing %@", self, target_);
+
 		// Target is dead or out of range
 		[target_ release];
 		target_ = nil;	
@@ -149,7 +149,6 @@ static NSUInteger countID = 0;
 	if (closestZombie) {
 		target_ = closestZombie;
 		[target_ retain];
-		//NSLog(@"%@ is retaining %@", self, target_);
 	}
 }
 
@@ -268,7 +267,7 @@ static NSUInteger countID = 0;
 
 - (void) dealloc
 {
-	NSLog(@"%@ dealloc'd", self);	
+	//NSLog(@"%@ dealloc'd", self);	
 	
 	[sprite_ release];
 	[gridPos_ release];
