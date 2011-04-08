@@ -167,6 +167,11 @@ static GameManager *_gameManager = nil;
 	[gameLayer_ addChild:wire z:kWire];
 }
 
+- (void) removeWireWithPos:(Pair *)pos
+{
+	[[ElectricGrid electricGrid] removeWireAtGrid:pos];
+}
+
 - (void) addHomeWithPos:(Pair *)pos
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Home without a registered Game Layer");
@@ -187,7 +192,6 @@ static GameManager *_gameManager = nil;
 	Damage *damage = [Damage damageFrom:from to:to];
 	[gameLayer_ addChild:damage z:kDamage];
 }
-
 
 - (CGPoint) getLayerOffset
 {

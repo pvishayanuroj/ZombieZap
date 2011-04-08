@@ -53,6 +53,19 @@ static ElectricGrid *_electricGrid = nil;
 	return NO;
 }
 
+- (void) removeWireAtGrid:(Pair *)p
+{
+	Wire *wire = [wires_ objectForKey:p];
+	if (wire) {
+		[wires_ removeObjectForKey:p];
+		
+		// Update the neighbors' orientation to reflect this wire being gone
+		[wire updateNeighbors:p];
+		
+		[wire removeFromParentAndCleanup:YES];
+	}
+}
+
 - (BOOL) wireAtGrid:(Pair *)p
 {
 	if ([wires_ objectForKey:p] == nil) {

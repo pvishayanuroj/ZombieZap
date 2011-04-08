@@ -238,6 +238,7 @@ static NSUInteger countID = 0;
 		isDead_ = YES;
 		
 		sprite_.visible = NO;
+		[[GameManager gameManager] removeWireWithPos:gridPos_];
 		
 		// Call death function only after a delay
 		delay = [CCDelayTime actionWithDuration:1.0f];

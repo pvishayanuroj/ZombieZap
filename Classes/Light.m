@@ -60,6 +60,7 @@ static NSUInteger countID = 0;
 		
 		// Remove ourself from the list
 		[[GameManager gameManager] removeSpotlight:self];		
+		[[GameManager gameManager] removeWireWithPos:gridPos_];		
 		
 		// Call death function only after a delay
 		delay = [CCDelayTime actionWithDuration:1.0f];

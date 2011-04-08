@@ -27,4 +27,6 @@
 
 - (void) updateWireOrientation;
 
+- (void) updateNeighbors:(Pair *)pos;
+
 @end

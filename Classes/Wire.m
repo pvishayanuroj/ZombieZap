@@ -25,7 +25,6 @@
 		
 		gridPos_ = [pos retain];
 		
-		ElectricGrid *eGrid = [ElectricGrid electricGrid];
 		Grid *grid = [Grid grid];
 		
 		sprite_ = [[self updateSpriteOrientation] retain];
@@ -41,21 +40,28 @@
 			NSAssert(NO, ([NSString stringWithFormat:@"Trying to add a Wire on top of another wire at %@", pos]));		
 		}
 		
-		// Let adjacent wires know that their neighbor has been updated
-		if ((wireType_ & W_UP) == W_UP) {
-			[eGrid updateWireAtGrid:[pos topPair]];
-		}
-		if ((wireType_ & W_DOWN) == W_DOWN) {
-			[eGrid updateWireAtGrid:[pos bottomPair]];			
-		}
-		if ((wireType_ & W_LEFT) == W_LEFT) {						
-			[eGrid updateWireAtGrid:[pos leftPair]];			
-		}
-		if ((wireType_ & W_RIGHT) == W_RIGHT) {						
-			[eGrid updateWireAtGrid:[pos rightPair]];			
-		}		
+		[self updateNeighbors:pos];
 	}
 	return self;
+}
+
+- (void) updateNeighbors:(Pair *)pos
+{
+	ElectricGrid *eGrid = [ElectricGrid electricGrid];
+	
+	// Let adjacent wires know that their neighbor has been updated
+	if ((wireType_ & W_UP) == W_UP) {
+		[eGrid updateWireAtGrid:[pos topPair]];
+	}
+	if ((wireType_ & W_DOWN) == W_DOWN) {
+		[eGrid updateWireAtGrid:[pos bottomPair]];			
+	}
+	if ((wireType_ & W_LEFT) == W_LEFT) {						
+		[eGrid updateWireAtGrid:[pos leftPair]];			
+	}
+	if ((wireType_ & W_RIGHT) == W_RIGHT) {						
+		[eGrid updateWireAtGrid:[pos rightPair]];			
+	}		
 }
 
 - (CCSprite *) updateSpriteOrientation
@@ -159,6 +165,8 @@
 			
 - (void) dealloc
 {
+	NSLog(@"Wire dealloc'd");
+	
 	[sprite_ release];
 	[gridPos_ release];
 	[super dealloc];

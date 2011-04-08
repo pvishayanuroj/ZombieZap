@@ -19,6 +19,8 @@
 
 - (BOOL) addWireAtGrid:(Pair *)p wire:(Wire *)w;
 
+- (void) removeWireAtGrid:(Pair *)p;
+
 - (BOOL) wireAtGrid:(Pair *)p;
 
 - (void) updateWireAtGrid:(Pair *)p;

@@ -61,6 +61,8 @@
 
 - (void) addWireWithPos:(Pair *)pos;
 
+- (void) removeWireWithPos:(Pair *)pos;
+
 - (void) addHomeWithPos:(Pair *)pos;
 
 - (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to;
