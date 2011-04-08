@@ -6,16 +6,12 @@
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#import "cocos2d.h"
+#import "Tower.h"
 
 @class Pair;
 @class Zombie;
 
-@interface Turret : CCNode {
-
-	CCSprite *sprite_;
-	
-	Pair *gridPos_;
+@interface Turret : Tower {
 	
 	CCAction *attackingAnimation_;
 	
@@ -37,17 +33,8 @@
 	
 	BOOL isFiring_;
 	
-	BOOL isDead_;
-	
 	CGFloat damage_;
-	
-	CGFloat HP_;
-	
-	NSUInteger unitID_;
 }
-
-@property (nonatomic, readonly) BOOL isDead;
-@property (nonatomic, readonly) Pair *gridPos;
 
 + (id) turretWithPos:(Pair *)startPos;
 

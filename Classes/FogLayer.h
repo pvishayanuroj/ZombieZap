@@ -41,7 +41,7 @@ typedef struct ZZBox ZZBox;
 	unsigned char alphaTable_[256][256];
 }
 
-- (Spotlight *) drawSpotlight:(CGPoint)origin;
+- (Spotlight *) drawPrecomputedSpotlight:(CGPoint)origin;
 
 - (Spotlight *) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius;
 

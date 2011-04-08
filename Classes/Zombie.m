@@ -7,7 +7,7 @@
 //
 
 #import "Zombie.h"
-#import "Turret.h"
+#import "Tower.h"
 #import "Pair.h"
 #import "Grid.h"
 #import "GameManager.h"
@@ -52,7 +52,9 @@ static NSUInteger countID = 0;
 		rangeSquared_ = range_ * range_;
 		adjMoveTime_ = grid.gridSize/moveRate_;
 		attackTimer_ = 0;		
+		isWalking_ = YES;		
 		isAttacking_ = NO;
+		isTakingDamage_ = NO;		
 		isDead_ = NO;
 		
 		[self initActions];
@@ -61,7 +63,6 @@ static NSUInteger countID = 0;
 		targetCell_ = [[Pair pair:-1 second:-1] retain];
 		[self reachedNext];		
 		
-		isWalking_ = YES;
 		[self showWalking];
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];					
@@ -107,9 +108,7 @@ static NSUInteger countID = 0;
 
 - (void) showAttacking
 {
-	NSLog(@"%@ STOP ALL ACTIONS attack called", self);	
 	[sprite_ stopAllActions];	
-	//[sprite_ runAction:attackingAnimation_];
 	
 	isAttacking_ = YES;
 	TargetedAction *animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)attackingAnimation_];
@@ -194,7 +193,8 @@ static NSUInteger countID = 0;
 		
 		// See if there's a tower where we're moving to
 		NSDictionary *towerLocations = [[GameManager gameManager] towerLocations];
-		Turret *t = [towerLocations objectForKey:targetCell_];
+		Tower *t = [towerLocations objectForKey:targetCell_];
+		// Some towers are not attackable, like static lights
 		if (t) {
 			storedTarget_ = t;
 			[storedTarget_ retain];
@@ -214,7 +214,6 @@ static NSUInteger countID = 0;
 			[storedTarget_ release];
 			storedTarget_ = nil;
 			[target_ retain];
-			[self stopAllActions];
 		}		
 	}
 	
@@ -224,7 +223,7 @@ static NSUInteger countID = 0;
 		[self resumeWalking];		
 	}
 	
-	if (!target_ && !isAttacking_ && !isWalking_) {
+	if (!target_ && !isAttacking_ && !isWalking_ && !isTakingDamage_) {
 		[self resumeWalking];
 	}
 }
@@ -237,7 +236,8 @@ static NSUInteger countID = 0;
 	
 	// Only attack if we have a target, we aren't dead, and our attack timer has expired
 	if (target_ && !isDead_) {
-		if (attackTimer_ == 0) {
+		if (attackTimer_ == 0 && !isTakingDamage_) {
+			[self stopAllActions];			
 			[self showAttacking];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
@@ -259,6 +259,7 @@ static NSUInteger countID = 0;
 		return;
 	}
 	isWalking_ = YES;
+	isTakingDamage_ = NO;
 	
 	[self showWalking];
 	
@@ -282,7 +283,6 @@ static NSUInteger countID = 0;
 	HP_ -= damage;
 	
 	// Stop walking
-	NSLog(@"%@ took damage, STOP ACTIONS", self);	
 	[self stopAllActions];	
 	
 	// Zombie dies from hit
@@ -297,6 +297,7 @@ static NSUInteger countID = 0;
 	// Zombie just takes damage
 	else {
 		// Show the taking damage animation, then resume walking
+		isTakingDamage_ = YES;
 		animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];
 		method = [CCCallFunc actionWithTarget:self selector:@selector(resumeWalking)];	
 	}

@@ -11,6 +11,7 @@
 #import "Pair.h"
 #import "GameManager.h"
 #import "BuildLayer.h"
+#import "Constants.h"
 
 @implementation PButton
 
@@ -151,7 +152,7 @@
 			[[GameManager gameManager] addWireWithPos:location];
 			break;
 		case B_LIGHT:
-			[[GameManager gameManager] addLightWithPos:location];
+			[[GameManager gameManager] addLightWithPos:location radius:SPOTLIGHT_RADIUS];
 			break;
 		case B_TASER:
 			[[GameManager gameManager] addTurretWithPos:location];			

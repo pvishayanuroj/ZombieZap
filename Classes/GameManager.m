@@ -20,6 +20,7 @@
 #import "ElectricGrid.h"
 #import "Pair.h"
 #import "Enums.h"
+#import "Constants.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -58,7 +59,6 @@ static GameManager *_gameManager = nil;
 		gameLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
-		//towerLocations_ = [[NSMutableSet setWithCapacity:24] retain];		
 		towerLocations_ = [[NSMutableDictionary dictionaryWithCapacity:24] retain];		
 	}
 	return self;
@@ -80,36 +80,15 @@ static GameManager *_gameManager = nil;
 {
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
 	
-	Light *light = [Light lightWithPos:pos];
-	[gameLayer_ addChild:light z:kTower];
-	//[towerLocations_ addObject:pos];
-	[towerLocations_ setObject:light forKey:pos];
-	
-	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
+	CGPoint spotlightPos = [[Grid grid] gridToPixel:pos];
+	spotlightPos = CGPointMake(spotlightPos.x, 1023 - spotlightPos.y);
 	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
 	[spotlights_ addObject:spotlight];
 	
-	// Add a wire associated with this position if there isn't already one
-	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
-		[self addWireWithPos:pos];
-	}	
-	
-	return spotlight;
-}
-
-- (Spotlight *) addLightWithPos:(Pair *)pos
-{
-	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
-	
-	Light *light = [Light lightWithPos:pos];
+	Light *light = [Light lightWithPos:pos spot:spotlight];
 	[gameLayer_ addChild:light z:kTower];
-	//[towerLocations_ addObject:pos];	
 	[towerLocations_ setObject:light forKey:pos];	
 	
-	CGPoint spotlightPos = CGPointMake(light.position.x, 1023 - light.position.y);
-	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos];
-	[spotlights_ addObject:spotlight];
-	
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
 		[self addWireWithPos:pos];
@@ -118,20 +97,26 @@ static GameManager *_gameManager = nil;
 	return spotlight;
 }
 
-- (void) addStaticLightWithPos:(Pair *)pos
+- (void) addStaticLightWithPos:(Pair *)pos radius:(CGFloat)radius
 {
 	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
 	
 	CGPoint startCoord = [[Grid grid] gridToPixel:pos];	
 	CGPoint spotlightPos = CGPointMake(startCoord.x, 1023 - startCoord.y);
-	[fogLayer_ drawSpotlight:spotlightPos];
+	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
+	[spotlights_ addObject:spotlight];
 }
 
-- (void) removeSpotlight:(Spotlight *)spotlight
+- (void) removeSpotlight:(Light *)light
 {
 	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
-	[spotlights_ removeObject:spotlight];
-	[fogLayer_ removeSpotlight:spotlight];
+	[spotlights_ removeObject:light.spotlight];
+	[fogLayer_ removeSpotlight:light.spotlight];
+}
+
+- (void) removeLight:(Light *)light
+{
+	[towerLocations_ removeObjectForKey:light.gridPos];
 }
 
 - (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj

@@ -89,6 +89,8 @@
 
 - (void) dealloc 
 {
+	NSLog(@"Spotlight %@ dealloc'd", self);		
+	
 	if (pixels_ != NULL) {
 		free(pixels_);
 	}

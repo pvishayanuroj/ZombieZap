@@ -62,7 +62,7 @@
 	return self;
 }
 
-- (Spotlight *) drawSpotlight:(CGPoint)origin
+- (Spotlight *) drawPrecomputedSpotlight:(CGPoint)origin
 {
 	NSDate *ref = [NSDate date];		
 	GLubyte a1, a2, a3;
@@ -79,11 +79,14 @@
 	yStart = yStart < 0 ? 0 : yStart;	
 	yEnd = yEnd > 1023 ? 1023 : yEnd;
 	
+	// Use the precomputed alpha values to determine how the spotlight would change the alpha values
 	for (int i = xStart; i <= xEnd; i++) {
 		for (int j = yStart; j <= yEnd; j++) {
 			a2 = spotlightTable_[i-xOffset][j-yOffset];		
 			if (a2 != 255) {
+				// Get the original alpha
 				a1 = [mutableFog_ alphaAt:ccp(i,j)];
+				// Do the multiplication using precomputed values
 				a3 = alphaTable_[a1][a2];
 				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];					
 				changedAlphas_[i][j] = a2;
@@ -101,6 +104,11 @@
 										 
 - (Spotlight *) drawSpotlight:(CGPoint)origin radius:(NSUInteger)radius
 {
+	// If the radius matches that which precomputed for
+	if (radius == SPOTLIGHT_RADIUS) {
+		return [self drawPrecomputedSpotlight:origin];
+	}
+	
 	NSDate *ref = [NSDate date];	
 	unsigned char a1, a2, a3;	
 	

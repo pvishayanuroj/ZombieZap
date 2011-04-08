@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 @class Pair;
-@class Turret;
+@class Tower;
 
 @interface Zombie : CCNode {
 
@@ -34,9 +34,9 @@
 	/** Stored death animation */
 	CCAction *dyingAnimation_;
 
-	Turret *target_;
+	Tower *target_;
 	
-	Turret *storedTarget_;
+	Tower *storedTarget_;
 	
 	Pair *targetCell_;
 	
@@ -56,6 +56,8 @@
 	/** How long it takes the zombie to move one tile at its current move rate */
 	CGFloat adjMoveTime_;
 
+	BOOL isTakingDamage_;
+	
 	BOOL isAttacking_;
 	
 	BOOL isWalking_;

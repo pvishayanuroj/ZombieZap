@@ -6,20 +6,24 @@
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#import "cocos2d.h"
+#import "Tower.h"
 
-@class Pair;
+@class Spotlight;
 
-@interface Light : CCNode {
+@interface Light : Tower {
 
-	CCSprite *sprite_;	
+	Spotlight *spotlight_;
 
-	NSUInteger unitID_;	
-	
 }
 
-+ (id) lightWithPos:(Pair *)startPos;
+@property (nonatomic, readonly) Spotlight *spotlight;
 
-- (id) initLightWithPos:(Pair *)startPos;
++ (id) lightWithPos:(Pair *)startPos spot:(Spotlight *)spot;
+
+- (id) initLightWithPos:(Pair *)startPos spot:(Spotlight *)spot;
+
+- (void) takeDamage:(CGFloat)damage;
+
+- (void) lightDeath;
 
 @end

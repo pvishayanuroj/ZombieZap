@@ -14,6 +14,7 @@
 @class GameLayer;
 @class FogLayer;
 @class Spotlight;
+@class Light;
 
 @interface GameManager : NSObject {
 
@@ -25,7 +26,6 @@
 	
 	NSMutableSet *spotlights_;
 	
-	//NSMutableSet *towerLocations_;
 	NSMutableDictionary *towerLocations_;
 	
 }
@@ -33,7 +33,6 @@
 @property (nonatomic, readonly) CCLayer *gameLayer;
 @property (nonatomic, readonly) NSMutableSet *zombies;
 @property (nonatomic, readonly) NSMutableSet *spotlights;
-//@property (nonatomic, readonly) NSMutableSet *towerLocations;
 @property (nonatomic, readonly) NSMutableDictionary *towerLocations;
 
 + (GameManager *) gameManager;
@@ -54,11 +53,11 @@
 
 - (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
-- (Spotlight *) addLightWithPos:(Pair *)pos;
+- (void) addStaticLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
-- (void) addStaticLightWithPos:(Pair *)pos;
+- (void) removeSpotlight:(Light *)light;
 
-- (void) removeSpotlight:(Spotlight *)spotlight;
+- (void) removeLight:(Light *)light;
 
 - (void) addWireWithPos:(Pair *)pos;
 

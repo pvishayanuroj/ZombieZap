@@ -14,8 +14,7 @@
 
 @implementation Turret
 
-@synthesize isDead = isDead_;
-@synthesize gridPos = gridPos_;
+
 
 static NSUInteger countID = 0;
 
@@ -26,16 +25,10 @@ static NSUInteger countID = 0;
 
 - (id) initTurretWithPos:(Pair *)startPos
 {
-	if ((self = [super init])) {
+	if ((self = [super initTowerWithPos:startPos])) {
 		
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Walking 05.png"] retain];
 		[self addChild:sprite_];		
-		
-		Grid *grid = [Grid grid];
-		CGPoint startCoord = [grid gridToPixel:startPos];
-		self.position = startCoord;
-		gridPos_ = startPos;
-		[gridPos_ retain];
 		
 		unitID_ = countID++;
 		
@@ -45,7 +38,7 @@ static NSUInteger countID = 0;
 		
 		isLinedUp_ = NO;
 		isFiring_ = NO;
-		isDead_ = NO;
+
 		target_ = nil;
 		attackTimer_ = 0;
 		
@@ -265,6 +258,7 @@ static NSUInteger countID = 0;
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];
 }
+
 // Override the description method to give us something more useful than a pointer address
 - (NSString *) description
 {

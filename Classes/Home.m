@@ -10,7 +10,7 @@
 #import "Grid.h"
 #import "Pair.h"
 #import "GameManager.h"
-
+#import "Constants.h"
 #import "Debugging.h"
 
 @implementation Home
@@ -46,7 +46,7 @@
 		[grid makeImpassable:[Pair pair:(pos.x-1) second:(pos.y+1)]];				
 		[grid makeImpassable:[Pair pair:(pos.x-1) second:(pos.y-1)]];			
 		
-		[[GameManager gameManager] addStaticLightWithPos:pos];
+		[[GameManager gameManager] addStaticLightWithPos:pos radius:SPOTLIGHT_RADIUS];
 		
 	}
 	return self;

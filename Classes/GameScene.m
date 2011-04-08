@@ -81,8 +81,8 @@
 
 - (void) update:(ccTime)dt
 {
-	[[GameManager gameManager] removeSpotlight:s1];
-	[[GameManager gameManager] removeSpotlight:s2];			
+	//[[GameManager gameManager] removeSpotlight:s1];
+	//[[GameManager gameManager] removeSpotlight:s2];			
 }
 
 - (void) addButtons:(BuildLayer *)buildLayer
