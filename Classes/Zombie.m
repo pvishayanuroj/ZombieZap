@@ -220,10 +220,9 @@ static NSUInteger countID = 0;
 	if (target_ && target_.isDead) {
 		[target_ release];
 		target_ = nil;
-		[self resumeWalking];		
 	}
 	
-	if (!target_ && !isAttacking_ && !isWalking_ && !isTakingDamage_) {
+	if (!target_ && !isAttacking_ && !isWalking_ && !isTakingDamage_ && !isDead_) {
 		[self resumeWalking];
 	}
 }

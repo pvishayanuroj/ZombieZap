@@ -746,6 +746,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DADC1A43134F5DB8008E6270 /* Pathfinding */,
 				DAE1C3BB132FE5EC00A46747 /* Cocos Setup */,
 				DAE1C5991330297600A46747 /* Singletons */,
 				DAE1C5961330292500A46747 /* Utility */,
@@ -777,14 +778,6 @@
 				DAB4FBD21330642A005E4F24 /* Wire.m */,
 				DA5AAAC413317EAB0049432E /* Damage.h */,
 				DA5AAAC513317EAB0049432E /* Damage.m */,
-				DA878D9B131C949B00FFE90B /* ASNode.h */,
-				DA878D9C131C949B00FFE90B /* ASNode.m */,
-				DA251505131B5EE700AAE3A5 /* AStar.h */,
-				DA251506131B5EE700AAE3A5 /* AStar.m */,
-				DA2515C7131C038800AAE3A5 /* BinaryHeap.h */,
-				DA2515C8131C038800AAE3A5 /* BinaryHeap.m */,
-				DAD74E29131C30B100974D50 /* AStarHeap.h */,
-				DAD74E2A131C30B100974D50 /* AStarHeap.m */,
 				DA79FB2313247CE200DE91A4 /* Spawn.h */,
 				DA79FB2413247CE200DE91A4 /* Spawn.m */,
 				DA1EF807132B044D0095CBF7 /* Spotlight.h */,
@@ -969,6 +962,21 @@
 			);
 			name = AWTextureFilter;
 			path = libs/AWTextureFilter;
+			sourceTree = "<group>";
+		};
+		DADC1A43134F5DB8008E6270 /* Pathfinding */ = {
+			isa = PBXGroup;
+			children = (
+				DA2515C7131C038800AAE3A5 /* BinaryHeap.h */,
+				DA2515C8131C038800AAE3A5 /* BinaryHeap.m */,
+				DA878D9B131C949B00FFE90B /* ASNode.h */,
+				DA878D9C131C949B00FFE90B /* ASNode.m */,
+				DA251505131B5EE700AAE3A5 /* AStar.h */,
+				DA251506131B5EE700AAE3A5 /* AStar.m */,
+				DAD74E29131C30B100974D50 /* AStarHeap.h */,
+				DAD74E2A131C30B100974D50 /* AStarHeap.m */,
+			);
+			name = Pathfinding;
 			sourceTree = "<group>";
 		};
 		DAE1C3BB132FE5EC00A46747 /* Cocos Setup */ = {
