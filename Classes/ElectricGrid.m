@@ -44,13 +44,32 @@ static ElectricGrid *_electricGrid = nil;
 	return self;
 }
 
-- (BOOL) addWireAtGrid:(Pair *)p wire:(Wire *)w
+- (Wire *) addWireAtGrid:(Pair *)p
+{
+	return [self addWireAtGrid:p delegate:nil];
+}
+
+- (Wire *) addWireAtGrid:(Pair *)p delegate:(id <WireDelegate>)delegate
 {
 	if ([wires_ objectForKey:p] == nil) {
+		
+		Wire *w = [Wire wireWithPos:p delegate:delegate];
+		
+		// Important to add ourself to the grid, so that when our neighbors update their orientation, they see ourself
+		// Make sure only one wire ever exists for a given grid		
 		[wires_ setObject:w forKey:p];
-		return YES;
+		
+		// Let neighbors know to update their own sprite orientation with respect to us
+		[w updateNeighbors];
+		
+		// If an adjacent wire has power, then we have power
+		// Hence must propagate power
+		if ([self isAdjacentPowered:w]) {
+			[self powerAdjcent:w];
+		}
+		return w;
 	}
-	return NO;
+	return nil;
 }
 
 - (void) removeWireAtGrid:(Pair *)p
@@ -60,7 +79,7 @@ static ElectricGrid *_electricGrid = nil;
 		[wires_ removeObjectForKey:p];
 		
 		// Update the neighbors' orientation to reflect this wire being gone
-		[wire updateNeighbors:p];
+		[wire updateNeighbors];
 		
 		[wire removeFromParentAndCleanup:YES];
 	}
@@ -80,6 +99,110 @@ static ElectricGrid *_electricGrid = nil;
 	if (w != nil) {
 		[w updateWireOrientation];
 	}
+}
+
+- (BOOL) isAdjacentPowered:(Wire *)wire
+{
+	Wire *w;
+	
+	Pair *top = [wire.gridPos topPair];
+	w = [wires_ objectForKey:top];
+	if (w && w.hasPower) {
+		return YES;
+	}
+	
+	Pair *bottom = [wire.gridPos bottomPair];	
+	w = [wires_ objectForKey:bottom];
+	if (w && w.hasPower) {
+		return YES;
+	}
+	
+	Pair *left = [wire.gridPos leftPair];		
+	w = [wires_ objectForKey:left];
+	if (w && w.hasPower) {
+		return YES;
+	}
+	
+	Pair *right = [wire.gridPos rightPair];			
+	w = [wires_ objectForKey:right];
+	if (w && w.hasPower) {
+		return YES;
+	}	
+	
+	return NO;
+}
+
+- (void) powerAdjcent:(Wire *)wire
+{
+	Pair *c;
+	Wire *w;
+	NSArray *sons;
+	NSMutableArray *open = [NSMutableArray arrayWithCapacity:4];
+	
+	[open addObject:wire.gridPos];
+	
+	// Uses a BFS-like algorithm to propagate power to all connected wires
+	while (YES) {
+		
+		// Check if open list is empty, in which case we stop
+		if ([open count] == 0) {
+			break;
+		}
+		
+		// Remove the first object from the open list and use this as our current node
+		c = [open objectAtIndex:0];
+		[open removeObjectAtIndex:0];
+		
+		// Power this wire
+		w = [wires_ objectForKey:c];
+		[w powerOn];
+		
+		// Get all unpowered neighbor nodes and add to the end of the open list
+		sons = [self getUnpoweredNeighbors:c];
+		[open addObjectsFromArray:sons];
+	}
+}
+
+- (NSArray *) getUnpoweredNeighbors:(Pair *)p
+{
+	NSMutableArray *n = [NSMutableArray arrayWithCapacity:4];
+	Wire *w;
+	
+	Pair *top = [p topPair];
+	w = [wires_ objectForKey:top];
+	if (w && !w.hasPower) {
+		[n addObject:top];
+	}
+	
+	Pair *bottom = [p bottomPair];	
+	w = [wires_ objectForKey:bottom];
+	if (w && !w.hasPower) {
+		[n addObject:bottom];
+	}
+	
+	Pair *left = [p leftPair];		
+	w = [wires_ objectForKey:left];
+	if (w && !w.hasPower) {
+		[n addObject:left];
+	}
+	
+	Pair *right = [p rightPair];			
+	w = [wires_ objectForKey:right];
+	if (w && !w.hasPower) {
+		[n addObject:right];
+	}		
+	
+	return n;
+}
+
+- (BOOL) isGridPowered:(Pair *)p
+{
+	Wire *w = [wires_ objectForKey:p];
+	
+	if (w) {
+		return w.hasPower;
+	}
+	return NO;
 }
 
 - (void) dealloc

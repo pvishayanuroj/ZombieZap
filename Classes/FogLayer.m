@@ -31,6 +31,7 @@
 		[self addChild:fog_];		
 		
 		areLightsOff_ = NO;
+		lightsOnDirty_ = NO;
 		
 #if DEBUG_NOFOG
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_notrans.png"]] retain];
@@ -99,8 +100,8 @@
 	
 	Spotlight *s = [Spotlight spotlight:origin radius:SPOTLIGHT_RADIUS];
 	
-	[lightsOn_ apply];
 	[self updateFog];
+	lightsOnDirty_ = YES;	
 	
 	NSLog(@"Spotlight drawn in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
 	return s;
@@ -174,11 +175,12 @@
 	
 	for (int i = xStart; i <= xEnd; i++) {
 		for (int j = yStart; j <= yEnd; j++) {
-			[mutableFog_ setAlphaAt:ccp(i,j) a:fogAlpha_];			
+			[mutableFog_ setAlphaAt:ccp(i,j) a:fogAlpha_];	
+			[lightsOn_ setAlphaAt:ccp(i,j) a:fogAlpha_];
 		}
 	}
 	
-	GLubyte a1, a2;
+	GLubyte a1, a2, a3;
 	// Redraw those spotlights
 	for (Spotlight *s in affectedLights) {
 
@@ -195,34 +197,16 @@
 					a2 = spotlightTable_[x-xOffset][y-yOffset];
 					if (a2 != 255) {
 						a1 = [mutableFog_ alphaAt:ccp(x,y)];
-						[mutableFog_ setAlphaAt:ccp(x,y) a:alphaTable_[a1][a2]];
+						a3 = alphaTable_[a1][a2];
+						[mutableFog_ setAlphaAt:ccp(x,y) a:a3];
+						[lightsOn_ setAlphaAt:ccp(x,y) a:a3];
 					}
 				}
 			}
 		}
-		
-		/*
-		int count = 0;
-		int xOffset = s.pixelsOffset.x;
-		int xE = xOffset + s.pixelsYSize;
-		int yOffset = s.pixelsOffset.y;		
-		int yE = yOffset + s.pixelsYSize;
-		
-		// Go through each spotlight's list of affected pixels, since we have those already		
-		for (int x = xOffset; x < xE; x++) {
-			for (int y = yOffset; y < yE; y++) {
-				// Only redraw the pixels that are in the removed spotlight's box
-				if (x >= xStart && x <= xEnd && y >= yStart && y <= yEnd && s.pixels[count] != 255) {
-					a1 = [mutableFog_ alphaAt:ccp(x, y)];
-					a2 = 255 * (a1/255.0f) * (s.pixels[count]/255.0f);			
-					[mutableFog_ setAlphaAt:ccp(x, y) a:a2];					
-				}
-				count++;
-			}
-		}
-		 */
 	}
 	
+	lightsOnDirty_ = YES;
 	[self updateFog];
 	
 	NSLog(@"Spotlight removed in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
@@ -245,6 +229,11 @@
 - (void) on
 {
 	NSDate *ref = [NSDate date];	
+	
+	if (lightsOnDirty_) {
+		[lightsOn_ apply];
+		lightsOnDirty_ = NO;
+	}
 
 	[self removeChild:fog_ cleanup:YES];
 	fog_ = [CCSprite spriteWithTexture:lightsOn_];

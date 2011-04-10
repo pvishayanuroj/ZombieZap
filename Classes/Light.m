@@ -18,25 +18,41 @@
 
 static NSUInteger countID = 0;
 
-+ (id) lightWithPos:(Pair *)startPos spot:(Spotlight *)spot
++ (id) lightWithPos:(Pair *)startPos radius:(CGFloat)radius
 {
-	return [[[self alloc] initLightWithPos:startPos spot:spot] autorelease];
+	return [[[self alloc] initLightWithPos:startPos radius:radius] autorelease];
 }
 
-- (id) initLightWithPos:(Pair *)startPos spot:(Spotlight *)spot
++ (id) lightWithPos:(Pair *)startPos radius:(CGFloat)radius spot:(Spotlight *)spot
+{
+	return [[[self alloc] initLightWithPos:startPos radius:radius spot:spot] autorelease];
+}
+
+- (id) initLightWithPos:(Pair *)startPos radius:(CGFloat)radius
 {
 	if ((self = [super initTowerWithPos:startPos])) {
 		
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Death 01.png"] retain];
 		[self addChild:sprite_];				
 		
-		spotlight_ = spot;
-		[spotlight_ retain];
+		spotlight_ = nil;
+		radius_ = radius;
 		
 		// Light attributes
 		HP_ = 5;
 		
 		unitID_ = countID++;		
+	}
+	return self;	
+}
+
+- (id) initLightWithPos:(Pair *)startPos radius:(CGFloat)radius spot:(Spotlight *)spot
+{
+	if ((self = [self initLightWithPos:startPos radius:radius])) {
+		
+		spotlight_ = spot;
+		[spotlight_ retain];
+		
 	}
 	return self;
 }
@@ -58,8 +74,10 @@ static NSUInteger countID = 0;
 		
 		sprite_.visible = NO;
 		
-		// Remove ourself from the list
-		[[GameManager gameManager] removeSpotlight:self];		
+		// Remove the spotlight and the wire
+		if (spotlight_) {
+			[[GameManager gameManager] removeSpotlight:spotlight_];		
+		}
 		[[GameManager gameManager] removeWireWithPos:gridPos_];		
 		
 		// Call death function only after a delay
@@ -80,6 +98,25 @@ static NSUInteger countID = 0;
 	
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];
+}
+
+- (void) powerOn
+{
+	NSAssert(spotlight_ == nil, ([NSString stringWithFormat:@"Trying to add a spotlight on top of another spotlight for %@", self]));
+	
+	CGPoint spotlightPos = [[Grid grid] gridToPixel:gridPos_];
+	spotlightPos = CGPointMake(spotlightPos.x, 1023 - spotlightPos.y);	
+	spotlight_ = [[GameManager gameManager] addSpotlight:spotlightPos radius:radius_];
+	[spotlight_ retain];
+}
+
+- (void) powerOff
+{
+	NSAssert(spotlight_ != nil, ([NSString stringWithFormat:@"Trying to remove a spotlight on top of another spotlight for %@", self]));	
+	
+	[[GameManager gameManager] removeSpotlight:spotlight_];
+	[spotlight_ release];
+	spotlight_ = nil;
 }
 
 // Override the description method to give us something more useful than a pointer address

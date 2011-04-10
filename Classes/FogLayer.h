@@ -45,6 +45,8 @@ typedef struct ZZBox ZZBox;
 	unsigned char alphaTable_[256][256];
 	
 	BOOL areLightsOff_;
+	
+	BOOL lightsOnDirty_;
 }
 
 @property (nonatomic, readonly) CCTexture2DMutable *mutableFog;

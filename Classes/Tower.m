@@ -23,7 +23,8 @@
 		self.position = startCoord;
 		gridPos_ = startPos;
 		[gridPos_ retain];
-		
+	
+		hasPower_ = NO;
 		isDead_ = NO;		
 	}
 	return self;

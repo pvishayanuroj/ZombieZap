@@ -85,25 +85,22 @@ static GameManager *_gameManager = nil;
 	[eyesLayer_ retain];
 }
 
-- (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
+- (void) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
 {
-	NSAssert(fogLayer_ != nil, @"Trying to add a Spotlight without a registered Fog Layer");	
+	NSAssert(gameLayer_ != nil, @"Trying to add a Light without a registered Game Layer");	
 	
-	CGPoint spotlightPos = [[Grid grid] gridToPixel:pos];
-	spotlightPos = CGPointMake(spotlightPos.x, 1023 - spotlightPos.y);
-	Spotlight *spotlight = [fogLayer_ drawSpotlight:spotlightPos radius:radius];
-	[spotlights_ addObject:spotlight];
-	
-	Light *light = [Light lightWithPos:pos spot:spotlight];
+	Light *light = [Light lightWithPos:pos radius:radius];
 	[gameLayer_ addChild:light z:kTower];
 	[towerLocations_ setObject:light forKey:pos];	
 	
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
-		[self addWireWithPos:pos];
+		[self addWireWithPos:pos delegate:light];
 	}	
-	
-	return spotlight;
+	// Else there's a wire, see if it's powered
+	else if ([[ElectricGrid electricGrid] isGridPowered:pos]) {
+		[light powerOn];
+	}
 }
 
 - (void) addStaticLightWithPos:(Pair *)pos radius:(CGFloat)radius
@@ -116,11 +113,19 @@ static GameManager *_gameManager = nil;
 	[spotlights_ addObject:spotlight];
 }
 
-- (void) removeSpotlight:(Light *)light
+- (Spotlight *) addSpotlight:(CGPoint)pos radius:(CGFloat)radius
 {
-	// Make sure this happens first, since we assume the removal of the light in fogLayer's removeSpotlight() function
-	[spotlights_ removeObject:light.spotlight];
-	[fogLayer_ removeSpotlight:light.spotlight];
+	Spotlight *spotlight = [fogLayer_ drawSpotlight:pos radius:radius];
+	[spotlights_ addObject:spotlight];
+	
+	return spotlight;
+}
+
+- (void) removeSpotlight:(Spotlight *)spotlight
+{
+	// Make sure this happens first, since we assume the removal of the spotlight in fogLayer's removeSpotlight() function
+	[spotlights_ removeObject:spotlight];
+	[fogLayer_ removeSpotlight:spotlight];
 }
 
 - (void) removeLight:(Light *)light
@@ -161,7 +166,7 @@ static GameManager *_gameManager = nil;
 	
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
-		[self addWireWithPos:pos];
+		[self addWireWithPos:pos delegate:turret];
 	}
 }
 
@@ -170,13 +175,30 @@ static GameManager *_gameManager = nil;
 	[towerLocations_ removeObjectForKey:turret.gridPos];
 }
 
-- (void) addWireWithPos:(Pair *)pos
+- (Wire *) addWireWithPos:(Pair *)pos delegate:(id <WireDelegate>)delegate
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Wire without a registered Game Layer");
+	
+	Wire *wire = [[ElectricGrid electricGrid] addWireAtGrid:pos delegate:delegate];
+	
+	NSAssert(wire != nil, @"Trying to add a Wire on top of another wire");
+	
+	[gameLayer_ addChild:wire z:kWire];
+	
+	return wire;
+}
+
+- (Wire *) addWireWithPos:(Pair *)pos
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Wire without a registered Game Layer");
 	
 	// Create the wire and add it
-	Wire *wire = [Wire wireWithPos:pos];
+	//Wire *wire = [Wire wireWithPos:pos];
+	Wire *wire = [[ElectricGrid electricGrid] addWireAtGrid:pos];	
+	NSAssert(wire != nil, @"Trying to add a Wire on top of another wire");	
 	[gameLayer_ addChild:wire z:kWire];
+	
+	return wire;
 }
 
 - (void) removeWireWithPos:(Pair *)pos
@@ -193,8 +215,11 @@ static GameManager *_gameManager = nil;
 	[gameLayer_ addChild:home z:kHome];
 	
 	// Simulate the electric nodes from the base
-	[self addWireWithPos:[pos topPair]];
-	[self addWireWithPos:[pos bottomPair]];	
+	Wire *w1 = [self addWireWithPos:[pos topPair]];
+	Wire *w2 = [self addWireWithPos:[pos bottomPair]];	
+	
+	[w1 powerOn];
+	[w2 powerOn];
 }
 
 - (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to

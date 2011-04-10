@@ -7,23 +7,34 @@
 //
 
 #import "Tower.h"
+#import "WireDelegate.h"
 
 @class Spotlight;
 
-@interface Light : Tower {
+@interface Light : Tower <WireDelegate> {
 
 	Spotlight *spotlight_;
+	
+	CGFloat radius_;
 
 }
 
 @property (nonatomic, readonly) Spotlight *spotlight;
 
-+ (id) lightWithPos:(Pair *)startPos spot:(Spotlight *)spot;
++ (id) lightWithPos:(Pair *)startPos radius:(CGFloat)radius;
 
-- (id) initLightWithPos:(Pair *)startPos spot:(Spotlight *)spot;
++ (id) lightWithPos:(Pair *)startPos radius:(CGFloat)radius spot:(Spotlight *)spot;
+
+- (id) initLightWithPos:(Pair *)startPos radius:(CGFloat)radius;
+
+- (id) initLightWithPos:(Pair *)startPos radius:(CGFloat)radius spot:(Spotlight *)spot;
 
 - (void) takeDamage:(CGFloat)damage;
 
 - (void) lightDeath;
+
+- (void) powerOn;
+
+- (void) powerOff;
 
 @end

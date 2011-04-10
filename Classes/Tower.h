@@ -24,6 +24,9 @@
 	
 	/** Whether or not the tower is dead */	
 	BOOL isDead_;
+
+	/** Whether or not the tower has power */	
+	BOOL hasPower_;	
 	
 	/** Tower's ID number */	
 	NSUInteger unitID_;	

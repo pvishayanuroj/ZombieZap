@@ -7,26 +7,40 @@
 //
 
 #import "cocos2d.h"
+#import "WireDelegate.h"
 
 @class Pair;
 
 @interface Wire : CCNode {
 
+	id <WireDelegate> delegate_;
+	
 	CCSprite *sprite_;
 	
 	NSInteger wireType_;
 	
 	Pair *gridPos_;
+	
+	BOOL hasPower_;
+
 }
 
-+ (id) wireWithPos:(Pair *)pos;
+@property (nonatomic, assign) id <WireDelegate> delegate;
+@property (nonatomic, readonly) Pair *gridPos;
+@property (nonatomic, readonly) BOOL hasPower;
 
-- (id) initWireWithPos:(Pair *)pos;
++ (id) wireWithPos:(Pair *)pos delegate:(id <WireDelegate>)d;
+
+- (id) initWireWithPos:(Pair *)pos delegate:(id <WireDelegate>)d;
 
 - (CCSprite *) updateSpriteOrientation;
 
 - (void) updateWireOrientation;
 
-- (void) updateNeighbors:(Pair *)pos;
+- (void) updateNeighbors;
+
+- (void) powerOn;
+
+- (void) powerOff;
 
 @end

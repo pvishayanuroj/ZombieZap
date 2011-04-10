@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "WireDelegate.h"
 
 @class Zombie;
 @class Turret;
@@ -16,6 +17,7 @@
 @class EyesLayer;
 @class Spotlight;
 @class Light;
+@class Wire;
 
 @interface GameManager : NSObject {
 
@@ -56,15 +58,19 @@
 
 - (void) removeTurret:(Turret *)turret;
 
-- (Spotlight *) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
+- (void) addLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
 - (void) addStaticLightWithPos:(Pair *)pos radius:(CGFloat)radius;
 
-- (void) removeSpotlight:(Light *)light;
+- (Spotlight *) addSpotlight:(CGPoint)pos radius:(CGFloat)radius;
+
+- (void) removeSpotlight:(Spotlight *)spotlight;
 
 - (void) removeLight:(Light *)light;
 
-- (void) addWireWithPos:(Pair *)pos;
+- (Wire *) addWireWithPos:(Pair *)pos delegate:(id <WireDelegate>)delegate;
+
+- (Wire *) addWireWithPos:(Pair *)pos;
 
 - (void) removeWireWithPos:(Pair *)pos;
 

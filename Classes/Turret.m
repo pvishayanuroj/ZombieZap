@@ -259,6 +259,16 @@ static NSUInteger countID = 0;
 	[self removeFromParentAndCleanup:YES];
 }
 
+- (void) powerOn
+{
+	
+}
+
+- (void) powerOff
+{
+	
+}
+
 // Override the description method to give us something more useful than a pointer address
 - (NSString *) description
 {

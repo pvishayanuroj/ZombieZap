@@ -14,12 +14,16 @@
 
 @implementation Wire
 
-+ (id) wireWithPos:(Pair *)pos
+@synthesize delegate = delegate_;
+@synthesize gridPos = gridPos_;
+@synthesize hasPower = hasPower_;
+
++ (id) wireWithPos:(Pair *)pos delegate:(id <WireDelegate>)d
 {
-	return [[[self alloc] initWireWithPos:pos] autorelease];
+	return [[[self alloc] initWireWithPos:pos delegate:d] autorelease];
 }
 
-- (id) initWireWithPos:(Pair *)pos
+- (id) initWireWithPos:(Pair *)pos delegate:(id <WireDelegate>)d
 {
 	if ((self = [super init])) {
 		
@@ -34,33 +38,29 @@
 		CGPoint startCoord = [grid gridToPixel:pos];
 		self.position = startCoord;
 		
-		// Important to add ourself to the grid, so that when our neighbors update their orientation, they see ourself
-		// Make sure only one wire ever exists for a given grid
-		if (![[ElectricGrid electricGrid] addWireAtGrid:pos wire:self]) {
-			NSAssert(NO, ([NSString stringWithFormat:@"Trying to add a Wire on top of another wire at %@", pos]));		
-		}
-		
-		[self updateNeighbors:pos];
+		hasPower_ = NO;
+		delegate_ = d;
+
 	}
 	return self;
 }
 
-- (void) updateNeighbors:(Pair *)pos
+- (void) updateNeighbors
 {
 	ElectricGrid *eGrid = [ElectricGrid electricGrid];
 	
 	// Let adjacent wires know that their neighbor has been updated
 	if ((wireType_ & W_UP) == W_UP) {
-		[eGrid updateWireAtGrid:[pos topPair]];
+		[eGrid updateWireAtGrid:[gridPos_ topPair]];
 	}
 	if ((wireType_ & W_DOWN) == W_DOWN) {
-		[eGrid updateWireAtGrid:[pos bottomPair]];			
+		[eGrid updateWireAtGrid:[gridPos_ bottomPair]];			
 	}
 	if ((wireType_ & W_LEFT) == W_LEFT) {						
-		[eGrid updateWireAtGrid:[pos leftPair]];			
+		[eGrid updateWireAtGrid:[gridPos_ leftPair]];			
 	}
 	if ((wireType_ & W_RIGHT) == W_RIGHT) {						
-		[eGrid updateWireAtGrid:[pos rightPair]];			
+		[eGrid updateWireAtGrid:[gridPos_ rightPair]];			
 	}		
 }
 
@@ -163,6 +163,22 @@
 	[self addChild:sprite_];
 }
 			
+- (void) powerOn
+{
+	hasPower_ = YES;
+	if (delegate_) {
+		[delegate_ powerOn];
+	}
+}
+
+- (void) powerOff
+{
+	hasPower_ = NO;
+	if (delegate_) {
+		[delegate_ powerOff];
+	}	
+}
+
 - (void) dealloc
 {
 	NSLog(@"Wire dealloc'd");

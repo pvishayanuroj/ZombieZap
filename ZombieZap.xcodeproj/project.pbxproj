@@ -478,6 +478,7 @@
 		DADC1ABE134F9F01008E6270 /* EyesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EyesLayer.m; sourceTree = "<group>"; };
 		DADC1B521350C11F008E6270 /* test1_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1_button.png; sourceTree = "<group>"; };
 		DADC1B531350C11F008E6270 /* test2_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2_button.png; sourceTree = "<group>"; };
+		DADC2AD91351F10E008E6270 /* WireDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireDelegate.h; sourceTree = "<group>"; };
 		DAE1C4C513301C4600A46747 /* black_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame.png; sourceTree = "<group>"; };
 		DAE1C4C613301C4600A46747 /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DAE1C4C713301C4600A46747 /* generator_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generator_wheel.png; sourceTree = "<group>"; };
@@ -790,6 +791,7 @@
 				DA2FD861132C600C0073B8B2 /* Light.m */,
 				DAE1C4D113301C7800A46747 /* Home.h */,
 				DAE1C4D213301C7800A46747 /* Home.m */,
+				DADC2AD91351F10E008E6270 /* WireDelegate.h */,
 				DAB4FBD11330642A005E4F24 /* Wire.h */,
 				DAB4FBD21330642A005E4F24 /* Wire.m */,
 				DA5AAAC413317EAB0049432E /* Damage.h */,

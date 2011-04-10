@@ -7,11 +7,12 @@
 //
 
 #import "Tower.h"
+#import "WireDelegate.h"
 
 @class Pair;
 @class Zombie;
 
-@interface Turret : Tower {
+@interface Turret : Tower <WireDelegate> {
 	
 	CCAction *attackingAnimation_;
 	
@@ -55,5 +56,9 @@
 - (void) takeDamage:(CGFloat)damage;
 
 - (void) turretDeath;
+
+- (void) powerOn;
+
+- (void) powerOff;
 
 @end
