@@ -124,6 +124,8 @@
 		DADC1A96134F9A39008E6270 /* ZombieEyes.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1A95134F9A39008E6270 /* ZombieEyes.m */; };
 		DADC1A98134F9CB1008E6270 /* zombie_eyes.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1A97134F9CB1008E6270 /* zombie_eyes.png */; };
 		DADC1ABF134F9F01008E6270 /* EyesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1ABE134F9F01008E6270 /* EyesLayer.m */; };
+		DADC1B541350C11F008E6270 /* test1_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1B521350C11F008E6270 /* test1_button.png */; };
+		DADC1B551350C11F008E6270 /* test2_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1B531350C11F008E6270 /* test2_button.png */; };
 		DAE1C4CB13301C4600A46747 /* black_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C513301C4600A46747 /* black_frame.png */; };
 		DAE1C4CC13301C4600A46747 /* black_frame_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C613301C4600A46747 /* black_frame_trans.png */; };
 		DAE1C4CD13301C4600A46747 /* generator_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C713301C4600A46747 /* generator_wheel.png */; };
@@ -474,6 +476,8 @@
 		DADC1A97134F9CB1008E6270 /* zombie_eyes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_eyes.png; sourceTree = "<group>"; };
 		DADC1ABD134F9F01008E6270 /* EyesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EyesLayer.h; sourceTree = "<group>"; };
 		DADC1ABE134F9F01008E6270 /* EyesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EyesLayer.m; sourceTree = "<group>"; };
+		DADC1B521350C11F008E6270 /* test1_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1_button.png; sourceTree = "<group>"; };
+		DADC1B531350C11F008E6270 /* test2_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2_button.png; sourceTree = "<group>"; };
 		DAE1C4C513301C4600A46747 /* black_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame.png; sourceTree = "<group>"; };
 		DAE1C4C613301C4600A46747 /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DAE1C4C713301C4600A46747 /* generator_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generator_wheel.png; sourceTree = "<group>"; };
@@ -928,6 +932,8 @@
 		DA2FD887132C752B0073B8B2 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				DADC1B521350C11F008E6270 /* test1_button.png */,
+				DADC1B531350C11F008E6270 /* test2_button.png */,
 				DA186D2C1331377800FCBD51 /* wire_button_pressed.png */,
 				DA2FD888132C752B0073B8B2 /* light_button.png */,
 				DA2FD889132C752B0073B8B2 /* taser_button.png */,
@@ -1503,6 +1509,8 @@
 				DA5AAA9813317BF20049432E /* LightningSpriteSheet.png in Resources */,
 				DA5AAA9913317BF20049432E /* Units.plist in Resources */,
 				DADC1A98134F9CB1008E6270 /* zombie_eyes.png in Resources */,
+				DADC1B541350C11F008E6270 /* test1_button.png in Resources */,
+				DADC1B551350C11F008E6270 /* test2_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

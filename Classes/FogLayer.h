@@ -32,15 +32,19 @@ typedef struct ZZBox ZZBox;
 	//CCMutableTexture2D *mutableFog_;
 	CCTexture2DMutable *mutableFog_;
 		
+	CCTexture2DMutable *lightsOn_;
+	
+	CCTexture2DMutable *lightsOff_;
+	
 	MutableTextureExtension *tempTexture_;
 	
 	GLubyte fogAlpha_;
 	
 	unsigned char spotlightTable_[SPOTLIGHT_SIDE][SPOTLIGHT_SIDE];
 	
-	unsigned char changedAlphas_[1024][1024];
-	
 	unsigned char alphaTable_[256][256];
+	
+	BOOL areLightsOff_;
 }
 
 @property (nonatomic, readonly) CCTexture2DMutable *mutableFog;
@@ -52,5 +56,11 @@ typedef struct ZZBox ZZBox;
 - (void) removeSpotlight:(Spotlight *)spotlight;
 
 - (void) updateFog;
+
+- (void) off;
+
+- (void) on;
+
+- (BOOL) isPointLit:(CGPoint)pt;
 
 @end

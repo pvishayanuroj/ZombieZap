@@ -94,9 +94,14 @@
 	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Zombie Walking 05.png" buttonType:B_TASER];
 	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_LIGHT];
 	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" toggledImage:@"wire_button_pressed.png" buttonType:B_WIRE];	
+	PButton *test1 = [PButton pButton:@"test1_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST1];	
+	PButton *test2 = [PButton pButton:@"test2_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST2];		
+	
 	[buildLayer addButton:taser];
 	[buildLayer addButton:light];
 	[buildLayer addButton:wire];	
+	[buildLayer addButton:test1];
+	[buildLayer addButton:test2];
 }
 
 - (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName

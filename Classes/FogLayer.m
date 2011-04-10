@@ -30,19 +30,20 @@
 		fog_.anchorPoint = ccp(0, 0);			
 		[self addChild:fog_];		
 		
+		areLightsOff_ = NO;
+		
 #if DEBUG_NOFOG
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_notrans.png"]] retain];
+		lightsOn_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_notrans.png"]] retain];
+		lightsOff_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_notrans.png"]] retain];		
 #else
 		mutableFog_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];
+		lightsOn_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];		
+		lightsOff_ = [[[CCTexture2DMutable alloc] initWithImage:[UIImage imageNamed:@"black_frame_trans.png"]] retain];				
 #endif
 		tempTexture_ = [[[MutableTextureExtension alloc] initWithImage:[UIImage imageNamed:@"black_frame.png"]] retain];
 		fogAlpha_ = [mutableFog_ alphaAt:CGPointZero];
 		//NSLog(@"fog alpha: %d (%1.2f)", fogAlpha_, fogAlpha_/255.0f);
-		
-		for (int i = 0; i < 1024; i++) {
-			for (int j = 0; j < 1024; j++)
-			changedAlphas_[i][j] = fogAlpha_;
-		}
 		
 		// Precalculate all alpha multiplications
 		for (int i = 0; i < 256; i++) {
@@ -90,14 +91,15 @@
 				a1 = [mutableFog_ alphaAt:ccp(i,j)];
 				// Do the multiplication using precomputed values
 				a3 = alphaTable_[a1][a2];
-				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];					
-				changedAlphas_[i][j] = a2;
+				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];			
+				[lightsOn_ setAlphaAt:ccp(i,j) a:a3];
 			}
 		}
 	}
 	
 	Spotlight *s = [Spotlight spotlight:origin radius:SPOTLIGHT_RADIUS];
 	
+	[lightsOn_ apply];
 	[self updateFog];
 	
 	NSLog(@"Spotlight drawn in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
@@ -136,8 +138,7 @@
 				a1 = [mutableFog_ alphaAt:ccp(i,j)];
 				a3 = alphaTable_[a1][a2];
 				[mutableFog_ setAlphaAt:ccp(i,j) a:a3];					
-				changedAlphas_[i][j] = a2;
-				//[spotlight addPixel:ccp(i,j) alpha:a2];
+				[lightsOn_ setAlphaAt:ccp(i,j) a:a3];				
 			}
 		}
 	}
@@ -224,19 +225,46 @@
 	
 	[self updateFog];
 	
-	double t1 = [[NSDate date] timeIntervalSinceDate:ref];
-	NSLog(@"Spotlight removed in: %4.9f seconds", t1);			
+	NSLog(@"Spotlight removed in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);			
 }
 
 - (void) off
 {
-	/*
-	for (Pair *p in changedAlphas_) {
-		[mutableFog_ setAlphaAt:ccp(p.x, p.y) a:fogAlpha_];
-	}
-	 */
+	NSDate *ref = [NSDate date];		
 	
-	[self updateFog];
+	[self removeChild:fog_ cleanup:YES];
+	fog_ = [CCSprite spriteWithTexture:lightsOff_];
+	fog_.anchorPoint = ccp(0, 0);				
+	[self addChild:fog_];	
+	
+	areLightsOff_ = YES;
+	
+	NSLog(@"Lights off in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
+}
+
+- (void) on
+{
+	NSDate *ref = [NSDate date];	
+
+	[self removeChild:fog_ cleanup:YES];
+	fog_ = [CCSprite spriteWithTexture:lightsOn_];
+	fog_.anchorPoint = ccp(0, 0);				
+	[self addChild:fog_];			
+	
+	areLightsOff_ = NO;
+	
+	NSLog(@"Lights on in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
+}
+
+- (BOOL) isPointLit:(CGPoint)pt
+{
+	// If lights are off, then definitely not lit
+	if (areLightsOff_) {
+		return NO;
+	}
+	// Otherwise compare against alpha
+	return [mutableFog_ alphaAt:pt] < fogAlpha_;
+	
 }
 
 - (void) redAlert
@@ -268,6 +296,8 @@
 {
 	[fog_ release];
 	[mutableFog_ release];
+	[lightsOn_ release];
+	[lightsOff_ release];
 	[tempTexture_ release];
 	
 	[super dealloc];

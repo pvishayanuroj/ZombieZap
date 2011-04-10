@@ -214,9 +214,22 @@ static GameManager *_gameManager = nil;
 {
 	//CCTexture2DMutable *fog = fogLayer_.mutableFog;
 	//GLubyte alpha = [fog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
+	return [fogLayer_ isPointLit:CGPointMake(pt.x, 1023 - pt.y)];
 	GLubyte alpha = [fogLayer_.mutableFog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
 	
 	return alpha < 240;
+}
+
+- (void) turnLightsOff
+{
+	NSAssert(fogLayer_ != nil, @"Trying to turn lights off without a registered Fog Layer");		
+	[fogLayer_ off];
+}
+
+- (void) turnLightsOn
+{
+	NSAssert(fogLayer_ != nil, @"Trying to turn lights on without a registered Fog Layer");		
+	[fogLayer_ on];	
 }
 
 - (void) dealloc

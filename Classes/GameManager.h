@@ -76,4 +76,8 @@
 
 - (BOOL) isPointLit:(CGPoint)pt;
 
+- (void) turnLightsOff;
+
+- (void) turnLightsOn;
+
 @end

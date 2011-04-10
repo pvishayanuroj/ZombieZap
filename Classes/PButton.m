@@ -77,6 +77,15 @@
 	if (![self containsTouchLocation:touch])
 		return NO;
 
+	if (buttonType_ == B_TEST1) {
+		[[GameManager gameManager] turnLightsOff];
+		return NO;
+	}
+	else if (buttonType_ == B_TEST2) {
+		[[GameManager gameManager] turnLightsOn];
+		return NO;
+	}
+	
 	return YES;
 }
 
@@ -149,6 +158,7 @@
 {
 	switch (buttonType_) {
 		case B_WIRE:
+			[[GameManager gameManager] turnLightsOn];
 			[[GameManager gameManager] addWireWithPos:location];
 			break;
 		case B_LIGHT:
