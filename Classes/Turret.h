@@ -8,7 +8,6 @@
 
 #import "Tower.h"
 #import "WireDelegate.h"
-#import "Enums.h"
 
 @class Pair;
 @class Zombie;
@@ -39,7 +38,7 @@
 	
 	CGFloat damage_;
 	
-	SpriteOrientation spriteFacing_;
+	NSInteger spriteFacing_;
 	
 	NSMutableArray *sprites_;
 }
@@ -49,8 +48,6 @@
 - (id) initTurretWithPos:(Pair *)startPos;
 
 - (void) initActions;
-
-- (void) initSprites;
 
 - (void) showAttacking;
 
@@ -63,8 +60,6 @@
 - (void) attackingRoutine;
 
 - (void) spriteSelectionRoutine; 
-
-- (void) selectSprite:(SpriteOrientation)facing;
 
 - (void) takeDamage:(CGFloat)damage;
 

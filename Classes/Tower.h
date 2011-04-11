@@ -15,6 +15,9 @@
 
 	/** Sprite representing the tower */
 	CCSprite *sprite_;
+
+	/** An offset for when the sprite is drawn, since not all towers' bases are in the absolute center */	
+	CGPoint spriteDrawOffset_;
 	
 	/** Where the tower is on the map in grid notation */
 	Pair *gridPos_;	

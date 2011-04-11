@@ -23,12 +23,16 @@ enum {
 	
 	CCSprite *toggledSprite_;	
 	
+	CGPoint placementSpriteDrawOffset_;
+	
 	BOOL placementAdded_;
 	
 	BuildButtonType buttonType_;
 	
 	BOOL allowable_;
 }
+
+@property (nonatomic, assign) CGPoint placementSpriteDrawOffset;
 
 + (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType;
 

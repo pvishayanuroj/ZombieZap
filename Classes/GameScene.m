@@ -26,6 +26,7 @@
 		
 		[self animationLoader:@"Units" spriteSheetName:@"CharacterSpriteSheet"];
 		[self animationLoader:@"Lightning" spriteSheetName:@"LightningSpriteSheet"];
+		[self animationLoader:@"Tower" spriteSheetName:@"TowerSpriteSheet"];		
 		
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
@@ -90,8 +91,9 @@
 }
 
 - (void) addButtons:(BuildLayer *)buildLayer
-{
-	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Zombie Walking 05.png" buttonType:B_TASER];
+{	
+	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Laser Turret L1 02.png" buttonType:B_TASER];
+	taser.placementSpriteDrawOffset = CGPointMake(0, 12);
 	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_LIGHT];
 	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" toggledImage:@"wire_button_pressed.png" buttonType:B_WIRE];	
 	PButton *test1 = [PButton pButton:@"test1_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST1];	
@@ -106,7 +108,6 @@
 
 - (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName
 {
-	
 	NSArray *unitAnimations;
 	NSString *unitName;
 	NSString *animationName;

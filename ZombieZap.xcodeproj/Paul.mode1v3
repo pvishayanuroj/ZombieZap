@@ -265,20 +265,21 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>2D500B1D0D5A766B00DBA0E3</string>
-								<string>DAE1C5961330292500A46747</string>
+								<string>50F414EB1069373D002A0D5E</string>
+								<string>DA5AAA8D13317BF20049432E</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>42</integer>
+									<integer>11</integer>
 									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 153}, {186, 726}}</string>
+							<string>{{0, 475}, {186, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -315,7 +316,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Turret.m</string>
+								<string>GameScene.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +324,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Turret.m</string>
+										<string>GameScene.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DAB4C05D13532218007A25E5</string>
+										<string>DAB4C0C313533313007A25E5</string>
 										<key>history</key>
 										<array>
 											<string>DA5FA4B413097AFB005E2411</string>
@@ -458,7 +459,6 @@
 											<string>DADC1B341350B8A8008E6270</string>
 											<string>DADC1B591350C142008E6270</string>
 											<string>DADC1B5F1350C142008E6270</string>
-											<string>DADC1B691350C6A6008E6270</string>
 											<string>DADC1B6A1350C6A6008E6270</string>
 											<string>DADC1C5D1351EA85008E6270</string>
 											<string>DADC2AE41351F179008E6270</string>
@@ -469,7 +469,6 @@
 											<string>DADC2B2A1351FC0F008E6270</string>
 											<string>DADC2B2E1351FC0F008E6270</string>
 											<string>DADC2B431351FD08008E6270</string>
-											<string>DADC2B8213524C41008E6270</string>
 											<string>DADC2B8313524C41008E6270</string>
 											<string>DADC2B9B135274DF008E6270</string>
 											<string>DADC2B9C135274DF008E6270</string>
@@ -488,7 +487,6 @@
 											<string>DADC2BAA135274DF008E6270</string>
 											<string>DADC2BAB135274DF008E6270</string>
 											<string>DADC2BAC135274DF008E6270</string>
-											<string>DADC2BB613528D14008E6270</string>
 											<string>DADC2BC513528E33008E6270</string>
 											<string>DADC2BC613528E33008E6270</string>
 											<string>DADC2BC713528E33008E6270</string>
@@ -496,19 +494,22 @@
 											<string>DADC2BC913528E33008E6270</string>
 											<string>DADC2BCA13528E33008E6270</string>
 											<string>DADC2BF81352906A008E6270</string>
-											<string>DADC2BFA1352906A008E6270</string>
-											<string>DADC2C621352AFA7008E6270</string>
 											<string>DAB4C0411353214B007A25E5</string>
 											<string>DAB4C0421353214B007A25E5</string>
-											<string>DAB4C0431353214B007A25E5</string>
-											<string>DAB4C0441353214B007A25E5</string>
 											<string>DAB4C0451353214B007A25E5</string>
 											<string>DAB4C0461353214B007A25E5</string>
 											<string>DAB4C0471353214B007A25E5</string>
 											<string>DAB4C0481353214B007A25E5</string>
 											<string>DAB4C04A1353214B007A25E5</string>
-											<string>DAB4C05B13532218007A25E5</string>
-											<string>DAB4C05C13532218007A25E5</string>
+											<string>DAB4C06A1353287E007A25E5</string>
+											<string>DAB4C06F13532BAE007A25E5</string>
+											<string>DAB4C09A1353306A007A25E5</string>
+											<string>DAB4C0A5135330F4007A25E5</string>
+											<string>DAB4C0A7135330F4007A25E5</string>
+											<string>DAB4C0B21353322E007A25E5</string>
+											<string>DAB4C0C0135332DF007A25E5</string>
+											<string>DAB4C0C1135332DF007A25E5</string>
+											<string>DAB4C0B813533258007A25E5</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -706,9 +707,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>DA69F091130180A3002253AF</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Paul/Dropbox/Projects/ZombieZap/ZombieZap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -1083,7 +1084,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

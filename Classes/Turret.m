@@ -25,19 +25,22 @@ static NSUInteger countID = 0;
 {
 	if ((self = [super initTowerWithPos:startPos])) {
 		
-		//sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Walking 05.png"] retain];
-		sprite_ = [[CCSprite spriteWithFile:@"laser_tower_0.png"] retain];
+		spriteFacing_ = 2;		
+		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Laser Turret L1 02.png"] retain];	
 		[self addChild:sprite_];		
+		
+		// Take care of any offset
+		spriteDrawOffset_ = CGPointMake(0, 12);
+		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		
 		
 		unitID_ = countID++;
 		
 		[self initActions];
-		[self initSprites];
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];			
 
 		turretRotation_ = self.rotation;
-		spriteFacing_ = S_UP;
+		turretRotation_ = 45;		
 		isLinedUp_ = NO;
 		isFiring_ = NO;
 
@@ -64,16 +67,6 @@ static NSUInteger countID = 0;
 	
 	animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Death"];
 	dyingAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
-}
-
-- (void) initSprites
-{
-	sprites_ = [[NSMutableArray arrayWithCapacity:5] retain];
-	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_0.png"]];
-	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_45.png"]];
-	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_90.png"]];
-	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_135.png"]];
-	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_180.png"]];	
 }
 
 - (void) showAttacking
@@ -220,92 +213,21 @@ static NSUInteger countID = 0;
 
 - (void) spriteSelectionRoutine 
 {
-	SpriteOrientation facing;
-
-	if (turretRotation_ < -157.5) {
-		facing = S_DOWN;
-	}
-	else if (turretRotation_ < -112.5) {
-		facing = S_DOWNLEFT;
-	}
-	else if (turretRotation_ < - 67.5) {
-		facing = S_LEFT;
-	}
-	else if (turretRotation_ < -22.5) {
-		facing = S_UPLEFT;
-	}
-	else if (turretRotation_ < 22.5) {
-		facing = S_UP;
-	}
-	else if (turretRotation_ < 67.5) {
-		facing = S_UPRIGHT;
-	}
-	else if (turretRotation_ < 112.5) {
-		facing = S_RIGHT;
-	}
-	else if (turretRotation_ < 157.5) {
-		facing = S_DOWNRIGHT;
-	}
-	else {
-		facing = S_DOWN;
-	}
+	NSInteger index = round(turretRotation_ / 45.0f);
 	
-	[self selectSprite:facing];
-}
-
-- (void) selectSprite:(SpriteOrientation)facing
-{
-	// See if we need to change the facing
-	if (spriteFacing_ == facing) {
-		return;
+	if (index != spriteFacing_) {
+		
+		spriteFacing_ = index;		
+		[self removeChild:sprite_ cleanup:YES];
+		[sprite_ release];		
+		
+		NSString *spriteFrameName = [NSString stringWithFormat:@"Laser Turret L1 %02d.png", (abs(index) + 1)];
+		sprite_ = [[CCSprite spriteWithSpriteFrameName:spriteFrameName] retain];
+		sprite_.flipX = (index < 0);
+		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);
+		
+		[self addChild:sprite_];		
 	}
-	
-	spriteFacing_ = facing;
-	NSLog(@"%@ Facing changed to %d", self, facing);
-	
-	[self removeChild:sprite_ cleanup:YES];
-	[sprite_ release];
-	sprite_ = nil;
-	
-	switch (facing) {
-		case S_DOWN:
-			sprite_ = [sprites_ objectAtIndex:4];
-			sprite_.flipX = NO;
-			break;
-		case S_UP:
-			sprite_ = [sprites_ objectAtIndex:0];			
-			sprite_.flipX = NO;			
-			break;
-		case S_LEFT:
-			sprite_ = [sprites_ objectAtIndex:2];	
-			sprite_.flipX = YES;
-			break;
-		case S_RIGHT:
-			sprite_ = [sprites_ objectAtIndex:2];						
-			sprite_.flipX = NO;			
-			break;
-		case S_UPRIGHT:
-			sprite_ = [sprites_ objectAtIndex:1];			
-			sprite_.flipX = NO;			
-			break;
-		case S_UPLEFT:
-			sprite_ = [sprites_ objectAtIndex:1];			
-			sprite_.flipX = YES;
-			break;
-		case S_DOWNRIGHT:
-			sprite_ = [sprites_ objectAtIndex:3];			
-			sprite_.flipX = NO;			
-			break;
-		case S_DOWNLEFT:
-			sprite_ = [sprites_ objectAtIndex:3];
-			sprite_.flipX = YES;
-			break;
-		default:
-			NSAssert(NO, @"Invalid sprite orientation");
-	}
-	
-	[self addChild:sprite_];		
-	[sprite_ retain];
 }
 
 - (void) attackingRoutine

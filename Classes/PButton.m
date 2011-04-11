@@ -15,6 +15,8 @@
 
 @implementation PButton
 
+@synthesize placementSpriteDrawOffset = placementSpriteDrawOffset_;
+
 + (id) pButton:(NSString *)buttonImage placementImage:(NSString *)placementImage buttonType:(BuildButtonType)buttonType
 {
 	return [[[self alloc] initPButton:buttonImage placementImage:placementImage buttonType:buttonType] autorelease];		
@@ -31,7 +33,8 @@
 
 		buttonType_ = buttonType;
 		
-		placementSprite_ = [[CCSprite spriteWithSpriteFrameName:placementImage] retain];		
+		placementSprite_ = [[CCSprite spriteWithSpriteFrameName:placementImage] retain];
+		placementSpriteDrawOffset_ = CGPointZero;
 		placementAdded_ = NO;
 		
 		allowable_ = NO;
@@ -112,6 +115,9 @@
 		CGPoint gridPixel = [[Grid grid] localPixelToLocalGridPixel:localPoint];
 		CGPoint pos = [self convertToNodeSpace:gridPixel];
 		placementSprite_.position = pos;
+		
+		// Account for the draw offset
+		placementSprite_.position = ccpAdd(placementSprite_.position, placementSpriteDrawOffset_);
 	}
 }
 
