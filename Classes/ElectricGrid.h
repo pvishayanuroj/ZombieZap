@@ -13,29 +13,39 @@
 
 @interface ElectricGrid : NSObject {
 
+	/** Dictionary mapping positions on the map to wire objects */
 	NSMutableDictionary *wires_;
 	
 }
 
+/** Returns the ElectricGrid singleton */
 + (ElectricGrid *) electricGrid;
 
-//- (BOOL) addWireAtGrid:(Pair *)p wire:(Wire *)w;
+/**  */
 - (Wire *) addWireAtGrid:(Pair *)p;
 
+/**  */
 - (Wire *) addWireAtGrid:(Pair *)p delegate:(id <WireDelegate>)delegate;
 
+/**  */
 - (void) removeWireAtGrid:(Pair *)p;
 
+/**  */
 - (BOOL) wireAtGrid:(Pair *)p;
 
+/**  */
 - (void) updateWireAtGrid:(Pair *)p;
 
+/** Returns whether or not any adjacent wire tile has power */
 - (BOOL) isAdjacentPowered:(Wire *)wire;
 
+/** Method that powers this wire and propagates power to all connected unpowered wires */
 - (void) powerAdjcent:(Wire *)wire;
 
+/** Method to return an array of unpowered neighbors */
 - (NSArray *) getUnpoweredNeighbors:(Pair *)p;
 
+/** Returns whether or not this grid has power (and has a wire) */
 - (BOOL) isGridPowered:(Pair *)p;
 
 @end

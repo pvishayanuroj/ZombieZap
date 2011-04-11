@@ -141,7 +141,7 @@ static ElectricGrid *_electricGrid = nil;
 	
 	[open addObject:wire.gridPos];
 	
-	// Uses a BFS-like algorithm to propagate power to all connected wires
+	// Uses a BFS to propagate power to all connected wires
 	while (YES) {
 		
 		// Check if open list is empty, in which case we stop
@@ -193,6 +193,13 @@ static ElectricGrid *_electricGrid = nil;
 	}		
 	
 	return n;
+}
+
+- (BOOL) pathToPower:(Pair *)p
+{
+	// Uses a DFS to determine if there exists a path from the given node to a power source
+	while (YES) {
+	}
 }
 
 - (BOOL) isGridPowered:(Pair *)p

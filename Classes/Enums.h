@@ -42,6 +42,17 @@ typedef enum {
 	D_HORIZONTAL
 } DirectionType;
 
+typedef enum {
+	S_UP = 0,
+	S_UPRIGHT = 1,
+	S_RIGHT = 2,
+	S_DOWNRIGHT = 3,
+	S_DOWN = 4,
+	S_DOWNLEFT = 5,
+	S_LEFT = 6,
+	S_UPLEFT = 7
+} SpriteOrientation;
+
 enum {
 	W_UP = 1,
 	W_DOWN = 2,

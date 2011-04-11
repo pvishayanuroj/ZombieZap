@@ -126,6 +126,11 @@
 		DADC1ABF134F9F01008E6270 /* EyesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DADC1ABE134F9F01008E6270 /* EyesLayer.m */; };
 		DADC1B541350C11F008E6270 /* test1_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1B521350C11F008E6270 /* test1_button.png */; };
 		DADC1B551350C11F008E6270 /* test2_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC1B531350C11F008E6270 /* test2_button.png */; };
+		DADC2BC013528D44008E6270 /* laser_tower_0.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC2BBB13528D44008E6270 /* laser_tower_0.png */; };
+		DADC2BC113528D44008E6270 /* laser_tower_135.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC2BBC13528D44008E6270 /* laser_tower_135.png */; };
+		DADC2BC213528D44008E6270 /* laser_tower_180.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC2BBD13528D44008E6270 /* laser_tower_180.png */; };
+		DADC2BC313528D44008E6270 /* laser_tower_45.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC2BBE13528D44008E6270 /* laser_tower_45.png */; };
+		DADC2BC413528D44008E6270 /* laser_tower_90.png in Resources */ = {isa = PBXBuildFile; fileRef = DADC2BBF13528D44008E6270 /* laser_tower_90.png */; };
 		DAE1C4CB13301C4600A46747 /* black_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C513301C4600A46747 /* black_frame.png */; };
 		DAE1C4CC13301C4600A46747 /* black_frame_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C613301C4600A46747 /* black_frame_trans.png */; };
 		DAE1C4CD13301C4600A46747 /* generator_wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C4C713301C4600A46747 /* generator_wheel.png */; };
@@ -479,6 +484,11 @@
 		DADC1B521350C11F008E6270 /* test1_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1_button.png; sourceTree = "<group>"; };
 		DADC1B531350C11F008E6270 /* test2_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2_button.png; sourceTree = "<group>"; };
 		DADC2AD91351F10E008E6270 /* WireDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WireDelegate.h; sourceTree = "<group>"; };
+		DADC2BBB13528D44008E6270 /* laser_tower_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_tower_0.png; sourceTree = "<group>"; };
+		DADC2BBC13528D44008E6270 /* laser_tower_135.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_tower_135.png; sourceTree = "<group>"; };
+		DADC2BBD13528D44008E6270 /* laser_tower_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_tower_180.png; sourceTree = "<group>"; };
+		DADC2BBE13528D44008E6270 /* laser_tower_45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_tower_45.png; sourceTree = "<group>"; };
+		DADC2BBF13528D44008E6270 /* laser_tower_90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_tower_90.png; sourceTree = "<group>"; };
 		DAE1C4C513301C4600A46747 /* black_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame.png; sourceTree = "<group>"; };
 		DAE1C4C613301C4600A46747 /* black_frame_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_trans.png; sourceTree = "<group>"; };
 		DAE1C4C713301C4600A46747 /* generator_wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generator_wheel.png; sourceTree = "<group>"; };
@@ -911,6 +921,7 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DADC2BBA13528D44008E6270 /* Laser */,
 				DAE1C5131330224800A46747 /* Game Data */,
 				DAE1C4C413301C4600A46747 /* Game Art */,
 				DA2FD887132C752B0073B8B2 /* Buttons */,
@@ -997,6 +1008,19 @@
 				DAD74E2A131C30B100974D50 /* AStarHeap.m */,
 			);
 			name = Pathfinding;
+			sourceTree = "<group>";
+		};
+		DADC2BBA13528D44008E6270 /* Laser */ = {
+			isa = PBXGroup;
+			children = (
+				DADC2BBB13528D44008E6270 /* laser_tower_0.png */,
+				DADC2BBC13528D44008E6270 /* laser_tower_135.png */,
+				DADC2BBD13528D44008E6270 /* laser_tower_180.png */,
+				DADC2BBE13528D44008E6270 /* laser_tower_45.png */,
+				DADC2BBF13528D44008E6270 /* laser_tower_90.png */,
+			);
+			name = Laser;
+			path = Sprites/Towers/Laser;
 			sourceTree = "<group>";
 		};
 		DAE1C3BB132FE5EC00A46747 /* Cocos Setup */ = {
@@ -1513,6 +1537,11 @@
 				DADC1A98134F9CB1008E6270 /* zombie_eyes.png in Resources */,
 				DADC1B541350C11F008E6270 /* test1_button.png in Resources */,
 				DADC1B551350C11F008E6270 /* test2_button.png in Resources */,
+				DADC2BC013528D44008E6270 /* laser_tower_0.png in Resources */,
+				DADC2BC113528D44008E6270 /* laser_tower_135.png in Resources */,
+				DADC2BC213528D44008E6270 /* laser_tower_180.png in Resources */,
+				DADC2BC313528D44008E6270 /* laser_tower_45.png in Resources */,
+				DADC2BC413528D44008E6270 /* laser_tower_90.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

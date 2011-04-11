@@ -180,9 +180,7 @@ static GameManager *_gameManager = nil;
 	NSAssert(gameLayer_ != nil, @"Trying to add a Wire without a registered Game Layer");
 	
 	Wire *wire = [[ElectricGrid electricGrid] addWireAtGrid:pos delegate:delegate];
-	
 	NSAssert(wire != nil, @"Trying to add a Wire on top of another wire");
-	
 	[gameLayer_ addChild:wire z:kWire];
 	
 	return wire;
@@ -192,9 +190,7 @@ static GameManager *_gameManager = nil;
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Wire without a registered Game Layer");
 	
-	// Create the wire and add it
-	//Wire *wire = [Wire wireWithPos:pos];
-	Wire *wire = [[ElectricGrid electricGrid] addWireAtGrid:pos];	
+	Wire *wire = [[ElectricGrid electricGrid] addWireAtGrid:pos];		
 	NSAssert(wire != nil, @"Trying to add a Wire on top of another wire");	
 	[gameLayer_ addChild:wire z:kWire];
 	
@@ -218,6 +214,7 @@ static GameManager *_gameManager = nil;
 	Wire *w1 = [self addWireWithPos:[pos topPair]];
 	Wire *w2 = [self addWireWithPos:[pos bottomPair]];	
 	
+	// Make sure they have power to propagate when new wires are connected to this
 	[w1 powerOn];
 	[w2 powerOn];
 }
@@ -237,12 +234,7 @@ static GameManager *_gameManager = nil;
 
 - (BOOL) isPointLit:(CGPoint)pt
 {
-	//CCTexture2DMutable *fog = fogLayer_.mutableFog;
-	//GLubyte alpha = [fog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
 	return [fogLayer_ isPointLit:CGPointMake(pt.x, 1023 - pt.y)];
-	GLubyte alpha = [fogLayer_.mutableFog alphaAt:CGPointMake(pt.x, 1023 - pt.y)];
-	
-	return alpha < 240;
 }
 
 - (void) turnLightsOff

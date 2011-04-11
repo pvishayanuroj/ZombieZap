@@ -14,8 +14,6 @@
 
 @implementation Turret
 
-
-
 static NSUInteger countID = 0;
 
 + (id) turretWithPos:(Pair *)startPos
@@ -27,15 +25,19 @@ static NSUInteger countID = 0;
 {
 	if ((self = [super initTowerWithPos:startPos])) {
 		
-		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Walking 05.png"] retain];
+		//sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Zombie Walking 05.png"] retain];
+		sprite_ = [[CCSprite spriteWithFile:@"laser_tower_0.png"] retain];
 		[self addChild:sprite_];		
 		
 		unitID_ = countID++;
 		
 		[self initActions];
+		[self initSprites];
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];			
-		
+
+		turretRotation_ = self.rotation;
+		spriteFacing_ = S_UP;
 		isLinedUp_ = NO;
 		isFiring_ = NO;
 
@@ -46,7 +48,7 @@ static NSUInteger countID = 0;
 		range_ = 64;
 		rotationSpeed_ = 20.0f;
 		attackSpeed_ = 30;
-		damage_ = 4.0f;
+		damage_ = 1.0f;
 		HP_ = 5.0f;
 		
 		rangeSquared_ = range_*range_;
@@ -62,6 +64,16 @@ static NSUInteger countID = 0;
 	
 	animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Zombie Death"];
 	dyingAnimation_ = [[CCAnimate actionWithAnimation:animation] retain];
+}
+
+- (void) initSprites
+{
+	sprites_ = [[NSMutableArray arrayWithCapacity:5] retain];
+	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_0.png"]];
+	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_45.png"]];
+	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_90.png"]];
+	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_135.png"]];
+	[sprites_ addObject:[CCSprite spriteWithFile:@"laser_tower_180.png"]];	
 }
 
 - (void) showAttacking
@@ -109,6 +121,8 @@ static NSUInteger countID = 0;
 {
 	[self targettingRoutine];
 	[self trackingRoutine];
+	//self.rotation = turretRotation_
+	[self spriteSelectionRoutine];
 	[self attackingRoutine];
 }
 
@@ -164,21 +178,21 @@ static NSUInteger countID = 0;
 		theta = 90 - theta;
 		
 		// Determine which way we need to turn
-		CGFloat delta = theta - self.rotation;
+		CGFloat delta = theta - turretRotation_;
 		CGFloat absDelta = delta; 
 		
 		// Figure out the absolute distance we need to rotate to get to the desired state
 		// Three cases to consider: Crossing the -180/+180 boundary CCW, crossing it CW, and the non-boundary case
-		if (self.rotation < -90 && theta > 90) { // Case 1: CCW over boundary
-			absDelta = (360 - theta) + self.rotation;
+		if (turretRotation_ < -90 && theta > 90) { // Case 1: CCW over boundary
+			absDelta = (360 - theta) + turretRotation_;
 		}
-		else if (self.rotation > 90 && theta < -90) { // Case 2: CW over boundary
-			absDelta = (360 + theta) - self.rotation;
+		else if (turretRotation_ > 90 && theta < -90) { // Case 2: CW over boundary
+			absDelta = (360 + theta) - turretRotation_;
 		}
 		
 		// If the needed rotation is close enough, then just set to the desired angle		
 		if (fabs(absDelta) < rotationSpeed_) {
-			self.rotation = theta;
+			turretRotation_ = theta;
 			isLinedUp_ = YES;
 			return;
 		}
@@ -188,20 +202,110 @@ static NSUInteger countID = 0;
 		// From -360 to +360, the direction to spin is expressed as CW, CCW, CW, CCW (in equal intervals of 180)
 		if (delta < -180 || (delta > 0 && delta < 180)) { 
 			// Rotate CW
-			self.rotation += rotationSpeed_;
-			if (self.rotation > 180) {
-				self.rotation -= 360.0f;
+			turretRotation_ += rotationSpeed_;
+			if (turretRotation_ > 180) {
+				turretRotation_ -= 360.0f;
 			}
 		}
 		else {
 			// Rotate CCW
-			self.rotation -= rotationSpeed_;
-			if (self.rotation < -180) {
-				self.rotation += 360.0f;
+			turretRotation_ -= rotationSpeed_;
+			if (turretRotation_ < -180) {
+				turretRotation_ += 360.0f;
 			}
 		}
-		//NSLog(@"myrot: %3.0f\n", self.rotation);
+		//NSLog(@"myrot: %3.0f\n", turretRotation_);
 	}
+}
+
+- (void) spriteSelectionRoutine 
+{
+	SpriteOrientation facing;
+
+	if (turretRotation_ < -157.5) {
+		facing = S_DOWN;
+	}
+	else if (turretRotation_ < -112.5) {
+		facing = S_DOWNLEFT;
+	}
+	else if (turretRotation_ < - 67.5) {
+		facing = S_LEFT;
+	}
+	else if (turretRotation_ < -22.5) {
+		facing = S_UPLEFT;
+	}
+	else if (turretRotation_ < 22.5) {
+		facing = S_UP;
+	}
+	else if (turretRotation_ < 67.5) {
+		facing = S_UPRIGHT;
+	}
+	else if (turretRotation_ < 112.5) {
+		facing = S_RIGHT;
+	}
+	else if (turretRotation_ < 157.5) {
+		facing = S_DOWNRIGHT;
+	}
+	else {
+		facing = S_DOWN;
+	}
+	
+	[self selectSprite:facing];
+}
+
+- (void) selectSprite:(SpriteOrientation)facing
+{
+	// See if we need to change the facing
+	if (spriteFacing_ == facing) {
+		return;
+	}
+	
+	spriteFacing_ = facing;
+	NSLog(@"%@ Facing changed to %d", self, facing);
+	
+	[self removeChild:sprite_ cleanup:YES];
+	[sprite_ release];
+	sprite_ = nil;
+	
+	switch (facing) {
+		case S_DOWN:
+			sprite_ = [sprites_ objectAtIndex:4];
+			sprite_.flipX = NO;
+			break;
+		case S_UP:
+			sprite_ = [sprites_ objectAtIndex:0];			
+			sprite_.flipX = NO;			
+			break;
+		case S_LEFT:
+			sprite_ = [sprites_ objectAtIndex:2];	
+			sprite_.flipX = YES;
+			break;
+		case S_RIGHT:
+			sprite_ = [sprites_ objectAtIndex:2];						
+			sprite_.flipX = NO;			
+			break;
+		case S_UPRIGHT:
+			sprite_ = [sprites_ objectAtIndex:1];			
+			sprite_.flipX = NO;			
+			break;
+		case S_UPLEFT:
+			sprite_ = [sprites_ objectAtIndex:1];			
+			sprite_.flipX = YES;
+			break;
+		case S_DOWNRIGHT:
+			sprite_ = [sprites_ objectAtIndex:3];			
+			sprite_.flipX = NO;			
+			break;
+		case S_DOWNLEFT:
+			sprite_ = [sprites_ objectAtIndex:3];
+			sprite_.flipX = YES;
+			break;
+		default:
+			NSAssert(NO, @"Invalid sprite orientation");
+	}
+	
+	[self addChild:sprite_];		
+	[sprite_ retain];
 }
 
 - (void) attackingRoutine
@@ -213,7 +317,7 @@ static NSUInteger countID = 0;
 	// Only attack if we have a target that's lined up, we aren't dead, and our attack timer has expired
 	if (target_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
-			[self showAttacking];
+			//[self showAttacking];
 			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
