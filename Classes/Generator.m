@@ -8,8 +8,9 @@
 
 #import "Generator.h"
 
-
 @implementation Generator
+
+@synthesize currentSpeed = currentSpeed_;
 
 + (id) generator
 {
@@ -20,23 +21,18 @@
 {
 	if ((self = [super init])) {
 				
-		sprite = [[CCSprite spriteWithFile:@"generator_wheel.png"] retain];
-		[self addChild:sprite];
-		sprite.position = CGPointZero;
+		sprite_ = [[CCSprite spriteWithFile:@"generator_wheel.png"] retain];
+		[self addChild:sprite_];
+		sprite_.position = CGPointZero;
 		
-		outerRadius = 60;
-		innerRadius = 30;
-		maxDeltaR = 10;
-		sampleSize = 60;
-		dirLock = YES;
-		touchTimer = -1;
+		// Generator attributes
+		outerRadius_ = 60;
+		innerRadius_ = 30;
+		maxDeltaR_ = 10;
 		
-		int i;
-		for (i = 0; i < sampleSize; i++) {
-			storedSpeeds[i] = 0;
-		}
-		
-		counter = 0;
+		dirLock_ = YES;
+		touchTimer_ = -1;
+		currentSpeed_ = 0;
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];				
 	}
@@ -45,46 +41,34 @@
 
 - (void) rotateWheel: (CGFloat)degrees
 {
-	sprite.rotation += degrees;
+	// Keep track of the current speed
+	currentSpeed_ = degrees;
+	
+	NSLog(@"Speed: %3.3f", currentSpeed_);
+	
+	if (degrees != 0) {
+		sprite_.rotation += degrees;
+	}
 }
 
 - (void) update:(ccTime)dt
 {
-	if (touchTimer != -1) {
-		touchTimer++;
-	}
-	
-	// Calculates speed
-	CGFloat dR = storedRotation - sprite.rotation;
-	storedRotation = sprite.rotation;	
-	
-	for (int i = 0; i < sampleSize - 1; i++) {
-		storedSpeeds[i] = storedSpeeds[i+1];
-	}
-	storedSpeeds[sampleSize - 1] = dR;
-	
-	avgSpeed = 0;
-	for (int i = 0; i < sampleSize; i++) {
-		avgSpeed += storedSpeeds[i];
-	}
-	avgSpeed /= sampleSize;
-	
-	counter++;
-	if (counter == 5) {
-		//NSLog(@"Speed: %4.2f", s);
-		//NSLog(@"Speed: %4.2f, p=%4.2f, c=%4.2f", s, t, storedRotation);
-		//NSLog(@"avg: %4.2f", avgSpeed);
-		counter = 0;
+	if (touchTimer_ != -1) {
+		touchTimer_++;
 	}
 
-	if (angularMomentum != 0) {
-		angularMomentum *= 0.98;
-		if (fabs(angularMomentum) < 0.5) {
-			angularMomentum = 0;
+	// If touch timer is not used, then player is not actively spinning the wheel
+	if (touchTimer_ == -1) {
+		if (angularMomentum_ != 0) {
+			angularMomentum_ *= 0.98;
+			if (angularMomentum_ > maxDeltaR_) {
+				angularMomentum_ = maxDeltaR_;
+			}
+			if (angularMomentum_ < 0.5) {
+				angularMomentum_ = 0;
+			}
 		}
-		else {
-			[self rotateWheel:angularMomentum];
-		}
+		[self rotateWheel:angularMomentum_];
 	}
 }
 
@@ -121,16 +105,15 @@
 
 - (CGRect) rect
 {
-	CGRect r = sprite.textureRect;
+	CGRect r = sprite_.textureRect;
 
 	//NSLog(@"textureRect (%f, %f) - w: %f h: %f", r.origin.x, r.origin.y, r.size.width, r.size.height);
 
-	return CGRectMake(sprite.position.x - r.size.width / 2, sprite.position.y - r.size.height / 2, r.size.width, r.size.height);
+	return CGRectMake(sprite_.position.x - r.size.width / 2, sprite_.position.y - r.size.height / 2, r.size.width, r.size.height);
 }
 
 - (BOOL) containsTouchLocation:(UITouch *)touch
 {
-
 	//CGPoint point = [self convertTouchToNodeSpaceAR:touch];
 	//NSLog(@"gen Touch location @(%4f, %4f)", point.x, point.y);
 
@@ -142,16 +125,17 @@
 	if (![self containsTouchLocation:touch])
 		return NO;
 
-	NSLog(@"gen touch began");
+	//NSLog(@"gen touch began");
 	CGPoint touchLocation = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];	
 	ZGPoint p = [self closestPoint:touchLocation];
-	prevRotation = p.rot;
+	prevRotation_ = p.rot;
 	
-	NSLog(@"Touch @radius: %3.0f", p.dist);
+	//NSLog(@"Touch @radius: %3.0f", p.dist);
 	
-	angularMomentum = 0;
-	touchTimer = 0;
-	startRotation = sprite.rotation;
+	angularMomentum_ = 0;
+	touchTimer_ = 0;
+	// Store where the wheel was before it started spinning
+	startRotation_ = sprite_.rotation;
 	
 	return YES;
 }
@@ -161,77 +145,82 @@
 	CGPoint touchLocation = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];	
 	ZGPoint p = [self closestPoint:touchLocation];
 	
-	// Radius check
-	if (p.dist > innerRadius && p.dist < outerRadius) {
+	// If player is still on the wheel
+	if (p.dist > innerRadius_ && p.dist < outerRadius_) {
 
-		angularMomentum = 0;
-		if (touchTimer == -1) {
-			NSLog(@"touch started again");
-			touchTimer = 0;
-			startRotation = sprite.rotation;
+		angularMomentum_ = 0;
+		// If player's finger goes back onto the wheel after going off
+		if (touchTimer_ == -1) {
+			//NSLog(@"touch started again");
+			touchTimer_ = 0;
+			startRotation_ = sprite_.rotation;
 		}
 		
-		CGFloat dR = p.rot - prevRotation;
+		CGFloat dR = p.rot - prevRotation_;
 		//NSLog(@"dR: %4.2f = %4.2f - %4.2f", dR, p.rot, prevRotation);
 
 		// Check if wheel is only allowed to spin one way
-		if ((dR < 0 && dirLock) || !dirLock) {
+		if ((dR < 0 && dirLock_) || !dirLock_) {
 			// Normal case
-			if (fabs(dR) < maxDeltaR || dR + 360 < maxDeltaR) {
+			if (fabs(dR) < maxDeltaR_ || dR + 360 < maxDeltaR_) {
 				[self rotateWheel:-dR];	
 			}
 			else {
 				if (dR < 0) {
-					[self rotateWheel:maxDeltaR];
+					[self rotateWheel:maxDeltaR_];
 				}
 				else {
-					[self rotateWheel:-maxDeltaR];
+					[self rotateWheel:-maxDeltaR_];
 				}
 
 			}
 		}
 	}
+	// Otherwise player's touch is not on the wheel
 	else {
-		// Player's touch has gone off the wheel
-		if (touchTimer != -1) {
+		// Only if the last touch was on the wheel
+		if (touchTimer_ != -1) {
 			// Calculate angular momentum to keep the wheel spinning
-			CGFloat displacement = sprite.rotation - startRotation;
-			CGFloat time = touchTimer + 1; // +1 so we don't divide by 0
-			angularMomentum = displacement/time;
-			touchTimer = -1;		
+			CGFloat displacement = sprite_.rotation - startRotation_;
+			CGFloat time = touchTimer_ + 1; // +1 so we don't divide by 0
+			angularMomentum_ = displacement/time;
+			
+			touchTimer_ = -1;		
 			
 			// Reset the sprite's rotation field - we don't want an overflow
-			CGFloat multiple = floor(sprite.rotation / 360);
+			CGFloat multiple = floor(sprite_.rotation / 360);
 			if (multiple < 0) {
 				multiple++;
 			}
-			sprite.rotation = sprite.rotation - 360 * multiple;
+			sprite_.rotation = sprite_.rotation - 360 * multiple;
 			
-			NSLog(@"off generator");
+			//NSLog(@"finger off generator");
 			//NSLog(@"disp: %4.2f time: %4.2f, a1: %4.2f", displacement, time, angularMomentum);
+			//NSLog(@"angular M: %3.2f", angularMomentum);
 		}
 	}
 	
-	prevRotation = p.rot;	
+	// Store the frame's current rotation in order to calculate delta R
+	prevRotation_ = p.rot;	
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {	
-	if (touchTimer != -1) {
-		CGFloat displacement = sprite.rotation - startRotation;
-		CGFloat time = touchTimer + 1; // +1 so that we don't divide by 0
-		angularMomentum = displacement/time;
-		touchTimer = -1;
+	if (touchTimer_ != -1) {
+		CGFloat displacement = sprite_.rotation - startRotation_;
+		CGFloat time = touchTimer_ + 1; // +1 so that we don't divide by 0
+		angularMomentum_ = displacement/time;
+		touchTimer_ = -1;
 		
 		// Reset the sprite's rotation field - we don't want an overflow
-		CGFloat multiple = floor(sprite.rotation / 360);
+		CGFloat multiple = floor(sprite_.rotation / 360);
 		if (multiple < 0) {
 			multiple++;
 		}
-		sprite.rotation = sprite.rotation - 360 * multiple;		
+		sprite_.rotation = sprite_.rotation - 360 * multiple;		
 		//NSLog(@"rotation: %4.2f", sprite.rotation);
 		
-		NSLog(@"touch ended");
+		//NSLog(@"touch ended");
 		//NSLog(@"disp: %4.2f time: %4.2f, a1: %4.2f", displacement, time, angularMomentum);
 
 	}
@@ -239,7 +228,7 @@
 
 - (void) dealloc
 {
-	[sprite release];
+	[sprite_ release];
 	
 	[super dealloc];
 }

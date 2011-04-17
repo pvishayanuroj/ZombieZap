@@ -51,7 +51,7 @@ static NSUInteger countID = 0;
 		range_ = 64;
 		rotationSpeed_ = 20.0f;
 		attackSpeed_ = 30;
-		damage_ = 1.0f;
+		damage_ = 4.0f;
 		HP_ = 5.0f;
 		
 		rangeSquared_ = range_*range_;

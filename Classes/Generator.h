@@ -16,38 +16,38 @@ typedef struct ZGPoint ZGPoint;
 
 @interface Generator : CCNode <CCTargetedTouchDelegate> {
 	
-	/**
-	 In degrees
-	 */
-	CGFloat prevRotation;
+	/** Sprite representing the generator */	
+	CCSprite *sprite_;	
 	
-	CGFloat storedRotation;
+	/** Stores the previous frame's rotation, in degrees */
+	CGFloat prevRotation_;
 	
-	CGFloat maxDeltaR;
+	/** Stores the rotation of the wheel before it was rotated, in degrees */
+	CGFloat startRotation_;	
 	
-	CGFloat avgSpeed;
+	/** How much angular momentum the wheel has, in degrees/unit time */		
+	CGFloat angularMomentum_;	
 	
-	CGFloat innerRadius;
+	/** Maximum amount of rotation per frame */
+	CGFloat maxDeltaR_;
 	
-	CGFloat outerRadius;
+	/** Current rotation speed */	
+	CGFloat currentSpeed_;
 	
-	CGFloat angularMomentum;
+	/** When determining if a touch on the wheel is valid, this is the inner radius used */	
+	CGFloat innerRadius_;
 	
-	CGFloat startRotation;
+	/** When determining if a touch on the wheel is valid, this is the outer radius used */	
+	CGFloat outerRadius_;
 	
-	NSInteger touchTimer;
+	/** Used to keep track of how long the player has been spinning the wheel in order to calculate angular momentum */			
+	NSInteger touchTimer_;
 	
-	NSUInteger sampleSize;
-	
-	BOOL dirLock;
-	
-	CCSprite *sprite;
-	
-	int counter;
-	
-	CGFloat storedSpeeds[60];
-	
+	/** True if only allowed to rotate in one direction */
+	BOOL dirLock_;
 }
+
+@property (nonatomic, readonly) CGFloat currentSpeed;
 
 + (id) generator;
 

@@ -224,7 +224,7 @@ static GameManager *_gameManager = nil;
 	NSAssert(gameLayer_ != nil, @"Trying to add a Damage without a registered Game Layer");
 	
 	Damage *damage = [Damage damageFrom:from to:to];
-	[gameLayer_ addChild:damage z:kDamage];
+	[eyesLayer_ addChild:damage z:kDamage];
 }
 
 - (CGPoint) getLayerOffset
