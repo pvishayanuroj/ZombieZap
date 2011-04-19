@@ -44,7 +44,7 @@
 	// Keep track of the current speed
 	currentSpeed_ = degrees;
 	
-	NSLog(@"Speed: %3.3f", currentSpeed_);
+	//NSLog(@"Speed: %3.3f", currentSpeed_);
 	
 	if (degrees != 0) {
 		sprite_.rotation += degrees;

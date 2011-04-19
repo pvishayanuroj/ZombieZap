@@ -100,6 +100,7 @@ static GameManager *_gameManager = nil;
 	// Else there's a wire, see if it's powered
 	else if ([[ElectricGrid electricGrid] isGridPowered:pos]) {
 		[light powerOn];
+		[[ElectricGrid electricGrid] addDelegateToWireAtPos:pos delegate:light];
 	}
 }
 
@@ -214,9 +215,8 @@ static GameManager *_gameManager = nil;
 	Wire *w1 = [self addWireWithPos:[pos topPair]];
 	Wire *w2 = [self addWireWithPos:[pos bottomPair]];	
 	
-	// Make sure they have power to propagate when new wires are connected to this
-	[w1 powerOn];
-	[w2 powerOn];
+	[[ElectricGrid electricGrid] setPowerNode:w1];
+	[[ElectricGrid electricGrid] setPowerNode:w2];
 }
 
 - (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to

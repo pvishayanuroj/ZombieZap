@@ -29,7 +29,7 @@
 		
 		gridPos_ = [pos retain];
 		
-		Grid *grid = [Grid grid];
+		Grid *grid = [Grid grid];	
 		
 		sprite_ = [[self updateSpriteOrientation] retain];
 		
@@ -40,6 +40,7 @@
 		
 		hasPower_ = NO;
 		delegate_ = d;
+	
 
 	}
 	return self;
@@ -77,18 +78,21 @@
 		wireType_ |= W_UP;
 		connections++;			
 	}
+	
 	if ([eGrid wireAtGrid:[gridPos_ bottomPair]]) {
-		wireType_ |= W_DOWN;			
+		wireType_ |= W_DOWN;	
 		connections++;			
 	}
+	
 	if ([eGrid wireAtGrid:[gridPos_ leftPair]]) {
 		wireType_ |= W_LEFT;	
 		connections++;						
 	}
+	
 	if ([eGrid wireAtGrid:[gridPos_ rightPair]]) {
 		wireType_ |= W_RIGHT;	
 		connections++;						
-	}		
+	}	
 	
 	// Thru wire
 	if (connections < 2) {
@@ -166,22 +170,98 @@
 - (void) powerOn
 {
 	hasPower_ = YES;
+	
 	if (delegate_) {
 		[delegate_ powerOn];
 	}
+	
 }
 
 - (void) powerOff
 {
 	hasPower_ = NO;
+	
 	if (delegate_) {
 		[delegate_ powerOff];
-	}	
+	}
+	
+}
+
+- (void) propagateOn
+{
+	ElectricGrid *eGrid = [ElectricGrid electricGrid];
+	Wire *w;
+	
+	[self powerOn];
+	
+	// Let adjacent wires know that their neighbor has been updated
+	if ((wireType_ & W_UP) == W_UP) {
+		w = [eGrid.wires objectForKey:[gridPos_ topPair]];
+		if (!w.hasPower) {
+			[w propagateOn];
+		}
+	}
+	
+	if ((wireType_ & W_DOWN) == W_DOWN) {
+		w = [eGrid.wires objectForKey:[gridPos_ bottomPair]];
+		if (!w.hasPower) {
+			[w propagateOn];
+		}
+	}
+	if ((wireType_ & W_LEFT) == W_LEFT) {						
+		w = [eGrid.wires objectForKey:[gridPos_ leftPair]];
+		if (!w.hasPower) {
+			[w propagateOn];
+		}
+	}
+
+	if ((wireType_ & W_RIGHT) == W_RIGHT) {						
+		w = [eGrid.wires objectForKey:[gridPos_ rightPair]];
+		if (!w.hasPower) {
+			[w propagateOn];
+		}
+	}
+}
+
+- (void) propagateOff
+{
+	ElectricGrid *eGrid = [ElectricGrid electricGrid];
+	Wire *w;
+	
+	[self powerOff];
+	
+	// Let adjacent wires know that their neighbor has been updated
+	if ((wireType_ & W_UP) == W_UP) {
+		w = [eGrid.wires objectForKey:[gridPos_ topPair]];
+		if (w.hasPower) {
+			[w propagateOff];
+		}
+	}
+	
+	if ((wireType_ & W_DOWN) == W_DOWN) {
+		w = [eGrid.wires objectForKey:[gridPos_ bottomPair]];
+		if (w.hasPower) {
+			[w propagateOff];
+		}
+	}
+	if ((wireType_ & W_LEFT) == W_LEFT) {						
+		w = [eGrid.wires objectForKey:[gridPos_ leftPair]];
+		if (w.hasPower) {
+			[w propagateOff];
+		}
+	}
+	
+	if ((wireType_ & W_RIGHT) == W_RIGHT) {						
+		w = [eGrid.wires objectForKey:[gridPos_ rightPair]];
+		if (w.hasPower) {
+			[w propagateOff];
+		}
+	}		
 }
 
 - (void) dealloc
 {
-	NSLog(@"Wire dealloc'd");
+	//NSLog(@"Wire dealloc'd");
 	
 	[sprite_ release];
 	[gridPos_ release];

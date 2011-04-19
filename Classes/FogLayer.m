@@ -103,7 +103,7 @@
 	[self updateFog];
 	lightsOnDirty_ = YES;	
 	
-	NSLog(@"Spotlight drawn in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
+	//NSLog(@"Spotlight drawn in: %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);	
 	return s;
 }
 										 

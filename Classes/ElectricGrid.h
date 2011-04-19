@@ -15,8 +15,13 @@
 
 	/** Dictionary mapping positions on the map to wire objects */
 	NSMutableDictionary *wires_;
+
+	/** Keeps track of where each power node is */
+	NSMutableSet *powerNodes_;	
 	
 }
+
+@property (nonatomic, readonly) NSMutableDictionary *wires;
 
 /** Returns the ElectricGrid singleton */
 + (ElectricGrid *) electricGrid;
@@ -26,6 +31,12 @@
 
 /**  */
 - (Wire *) addWireAtGrid:(Pair *)p delegate:(id <WireDelegate>)delegate;
+
+/**  */
+- (void) addDelegateToWireAtPos:(Pair *)p delegate:(id <WireDelegate>)delegate;
+
+/** Method to add a node that always has power */
+- (void) setPowerNode:(Wire *)w;
 
 /**  */
 - (void) removeWireAtGrid:(Pair *)p;
@@ -39,13 +50,23 @@
 /** Returns whether or not any adjacent wire tile has power */
 - (BOOL) isAdjacentPowered:(Wire *)wire;
 
-/** Method that powers this wire and propagates power to all connected unpowered wires */
-- (void) powerAdjcent:(Wire *)wire;
+/** Method that powers/unpowers this wire and propagates this state to all connected unpowered wires */
+- (void) propagate:(Wire *)wire power:(BOOL)power;
 
-/** Method to return an array of unpowered neighbors */
-- (NSArray *) getUnpoweredNeighbors:(Pair *)p;
+/** Method to return an array of powered or unpowered wire neighbors */
+//- (NSArray *) getNeighbors:(Pair *)p powered:(BOOL)powered;
+- (NSArray *) getNeighbors:(Wire *)w powered:(BOOL)powered;
+
+/** Method to return an array of wire neighbors that do not appear in the given set */
+- (NSArray *) getNeighbors:(Pair *)p notInSet:(NSSet *)set;
+
+/** Method to return an array of wire neighbors */
+- (NSArray *) getNeighbors:(Pair *)p;
 
 /** Returns whether or not this grid has power (and has a wire) */
 - (BOOL) isGridPowered:(Pair *)p;
+
+/** Returns whether or not there is a wire path from position p to any of the power nodes */
+- (BOOL) pathToPower:(Pair *)p powerNodes:(NSSet *)power;
 
 @end

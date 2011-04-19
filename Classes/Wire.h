@@ -22,6 +22,11 @@
 	Pair *gridPos_;
 	
 	BOOL hasPower_;
+	
+	Wire *wUp_;
+	Wire *wDown_;
+	Wire *wLeft_;
+	Wire *wRight_;	
 
 }
 
@@ -42,5 +47,9 @@
 - (void) powerOn;
 
 - (void) powerOff;
+
+- (void) propagateOn;
+
+- (void) propagateOff;
 
 @end
