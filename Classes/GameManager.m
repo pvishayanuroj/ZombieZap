@@ -25,6 +25,7 @@
 #import "Constants.h"
 #import "CCTexture2DMutable.h"
 #import "TrackingTurret.h"
+#import "UnitMenuLayer.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -61,6 +62,9 @@ static GameManager *_gameManager = nil;
 	if ((self = [super init]))
 	{
 		gameLayer_ = nil;
+		fogLayer_ = nil;
+		eyesLayer_ = nil;
+		unitMenuLayer_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
 		towerLocations_ = [[NSMutableDictionary dictionaryWithCapacity:24] retain];		
@@ -68,22 +72,53 @@ static GameManager *_gameManager = nil;
 	return self;
 }
 
+- (void) dealloc
+{
+	[zombies_ release];
+	[spotlights_ release];
+	[towerLocations_ release];
+	
+	[gameLayer_ release];
+	[fogLayer_ release];
+	[eyesLayer_ release];
+	[unitMenuLayer_ release];
+	
+	[super dealloc];
+}
+
 - (void) registerGameLayer:(GameLayer *)gameLayer
 {
+	NSAssert(gameLayer_ == nil, @"Trying to register a Game Layer when one already exists");
 	gameLayer_ = gameLayer;
 	[gameLayer_ retain];
 }
 
 - (void) registerFogLayer:(FogLayer *)fogLayer
 {
+	NSAssert(fogLayer_ == nil, @"Trying to register a Fog Layer when one already exists");	
 	fogLayer_ = fogLayer;
 	[fogLayer_ retain];
 }
 
 - (void) registerEyesLayer:(EyesLayer *)eyesLayer
 {
+	NSAssert(eyesLayer_ == nil, @"Trying to register an Eyes Layer when one already exists");	
 	eyesLayer_ = eyesLayer;
 	[eyesLayer_ retain];
+}
+
+- (void) registerUnitMenuLayer:(UnitMenuLayer *)unitMenuLayer
+{
+	NSAssert(unitMenuLayer_ == nil, @"Trying to register a Unit Menu Layer when one already exists");	
+	unitMenuLayer_ = unitMenuLayer;
+	[unitMenuLayer_ retain];
+}
+
+- (void) updateDependentLayerPositions:(CGPoint)position
+{
+	fogLayer_.position = position;
+	eyesLayer_.position = position;
+	unitMenuLayer_.position = position;
 }
 
 - (void) addLightWithPos:(Pair *)pos radius:(CGFloat)radius
@@ -250,16 +285,11 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ on];	
 }
 
-- (void) dealloc
+- (void) toggleUnit:(Pair *)pos withRange:(BOOL)range
 {
-	[zombies_ release];
-	[spotlights_ release];
-	[towerLocations_ release];
-	[gameLayer_ release];
-	[fogLayer_ release];
-	[eyesLayer_ release];
+	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
 	
-	[super dealloc];
+	[unitMenuLayer_ toggleUnit:pos withRange:range];
 }
 
 @end

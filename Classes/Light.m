@@ -119,6 +119,21 @@ static NSUInteger countID = 0;
 	spotlight_ = nil;
 }
 
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	if (![self containsTouchLocation:touch])
+		return NO;
+	
+	return YES;
+}
+
+- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	if ([self containsTouchLocation:touch])	{
+		[[GameManager gameManager] toggleUnit:gridPos_ withRange:NO];	
+	}
+}
+
 // Override the description method to give us something more useful than a pointer address
 - (NSString *) description
 {

@@ -111,6 +111,9 @@
 		DA7CA1FB1325F19D00825545 /* FogLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */; };
 		DA878D9D131C949B00FFE90B /* ASNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DA878D9C131C949B00FFE90B /* ASNode.m */; };
 		DA8F6DBF132048A50096CF18 /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F6DBE132048A50096CF18 /* Turret.m */; };
+		DA915E9C135F2CE400FBDCAD /* green_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = DA915E9B135F2CE400FBDCAD /* green_circle.png */; };
+		DA915F94135F378E00FBDCAD /* UnitMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA915F93135F378E00FBDCAD /* UnitMenu.m */; };
+		DA916062135F405C00FBDCAD /* UnitMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA916061135F405C00FBDCAD /* UnitMenuLayer.m */; };
 		DAB4C07713532C51007A25E5 /* Tower.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB4C07413532C51007A25E5 /* Tower.plist */; };
 		DAB4C07813532C51007A25E5 /* TowerSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB4C07513532C51007A25E5 /* TowerSpriteSheet.plist */; };
 		DAB4C07913532C51007A25E5 /* TowerSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB4C07613532C51007A25E5 /* TowerSpriteSheet.png */; };
@@ -459,6 +462,11 @@
 		DA878D9C131C949B00FFE90B /* ASNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNode.m; sourceTree = "<group>"; };
 		DA8F6DBD132048A50096CF18 /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
 		DA8F6DBE132048A50096CF18 /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		DA915E9B135F2CE400FBDCAD /* green_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_circle.png; sourceTree = "<group>"; };
+		DA915F92135F378E00FBDCAD /* UnitMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenu.h; sourceTree = "<group>"; };
+		DA915F93135F378E00FBDCAD /* UnitMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenu.m; sourceTree = "<group>"; };
+		DA916060135F405C00FBDCAD /* UnitMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuLayer.h; sourceTree = "<group>"; };
+		DA916061135F405C00FBDCAD /* UnitMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuLayer.m; sourceTree = "<group>"; };
 		DAB4C07413532C51007A25E5 /* Tower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tower.plist; sourceTree = "<group>"; };
 		DAB4C07513532C51007A25E5 /* TowerSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TowerSpriteSheet.plist; sourceTree = "<group>"; };
 		DAB4C07613532C51007A25E5 /* TowerSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerSpriteSheet.png; sourceTree = "<group>"; };
@@ -782,6 +790,8 @@
 				DA69F097130180E9002253AF /* BuildLayer.m */,
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
+				DA916060135F405C00FBDCAD /* UnitMenuLayer.h */,
+				DA916061135F405C00FBDCAD /* UnitMenuLayer.m */,
 				DADC1ABD134F9F01008E6270 /* EyesLayer.h */,
 				DADC1ABE134F9F01008E6270 /* EyesLayer.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
@@ -792,6 +802,8 @@
 				DA6E90321308D9A500C42417 /* Zombie.m */,
 				DADC1A94134F9A39008E6270 /* ZombieEyes.h */,
 				DADC1A95134F9A39008E6270 /* ZombieEyes.m */,
+				DA915F92135F378E00FBDCAD /* UnitMenu.h */,
+				DA915F93135F378E00FBDCAD /* UnitMenu.m */,
 				DADC1997134F43A9008E6270 /* Tower.h */,
 				DADC1998134F43A9008E6270 /* Tower.m */,
 				DA8F6DBD132048A50096CF18 /* Turret.h */,
@@ -1028,6 +1040,7 @@
 		DAE1C4C413301C4600A46747 /* Game Art */ = {
 			isa = PBXGroup;
 			children = (
+				DA915E9B135F2CE400FBDCAD /* green_circle.png */,
 				DADC1A97134F9CB1008E6270 /* zombie_eyes.png */,
 				DAB4FC6E1331038F005E4F24 /* wire_corner.png */,
 				DAB4FC5A1330FF1C005E4F24 /* wire_end.png */,
@@ -1530,6 +1543,7 @@
 				DAB4C07713532C51007A25E5 /* Tower.plist in Resources */,
 				DAB4C07813532C51007A25E5 /* TowerSpriteSheet.plist in Resources */,
 				DAB4C07913532C51007A25E5 /* TowerSpriteSheet.png in Resources */,
+				DA915E9C135F2CE400FBDCAD /* green_circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1576,6 +1590,8 @@
 				DADC1A96134F9A39008E6270 /* ZombieEyes.m in Sources */,
 				DADC1ABF134F9F01008E6270 /* EyesLayer.m in Sources */,
 				DAC97805135E9A510016BA6B /* TrackingTurret.m in Sources */,
+				DA915F94135F378E00FBDCAD /* UnitMenu.m in Sources */,
+				DA916062135F405C00FBDCAD /* UnitMenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

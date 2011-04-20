@@ -43,6 +43,9 @@
 
 		GameLayer *gameLayer = [GameLayer node];
 		[self addChild:gameLayer z:kGameLayer];
+	
+		UnitMenuLayer *unitMenuLayer = [UnitMenuLayer node];
+		[self addChild:unitMenuLayer z:kUnitMenuLayer];
 		
 		[self addButtons:buildLayer];
 		

@@ -11,7 +11,7 @@
 @class Pair;
 
 /** Superclass for all towers */
-@interface Tower : CCNode {
+@interface Tower : CCNode <CCTargetedTouchDelegate> {
 
 	/** Sprite representing the tower */
 	CCSprite *sprite_;
@@ -41,5 +41,7 @@
 - (id) initTowerWithPos:(Pair *)startPos;
 
 - (void) takeDamage:(CGFloat)damage;
+
+- (BOOL) containsTouchLocation:(UITouch *)touch;
 
 @end

@@ -33,3 +33,27 @@
 
 #define SPOTLIGHT_SIDE SPOTLIGHT_RADIUS*2 + 1
 
+/**
+	What size the HUD button scales to when clicked
+ */
+#define HUDBUTTON_SCALETO 0.8f
+
+/**
+	How close the unit HUD starts when appearing
+ */
+#define HUD_NEAROFFSET 5
+
+/**
+	How far away the unit HUD appears
+ */
+#define HUD_FAROFFSET 40
+
+/**
+	How fast the unit HUD opens
+ */
+#define HUD_TOGGLESPEED 0.2f
+
+/**
+	How small the buttons scale down to when closing the HUD
+ */
+#define HUD_TOGGLESCALE 0.2f

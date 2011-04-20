@@ -170,11 +170,16 @@
 	
 	// Move the map
 	self.position = newPosition;
-	// Move other layers that are not directly attached to this layer
+	
+	// Move other layers that are not directly attached to this layer	
+	[[GameManager gameManager] updateDependentLayerPositions:newPosition];
+	/*
+
 	FogLayer *fogLayer = (FogLayer *)[self.parent getChildByTag:kFogLayer];
 	fogLayer.position = newPosition;
 	EyesLayer *eyesLayer = (EyesLayer *)[self.parent getChildByTag:kEyesLayer];	
 	eyesLayer.position = newPosition;
+	 */
 }
 
 - (void) debugGridInfo:(Pair *)p count:(NSInteger)count

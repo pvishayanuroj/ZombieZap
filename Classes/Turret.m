@@ -199,6 +199,22 @@ static NSUInteger countID = 0;
 	hasPower_ = NO;
 }
 
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{	
+	if (![self containsTouchLocation:touch])
+		return NO;
+	
+	NSLog(@"Turret %@ got a touch", self);
+	return YES;
+}
+
+- (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	if ([self containsTouchLocation:touch])	{
+		[[GameManager gameManager] toggleUnit:gridPos_ withRange:YES];	
+	}
+}
+
 // Override the description method to give us something more useful than a pointer address
 - (NSString *) description
 {

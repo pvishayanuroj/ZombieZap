@@ -15,6 +15,7 @@
 @class GameLayer;
 @class FogLayer;
 @class EyesLayer;
+@class UnitMenuLayer;
 @class Spotlight;
 @class Light;
 @class Wire;
@@ -26,6 +27,8 @@
 	FogLayer *fogLayer_;
 	
 	EyesLayer *eyesLayer_;
+	
+	UnitMenuLayer *unitMenuLayer_;
 	
 	NSMutableSet *zombies_;
 	
@@ -49,6 +52,10 @@
 - (void) registerFogLayer:(FogLayer *)fogLayer;
 
 - (void) registerEyesLayer:(EyesLayer *)eyesLayer;
+
+- (void) registerUnitMenuLayer:(UnitMenuLayer *)unitMenuLayer;
+
+- (void) updateDependentLayerPositions:(CGPoint)position;
 
 - (void) addZombieWithPos:(Pair *)pos obj:(Pair *)obj;
 
@@ -85,5 +92,7 @@
 - (void) turnLightsOff;
 
 - (void) turnLightsOn;
+
+- (void) toggleUnit:(Pair *)pos withRange:(BOOL)range;
 
 @end
