@@ -54,6 +54,7 @@ static ElectricGrid *_electricGrid = nil;
 
 - (Wire *) addWireAtGrid:(Pair *)p delegate:(id <WireDelegate>)delegate
 {
+	NSDate *ref = [NSDate date]; 	
 	if ([wires_ objectForKey:p] == nil) {
 		
 		Wire *w = [Wire wireWithPos:p delegate:delegate];
@@ -71,6 +72,7 @@ static ElectricGrid *_electricGrid = nil;
 			[w propagateOn];
 			//[self propagate:w power:YES];
 		}
+		NSLog(@"Added wire in %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);		
 		return w;
 	}
 	return nil;
@@ -96,7 +98,7 @@ static ElectricGrid *_electricGrid = nil;
 
 - (void) removeWireAtGrid:(Pair *)p
 {
-	NSDate *ref = [NSDate date];
+	NSDate *ref = [NSDate date]; 
 	Wire *wire = [wires_ objectForKey:p];
 	if (wire) {
 		[wires_ removeObjectForKey:p];
@@ -170,113 +172,6 @@ static ElectricGrid *_electricGrid = nil;
 	
 	return NO;
 }
-
-- (void) propagate:(Wire *)wire power:(BOOL)power
-{
-	NSDate *ref = [NSDate date];
-	//Pair *c;
-	Wire *w;
-	NSArray *sons;
-	NSMutableArray *open = [NSMutableArray arrayWithCapacity:4];
-	
-	//[open addObject:wire.gridPos];
-	[open addObject:wire];
-	
-	// Uses a BFS to propagate power to all connected wires
-	while (YES) {
-		
-		// Check if open list is empty, in which case we stop
-		if ([open count] == 0) {
-			NSLog(@"Propagate in %4.9f seconds", [[NSDate date] timeIntervalSinceDate:ref]);
-			break;
-		}
-		
-		// Remove the first object from the open list and use this as our current node
-		w = [open lastObject];
-		[open removeLastObject];
-		//c = [open objectAtIndex:0];
-		//[open removeObjectAtIndex:0];
-		
-		// Power or unpower this wire
-		//w = [wires_ objectForKey:c];
-		
-		if (power) {
-			[w powerOn];
-		}
-		else {
-			// Cannot power off power nodes
-			if (![powerNodes_ containsObject:w.gridPos]) {
-				[w powerOff];
-			}
-		}
-		
-		// If propagating power, get all unpowered neighbor nodes
-		// If propagating no power, get all powered neighbor nodes
-		// Add these to the end of the open list
-		//sons = [self getNeighbors:c powered:!power];
-		sons = [self getNeighbors:w powered:!power];
-		[open addObjectsFromArray:sons];
-	}
-}
-
-- (NSArray *) getNeighbors:(Wire *)w powered:(BOOL)powered
-{
-	NSMutableArray *n = [NSMutableArray arrayWithCapacity:4];
-
-	Wire *topWire = [wires_ objectForKey:[w.gridPos topPair]];
-	if (topWire && (powered == topWire.hasPower)) {
-		[n addObject:topWire];
-	}
-	
-	Wire *bottomWire = [wires_ objectForKey:[w.gridPos bottomPair]];
-	if (bottomWire && (powered == bottomWire.hasPower)) {
-		[n addObject:bottomWire];
-	}
-	
-	Wire *leftWire = [wires_ objectForKey:[w.gridPos leftPair]];
-	if (leftWire && (powered == leftWire.hasPower)) {
-		[n addObject:leftWire];
-	}
-	
-	Wire *rightWire = [wires_ objectForKey:[w.gridPos rightPair]];
-	if (rightWire && (powered == rightWire.hasPower)) {
-		[n addObject:rightWire];
-	}		
-	
-	return n;
-}
-/*
-- (NSArray *) getNeighbors:(Pair *)p powered:(BOOL)powered
-{
-	NSMutableArray *n = [NSMutableArray arrayWithCapacity:4];
-	Wire *w;
-	
-	Pair *top = [p topPair];
-	w = [wires_ objectForKey:top];
-	if (w && (powered == w.hasPower)) {
-		[n addObject:top];
-	}
-	
-	Pair *bottom = [p bottomPair];
-	w = [wires_ objectForKey:bottom];
-	if (w && (powered == w.hasPower)) {
-		[n addObject:bottom];
-	}
-	
-	Pair *left = [p leftPair];		
-	w = [wires_ objectForKey:left];
-	if (w && (powered == w.hasPower)) {
-		[n addObject:left];
-	}
-	
-	Pair *right = [p rightPair];	
-	w = [wires_ objectForKey:right];
-	if (w && (powered == w.hasPower)) {
-		[n addObject:right];
-	}		
-	
-	return n;
-}*/
 
 - (NSArray *) getNeighbors:(Pair *)p notInSet:(NSSet *)set
 {
