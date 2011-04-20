@@ -24,6 +24,7 @@
 #import "Enums.h"
 #import "Constants.h"
 #import "CCTexture2DMutable.h"
+#import "TrackingTurret.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -159,9 +160,9 @@ static GameManager *_gameManager = nil;
 	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
 	
 	// Create the turret
-	Turret *turret = [Turret turretWithPos:pos];
+	//Turret *turret = [Turret turretWithPos:pos];
+	TrackingTurret *turret = [TrackingTurret trackingTurretWithPos:pos];
 	
-	//[towerLocations_ addObject:pos];	
 	[towerLocations_ setObject:turret forKey:pos];
 	[gameLayer_ addChild:turret z:kTower];
 	

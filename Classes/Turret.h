@@ -14,33 +14,33 @@
 
 @interface Turret : Tower <WireDelegate> {
 	
+	/**  */	
 	CCAction *attackingAnimation_;
 	
+	/**  */	
 	CCAction *dyingAnimation_;
 	
+	/** Turret's attack range */	
 	NSUInteger range_;
 	
+	/** Attack range squared, used to simply distance calculation */	
 	CGFloat rangeSquared_;
 	
-	CGFloat rotationSpeed_;
-	
-	CGFloat turretRotation_;
-	
+	/** Turret's current target */	
 	Zombie *target_;
 	
+	/** Keeps track of when the turret attacks */	
 	NSUInteger attackTimer_;
 	
+	/** How fast the turret attacks (the smaller the faster) */	
 	NSUInteger attackSpeed_;
 	
-	BOOL isLinedUp_;
-	
+	/** True if turret is firing */	
 	BOOL isFiring_;
 	
+	/** How much damage this turret does */	
 	CGFloat damage_;
 	
-	NSInteger spriteFacing_;
-	
-	NSMutableArray *sprites_;
 }
 
 + (id) turretWithPos:(Pair *)startPos;
@@ -53,13 +53,11 @@
 
 - (void) showDying;
 
+- (void) update:(ccTime)dt;
+
 - (void) targettingRoutine;
 
-- (void) trackingRoutine;
-
 - (void) attackingRoutine;
-
-- (void) spriteSelectionRoutine; 
 
 - (void) takeDamage:(CGFloat)damage;
 
