@@ -8,11 +8,12 @@
 
 #import "Tower.h"
 #import "WireDelegate.h"
+#import "UnitMenuLayerDelegate.h"
 
 @class Pair;
 @class Zombie;
 
-@interface Turret : Tower <WireDelegate> {
+@interface Turret : Tower <WireDelegate, UnitMenuLayerDelegate> {
 	
 	/**  */	
 	CCAction *attackingAnimation_;

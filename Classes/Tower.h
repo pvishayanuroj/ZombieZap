@@ -30,6 +30,9 @@
 
 	/** Whether or not the tower has power */	
 	BOOL hasPower_;	
+
+	/** Whether or not the tower has its menu up */		
+	BOOL isToggled_;
 	
 	/** Tower's ID number */	
 	NSUInteger unitID_;	

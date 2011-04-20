@@ -75,7 +75,9 @@
 /**
  Makes the buttons active or inactive. Should be called whenever the HUD is toggled
  */
-- (void) toggleButtons:(BOOL)animate;
+- (void) toggleButtonsOnWithAnimation:(BOOL)animate;
+
+- (void) toggleButtonsOffWithAnimation:(BOOL)animate;
 
 /**
  Returns the CCMenuItem that's under the touch position

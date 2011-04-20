@@ -285,11 +285,18 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ on];	
 }
 
-- (void) toggleUnit:(Pair *)pos withRange:(BOOL)range
+- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)delegate
 {
 	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
 	
-	[unitMenuLayer_ toggleUnit:pos withRange:range];
+	[unitMenuLayer_ toggleOn:pos withRange:range withDelegate:delegate];
+}
+
+- (void) toggleUnitOff
+{
+	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
+	
+	[unitMenuLayer_ toggleOff];
 }
 
 @end

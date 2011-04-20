@@ -195,61 +195,79 @@
 	return [Pair pair:x second:y];
 }
 
-- (void) toggleButtons:(BOOL)animate
+- (void) toggleButtonsOnWithAnimation:(BOOL)animate
 {
-	CCArray *buttons = self.children;	
+	// Already on
+	if (self.visible) {
+		return;
+	}
 	
+	CCArray *buttons = self.children;	
+	self.visible = YES;
+	
+	// With animation
 	if (animate) {
 		
-		// Moves the buttons in, scales them down, and hides them
-		if (self.visible) {
-			for (int i = 0; i < buttons.count; i++) {
-				Pair *pair = [hudStartPositions objectAtIndex:i];
-				CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
-				CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:HUD_TOGGLESCALE];
-				CCSpawn *spawn = [CCSpawn actionOne:moveAction two:scale];
-				CCCallFunc *callFunc = [CCCallFunc actionWithTarget:self selector:@selector(endToggleButtons:)];
-				CCSequence *sequence = [CCSequence actionOne:spawn two:callFunc];
-				
-				[(CCMenuItemImage *)[buttons objectAtIndex:i] runAction:sequence];
-			}
-			
-		}
 		// Unhides the buttons, moves the buttons out, scales them up
-		else {
-			self.visible = YES;
-			for (int i = 0; i < buttons.count; i++) {
-				Pair *pair = [hudEndPositions objectAtIndex:i];
-				CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
-				CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:1.0f];
-				CCAction *spawn = [CCSpawn actionOne:moveAction two:scale];
-				
-				[(CCMenuItemImage *)[buttons objectAtIndex:i] runAction:spawn];
-			}
+		for (int i = 0; i < buttons.count; i++) {
+			Pair *pair = [hudEndPositions objectAtIndex:i];
+			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
+			CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:1.0f];
+			CCAction *spawn = [CCSpawn actionOne:moveAction two:scale];
+			
+			[(CCMenuItemImage *)[buttons objectAtIndex:i] runAction:spawn];
 		}
 		
 		for (CCMenuItem *button in self.children) {
-			[button setIsEnabled:![button isEnabled]];
+			[button setIsEnabled:YES];
 		}
 	}
 	// Else no animation
 	else {
-		self.visible = !self.visible;
-		if (self.visible) {
-			for (int i = 0; i < buttons.count; i++) {
-				CCMenuItem *button = [buttons objectAtIndex:i];
-				Pair *p = [hudEndPositions objectAtIndex:i];
-				button.position = CGPointMake(p.x, p.y);
-				button.scale = 1.0f;
-				[button setIsEnabled:YES];		
-			}
+		for (int i = 0; i < buttons.count; i++) {
+			CCMenuItem *button = [buttons objectAtIndex:i];
+			Pair *p = [hudEndPositions objectAtIndex:i];
+			button.position = CGPointMake(p.x, p.y);
+			button.scale = 1.0f;
+			[button setIsEnabled:YES];		
 		}
-		else {
-			for (int i = 0; i < buttons.count; i++) {
-				CCMenuItem *button = [buttons objectAtIndex:i];
-				[button setIsEnabled:NO];				
-			}			
-		}
+	}
+}
+
+- (void) toggleButtonsOffWithAnimation:(BOOL)animate
+{
+	// Already off
+	if (!self.visible) {
+		return;
+	}
+	
+	self.visible = NO;
+	CCArray *buttons = self.children;	
+	
+	// With animation
+	if (animate) {
+		// Hides the buttons, moves them in, and scales them down
+		for (int i = 0; i < buttons.count; i++) {
+			Pair *pair = [hudStartPositions objectAtIndex:i];
+			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
+			CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:HUD_TOGGLESCALE];
+			CCSpawn *spawn = [CCSpawn actionOne:moveAction two:scale];
+			CCCallFunc *callFunc = [CCCallFunc actionWithTarget:self selector:@selector(endToggleButtons:)];
+			CCSequence *sequence = [CCSequence actionOne:spawn two:callFunc];
+			
+			[(CCMenuItemImage *)[buttons objectAtIndex:i] runAction:sequence];
+		}		
+		
+		for (CCMenuItem *button in self.children) {
+			[button setIsEnabled:NO];
+		}		
+	}
+	// No animation
+	else {
+		for (int i = 0; i < buttons.count; i++) {
+			CCMenuItem *button = [buttons objectAtIndex:i];
+			[button setIsEnabled:NO];				
+		}				
 	}
 }
 

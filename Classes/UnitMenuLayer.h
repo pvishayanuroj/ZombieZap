@@ -7,24 +7,31 @@
 //
 
 #import "cocos2d.h"
+#import "UnitMenuLayerDelegate.h"
 
 @class UnitMenu;
 @class Pair;
 
 @interface UnitMenuLayer : CCLayer {
 
+	id <UnitMenuLayerDelegate> delegate_;
+	
 	CCSprite *rangeSprite_;
 	
 	UnitMenu *unitMenu_;
-	
-	BOOL unitClicked_;	
-	
+
 }
+
+@property (nonatomic, assign) <UnitMenuLayerDelegate> delegate;
 
 - (void) rangeOn:(Pair *)pos;
 
 - (void) rangeOff;
 
-- (void) toggleUnit:(Pair *)pos withRange:(BOOL)range;
+- (void) toggleOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)d;
+
+- (void) toggleOff;
+
+- (void) forceToggleOff;
 
 @end

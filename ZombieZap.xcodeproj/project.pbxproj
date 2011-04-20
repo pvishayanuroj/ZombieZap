@@ -467,6 +467,7 @@
 		DA915F93135F378E00FBDCAD /* UnitMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenu.m; sourceTree = "<group>"; };
 		DA916060135F405C00FBDCAD /* UnitMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuLayer.h; sourceTree = "<group>"; };
 		DA916061135F405C00FBDCAD /* UnitMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuLayer.m; sourceTree = "<group>"; };
+		DA916140135F600A00FBDCAD /* UnitMenuLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuLayerDelegate.h; sourceTree = "<group>"; };
 		DAB4C07413532C51007A25E5 /* Tower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tower.plist; sourceTree = "<group>"; };
 		DAB4C07513532C51007A25E5 /* TowerSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TowerSpriteSheet.plist; sourceTree = "<group>"; };
 		DAB4C07613532C51007A25E5 /* TowerSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerSpriteSheet.png; sourceTree = "<group>"; };
@@ -790,8 +791,11 @@
 				DA69F097130180E9002253AF /* BuildLayer.m */,
 				DA69F09E130180E9002253AF /* PButton.h */,
 				DA69F09F130180E9002253AF /* PButton.m */,
+				DA916140135F600A00FBDCAD /* UnitMenuLayerDelegate.h */,
 				DA916060135F405C00FBDCAD /* UnitMenuLayer.h */,
 				DA916061135F405C00FBDCAD /* UnitMenuLayer.m */,
+				DA915F92135F378E00FBDCAD /* UnitMenu.h */,
+				DA915F93135F378E00FBDCAD /* UnitMenu.m */,
 				DADC1ABD134F9F01008E6270 /* EyesLayer.h */,
 				DADC1ABE134F9F01008E6270 /* EyesLayer.m */,
 				DA01DA96130348FE00B0D88B /* GameLayer.h */,
@@ -802,8 +806,6 @@
 				DA6E90321308D9A500C42417 /* Zombie.m */,
 				DADC1A94134F9A39008E6270 /* ZombieEyes.h */,
 				DADC1A95134F9A39008E6270 /* ZombieEyes.m */,
-				DA915F92135F378E00FBDCAD /* UnitMenu.h */,
-				DA915F93135F378E00FBDCAD /* UnitMenu.m */,
 				DADC1997134F43A9008E6270 /* Tower.h */,
 				DADC1998134F43A9008E6270 /* Tower.m */,
 				DA8F6DBD132048A50096CF18 /* Turret.h */,

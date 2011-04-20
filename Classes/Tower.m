@@ -26,6 +26,7 @@
 	
 		hasPower_ = NO;
 		isDead_ = NO;		
+		isToggled_ = NO;
 	}
 	return self;
 }
@@ -61,6 +62,7 @@
 
 - (void) takeDamage:(CGFloat)damage
 {
+	
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 #import "WireDelegate.h"
+#import "UnitMenuLayerDelegate.h"
 
 @class Zombie;
 @class Turret;
@@ -93,6 +94,8 @@
 
 - (void) turnLightsOn;
 
-- (void) toggleUnit:(Pair *)pos withRange:(BOOL)range;
+- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)delegate;
+
+- (void) toggleUnitOff;
 
 @end
