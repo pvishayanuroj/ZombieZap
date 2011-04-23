@@ -50,13 +50,6 @@
 /** Returns whether or not any adjacent wire tile has power */
 - (BOOL) isAdjacentPowered:(Wire *)wire;
 
-/** Method that powers/unpowers this wire and propagates this state to all connected unpowered wires */
-- (void) propagate:(Wire *)wire power:(BOOL)power;
-
-/** Method to return an array of powered or unpowered wire neighbors */
-//- (NSArray *) getNeighbors:(Pair *)p powered:(BOOL)powered;
-- (NSArray *) getNeighbors:(Wire *)w powered:(BOOL)powered;
-
 /** Method to return an array of wire neighbors that do not appear in the given set */
 - (NSArray *) getNeighbors:(Pair *)p notInSet:(NSSet *)set;
 

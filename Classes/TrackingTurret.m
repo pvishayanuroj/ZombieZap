@@ -44,9 +44,9 @@
 
 - (void) trackingRoutine
 {
-	// Make sure we have a target and that we aren't already shooting 
+	// Make sure we have a target, we have power, we aren't dead, and that we aren't already shooting 
 	// (while shooting is instantaneous, we want the turret to stay locked on while the damage animation plays)
-	if (target_ && !isFiring_) {
+	if (target_ && hasPower_ && !isDead_ && !isFiring_) {
 		CGFloat theta = [self getAngleFrom:self.position to:target_.position];
 		theta = CC_RADIANS_TO_DEGREES(theta);
 		
@@ -98,7 +98,7 @@
 {
 	NSInteger index = round(turretRotation_ / spriteRotationInterval_);
 	
-	if (index != spriteFacing_) {
+	if (index != spriteFacing_ && !isDead_) {
 		
 		spriteFacing_ = index;		
 		[self removeChild:sprite_ cleanup:YES];
@@ -119,8 +119,8 @@
 		attackTimer_--;
 	}
 	
-	// Only attack if we have a target that's lined up, we aren't dead, and our attack timer has expired
-	if (target_ && isLinedUp_ && !isDead_) {
+	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			//[self showAttacking];
 			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];

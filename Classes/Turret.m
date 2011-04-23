@@ -37,7 +37,7 @@ static NSUInteger countID = 0;
 		// Tower attributes
 		range_ = 64;
 		attackSpeed_ = 30;
-		damage_ = 4.0f;
+		damage_ = 2.0f;
 		HP_ = 5.0f;
 		
 		// Setup tower variables
@@ -140,8 +140,8 @@ static NSUInteger countID = 0;
 		attackTimer_--;
 	}
 	
-	// Only attack if we have a target, we aren't dead, and our attack timer has expired
-	if (target_ && !isDead_) {
+	// Only attack if we have a target, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			//[self showAttacking];
 			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
@@ -207,6 +207,8 @@ static NSUInteger countID = 0;
 	
 	[attackingAnimation_ release];
 	[dyingAnimation_ release];
+	
+	[target_ release];
 	
 	[super dealloc];
 }

@@ -59,8 +59,6 @@
 
 - (void) attackingRoutine;
 
-- (void) takeDamage:(CGFloat)damage;
-
 - (void) towerDeath;
 
 - (void) powerOn;

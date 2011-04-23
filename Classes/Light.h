@@ -29,8 +29,6 @@
 
 - (id) initLightWithPos:(Pair *)startPos radius:(CGFloat)radius spot:(Spotlight *)spot;
 
-- (void) takeDamage:(CGFloat)damage;
-
 - (void) towerDeath;
 
 - (void) powerOn;
