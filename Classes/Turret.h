@@ -61,7 +61,7 @@
 
 - (void) takeDamage:(CGFloat)damage;
 
-- (void) turretDeath;
+- (void) towerDeath;
 
 - (void) powerOn;
 

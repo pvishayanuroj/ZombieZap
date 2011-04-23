@@ -8,6 +8,7 @@
 
 #import "Tower.h"
 #import "Grid.h"
+#import "GameManager.h"
 
 @implementation Tower
 
@@ -29,6 +30,11 @@
 		isToggled_ = NO;
 	}
 	return self;
+}
+
+- (void) dealloc
+{
+	[super dealloc];
 }
 
 - (void) onEnter
@@ -62,7 +68,20 @@
 
 - (void) takeDamage:(CGFloat)damage
 {
+	NSAssert(HP_ >= 0, @"Tower is dead, should not be taking damage");
 	
+	// Subtract health points
+	HP_ -= damage;
+	
+	// Turret dies from hit
+	if (HP_ <= 0) {
+		
+		[self preTowerDeath];
+	}
+	// Tower just takes damage
+	else {
+		
+	}	
 }
 
 - (void) menuClosed
@@ -72,7 +91,34 @@
 
 - (void) unitSold
 {
-	[self sell];
+	[self preTowerDeath];
+}
+
+- (void) preTowerDeath
+{
+	// Make sure the menu is closed
+	if (isToggled_) {
+		[[GameManager gameManager] toggleUnitOff];				
+		isToggled_ = NO;
+	}	
+	
+	// Set ourselves to dead
+	HP_ = 0;
+	isDead_ = YES;
+	
+	sprite_.visible = NO;
+	[[GameManager gameManager] removeWireWithPos:gridPos_];
+	
+	// Call death function only after a delay
+	CCFiniteTimeAction *delay = [CCDelayTime actionWithDuration:1.0f];
+	CCFiniteTimeAction *method = [CCCallFunc actionWithTarget:self selector:@selector(towerDeath)];
+	[self runAction:[CCSequence actions:delay, method, nil]];		
+}
+
+- (void) towerDeath
+{	
+	// Remove ourself from the game layer
+	[self removeFromParentAndCleanup:YES];	
 }
 
 @end

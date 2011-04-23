@@ -353,6 +353,9 @@ static NSUInteger countID = 0;
 	[targetCell_ release];
 	[currentDest_ release];	
 	
+	[storedTarget_ release];
+	[target_ release];
+	
 	[super dealloc];
 }
 			 

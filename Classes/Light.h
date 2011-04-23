@@ -31,7 +31,7 @@
 
 - (void) takeDamage:(CGFloat)damage;
 
-- (void) lightDeath;
+- (void) towerDeath;
 
 - (void) powerOn;
 

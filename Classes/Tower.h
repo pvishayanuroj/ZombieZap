@@ -48,4 +48,8 @@
 
 - (BOOL) containsTouchLocation:(UITouch *)touch;
 
+- (void) preTowerDeath;
+
+- (void) towerDeath;
+
 @end

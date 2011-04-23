@@ -57,69 +57,12 @@ static NSUInteger countID = 0;
 	return self;
 }
 
-- (void) takeDamage:(CGFloat)damage
-{
-	NSAssert(HP_ >= 0, @"Light is dead, should not be taking damage");
-	
-	CCFiniteTimeAction *method;
-	CCFiniteTimeAction *delay;
-	
-	// Subtract health points
-	HP_ -= damage;
-	
-	// Light dies from hit
-	if (HP_ <= 0) {
-		
-		// Make sure the menu is closed
-		if (isToggled_) {
-			[[GameManager gameManager] toggleUnitOff];				
-			isToggled_ = NO;
-		}		
-		
-		// Set ourselves to dead
-		isDead_ = YES;
-		
-		sprite_.visible = NO;
-		
-		// Remove the spotlight and the wire
-		if (spotlight_) {
-			[[GameManager gameManager] removeSpotlight:spotlight_];		
-		}
-		[[GameManager gameManager] removeWireWithPos:gridPos_];		
-		
-		// Call death function only after a delay
-		delay = [CCDelayTime actionWithDuration:1.0f];
-		method = [CCCallFunc actionWithTarget:self selector:@selector(lightDeath)];
-		[self runAction:[CCSequence actions:delay, method, nil]];			
-	}
-	// Light just takes damage
-	else {
-		
-	}
-}
-
-- (void) sell
-{
-	// Set ourselves to dead
-	HP_ = 0;
-	isDead_ = YES;
-	
-	sprite_.visible = NO;
-	[[GameManager gameManager] removeWireWithPos:gridPos_];
-	
-	// Call death function only after a delay
-	CCFiniteTimeAction *delay = [CCDelayTime actionWithDuration:1.0f];
-	CCFiniteTimeAction *method = [CCCallFunc actionWithTarget:self selector:@selector(lightDeath)];
-	[self runAction:[CCSequence actions:delay, method, nil]];				
-}
-
-- (void) lightDeath
+- (void) towerDeath
 {		
 	// Remove ourself from the list
 	[[GameManager gameManager] removeLight:self];
 	
-	// Remove ourself from the game layer
-	[self removeFromParentAndCleanup:YES];
+	[super towerDeath];
 }
 
 - (void) powerOn
