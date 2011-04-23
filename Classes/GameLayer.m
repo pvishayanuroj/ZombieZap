@@ -173,13 +173,6 @@
 	
 	// Move other layers that are not directly attached to this layer	
 	[[GameManager gameManager] updateDependentLayerPositions:newPosition];
-	/*
-
-	FogLayer *fogLayer = (FogLayer *)[self.parent getChildByTag:kFogLayer];
-	fogLayer.position = newPosition;
-	EyesLayer *eyesLayer = (EyesLayer *)[self.parent getChildByTag:kEyesLayer];	
-	eyesLayer.position = newPosition;
-	 */
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

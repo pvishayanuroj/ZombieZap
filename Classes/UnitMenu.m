@@ -212,8 +212,8 @@
 		for (int i = 0; i < buttons.count; i++) {
 			Pair *pair = [hudEndPositions objectAtIndex:i];
 			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
-			CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:1.0f];
-			CCAction *spawn = [CCSpawn actionOne:moveAction two:scale];
+			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:1.0f];
+			CCAction *spawn = [CCSpawn actionOne:moveAction two:scaleAction];
 			
 			[(CCMenuItemImage *)[buttons objectAtIndex:i] runAction:spawn];
 		}
@@ -250,8 +250,8 @@
 		for (int i = 0; i < buttons.count; i++) {
 			Pair *pair = [hudStartPositions objectAtIndex:i];
 			CCMoveTo *moveAction = [CCMoveTo actionWithDuration:HUD_TOGGLESPEED position:CGPointMake(pair.x, pair.y)];
-			CCScaleTo *scale = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:HUD_TOGGLESCALE];
-			CCSpawn *spawn = [CCSpawn actionOne:moveAction two:scale];
+			CCScaleTo *scaleAction = [CCScaleTo actionWithDuration:HUD_TOGGLESPEED scale:HUD_TOGGLESCALE];
+			CCSpawn *spawn = [CCSpawn actionOne:moveAction two:scaleAction];
 			CCCallFunc *callFunc = [CCCallFunc actionWithTarget:self selector:@selector(endToggleButtons:)];
 			CCSequence *sequence = [CCSequence actionOne:spawn two:callFunc];
 			
