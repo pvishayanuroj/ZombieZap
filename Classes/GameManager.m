@@ -299,4 +299,11 @@ static GameManager *_gameManager = nil;
 	[unitMenuLayer_ toggleOff];
 }
 
+- (void) forceToggleUnitOff
+{
+	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
+	
+	[unitMenuLayer_ forceToggleOff];
+}
+
 @end

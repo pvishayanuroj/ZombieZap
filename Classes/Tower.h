@@ -7,11 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "UnitMenuLayerDelegate.h"
 
 @class Pair;
 
 /** Superclass for all towers */
-@interface Tower : CCNode <CCTargetedTouchDelegate> {
+@interface Tower : CCNode <CCTargetedTouchDelegate, UnitMenuLayerDelegate> {
 
 	/** Sprite representing the tower */
 	CCSprite *sprite_;

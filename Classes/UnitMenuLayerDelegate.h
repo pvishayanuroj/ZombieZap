@@ -10,4 +10,6 @@
 
 - (void) menuClosed;
 
+- (void) unitSold;
+
 @end

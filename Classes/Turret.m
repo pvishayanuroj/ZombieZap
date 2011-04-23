@@ -226,7 +226,7 @@ static NSUInteger countID = 0;
 	if (![self containsTouchLocation:touch])
 		return NO;
 	
-	NSLog(@"Turret %@ got a touch", self);
+	//NSLog(@"Turret %@ got a touch", self);
 	return YES;
 }
 
@@ -242,11 +242,6 @@ static NSUInteger countID = 0;
 			isToggled_ = NO;
 		}
 	}
-}
-
-- (void) menuClosed
-{
-	isToggled_ = NO;
 }
 
 // Override the description method to give us something more useful than a pointer address

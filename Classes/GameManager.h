@@ -98,4 +98,6 @@
 
 - (void) toggleUnitOff;
 
+- (void) forceToggleUnitOff;
+
 @end

@@ -65,4 +65,14 @@
 	
 }
 
+- (void) menuClosed
+{
+	isToggled_ = NO;
+}
+
+- (void) unitSold
+{
+	[self sell];
+}
+
 @end

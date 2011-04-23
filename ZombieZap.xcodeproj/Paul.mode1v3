@@ -271,13 +271,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
+									<integer>36</integer>
 									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 124}, {186, 726}}</string>
+							<string>{{0, 255}, {186, 726}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>UnitMenuLayer.m</string>
+								<string>GameLayer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>UnitMenuLayer.m</string>
+										<string>GameLayer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DA91618B135F657200FBDCAD</string>
+										<string>DAE5905A1362B06200BC08DE</string>
 										<key>history</key>
 										<array>
 											<string>DA5FA4B413097AFB005E2411</string>
@@ -434,7 +434,6 @@
 											<string>DADC19AF134F4DC7008E6270</string>
 											<string>DADC19B0134F4DC7008E6270</string>
 											<string>DADC1A27134F5BD8008E6270</string>
-											<string>DADC1A8A134F980D008E6270</string>
 											<string>DADC1A8B134F980D008E6270</string>
 											<string>DADC1B2E1350B8A8008E6270</string>
 											<string>DADC1B2F1350B8A8008E6270</string>
@@ -449,7 +448,6 @@
 											<string>DADC2BA3135274DF008E6270</string>
 											<string>DADC2BA5135274DF008E6270</string>
 											<string>DADC2BA6135274DF008E6270</string>
-											<string>DA00B484135D2E3A0082DD17</string>
 											<string>DA00B485135D2E3A0082DD17</string>
 											<string>DA00B486135D2E3A0082DD17</string>
 											<string>DA00B548135E02B40082DD17</string>
@@ -459,11 +457,8 @@
 											<string>DAC9781C135E9C8C0016BA6B</string>
 											<string>DAC9781E135E9C8C0016BA6B</string>
 											<string>DAC9781F135E9C8C0016BA6B</string>
-											<string>DAC97820135E9C8C0016BA6B</string>
 											<string>DAC97823135E9C8C0016BA6B</string>
 											<string>DAC97826135E9C8C0016BA6B</string>
-											<string>DAC97829135E9C8C0016BA6B</string>
-											<string>DAC97877135EA3410016BA6B</string>
 											<string>DAC97878135EA3410016BA6B</string>
 											<string>DAC9787C135EA3410016BA6B</string>
 											<string>DAC9787D135EA3410016BA6B</string>
@@ -488,33 +483,38 @@
 											<string>DA916073135F433D00FBDCAD</string>
 											<string>DA916078135F433D00FBDCAD</string>
 											<string>DA916087135F442500FBDCAD</string>
-											<string>DA91609C135F454C00FBDCAD</string>
 											<string>DA9160BE135F476C00FBDCAD</string>
 											<string>DA916112135F4A9900FBDCAD</string>
 											<string>DA91611D135F596000FBDCAD</string>
 											<string>DA91611E135F596000FBDCAD</string>
-											<string>DA91611F135F596000FBDCAD</string>
-											<string>DA916122135F596000FBDCAD</string>
-											<string>DA916123135F596000FBDCAD</string>
 											<string>DA916124135F596000FBDCAD</string>
 											<string>DA916125135F596000FBDCAD</string>
 											<string>DA91612A135F596000FBDCAD</string>
 											<string>DA916138135F5B7500FBDCAD</string>
 											<string>DA916159135F621500FBDCAD</string>
 											<string>DA91615A135F621500FBDCAD</string>
-											<string>DA91615B135F621500FBDCAD</string>
-											<string>DA91615C135F621500FBDCAD</string>
 											<string>DA91615E135F621500FBDCAD</string>
-											<string>DA916163135F621500FBDCAD</string>
-											<string>DA916164135F621500FBDCAD</string>
-											<string>DA916176135F62EE00FBDCAD</string>
-											<string>DA916177135F62EE00FBDCAD</string>
-											<string>DA916178135F62EE00FBDCAD</string>
-											<string>DA916182135F653500FBDCAD</string>
-											<string>DA916183135F653500FBDCAD</string>
-											<string>DA916184135F653500FBDCAD</string>
-											<string>DA916185135F653500FBDCAD</string>
-											<string>DA916186135F653500FBDCAD</string>
+											<string>DA38E2EA1362A90000E22173</string>
+											<string>DA38E2EC1362A90000E22173</string>
+											<string>DA38E2ED1362A90000E22173</string>
+											<string>DA38E2EE1362A90000E22173</string>
+											<string>DA38E3001362A93100E22173</string>
+											<string>DA38E30C1362AA9200E22173</string>
+											<string>DA38E30D1362AA9200E22173</string>
+											<string>DA38E30F1362AA9200E22173</string>
+											<string>DA38E3241362AC5A00E22173</string>
+											<string>DA38E3261362AC5A00E22173</string>
+											<string>DAE58F701362ADB400BC08DE</string>
+											<string>DAE58F7B1362AECE00BC08DE</string>
+											<string>DAE58F7C1362AECE00BC08DE</string>
+											<string>DAE58F8D1362AF6500BC08DE</string>
+											<string>DAE58F8E1362AF6500BC08DE</string>
+											<string>DAE58F8F1362AF6500BC08DE</string>
+											<string>DAE58F901362AF6500BC08DE</string>
+											<string>DAE58F911362AF6500BC08DE</string>
+											<string>DAE58F971362AF7900BC08DE</string>
+											<string>DAE58F9C1362AFF600BC08DE</string>
+											<string>DAE58F9D1362AFF600BC08DE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -572,9 +572,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DA915EB9135F2E1A00FBDCAD</string>
+				<string>DAE58F5B1362ACCD00BC08DE</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DA915EBA135F2E1A00FBDCAD</string>
+				<string>DAE58F5C1362ACCD00BC08DE</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -712,10 +712,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>DA69F091130180A3002253AF</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Paul/Dropbox/Projects/ZombieZap/ZombieZap.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -740,7 +739,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>UnitMenuLayer.h</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -798,7 +797,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DA69F091130180A3002253AF</string>
-				<string>DA915EA2135F2D8E00FBDCAD</string>
+				<string>DAE58F5D1362ACCD00BC08DE</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -811,7 +810,7 @@
 			<key>WindowToolGUID</key>
 			<string>DA69F091130180A3002253AF</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -920,13 +919,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>DA915EA7135F2DF500FBDCAD</string>
+				<string>DAE58F5E1362ACCD00BC08DE</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>DA915EA8135F2DF500FBDCAD</string>
-				<string>DA915EA9135F2DF500FBDCAD</string>
-				<string>DA915EAA135F2DF500FBDCAD</string>
-				<string>DA915EAB135F2DF500FBDCAD</string>
-				<string>DA915EAC135F2DF500FBDCAD</string>
+				<string>DAE58F5F1362ACCD00BC08DE</string>
+				<string>DAE58F601362ACCD00BC08DE</string>
+				<string>DAE58F611362ACCD00BC08DE</string>
+				<string>DAE58F621362ACCD00BC08DE</string>
+				<string>DAE58F631362ACCD00BC08DE</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -953,12 +952,14 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string></string>
+										<string>Turret.m</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -979,8 +980,6 @@
 							<string>368pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1016,8 +1015,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>DA915FDE135F3A2B00FBDCAD</string>
-				<string>DA915FDF135F3A2B00FBDCAD</string>
+				<string>DA38E2E31362A88100E22173</string>
+				<string>DA38E2E41362A88100E22173</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -1059,7 +1058,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1283, 556}}</string>
 								<key>RubberWindowFrame</key>
-								<string>25 173 1283 597 0 0 1440 878 </string>
+								<string>22 174 1283 597 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -1082,17 +1081,17 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>DA915EAD135F2DF500FBDCAD</string>
+				<string>DAE58F641362ACCD00BC08DE</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>25 173 1283 597 0 0 1440 878 </string>
+			<string>22 174 1283 597 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

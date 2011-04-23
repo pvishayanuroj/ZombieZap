@@ -52,11 +52,12 @@
 }
 
 - (void) toggleOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)d
-{
+{	
 	if (unitMenu_) {
 		[self forceToggleOff];
 		[unitMenu_ removeFromParentAndCleanup:YES];
 		[unitMenu_ release];
+		unitMenu_ = nil;
 	}
 	
 	if (range) {
@@ -65,7 +66,7 @@
 	
 	delegate_ = d;
 	NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:4];
-	CCMenuItemImage *m1 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:nil]; 
+	CCMenuItemImage *m1 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:@selector(sell)]; 
 	[m1 setIsEnabled:NO];
 	[buttons addObject:m1];		
 	
@@ -84,7 +85,7 @@
 
 - (void) forceToggleOff
 {	
-	if (delegate_) {		
+	if (delegate_) {
 		[delegate_ menuClosed];
 	}
 	
@@ -96,6 +97,15 @@
 	[unitMenu_ toggleButtonsOffWithAnimation:NO];
 	[self rangeOff];
 	delegate_ = nil;
+}
+
+- (void) sell
+{
+	if (delegate_) {
+		[delegate_ unitSold];
+	}
+	
+	[self toggleOff];
 }
 
 @end

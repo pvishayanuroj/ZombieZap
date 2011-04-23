@@ -69,6 +69,13 @@ static NSUInteger countID = 0;
 	
 	// Light dies from hit
 	if (HP_ <= 0) {
+		
+		// Make sure the menu is closed
+		if (isToggled_) {
+			[[GameManager gameManager] toggleUnitOff];				
+			isToggled_ = NO;
+		}		
+		
 		// Set ourselves to dead
 		isDead_ = YES;
 		
@@ -89,6 +96,21 @@ static NSUInteger countID = 0;
 	else {
 		
 	}
+}
+
+- (void) sell
+{
+	// Set ourselves to dead
+	HP_ = 0;
+	isDead_ = YES;
+	
+	sprite_.visible = NO;
+	[[GameManager gameManager] removeWireWithPos:gridPos_];
+	
+	// Call death function only after a delay
+	CCFiniteTimeAction *delay = [CCDelayTime actionWithDuration:1.0f];
+	CCFiniteTimeAction *method = [CCCallFunc actionWithTarget:self selector:@selector(lightDeath)];
+	[self runAction:[CCSequence actions:delay, method, nil]];				
 }
 
 - (void) lightDeath
@@ -130,8 +152,15 @@ static NSUInteger countID = 0;
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	if ([self containsTouchLocation:touch])	{
-		[[GameManager gameManager] toggleUnit:gridPos_ withRange:NO];	
-	}
+		if (!isToggled_) {
+			[[GameManager gameManager] toggleUnitOn:gridPos_ withRange:NO withDelegate:self];	
+			isToggled_ = YES;
+		}
+		else {
+			[[GameManager gameManager] toggleUnitOff];				
+			isToggled_ = NO;
+		}
+	}	
 }
 
 // Override the description method to give us something more useful than a pointer address

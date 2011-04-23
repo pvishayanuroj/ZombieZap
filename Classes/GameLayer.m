@@ -182,6 +182,11 @@
 	 */
 }
 
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[[GameManager gameManager] forceToggleUnitOff];	
+}
+
 - (void) debugGridInfo:(Pair *)p count:(NSInteger)count
 {
 	Grid *grid = [Grid grid];
