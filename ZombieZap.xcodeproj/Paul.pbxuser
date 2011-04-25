@@ -84,7 +84,7 @@
 			DAB4FC0F1330EAF2005E4F24 /* Pair.h:161 */,
 			DAB4FCB913310DC0005E4F24 /* GameManager.m:236 */,
 			DAB4FCCC13310E2B005E4F24 /* Wire.m:77 */,
-			DAB4FCDE13310E94005E4F24 /* ElectricGrid.m:131 */,
+			DAB4FCDE13310E94005E4F24 /* ElectricGrid.m:133 */,
 			DA186D7B13313FA700FCBD51 /* BuildLayer.m:257 */,
 			DA186D8C13313FC600FCBD51 /* BuildLayer.m:319 */,
 			DADC2B62135248B0008E6270 /* ElectricGrid.m:53 */,
@@ -335,6 +335,15 @@
 			DAE2200D1365C58700A349B6 /* PBXTextBookmark */ = DAE2200D1365C58700A349B6 /* PBXTextBookmark */;
 			DAE2200E1365C58700A349B6 /* PBXTextBookmark */ = DAE2200E1365C58700A349B6 /* PBXTextBookmark */;
 			DAE2200F1365C58700A349B6 /* PBXTextBookmark */ = DAE2200F1365C58700A349B6 /* PBXTextBookmark */;
+			DAE2201E1365CB7800A349B6 /* PBXTextBookmark */ = DAE2201E1365CB7800A349B6 /* PBXTextBookmark */;
+			DAE2201F1365CB7800A349B6 /* PBXTextBookmark */ = DAE2201F1365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220201365CB7800A349B6 /* PBXTextBookmark */ = DAE220201365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220211365CB7800A349B6 /* PBXTextBookmark */ = DAE220211365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220221365CB7800A349B6 /* PBXTextBookmark */ = DAE220221365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220231365CB7800A349B6 /* PBXTextBookmark */ = DAE220231365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220241365CB7800A349B6 /* PBXTextBookmark */ = DAE220241365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220251365CB7800A349B6 /* PBXTextBookmark */ = DAE220251365CB7800A349B6 /* PBXTextBookmark */;
+			DAE220261365CB7800A349B6 /* PBXTextBookmark */ = DAE220261365CB7800A349B6 /* PBXTextBookmark */;
 			DAE58F701362ADB400BC08DE = DAE58F701362ADB400BC08DE /* PBXTextBookmark */;
 			DAE58F8F1362AF6500BC08DE = DAE58F8F1362AF6500BC08DE /* PBXTextBookmark */;
 			DAE58F901362AF6500BC08DE = DAE58F901362AF6500BC08DE /* PBXTextBookmark */;
@@ -892,9 +901,9 @@
 	};
 	DA2FD861132C600C0073B8B2 /* Light.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 1792}}";
-			sepNavSelRange = "{2808, 0}";
-			sepNavVisRange = "{2685, 128}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 1778}}";
+			sepNavSelRange = "{1752, 0}";
+			sepNavVisRange = "{990, 1215}";
 		};
 	};
 	DA2FD86D132C711A0073B8B2 /* PBXBookmark */ = {
@@ -940,9 +949,9 @@
 	};
 	DA424AFE13228D08006EDFB8 /* GameManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 4186}}";
-			sepNavSelRange = "{4751, 0}";
-			sepNavVisRange = "{4291, 1530}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 4340}}";
+			sepNavSelRange = "{4963, 0}";
+			sepNavVisRange = "{5689, 1603}";
 		};
 	};
 	DA424C3A1322BF43006EDFB8 /* Turret.m:103 */ = {
@@ -2117,9 +2126,9 @@
 	};
 	DA8F6DBE132048A50096CF18 /* Turret.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 3108}}";
-			sepNavSelRange = "{3587, 0}";
-			sepNavVisRange = "{3694, 103}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3150}}";
+			sepNavSelRange = "{4115, 0}";
+			sepNavVisRange = "{3585, 933}";
 			sepNavWindowFrame = "{{15, 38}, {1345, 835}}";
 		};
 	};
@@ -2555,9 +2564,9 @@
 	};
 	DAB4FBD21330642A005E4F24 /* Wire.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 3808}}";
-			sepNavSelRange = "{3746, 0}";
-			sepNavVisRange = "{3243, 725}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3892}}";
+			sepNavSelRange = "{3704, 0}";
+			sepNavVisRange = "{4369, 987}";
 		};
 	};
 	DAB4FC0D1330EAF1005E4F24 /* Pair.h:160 */ = {
@@ -2601,9 +2610,9 @@
 	};
 	DAB4FC2E1330F474005E4F24 /* ElectricGrid.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1032, 4116}}";
-			sepNavSelRange = "{5931, 0}";
-			sepNavVisRange = "{5834, 102}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 3696}}";
+			sepNavSelRange = "{2284, 0}";
+			sepNavVisRange = "{2048, 1278}";
 		};
 	};
 	DAB4FC81133108F8005E4F24 /* gl.h */ = {
@@ -2659,7 +2668,7 @@
 		originalNumberOfMultipleMatches = 1;
 		state = 2;
 	};
-	DAB4FCDE13310E94005E4F24 /* ElectricGrid.m:131 */ = {
+	DAB4FCDE13310E94005E4F24 /* ElectricGrid.m:133 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2671,7 +2680,7 @@
 		functionName = "-wireAtGrid:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 131;
+		lineNumber = 133;
 		location = ZombieZap;
 		modificationTime = 324878270.5145251;
 		originalNumberOfMultipleMatches = 1;
@@ -2887,9 +2896,9 @@
 	};
 	DADC1998134F43A9008E6270 /* Tower.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 1708}}";
-			sepNavSelRange = "{1673, 0}";
-			sepNavVisRange = "{139, 962}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 1750}}";
+			sepNavSelRange = "{1908, 0}";
+			sepNavVisRange = "{1481, 895}";
 		};
 	};
 	DADC19A9134F4DC7008E6270 /* PBXTextBookmark */ = {
@@ -3369,6 +3378,96 @@
 		vrLen = 1530;
 		vrLoc = 4291;
 	};
+	DAE2201E1365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA01DA97130348FE00B0D88B /* GameLayer.m */;
+		name = "GameLayer.m: 175";
+		rLen = 0;
+		rLoc = 5208;
+		rType = 0;
+		vrLen = 2063;
+		vrLoc = 3618;
+	};
+	DAE2201F1365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA7CA1FA1325F19D00825545 /* FogLayer.m */;
+		name = "FogLayer.m: 194";
+		rLen = 0;
+		rLoc = 6453;
+		rType = 0;
+		vrLen = 1777;
+		vrLoc = 4860;
+	};
+	DAE220201365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA8F6DBE132048A50096CF18 /* Turret.m */;
+		name = "Turret.m: 184";
+		rLen = 0;
+		rLoc = 4115;
+		rType = 0;
+		vrLen = 933;
+		vrLoc = 3585;
+	};
+	DAE220211365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA2FD861132C600C0073B8B2 /* Light.m */;
+		name = "Light.m: 76";
+		rLen = 0;
+		rLoc = 1752;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 990;
+	};
+	DAE220221365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DA424AFE13228D08006EDFB8 /* GameManager.m */;
+		name = "GameManager.m: 195";
+		rLen = 0;
+		rLoc = 4963;
+		rType = 0;
+		vrLen = 1603;
+		vrLoc = 5689;
+	};
+	DAE220231365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DADC1998134F43A9008E6270 /* Tower.m */;
+		name = "Tower.m: 107";
+		rLen = 0;
+		rLoc = 1908;
+		rType = 0;
+		vrLen = 895;
+		vrLoc = 1481;
+	};
+	DAE220241365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DAB4FBD21330642A005E4F24 /* Wire.m */;
+		name = "Wire.m: 177";
+		rLen = 0;
+		rLoc = 3704;
+		rType = 0;
+		vrLen = 987;
+		vrLoc = 4369;
+	};
+	DAE220251365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DAB4FC2E1330F474005E4F24 /* ElectricGrid.m */;
+		name = "ElectricGrid.m: 102";
+		rLen = 0;
+		rLoc = 2249;
+		rType = 0;
+		vrLen = 1053;
+		vrLoc = 4883;
+	};
+	DAE220261365CB7800A349B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DAB4FC2E1330F474005E4F24 /* ElectricGrid.m */;
+		name = "ElectricGrid.m: 104";
+		rLen = 0;
+		rLoc = 2284;
+		rType = 0;
+		vrLen = 1278;
+		vrLoc = 2048;
+	};
 	DAE58F701362ADB400BC08DE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = DA916060135F405C00FBDCAD /* UnitMenuLayer.h */;
@@ -3574,7 +3673,7 @@
 		fRef = DA2FD861132C600C0073B8B2 /* Light.m */;
 		name = "Light.m: 126";
 		rLen = 0;
-		rLoc = 2808;
+		rLoc = 2793;
 		rType = 0;
 		vrLen = 1060;
 		vrLoc = 1753;
@@ -3624,7 +3723,7 @@
 		fRef = DAB4FC2E1330F474005E4F24 /* ElectricGrid.m */;
 		name = "ElectricGrid.m: 265";
 		rLen = 0;
-		rLoc = 5931;
+		rLoc = 5953;
 		rType = 0;
 		vrLen = 1053;
 		vrLoc = 4883;

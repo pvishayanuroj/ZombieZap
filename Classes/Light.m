@@ -77,7 +77,7 @@ static NSUInteger countID = 0;
 
 - (void) powerOff
 {
-	NSAssert(spotlight_ != nil, ([NSString stringWithFormat:@"Trying to remove a spotlight on top of another spotlight for %@", self]));	
+	NSAssert(spotlight_ != nil, ([NSString stringWithFormat:@"Trying to remove a non-existant spotlight for %@", self]));	
 	
 	[[GameManager gameManager] removeSpotlight:spotlight_];
 	[spotlight_ release];

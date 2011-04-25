@@ -101,6 +101,8 @@ static ElectricGrid *_electricGrid = nil;
 	NSDate *ref = [NSDate date]; 
 	Wire *wire = [wires_ objectForKey:p];
 	if (wire) {
+		[wire powerOff];
+		
 		[wires_ removeObjectForKey:p];
 		
 		// Update the neighbors' orientation to reflect this wire being gone
