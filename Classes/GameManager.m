@@ -205,6 +205,11 @@ static GameManager *_gameManager = nil;
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
 		[self addWireWithPos:pos delegate:turret];
 	}
+	// Else there's a wire, see if it's powered
+	else if ([[ElectricGrid electricGrid] isGridPowered:pos]) {
+		[turret powerOn];
+		[[ElectricGrid electricGrid] addDelegateToWireAtPos:pos delegate:turret];
+	}	
 }
 
 - (void) removeTurret:(Turret *)turret
