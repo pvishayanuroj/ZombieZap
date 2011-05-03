@@ -18,6 +18,7 @@
 #import "Pair.h"
 #import "Enums.h"
 #import "UnitMenuLayer.h"
+#import "HUDLayer.h"
 
 @implementation GameScene
 
@@ -32,6 +33,9 @@
 		// Initialize the layer
 		GeneratorLayer *generatorLayer = [GeneratorLayer node];
 		[self addChild:generatorLayer z:kGeneratorLayer];
+		
+		HUDLayer *hudLayer = [HUDLayer node];
+		[self addChild:hudLayer z:kHUDLayer];
 		
 		BuildLayer *buildLayer = [BuildLayer node];
 		[self addChild:buildLayer z:kBuildLayer];

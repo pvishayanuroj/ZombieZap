@@ -26,6 +26,7 @@
 #import "CCTexture2DMutable.h"
 #import "TrackingTurret.h"
 #import "UnitMenuLayer.h"
+#import "Generator.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -65,6 +66,7 @@ static GameManager *_gameManager = nil;
 		fogLayer_ = nil;
 		eyesLayer_ = nil;
 		unitMenuLayer_ = nil;
+		generator_ = nil;
 		zombies_ = [[NSMutableSet setWithCapacity:24] retain];
 		spotlights_ = [[NSMutableSet setWithCapacity:24] retain];
 		towerLocations_ = [[NSMutableDictionary dictionaryWithCapacity:24] retain];		
@@ -82,6 +84,7 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ release];
 	[eyesLayer_ release];
 	[unitMenuLayer_ release];
+	[generator_ release];
 	
 	[super dealloc];
 }
@@ -112,6 +115,12 @@ static GameManager *_gameManager = nil;
 	NSAssert(unitMenuLayer_ == nil, @"Trying to register a Unit Menu Layer when one already exists");	
 	unitMenuLayer_ = unitMenuLayer;
 	[unitMenuLayer_ retain];
+}
+
+- (void) registerGenerator:(Generator *)generator
+{
+	NSAssert(generator_ == nil, @"Trying to register a Generator when one already exists");		
+	generator_ = [generator retain];
 }
 
 - (void) updateDependentLayerPositions:(CGPoint)position
@@ -309,6 +318,13 @@ static GameManager *_gameManager = nil;
 	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
 	
 	[unitMenuLayer_ forceToggleOff];
+}
+
+- (CGFloat) getGeneratorSpeed
+{
+	NSAssert(generator_ != nil, @"Trying to get generator speed without a registered Generator");				
+	
+	return generator_.currentSpeedPct;
 }
 
 @end

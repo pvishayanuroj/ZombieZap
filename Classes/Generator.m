@@ -28,27 +28,44 @@
 		// Generator attributes
 		outerRadius_ = 60;
 		innerRadius_ = 30;
-		maxDeltaR_ = 10;
+		maxR_ = 10;
+		maxDeltaR_ = 0.05f;
 		
 		dirLock_ = YES;
 		touchTimer_ = -1;
+		touchHoldTimer_ = -1;
 		currentSpeed_ = 0;
+		prevDegrees_ = 0;
 		
 		[self schedule:@selector(update:) interval:1.0/60.0];				
 	}
 	return self;
 }
 
+- (CGFloat) currentSpeedPct
+{
+	return currentSpeed_/maxR_;
+}
+
 - (void) rotateWheel: (CGFloat)degrees
 {
-	// Keep track of the current speed
-	currentSpeed_ = degrees;
-	
-	//NSLog(@"Speed: %3.3f", currentSpeed_);
+	// Simulate inertia
+	CGFloat delta = degrees - prevDegrees_;
+	if (fabs(delta) > maxDeltaR_) {
+		if (delta > 0) {
+			degrees = prevDegrees_ + maxDeltaR_;
+		}
+		else {
+			degrees = prevDegrees_ - maxDeltaR_;
+		}
+	}	
 	
 	if (degrees != 0) {
-		sprite_.rotation += degrees;
+		//sprite_.rotation += degrees;
 	}
+	prevDegrees_ = degrees;			
+	// Keep track of the current speed		
+	currentSpeed_ = degrees;			
 }
 
 - (void) update:(ccTime)dt
@@ -56,20 +73,31 @@
 	if (touchTimer_ != -1) {
 		touchTimer_++;
 	}
+	if (touchHoldTimer_ != -1) {
+		touchHoldTimer_++;
+	}	
 
 	// If touch timer is not used, then player is not actively spinning the wheel
 	if (touchTimer_ == -1) {
 		if (angularMomentum_ != 0) {
-			angularMomentum_ *= 0.98;
-			if (angularMomentum_ > maxDeltaR_) {
-				angularMomentum_ = maxDeltaR_;
+			angularMomentum_ *= 0.995;
+			if (angularMomentum_ > maxR_) {
+				angularMomentum_ = maxR_;
 			}
-			if (angularMomentum_ < 0.5) {
+			if (angularMomentum_ < 0.1) {
 				angularMomentum_ = 0;
 			}
 		}
 		[self rotateWheel:angularMomentum_];
+	} 
+	// This fixes the loophole where the player can just hold down on the wheel to keep the same speed
+	else if (touchHoldTimer_ > 1) {
+		//NSLog(@"touch hold");
+		touchTimer_ = -1;
 	}
+
+	// Do the rotation
+	sprite_.rotation += currentSpeed_;	
 }
 
 - (ZGPoint) closestPoint: (CGPoint)p
@@ -134,6 +162,7 @@
 	
 	angularMomentum_ = 0;
 	touchTimer_ = 0;
+	touchHoldTimer_ = 0;
 	// Store where the wheel was before it started spinning
 	startRotation_ = sprite_.rotation;
 	
@@ -141,9 +170,12 @@
 }
 
 - (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
+{	
+	//NSLog(@"gen touch moved");
 	CGPoint touchLocation = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];	
 	ZGPoint p = [self closestPoint:touchLocation];
+	
+	touchHoldTimer_ = 0;	
 	
 	// If player is still on the wheel
 	if (p.dist > innerRadius_ && p.dist < outerRadius_) {
@@ -157,24 +189,20 @@
 		}
 		
 		CGFloat dR = p.rot - prevRotation_;
-		//NSLog(@"dR: %4.2f = %4.2f - %4.2f", dR, p.rot, prevRotation);
-
-		// Check if wheel is only allowed to spin one way
-		if ((dR < 0 && dirLock_) || !dirLock_) {
-			// Normal case
-			if (fabs(dR) < maxDeltaR_ || dR + 360 < maxDeltaR_) {
+		
+		//NSLog(@"dR: %3.2f", dR);
+		
+		if (dR < 0) {
+			if (fabs(dR) < maxDeltaR_){
+			}
+			else if (fabs(dR) < maxR_ || dR + 360 < maxR_) {
 				[self rotateWheel:-dR];	
 			}
 			else {
-				if (dR < 0) {
-					[self rotateWheel:maxDeltaR_];
-				}
-				else {
-					[self rotateWheel:-maxDeltaR_];
-				}
-
+				[self rotateWheel:maxR_];			
 			}
 		}
+		 
 	}
 	// Otherwise player's touch is not on the wheel
 	else {
@@ -206,6 +234,9 @@
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {	
+	//NSLog(@"gen touch ended");
+	touchHoldTimer_ = -1;	
+	
 	if (touchTimer_ != -1) {
 		CGFloat displacement = sprite_.rotation - startRotation_;
 		CGFloat time = touchTimer_ + 1; // +1 so that we don't divide by 0

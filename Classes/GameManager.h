@@ -20,6 +20,7 @@
 @class Spotlight;
 @class Light;
 @class Wire;
+@class Generator;
 
 @interface GameManager : NSObject {
 
@@ -36,6 +37,8 @@
 	NSMutableSet *spotlights_;
 	
 	NSMutableDictionary *towerLocations_;
+	
+	Generator *generator_;
 	
 }
 
@@ -55,6 +58,8 @@
 - (void) registerEyesLayer:(EyesLayer *)eyesLayer;
 
 - (void) registerUnitMenuLayer:(UnitMenuLayer *)unitMenuLayer;
+
+- (void) registerGenerator:(Generator *)generator;
 
 - (void) updateDependentLayerPositions:(CGPoint)position;
 
@@ -99,5 +104,7 @@
 - (void) toggleUnitOff;
 
 - (void) forceToggleUnitOff;
+
+- (CGFloat) getGeneratorSpeed;
 
 @end

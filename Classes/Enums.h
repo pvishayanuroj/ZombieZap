@@ -63,6 +63,7 @@ enum {
 	kEyesLayer = 2,
 	kUnitMenuLayer = 3,	
 	kBuildLayer = 4,
-	kGeneratorLayer = 5
+	kHUDLayer = 5,
+	kGeneratorLayer = 6
 
 };

@@ -11,8 +11,6 @@
 @class Generator;
 
 @interface GeneratorLayer : CCLayer {
-	
-	Generator *generator;
 
 }
 

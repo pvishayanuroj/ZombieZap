@@ -144,6 +144,8 @@
 		DAE1C5181330224800A46747 /* One_Spawn.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C5151330224800A46747 /* One_Spawn.plist */; };
 		DAE1C5191330224800A46747 /* Test_Spawns.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C5161330224800A46747 /* Test_Spawns.plist */; };
 		DAE1C51D133023A300A46747 /* black_frame_notrans.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1C51C133023A300A46747 /* black_frame_notrans.png */; };
+		DAE220301365D21700A349B6 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE2202F1365D21700A349B6 /* DataManager.m */; };
+		DAF35224136F2B3200FE6D9D /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF35223136F2B3200FE6D9D /* HUDLayer.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -509,6 +511,10 @@
 		DAE1C5151330224800A46747 /* One_Spawn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = One_Spawn.plist; sourceTree = "<group>"; };
 		DAE1C5161330224800A46747 /* Test_Spawns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Test_Spawns.plist; sourceTree = "<group>"; };
 		DAE1C51C133023A300A46747 /* black_frame_notrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_frame_notrans.png; sourceTree = "<group>"; };
+		DAE2202E1365D21700A349B6 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		DAE2202F1365D21700A349B6 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		DAF35222136F2B3200FE6D9D /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		DAF35223136F2B3200FE6D9D /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -781,6 +787,8 @@
 				DAE1C3BB132FE5EC00A46747 /* Cocos Setup */,
 				DAE1C5991330297600A46747 /* Singletons */,
 				DAE1C5961330292500A46747 /* Utility */,
+				DAF35222136F2B3200FE6D9D /* HUDLayer.h */,
+				DAF35223136F2B3200FE6D9D /* HUDLayer.m */,
 				DA69F098130180E9002253AF /* GameScene.h */,
 				DA69F099130180E9002253AF /* GameScene.m */,
 				DA69F09C130180E9002253AF /* GeneratorLayer.h */,
@@ -1089,6 +1097,8 @@
 		DAE1C5991330297600A46747 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				DAE2202E1365D21700A349B6 /* DataManager.h */,
+				DAE2202F1365D21700A349B6 /* DataManager.m */,
 				DA424AFD13228D08006EDFB8 /* GameManager.h */,
 				DA424AFE13228D08006EDFB8 /* GameManager.m */,
 				DA79FA3F1324790E00DE91A4 /* SpawnManager.h */,
@@ -1594,6 +1604,8 @@
 				DAC97805135E9A510016BA6B /* TrackingTurret.m in Sources */,
 				DA915F94135F378E00FBDCAD /* UnitMenu.m in Sources */,
 				DA916062135F405C00FBDCAD /* UnitMenuLayer.m in Sources */,
+				DAE220301365D21700A349B6 /* DataManager.m in Sources */,
+				DAF35224136F2B3200FE6D9D /* HUDLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,7 +29,12 @@ typedef struct ZGPoint ZGPoint;
 	CGFloat angularMomentum_;	
 	
 	/** Maximum amount of rotation per frame */
-	CGFloat maxDeltaR_;
+	CGFloat maxR_;
+	
+	/** */
+	CGFloat maxDeltaR_;	
+	
+	CGFloat prevDegrees_;
 	
 	/** Current rotation speed */	
 	CGFloat currentSpeed_;
@@ -43,11 +48,14 @@ typedef struct ZGPoint ZGPoint;
 	/** Used to keep track of how long the player has been spinning the wheel in order to calculate angular momentum */			
 	NSInteger touchTimer_;
 	
+	NSInteger touchHoldTimer_;
+	
 	/** True if only allowed to rotate in one direction */
 	BOOL dirLock_;
 }
 
 @property (nonatomic, readonly) CGFloat currentSpeed;
+@property (nonatomic, readonly) CGFloat currentSpeedPct;
 
 + (id) generator;
 

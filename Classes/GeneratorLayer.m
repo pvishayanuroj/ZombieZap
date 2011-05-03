@@ -8,6 +8,7 @@
 
 #import "GeneratorLayer.h"
 #import "Generator.h"
+#import "GameManager.h"
 
 @implementation GeneratorLayer
 
@@ -16,9 +17,10 @@
 	if ((self = [super init])) {
 		
 		self.isTouchEnabled = YES;
-		generator = [Generator generator];
+		Generator *generator = [Generator generator];
+		[[GameManager gameManager] registerGenerator:generator];
 		[self addChild:generator];
-		generator.position = CGPointMake(70, 250);
+		generator.position = CGPointMake(410, 250);
 		
 	}
 	return self;
