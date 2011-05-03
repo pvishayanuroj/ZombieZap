@@ -1473,8 +1473,8 @@
 	DA69F09B130180E9002253AF /* Generator.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1171, 4032}}";
-			sepNavSelRange = "{1569, 0}";
-			sepNavVisRange = "{1379, 1135}";
+			sepNavSelRange = "{2254, 0}";
+			sepNavVisRange = "{140, 920}";
 		};
 	};
 	DA69F09C130180E9002253AF /* GeneratorLayer.h */ = {
@@ -2348,9 +2348,9 @@
 	};
 	DA915F93135F378E00FBDCAD /* UnitMenu.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 4312}}";
-			sepNavSelRange = "{6266, 0}";
-			sepNavVisRange = "{4140, 1602}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 4130}}";
+			sepNavSelRange = "{5133, 0}";
+			sepNavVisRange = "{798, 1388}";
 		};
 	};
 	DA915FF7135F3AFC00FBDCAD /* PBXTextBookmark */ = {
@@ -2424,8 +2424,8 @@
 	};
 	DA916061135F405C00FBDCAD /* UnitMenuLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 1568}}";
-			sepNavSelRange = "{1443, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1171, 1484}}";
+			sepNavSelRange = "{1341, 0}";
 			sepNavVisRange = "{832, 1185}";
 		};
 	};

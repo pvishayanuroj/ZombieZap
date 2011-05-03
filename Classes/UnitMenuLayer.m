@@ -66,7 +66,7 @@
 	
 	delegate_ = d;
 	NSMutableArray *buttons = [NSMutableArray arrayWithCapacity:4];
-	CCMenuItemImage *m1 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:@selector(sell)]; 
+	CCMenuItemImage *m1 = [CCMenuItemImage itemFromNormalImage:@"icon_small.png" selectedImage:@"icon_small.png" target:self selector:@selector(sell)]; 
 	[m1 setIsEnabled:NO];
 	[buttons addObject:m1];		
 	

@@ -84,6 +84,7 @@
 		DA5AAA9813317BF20049432E /* LightningSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9213317BF20049432E /* LightningSpriteSheet.png */; };
 		DA5AAA9913317BF20049432E /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5AAA9313317BF20049432E /* Units.plist */; };
 		DA5AAAC613317EAB0049432E /* Damage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5AAAC513317EAB0049432E /* Damage.m */; };
+		DA5E4C461370487000FFC5D0 /* icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = DA5E4C451370487000FFC5D0 /* icon_small.png */; };
 		DA5FA46A13097412005E2411 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5FA46913097412005E2411 /* Pair.m */; };
 		DA69F0A0130180E9002253AF /* BuildLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F097130180E9002253AF /* BuildLayer.m */; };
 		DA69F0A1130180E9002253AF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69F099130180E9002253AF /* GameScene.m */; };
@@ -421,6 +422,7 @@
 		DA5AAA9313317BF20049432E /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
 		DA5AAAC413317EAB0049432E /* Damage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Damage.h; sourceTree = "<group>"; };
 		DA5AAAC513317EAB0049432E /* Damage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Damage.m; sourceTree = "<group>"; };
+		DA5E4C451370487000FFC5D0 /* icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_small.png; sourceTree = "<group>"; };
 		DA5FA46813097412005E2411 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
 		DA5FA46913097412005E2411 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		DA5FA48A130975AB005E2411 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 				DA2FD887132C752B0073B8B2 /* Buttons */,
 				DA6CAAA4131ECB9F0094EB84 /* Map */,
 				DA5AAA8D13317BF20049432E /* Spritesheets */,
+				DA5E4C451370487000FFC5D0 /* icon_small.png */,
 				DA79FCF5132523C100DE91A4 /* Icon-Small-50.png */,
 				DA79FCF4132523C100DE91A4 /* Icon-72.png */,
 				DA79FCF6132523C100DE91A4 /* Icon-Small@2x.png */,
@@ -1556,6 +1559,7 @@
 				DAB4C07813532C51007A25E5 /* TowerSpriteSheet.plist in Resources */,
 				DAB4C07913532C51007A25E5 /* TowerSpriteSheet.png in Resources */,
 				DA915E9C135F2CE400FBDCAD /* green_circle.png in Resources */,
+				DA5E4C461370487000FFC5D0 /* icon_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
