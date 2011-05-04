@@ -13,8 +13,16 @@
 
 	CCLabelAtlas *genRateLabel_;
 	
-	CCLabelAtlas *_;
+	CCLabelTTF *powerLabel_;
+	
+	CCLabelTTF *partsLabel_;
 	
 }
+
+- (void) setGeneratorSpeed:(CGFloat)speed;
+
+- (void) setPower:(CGFloat)power powerDraw:(CGFloat)powerDraw;
+
+- (void) setParts:(NSInteger)parts;
 
 @end

@@ -19,6 +19,7 @@
 #import "Enums.h"
 #import "UnitMenuLayer.h"
 #import "HUDLayer.h"
+#import "DataManager.h"
 
 @implementation GameScene
 
@@ -35,6 +36,7 @@
 		[self addChild:generatorLayer z:kGeneratorLayer];
 		
 		HUDLayer *hudLayer = [HUDLayer node];
+		[[DataManager dataManager] registerHUDLayer:hudLayer];		
 		[self addChild:hudLayer z:kHUDLayer];
 		
 		BuildLayer *buildLayer = [BuildLayer node];
@@ -53,6 +55,9 @@
 		[self addChild:unitMenuLayer z:kUnitMenuLayer];
 		
 		[self addButtons:buildLayer];
+		
+		[self addChild:[DataManager dataManager]];
+		[[DataManager dataManager] startUpdates];
 		
 		/*
 		s1 = [[[GameManager gameManager] addLightWithPos:[Pair pair:0 second:0]] retain];

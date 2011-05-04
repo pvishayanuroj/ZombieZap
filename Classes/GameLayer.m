@@ -49,45 +49,9 @@
 		[[SpawnManager spawnManager] loadSpawns:@"One_Spawn"];
 		//[[SpawnManager spawnManager] loadSpawns:@"Omni_Spawns"];
 #endif
-		
-		[self debugCode];
+			
 	}
 	return self;
-}
-
-- (void) debugCode
-{
-/*	
-	AStar *aStar = [AStar aStar];
-	Pair *start = [Pair pair:15 second:0];
-	Pair *dest = [Pair pair:15 second:15];
-	NSDate *reftime = [NSDate date];
-	NSArray *path = [aStar findPathFrom:start to:dest];
-	NSLog(@"Pathfinding done in: %4.9f", [[NSDate date] timeIntervalSinceDate:reftime]);
-	
-	[[Grid grid] addPathToObjective:path];
-	
-	for (int i = 0; i < [path count]; i++) {
-		[self debugGridInfo:[path objectAtIndex:i] count:i];
-	}
- */
-	
-	/*
-	// Add some zombies
-	Zombie *zombie = [Zombie zombieWithPos:start];
-	//[self addChild:zombie];
-	[[GameManager gameManager] addZombie:zombie];
-	NSLog(@"Added %@, RC: %d\n", zombie, [zombie retainCount]);
-	*/
-	
-	// Add some turrets
-	/*
-	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:4]];
-	[[GameManager gameManager] addTurretWithPos:[Pair pair:2 second:2]];
-	[[GameManager gameManager] addTurretWithPos:[Pair pair:6 second:3]];		
-	 */
-	
-
 }
 
 /**
@@ -95,7 +59,7 @@
  @param touches Reference to the UITouch object
  @param event Associated UIEvent
  */
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	NSSet *allTouches = [event allTouches];
 	
@@ -118,7 +82,7 @@
  @param touches Reference to the UITouch object
  @param event Associated UIEvent
  */
-- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	NSSet *allTouches = [event allTouches];
 	
@@ -175,7 +139,7 @@
 	[[GameManager gameManager] updateDependentLayerPositions:newPosition];
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[[GameManager gameManager] forceToggleUnitOff];	
 }

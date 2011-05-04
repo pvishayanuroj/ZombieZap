@@ -17,8 +17,6 @@
 	
 }
 
-- (void) debugCode;
-
 - (void) debugGridInfo:(Pair *)p count:(NSInteger)count;
 
 @end
