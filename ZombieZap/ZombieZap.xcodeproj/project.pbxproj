@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA73878B1380642800B1BF88 /* Tesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878A1380642800B1BF88 /* Tesla.m */; };
+		DA73878F1380644E00B1BF88 /* SuperTesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878E1380644E00B1BF88 /* SuperTesla.m */; };
+		DA7387951380647B00B1BF88 /* Gatling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7387941380647A00B1BF88 /* Gatling.m */; };
+		DA738798138064A300B1BF88 /* Rail.m in Sources */ = {isa = PBXBuildFile; fileRef = DA738797138064A200B1BF88 /* Rail.m */; };
+		DA73879B138064BB00B1BF88 /* RedLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73879A138064BA00B1BF88 /* RedLaser.m */; };
+		DA73879E1380650100B1BF88 /* GreenLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73879D138064FE00B1BF88 /* GreenLaser.m */; };
+		DA7387A11380651600B1BF88 /* BlueLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7387A01380651200B1BF88 /* BlueLaser.m */; };
 		DA8F2AD9137F6C9B0081CF2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */; };
 		DA8F2ADB137F6C9B0081CF2A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */; };
 		DA8F2ADD137F6C9B0081CF2A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADC137F6C9B0081CF2A /* OpenAL.framework */; };
@@ -262,9 +269,25 @@
 		DA8F2D9E137F6EE30081CF2A /* lightning.zss in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D92137F6EE30081CF2A /* lightning.zss */; };
 		DA8F2D9F137F6EE30081CF2A /* spritesheet.zss in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D93137F6EE30081CF2A /* spritesheet.zss */; };
 		DA8F2DA0137F6EE30081CF2A /* towers.zss in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D94137F6EE30081CF2A /* towers.zss */; };
+		DAACD32713803AFB00E7D5BD /* Pellet.m in Sources */ = {isa = PBXBuildFile; fileRef = DAACD32613803AF900E7D5BD /* Pellet.m */; };
+		DAACD32A13803B2500E7D5BD /* Taser.m in Sources */ = {isa = PBXBuildFile; fileRef = DAACD32913803B2400E7D5BD /* Taser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA7387891380642700B1BF88 /* Tesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesla.h; sourceTree = "<group>"; };
+		DA73878A1380642800B1BF88 /* Tesla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tesla.m; sourceTree = "<group>"; };
+		DA73878D1380644E00B1BF88 /* SuperTesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperTesla.h; sourceTree = "<group>"; };
+		DA73878E1380644E00B1BF88 /* SuperTesla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperTesla.m; sourceTree = "<group>"; };
+		DA7387931380647A00B1BF88 /* Gatling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gatling.h; sourceTree = "<group>"; };
+		DA7387941380647A00B1BF88 /* Gatling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gatling.m; sourceTree = "<group>"; };
+		DA738796138064A200B1BF88 /* Rail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rail.h; sourceTree = "<group>"; };
+		DA738797138064A200B1BF88 /* Rail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rail.m; sourceTree = "<group>"; };
+		DA738799138064B900B1BF88 /* RedLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedLaser.h; sourceTree = "<group>"; };
+		DA73879A138064BA00B1BF88 /* RedLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedLaser.m; sourceTree = "<group>"; };
+		DA73879C138064FA00B1BF88 /* GreenLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenLaser.h; sourceTree = "<group>"; };
+		DA73879D138064FE00B1BF88 /* GreenLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenLaser.m; sourceTree = "<group>"; };
+		DA73879F1380650D00B1BF88 /* BlueLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueLaser.h; sourceTree = "<group>"; };
+		DA7387A01380651200B1BF88 /* BlueLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueLaser.m; sourceTree = "<group>"; };
 		DA8F2AD4137F6C9B0081CF2A /* ZombieZap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieZap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -682,6 +705,10 @@
 		DA8F2D92137F6EE30081CF2A /* lightning.zss */ = {isa = PBXFileReference; lastKnownFileType = file; path = lightning.zss; sourceTree = "<group>"; };
 		DA8F2D93137F6EE30081CF2A /* spritesheet.zss */ = {isa = PBXFileReference; lastKnownFileType = file; path = spritesheet.zss; sourceTree = "<group>"; };
 		DA8F2D94137F6EE30081CF2A /* towers.zss */ = {isa = PBXFileReference; lastKnownFileType = file; path = towers.zss; sourceTree = "<group>"; };
+		DAACD32513803AF600E7D5BD /* Pellet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pellet.h; sourceTree = "<group>"; };
+		DAACD32613803AF900E7D5BD /* Pellet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pellet.m; sourceTree = "<group>"; };
+		DAACD32813803B2200E7D5BD /* Taser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Taser.h; sourceTree = "<group>"; };
+		DAACD32913803B2400E7D5BD /* Taser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Taser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +730,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA2C369B137F86830099B124 /* Cocos2D Base */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C3A137F6CA00081CF2A /* AppDelegate.h */,
+				DA8F2C3B137F6CA00081CF2A /* AppDelegate.m */,
+				DA8F2C3D137F6CA00081CF2A /* RootViewController.h */,
+				DA8F2C3E137F6CA00081CF2A /* RootViewController.m */,
+				DA8F2C40137F6CA00081CF2A /* HelloWorldLayer.h */,
+				DA8F2C41137F6CA00081CF2A /* HelloWorldLayer.m */,
+				DA8F2C43137F6CA00081CF2A /* GameConfig.h */,
+			);
+			name = "Cocos2D Base";
+			sourceTree = "<group>";
+		};
+		DA2C369D137F86AC0099B124 /* Pathfinding */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C52137F6D630081CF2A /* ASNode.h */,
+				DA8F2C53137F6D630081CF2A /* ASNode.m */,
+				DA8F2C54137F6D630081CF2A /* AStar.h */,
+				DA8F2C55137F6D630081CF2A /* AStar.m */,
+				DA8F2C56137F6D630081CF2A /* AStarHeap.h */,
+				DA8F2C57137F6D630081CF2A /* AStarHeap.m */,
+				DA8F2C58137F6D630081CF2A /* BinaryHeap.h */,
+				DA8F2C59137F6D630081CF2A /* BinaryHeap.m */,
+			);
+			name = Pathfinding;
+			sourceTree = "<group>";
+		};
+		DA2C369E137F86CA0099B124 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C73137F6D630081CF2A /* Grid.h */,
+				DA8F2C74137F6D630081CF2A /* Grid.m */,
+				DA8F2C83137F6D630081CF2A /* SpawnManager.h */,
+				DA8F2C84137F6D630081CF2A /* SpawnManager.m */,
+				DA8F2C5F137F6D630081CF2A /* DataManager.h */,
+				DA8F2C60137F6D630081CF2A /* DataManager.m */,
+				DA8F2C62137F6D630081CF2A /* ElectricGrid.h */,
+				DA8F2C63137F6D630081CF2A /* ElectricGrid.m */,
+				DA8F2C6B137F6D630081CF2A /* GameManager.h */,
+				DA8F2C6C137F6D630081CF2A /* GameManager.m */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		DA2C369F137F86E40099B124 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C8D137F6D630081CF2A /* Triplet.h */,
+				DA8F2C8E137F6D630081CF2A /* Triplet.m */,
+				DA8F2C7D137F6D630081CF2A /* Pair.h */,
+				DA8F2C7E137F6D630081CF2A /* Pair.m */,
+				DA8F2C87137F6D630081CF2A /* TargetedAction.h */,
+				DA8F2C88137F6D630081CF2A /* TargetedAction.m */,
+				DA8F2C5C137F6D630081CF2A /* Constants.h */,
+				DA8F2C61137F6D630081CF2A /* Debugging.h */,
+				DA8F2C64137F6D630081CF2A /* Enums.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		DA8F2AC9137F6C9B0081CF2A = {
 			isa = PBXGroup;
 			children = (
@@ -738,14 +827,8 @@
 		DA8F2AE8137F6C9B0081CF2A /* ZombieZap */ = {
 			isa = PBXGroup;
 			children = (
+				DA2C369B137F86830099B124 /* Cocos2D Base */,
 				DA8F2C51137F6D630081CF2A /* Classes */,
-				DA8F2C3A137F6CA00081CF2A /* AppDelegate.h */,
-				DA8F2C3B137F6CA00081CF2A /* AppDelegate.m */,
-				DA8F2C3D137F6CA00081CF2A /* RootViewController.h */,
-				DA8F2C3E137F6CA00081CF2A /* RootViewController.m */,
-				DA8F2C40137F6CA00081CF2A /* HelloWorldLayer.h */,
-				DA8F2C41137F6CA00081CF2A /* HelloWorldLayer.m */,
-				DA8F2C43137F6CA00081CF2A /* GameConfig.h */,
 				DA8F2AE9137F6C9B0081CF2A /* Resources */,
 				DA8F2AFD137F6C9B0081CF2A /* libs */,
 				DA8F2C36137F6CA00081CF2A /* Supporting Files */,
@@ -783,11 +866,11 @@
 		DA8F2AFD137F6C9B0081CF2A /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				DA8F2CC1137F6D8F0081CF2A /* AWTextureFilter */,
 				DA8F2BF3137F6C9F0081CF2A /* LICENSE_cocos2d.txt */,
 				DA8F2C02137F6C9F0081CF2A /* LICENSE_CocosDenshion.txt */,
 				DA8F2C0D137F6C9F0081CF2A /* LICENSE_TouchJSON.txt */,
 				DA8F2C35137F6CA00081CF2A /* LICENSE_FontLabel.txt */,
+				DA8F2CC1137F6D8F0081CF2A /* AWTextureFilter */,
 				DA8F2AFE137F6C9B0081CF2A /* cocos2d */,
 				DA8F2BF4137F6C9F0081CF2A /* CocosDenshion */,
 				DA8F2C03137F6C9F0081CF2A /* cocoslive */,
@@ -1095,69 +1178,39 @@
 		DA8F2C51137F6D630081CF2A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DA8F2C52137F6D630081CF2A /* ASNode.h */,
-				DA8F2C53137F6D630081CF2A /* ASNode.m */,
-				DA8F2C54137F6D630081CF2A /* AStar.h */,
-				DA8F2C55137F6D630081CF2A /* AStar.m */,
-				DA8F2C56137F6D630081CF2A /* AStarHeap.h */,
-				DA8F2C57137F6D630081CF2A /* AStarHeap.m */,
-				DA8F2C58137F6D630081CF2A /* BinaryHeap.h */,
-				DA8F2C59137F6D630081CF2A /* BinaryHeap.m */,
+				DAACD31B138032D800E7D5BD /* Zombie */,
+				DAACD3191380323700E7D5BD /* Towers */,
+				DA2C369F137F86E40099B124 /* Utilities */,
+				DA2C369E137F86CA0099B124 /* Singletons */,
+				DA2C369D137F86AC0099B124 /* Pathfinding */,
 				DA8F2C5A137F6D630081CF2A /* BuildLayer.h */,
 				DA8F2C5B137F6D630081CF2A /* BuildLayer.m */,
-				DA8F2C5C137F6D630081CF2A /* Constants.h */,
 				DA8F2C5D137F6D630081CF2A /* Damage.h */,
 				DA8F2C5E137F6D630081CF2A /* Damage.m */,
-				DA8F2C5F137F6D630081CF2A /* DataManager.h */,
-				DA8F2C60137F6D630081CF2A /* DataManager.m */,
-				DA8F2C61137F6D630081CF2A /* Debugging.h */,
-				DA8F2C62137F6D630081CF2A /* ElectricGrid.h */,
-				DA8F2C63137F6D630081CF2A /* ElectricGrid.m */,
-				DA8F2C64137F6D630081CF2A /* Enums.h */,
 				DA8F2C65137F6D630081CF2A /* EyesLayer.h */,
 				DA8F2C66137F6D630081CF2A /* EyesLayer.m */,
 				DA8F2C67137F6D630081CF2A /* FogLayer.h */,
 				DA8F2C68137F6D630081CF2A /* FogLayer.m */,
 				DA8F2C69137F6D630081CF2A /* GameLayer.h */,
 				DA8F2C6A137F6D630081CF2A /* GameLayer.m */,
-				DA8F2C6B137F6D630081CF2A /* GameManager.h */,
-				DA8F2C6C137F6D630081CF2A /* GameManager.m */,
 				DA8F2C6D137F6D630081CF2A /* GameScene.h */,
 				DA8F2C6E137F6D630081CF2A /* GameScene.m */,
 				DA8F2C6F137F6D630081CF2A /* Generator.h */,
 				DA8F2C70137F6D630081CF2A /* Generator.m */,
 				DA8F2C71137F6D630081CF2A /* GeneratorLayer.h */,
 				DA8F2C72137F6D630081CF2A /* GeneratorLayer.m */,
-				DA8F2C73137F6D630081CF2A /* Grid.h */,
-				DA8F2C74137F6D630081CF2A /* Grid.m */,
 				DA8F2C75137F6D630081CF2A /* Home.h */,
 				DA8F2C76137F6D630081CF2A /* Home.m */,
 				DA8F2C77137F6D630081CF2A /* HUDLayer.h */,
 				DA8F2C78137F6D630081CF2A /* HUDLayer.m */,
-				DA8F2C79137F6D630081CF2A /* Light.h */,
-				DA8F2C7A137F6D630081CF2A /* Light.m */,
 				DA8F2C7B137F6D630081CF2A /* MutableTextureExtension.h */,
 				DA8F2C7C137F6D630081CF2A /* MutableTextureExtension.m */,
-				DA8F2C7D137F6D630081CF2A /* Pair.h */,
-				DA8F2C7E137F6D630081CF2A /* Pair.m */,
 				DA8F2C7F137F6D630081CF2A /* PButton.h */,
 				DA8F2C80137F6D630081CF2A /* PButton.m */,
 				DA8F2C81137F6D630081CF2A /* Spawn.h */,
 				DA8F2C82137F6D630081CF2A /* Spawn.m */,
-				DA8F2C83137F6D630081CF2A /* SpawnManager.h */,
-				DA8F2C84137F6D630081CF2A /* SpawnManager.m */,
 				DA8F2C85137F6D630081CF2A /* Spotlight.h */,
 				DA8F2C86137F6D630081CF2A /* Spotlight.m */,
-				DA8F2C87137F6D630081CF2A /* TargetedAction.h */,
-				DA8F2C88137F6D630081CF2A /* TargetedAction.m */,
-				DA8F2C89137F6D630081CF2A /* Tower.h */,
-				DA8F2C8A137F6D630081CF2A /* Tower.m */,
-				DA8F2C8B137F6D630081CF2A /* TrackingTurret.h */,
-				DA8F2C8C137F6D630081CF2A /* TrackingTurret.m */,
-				DA8F2C8D137F6D630081CF2A /* Triplet.h */,
-				DA8F2C8E137F6D630081CF2A /* Triplet.m */,
-				DA8F2C8F137F6D630081CF2A /* Turret.h */,
-				DA8F2C90137F6D630081CF2A /* Turret.m */,
 				DA8F2C91137F6D630081CF2A /* UnitMenu.h */,
 				DA8F2C92137F6D630081CF2A /* UnitMenu.m */,
 				DA8F2C93137F6D630081CF2A /* UnitMenuLayer.h */,
@@ -1166,10 +1219,6 @@
 				DA8F2C96137F6D630081CF2A /* Wire.h */,
 				DA8F2C97137F6D630081CF2A /* Wire.m */,
 				DA8F2C98137F6D630081CF2A /* WireDelegate.h */,
-				DA8F2C99137F6D630081CF2A /* Zombie.h */,
-				DA8F2C9A137F6D630081CF2A /* Zombie.m */,
-				DA8F2C9B137F6D630081CF2A /* ZombieEyes.h */,
-				DA8F2C9C137F6D630081CF2A /* ZombieEyes.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1373,6 +1422,50 @@
 			);
 			name = ZSS;
 			path = Resources/ZSS;
+			sourceTree = "<group>";
+		};
+		DAACD3191380323700E7D5BD /* Towers */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C79137F6D630081CF2A /* Light.h */,
+				DA8F2C7A137F6D630081CF2A /* Light.m */,
+				DA8F2C89137F6D630081CF2A /* Tower.h */,
+				DA8F2C8A137F6D630081CF2A /* Tower.m */,
+				DA8F2C8B137F6D630081CF2A /* TrackingTurret.h */,
+				DA8F2C8C137F6D630081CF2A /* TrackingTurret.m */,
+				DA8F2C8F137F6D630081CF2A /* Turret.h */,
+				DA8F2C90137F6D630081CF2A /* Turret.m */,
+				DAACD32813803B2200E7D5BD /* Taser.h */,
+				DAACD32913803B2400E7D5BD /* Taser.m */,
+				DA7387891380642700B1BF88 /* Tesla.h */,
+				DA73878A1380642800B1BF88 /* Tesla.m */,
+				DA73878D1380644E00B1BF88 /* SuperTesla.h */,
+				DA73878E1380644E00B1BF88 /* SuperTesla.m */,
+				DAACD32513803AF600E7D5BD /* Pellet.h */,
+				DAACD32613803AF900E7D5BD /* Pellet.m */,
+				DA7387931380647A00B1BF88 /* Gatling.h */,
+				DA7387941380647A00B1BF88 /* Gatling.m */,
+				DA738796138064A200B1BF88 /* Rail.h */,
+				DA738797138064A200B1BF88 /* Rail.m */,
+				DA738799138064B900B1BF88 /* RedLaser.h */,
+				DA73879A138064BA00B1BF88 /* RedLaser.m */,
+				DA73879C138064FA00B1BF88 /* GreenLaser.h */,
+				DA73879D138064FE00B1BF88 /* GreenLaser.m */,
+				DA73879F1380650D00B1BF88 /* BlueLaser.h */,
+				DA7387A01380651200B1BF88 /* BlueLaser.m */,
+			);
+			name = Towers;
+			sourceTree = "<group>";
+		};
+		DAACD31B138032D800E7D5BD /* Zombie */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C99137F6D630081CF2A /* Zombie.h */,
+				DA8F2C9A137F6D630081CF2A /* Zombie.m */,
+				DA8F2C9B137F6D630081CF2A /* ZombieEyes.h */,
+				DA8F2C9C137F6D630081CF2A /* ZombieEyes.m */,
+			);
+			name = Zombie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1682,6 +1775,15 @@
 				DA8F2CBF137F6D630081CF2A /* ZombieEyes.m in Sources */,
 				DA8F2CC6137F6D8F0081CF2A /* AWTextureFilter.m in Sources */,
 				DA8F2CC7137F6D8F0081CF2A /* CCTexture2DMutable.m in Sources */,
+				DAACD32713803AFB00E7D5BD /* Pellet.m in Sources */,
+				DAACD32A13803B2500E7D5BD /* Taser.m in Sources */,
+				DA73878B1380642800B1BF88 /* Tesla.m in Sources */,
+				DA73878F1380644E00B1BF88 /* SuperTesla.m in Sources */,
+				DA7387951380647B00B1BF88 /* Gatling.m in Sources */,
+				DA738798138064A300B1BF88 /* Rail.m in Sources */,
+				DA73879B138064BB00B1BF88 /* RedLaser.m in Sources */,
+				DA73879E1380650100B1BF88 /* GreenLaser.m in Sources */,
+				DA7387A11380651600B1BF88 /* BlueLaser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
