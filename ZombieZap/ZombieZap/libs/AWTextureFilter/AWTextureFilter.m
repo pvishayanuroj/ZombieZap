@@ -77,7 +77,7 @@
 				for (i = 0; i<kernelSize; i++){
 					read = yi + ri + i;
 					
-					pixel = &originalData[read];
+					pixel = (ccColor4B *)&originalData[read];
 					cr+= pixel->r*kernel[i];
 					cg+= pixel->g*kernel[i];
 					cb+= pixel->b*kernel[i];
