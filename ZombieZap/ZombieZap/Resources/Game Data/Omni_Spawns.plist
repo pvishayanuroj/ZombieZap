@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Start</key>
+		<string>(15, 0)</string>
+		<key>Interval</key>
+		<real>2.5</real>
+		<key>Objective</key>
+		<string>(15, 15)</string>
+	</dict>
+	<dict>
+		<key>Start</key>
+		<string>(15, 31)</string>
+		<key>Interval</key>
+		<real>3.5</real>
+		<key>Objective</key>
+		<string>(15, 15)</string>
+	</dict>
+	<dict>
+		<key>Start</key>
+		<string>(0, 15)</string>
+		<key>Interval</key>
+		<real>3.25</real>
+		<key>Objective</key>
+		<string>(15, 15)</string>
+	</dict>
+	<dict>
+		<key>Start</key>
+		<string>(31, 15)</string>
+		<key>Interval</key>
+		<integer>3</integer>
+		<key>Objective</key>
+		<string>(15, 15)</string>
+	</dict>
+</array>
+</plist>
