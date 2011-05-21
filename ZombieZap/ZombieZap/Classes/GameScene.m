@@ -105,18 +105,27 @@
 
 - (void) addButtons:(BuildLayer *)buildLayer
 {	
-	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Laser Turret L1 02.png" buttonType:B_TASER];
+	PButton *taser = [PButton pButton:@"taser_button.png" placementImage:@"Tesla Turret L1 02.png" buttonType:B_TASER];
 	taser.placementSpriteDrawOffset = CGPointMake(0, 12);
+    
+    PButton *gunButton = [PButton pButton:@"gun_button.png" placementImage:@"Gun Turret L1 02.png" buttonType:B_GUN];
+	gunButton.placementSpriteDrawOffset = CGPointMake(0, 12);    
+    
+    PButton *laserButton = [PButton pButton:@"laser_button.png" placementImage:@"Laser Turret L1 02.png" buttonType:B_LASER];
+	laserButton.placementSpriteDrawOffset = CGPointMake(0, 12);    
+    
 	PButton *light = [PButton pButton:@"light_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_LIGHT];
 	PButton *wire = [PButton pButton:@"wire_button.png" placementImage:@"Zombie Death 01.png" toggledImage:@"wire_button_pressed.png" buttonType:B_WIRE];	
-	PButton *test1 = [PButton pButton:@"test1_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST1];	
-	PButton *test2 = [PButton pButton:@"test2_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST2];		
+	//PButton *test1 = [PButton pButton:@"test1_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST1];	
+	//PButton *test2 = [PButton pButton:@"test2_button.png" placementImage:@"Zombie Death 01.png" buttonType:B_TEST2];		
 	
 	[buildLayer addButton:taser];
+	[buildLayer addButton:gunButton];
+	[buildLayer addButton:laserButton];    
 	[buildLayer addButton:light];
 	[buildLayer addButton:wire];	
-	[buildLayer addButton:test1];
-	[buildLayer addButton:test2];
+	//[buildLayer addButton:test1];
+	//[buildLayer addButton:test2];
 }
 
 - (void) animationLoader:(NSString *)unitListName spriteSheetName:(NSString *)spriteSheetName

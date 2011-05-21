@@ -17,6 +17,8 @@
 	
 	BOOL isLinedUp_;	
 	
+    NSString *spriteFileName_;
+    
 	NSInteger spriteFacing_;
 	
 	NSUInteger spriteRotationInterval_;	
@@ -25,9 +27,9 @@
 	
 }
 
-+ (id) trackingTurretWithPos:(Pair *)startPos;
++ (id) trackingTurretWithPos:(Pair *)startPos filename:(NSString *)filename;
 
-- (id) initTrackingTurretWithPos:(Pair *)startPos;
+- (id) initTrackingTurretWithPos:(Pair *)startPos filename:(NSString *)filename;
 
 - (void) update:(ccTime)dt;
 

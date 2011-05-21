@@ -13,4 +13,8 @@
     
 }
 
++ (id) gatlingWithPos:(Pair *)pos;
+
+- (id) initGatlingWithPos:(Pair *)pos;
+
 @end

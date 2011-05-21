@@ -11,6 +11,17 @@
 
 @interface SuperTesla : Turret {
     
+	/** Stored idle animation (this is RepeatForever action) */
+	CCAction *idleAnimation_;        
+    
 }
+
++ (id) superTeslaWithPos:(Pair *)pos;
+
+- (id) initSuperTeslaWithPos:(Pair *)pos;
+
+- (void) initActions;
+
+- (void) showIdle;
 
 @end

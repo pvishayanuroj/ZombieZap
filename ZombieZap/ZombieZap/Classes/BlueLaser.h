@@ -13,4 +13,8 @@
     
 }
 
++ (id) blueLaserWithPos:(Pair *)pos;
+
+- (id) initBlueLaserWithPos:(Pair *)pos;
+
 @end

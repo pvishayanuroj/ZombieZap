@@ -33,8 +33,10 @@ typedef enum {
 	B_WIRE = 0, 
 	B_LIGHT = 1,
 	B_TASER = 2,
-	B_TEST1 = 3,
-	B_TEST2 = 4
+    B_GUN = 3,
+    B_LASER = 4,
+	B_TEST1 = 5,
+	B_TEST2 = 6
 } BuildButtonType;
 
 typedef enum {

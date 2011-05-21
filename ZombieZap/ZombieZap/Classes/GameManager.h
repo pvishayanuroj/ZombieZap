@@ -67,7 +67,14 @@
 
 - (void) removeZombie:(Zombie *)zombie;
 
-- (void) addTurretWithPos:(Pair *)pos;
+- (void) addTeslaWithPos:(Pair *)pos level:(NSUInteger)level;
+
+- (void) addGunWithPos:(Pair *)pos level:(NSUInteger)level;
+
+- (void) addLaserWithPos:(Pair *)pos level:(NSUInteger)level;
+
+- (void) addTurret:(Turret *)turret withPos:(Pair *)pos;
+//- (void) addTurretWithPos:(Pair *)pos;
 
 - (void) removeTurret:(Turret *)turret;
 

@@ -13,4 +13,8 @@
     
 }
 
++ (id) railWithPos:(Pair *)pos;
+
+- (id) initRailWithPos:(Pair *)pos;
+
 @end

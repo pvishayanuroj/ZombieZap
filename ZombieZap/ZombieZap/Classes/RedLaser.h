@@ -13,4 +13,8 @@
     
 }
 
++ (id) redLaserWithPos:(Pair *)pos;
+
+- (id) initRedLaserWithPos:(Pair *)pos;
+
 @end

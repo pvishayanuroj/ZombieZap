@@ -12,12 +12,12 @@
 
 @implementation TrackingTurret
 
-+ (id) trackingTurretWithPos:(Pair *)startPos
++ (id) trackingTurretWithPos:(Pair *)startPos filename:(NSString *)filename
 {
-	return [[[self alloc] initTrackingTurretWithPos:startPos] autorelease];
+	return [[[self alloc] initTrackingTurretWithPos:startPos filename:filename] autorelease];
 }
 
-- (id) initTrackingTurretWithPos:(Pair *)startPos
+- (id) initTrackingTurretWithPos:(Pair *)startPos filename:(NSString *)filename
 {
 	if ((self = [super initTurretWithPos:startPos])) {
 		
@@ -26,6 +26,7 @@
 		turretRotation_ = self.rotation;
 		turretRotation_ = 45;		
 		isLinedUp_ = NO;
+        spriteFileName_ = [filename retain];
 		
 		// Tower attributes
 		rotationSpeed_ = 20.0f;
@@ -104,7 +105,7 @@
 		[self removeChild:sprite_ cleanup:YES];
 		[sprite_ release];		
 		
-		NSString *spriteFrameName = [NSString stringWithFormat:@"Laser Turret L1 %02d.png", (abs(index) + 1)];
+		NSString *spriteFrameName = [NSString stringWithFormat:@"%@ %02d.png", spriteFileName_, (abs(index) + 1)];
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:spriteFrameName] retain];
 		sprite_.flipX = (index < 0);
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);
@@ -146,6 +147,8 @@
 
 - (void) dealloc
 {
+    [spriteFileName_ release];
+    
 	[super dealloc];
 }
 

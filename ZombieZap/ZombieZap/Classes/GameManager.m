@@ -27,6 +27,15 @@
 #import "TrackingTurret.h"
 #import "UnitMenuLayer.h"
 #import "Generator.h"
+#import "Taser.h"
+#import "Tesla.h"
+#import "SuperTesla.h"
+#import "Pellet.h"
+#import "Gatling.h"
+#import "Rail.h"
+#import "RedLaser.h"
+#import "GreenLaser.h"
+#import "BlueLaser.h"
 
 // For singleton
 static GameManager *_gameManager = nil;
@@ -199,13 +208,79 @@ static GameManager *_gameManager = nil;
 	[zombies_ removeObject:zombie];
 }
 
-- (void) addTurretWithPos:(Pair *)pos
+- (void) addTeslaWithPos:(Pair *)pos level:(NSUInteger)level
+{
+    NSAssert(gameLayer_ != nil, @"Trying to add a Tesla Turret without a registered Game Layer");
+    
+    Turret *turret;
+    switch (level) {
+        case 1:
+            turret = [Taser taserWithPos:pos];
+            break;
+        case 2:
+            turret = [Tesla teslaWithPos:pos];
+            break;
+        case 3:
+            turret = [SuperTesla superTeslaWithPos:pos];
+            break;
+        default:
+            break;
+    }
+    
+    [self addTurret:turret withPos:pos];
+}
+
+- (void) addGunWithPos:(Pair *)pos level:(NSUInteger)level
+{
+    NSAssert(gameLayer_ != nil, @"Trying to add a Gun Turret without a registered Game Layer");
+    
+    Turret *turret;
+    switch (level) {
+        case 1:
+            turret = [Pellet pelletWithPos:pos];
+            break;
+        case 2:
+            turret = [Gatling gatlingWithPos:pos];
+            break;
+        case 3:
+            turret = [Rail railWithPos:pos];
+            break;
+        default:
+            break;
+    }
+    
+    [self addTurret:turret withPos:pos];
+}
+
+- (void) addLaserWithPos:(Pair *)pos level:(NSUInteger)level
+{
+    NSAssert(gameLayer_ != nil, @"Trying to add a Laser Turret without a registered Game Layer");
+    
+    Turret *turret;
+    switch (level) {
+        case 1:
+            turret = [RedLaser redLaserWithPos:pos];
+            break;
+        case 2:
+            turret = [GreenLaser greenLaserWithPos:pos];
+            break;
+        case 3:
+            turret = [BlueLaser blueLaserWithPos:pos];
+            break;
+        default:
+            break;
+    }
+    
+    [self addTurret:turret withPos:pos];
+}
+
+- (void) addTurret:(Turret *)turret withPos:(Pair *)pos
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
 	
 	// Create the turret
 	//Turret *turret = [Turret turretWithPos:pos];
-	TrackingTurret *turret = [TrackingTurret trackingTurretWithPos:pos];
+	//TrackingTurret *turret = [TrackingTurret trackingTurretWithPos:pos];
 	
 	[towerLocations_ setObject:turret forKey:pos];
 	[gameLayer_ addChild:turret z:kTower];

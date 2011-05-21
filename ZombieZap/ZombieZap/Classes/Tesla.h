@@ -10,7 +10,18 @@
 
 
 @interface Tesla : Turret {
+
+	/** Stored idle animation (this is RepeatForever action) */
+	CCAction *idleAnimation_;        
     
 }
+
++ (id) teslaWithPos:(Pair *)pos;
+
+- (id) initTeslaWithPos:(Pair *)pos;
+
+- (void) initActions;
+
+- (void) showIdle;
 
 @end

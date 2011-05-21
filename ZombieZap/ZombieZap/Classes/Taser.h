@@ -10,7 +10,18 @@
 
 
 @interface Taser : Turret {
+
+	/** Stored idle animation (this is RepeatForever action) */
+	CCAction *idleAnimation_;    
     
 }
+
++ (id) taserWithPos:(Pair *)pos;
+
+- (id) initTaserWithPos:(Pair *)pos;
+
+- (void) initActions;
+
+- (void) showIdle;
 
 @end

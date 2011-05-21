@@ -13,4 +13,8 @@
     
 }
 
++ (id) pelletWithPos:(Pair *)pos;
+
+- (id) initPelletWithPos:(Pair *)pos;
+
 @end

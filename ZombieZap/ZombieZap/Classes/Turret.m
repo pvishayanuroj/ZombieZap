@@ -25,13 +25,14 @@ static NSUInteger countID = 0;
 {
 	if ((self = [super initTowerWithPos:startPos])) {
 		
+        /*
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Laser Turret L1 02.png"] retain];	
 		[self addChild:sprite_];		
 		
 		// Take care of any offset
 		spriteDrawOffset_ = CGPointMake(0, 12);
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		
-		
+		*/
 		unitID_ = countID++;
 		
 		// Tower attributes
@@ -202,7 +203,7 @@ static NSUInteger countID = 0;
 {
 	NSLog(@"%@ dealloc'd", self);	
 	
-	[sprite_ release];
+	//[sprite_ release];
 	[gridPos_ release];
 	
 	[attackingAnimation_ release];

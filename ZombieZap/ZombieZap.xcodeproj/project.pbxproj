@@ -14,6 +14,9 @@
 		DA73879B138064BB00B1BF88 /* RedLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73879A138064BA00B1BF88 /* RedLaser.m */; };
 		DA73879E1380650100B1BF88 /* GreenLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73879D138064FE00B1BF88 /* GreenLaser.m */; };
 		DA7387A11380651600B1BF88 /* BlueLaser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7387A01380651200B1BF88 /* BlueLaser.m */; };
+		DA766F2E1387E8A6004E0E13 /* gun_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2B1387E89F004E0E13 /* gun_button.png */; };
+		DA766F2F1387E8A6004E0E13 /* laser_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2C1387E8A0004E0E13 /* laser_button.png */; };
+		DA766F301387E8A6004E0E13 /* upgrade_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2D1387E8A2004E0E13 /* upgrade_button.png */; };
 		DA8F2AD9137F6C9B0081CF2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */; };
 		DA8F2ADB137F6C9B0081CF2A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */; };
 		DA8F2ADD137F6C9B0081CF2A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADC137F6C9B0081CF2A /* OpenAL.framework */; };
@@ -232,11 +235,6 @@
 		DA8F2D6B137F6DC80081CF2A /* Lightning B5 03.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D0E137F6DC80081CF2A /* Lightning B5 03.png */; };
 		DA8F2D6C137F6DC80081CF2A /* Lightning B5 04.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D0F137F6DC80081CF2A /* Lightning B5 04.png */; };
 		DA8F2D6D137F6DC80081CF2A /* Lightning B5 05.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D10137F6DC80081CF2A /* Lightning B5 05.png */; };
-		DA8F2D6E137F6DC80081CF2A /* Laser Turret L1 01.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D12137F6DC80081CF2A /* Laser Turret L1 01.png */; };
-		DA8F2D6F137F6DC80081CF2A /* Laser Turret L1 02.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D13137F6DC80081CF2A /* Laser Turret L1 02.png */; };
-		DA8F2D70137F6DC80081CF2A /* Laser Turret L1 03.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D14137F6DC80081CF2A /* Laser Turret L1 03.png */; };
-		DA8F2D71137F6DC80081CF2A /* Laser Turret L1 04.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D15137F6DC80081CF2A /* Laser Turret L1 04.png */; };
-		DA8F2D72137F6DC80081CF2A /* Laser Turret L1 05.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D16137F6DC80081CF2A /* Laser Turret L1 05.png */; };
 		DA8F2D73137F6DC80081CF2A /* Zombie Attacking 01.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D18137F6DC80081CF2A /* Zombie Attacking 01.png */; };
 		DA8F2D74137F6DC80081CF2A /* Zombie Attacking 02.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D19137F6DC80081CF2A /* Zombie Attacking 02.png */; };
 		DA8F2D75137F6DC80081CF2A /* Zombie Attacking 03.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8F2D1A137F6DC80081CF2A /* Zombie Attacking 03.png */; };
@@ -288,6 +286,9 @@
 		DA73879D138064FE00B1BF88 /* GreenLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenLaser.m; sourceTree = "<group>"; };
 		DA73879F1380650D00B1BF88 /* BlueLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueLaser.h; sourceTree = "<group>"; };
 		DA7387A01380651200B1BF88 /* BlueLaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueLaser.m; sourceTree = "<group>"; };
+		DA766F2B1387E89F004E0E13 /* gun_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun_button.png; sourceTree = "<group>"; };
+		DA766F2C1387E8A0004E0E13 /* laser_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_button.png; sourceTree = "<group>"; };
+		DA766F2D1387E8A2004E0E13 /* upgrade_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_button.png; sourceTree = "<group>"; };
 		DA8F2AD4137F6C9B0081CF2A /* ZombieZap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieZap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -668,11 +669,6 @@
 		DA8F2D0E137F6DC80081CF2A /* Lightning B5 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lightning B5 03.png"; sourceTree = "<group>"; };
 		DA8F2D0F137F6DC80081CF2A /* Lightning B5 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lightning B5 04.png"; sourceTree = "<group>"; };
 		DA8F2D10137F6DC80081CF2A /* Lightning B5 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lightning B5 05.png"; sourceTree = "<group>"; };
-		DA8F2D12137F6DC80081CF2A /* Laser Turret L1 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Laser Turret L1 01.png"; sourceTree = "<group>"; };
-		DA8F2D13137F6DC80081CF2A /* Laser Turret L1 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Laser Turret L1 02.png"; sourceTree = "<group>"; };
-		DA8F2D14137F6DC80081CF2A /* Laser Turret L1 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Laser Turret L1 03.png"; sourceTree = "<group>"; };
-		DA8F2D15137F6DC80081CF2A /* Laser Turret L1 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Laser Turret L1 04.png"; sourceTree = "<group>"; };
-		DA8F2D16137F6DC80081CF2A /* Laser Turret L1 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Laser Turret L1 05.png"; sourceTree = "<group>"; };
 		DA8F2D18137F6DC80081CF2A /* Zombie Attacking 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zombie Attacking 01.png"; sourceTree = "<group>"; };
 		DA8F2D19137F6DC80081CF2A /* Zombie Attacking 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zombie Attacking 02.png"; sourceTree = "<group>"; };
 		DA8F2D1A137F6DC80081CF2A /* Zombie Attacking 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zombie Attacking 03.png"; sourceTree = "<group>"; };
@@ -1238,6 +1234,9 @@
 		DA8F2CC8137F6DC80081CF2A /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				DA766F2B1387E89F004E0E13 /* gun_button.png */,
+				DA766F2C1387E8A0004E0E13 /* laser_button.png */,
+				DA766F2D1387E8A2004E0E13 /* upgrade_button.png */,
 				DA8F2CC9137F6DC80081CF2A /* light_button.png */,
 				DA8F2CCA137F6DC80081CF2A /* taser_button.png */,
 				DA8F2CCB137F6DC80081CF2A /* test1_button.png */,
@@ -1360,11 +1359,6 @@
 		DA8F2D11137F6DC80081CF2A /* Towers */ = {
 			isa = PBXGroup;
 			children = (
-				DA8F2D12137F6DC80081CF2A /* Laser Turret L1 01.png */,
-				DA8F2D13137F6DC80081CF2A /* Laser Turret L1 02.png */,
-				DA8F2D14137F6DC80081CF2A /* Laser Turret L1 03.png */,
-				DA8F2D15137F6DC80081CF2A /* Laser Turret L1 04.png */,
-				DA8F2D16137F6DC80081CF2A /* Laser Turret L1 05.png */,
 			);
 			path = Towers;
 			sourceTree = "<group>";
@@ -1593,11 +1587,6 @@
 				DA8F2D6B137F6DC80081CF2A /* Lightning B5 03.png in Resources */,
 				DA8F2D6C137F6DC80081CF2A /* Lightning B5 04.png in Resources */,
 				DA8F2D6D137F6DC80081CF2A /* Lightning B5 05.png in Resources */,
-				DA8F2D6E137F6DC80081CF2A /* Laser Turret L1 01.png in Resources */,
-				DA8F2D6F137F6DC80081CF2A /* Laser Turret L1 02.png in Resources */,
-				DA8F2D70137F6DC80081CF2A /* Laser Turret L1 03.png in Resources */,
-				DA8F2D71137F6DC80081CF2A /* Laser Turret L1 04.png in Resources */,
-				DA8F2D72137F6DC80081CF2A /* Laser Turret L1 05.png in Resources */,
 				DA8F2D73137F6DC80081CF2A /* Zombie Attacking 01.png in Resources */,
 				DA8F2D74137F6DC80081CF2A /* Zombie Attacking 02.png in Resources */,
 				DA8F2D75137F6DC80081CF2A /* Zombie Attacking 03.png in Resources */,
@@ -1630,6 +1619,9 @@
 				DA8F2D9E137F6EE30081CF2A /* lightning.zss in Resources */,
 				DA8F2D9F137F6EE30081CF2A /* spritesheet.zss in Resources */,
 				DA8F2DA0137F6EE30081CF2A /* towers.zss in Resources */,
+				DA766F2E1387E8A6004E0E13 /* gun_button.png in Resources */,
+				DA766F2F1387E8A6004E0E13 /* laser_button.png in Resources */,
+				DA766F301387E8A6004E0E13 /* upgrade_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

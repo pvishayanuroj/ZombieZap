@@ -11,4 +11,31 @@
 
 @implementation BlueLaser
 
++ (id) blueLaserWithPos:(Pair *)pos
+{
+    return [[[self alloc] initBlueLaserWithPos:pos] autorelease];
+}
+
+- (id) initBlueLaserWithPos:(Pair *)pos
+{
+    if ((self = [super initTrackingTurretWithPos:pos filename:@"Laser Turret L3"])) {
+        
+		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Laser Turret L3 01.png"] retain];	
+		[self addChild:sprite_];		
+		
+		// Take care of any offset
+		spriteDrawOffset_ = CGPointMake(0, 12);
+		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
+        
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+	[sprite_ release];    
+    
+    [super dealloc];
+}
+
 @end
