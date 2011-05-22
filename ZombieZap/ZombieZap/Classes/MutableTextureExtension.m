@@ -7,7 +7,7 @@
 //
 
 #import "MutableTextureExtension.h"
-
+#import "UtilFuncs.h"
 
 @implementation MutableTextureExtension
 
@@ -228,7 +228,7 @@
 
 - (GLubyte) getAlphaGradient:(NSInteger)x y:(NSInteger)y
 {	
-	CGFloat dist = [self distanceNoRoot:center_ b:ccp(x,y)];
+	CGFloat dist = [UtilFuncs distanceNoRoot:center_ b:ccp(x,y)];
 	
 	if (dist < thresholdSquared_) {
 		return 0;
@@ -239,13 +239,6 @@
 	if (a > 1)
 		return 255;
 	return 255*a;
-}
-
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
-{
-	CGFloat t1 = a.x - b.x;
-	CGFloat t2 = a.y - b.y;
-	return t1*t1 + t2*t2;
 }
 
 - (void) dealloc

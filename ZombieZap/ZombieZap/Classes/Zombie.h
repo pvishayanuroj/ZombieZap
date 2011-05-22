@@ -94,8 +94,6 @@
 
 - (void) reachedNext;
 
-- (CGFloat) euclideanDistance:(CGPoint)a b:(CGPoint)b;
-
 - (void) moveTo:(Pair *)dest;
 
 - (void) turnTowards:(CGPoint)pos;

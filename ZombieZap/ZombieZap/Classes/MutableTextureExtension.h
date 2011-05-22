@@ -35,5 +35,5 @@
 - (void) drawHorizontalLine:(NSInteger)x1 x2:(NSInteger)x2 y:(NSInteger)y alpha:(GLubyte)alpha;
 - (void) drawOpacityGradientAt:(CGPoint)origin innerR:(NSUInteger)innerR outerR:(NSUInteger)outerR innerT:(GLubyte)innerT outerT:(GLubyte)outerT;
 - (GLubyte) getAlphaGradient:(NSInteger)x y:(NSInteger)y;
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b;
+
 @end

@@ -19,8 +19,6 @@
 
 - (id) initDamageFrom:(CGPoint)from to:(CGPoint)to;
 
-- (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b;
-
 - (void) finish;
 
 @end

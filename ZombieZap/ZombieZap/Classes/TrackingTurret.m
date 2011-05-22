@@ -9,6 +9,7 @@
 #import "TrackingTurret.h"
 #import "GameManager.h"
 #import "Zombie.h"
+#import "UtilFuncs.h"
 
 @implementation TrackingTurret
 
@@ -48,7 +49,7 @@
 	// Make sure we have a target, we have power, we aren't dead, and that we aren't already shooting 
 	// (while shooting is instantaneous, we want the turret to stay locked on while the damage animation plays)
 	if (target_ && hasPower_ && !isDead_ && !isFiring_) {
-		CGFloat theta = [self getAngleFrom:self.position to:target_.position];
+		CGFloat theta = [UtilFuncs getAngleFrom:self.position to:target_.position];
 		theta = CC_RADIANS_TO_DEGREES(theta);
 		
 		// Convert from one system to another - at this point, theta is between -pi and +pi

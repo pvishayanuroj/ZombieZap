@@ -8,6 +8,7 @@
 
 #import "LightningDamage.h"
 #import "TargetedAction.h"
+#import "UtilFuncs.h"
 
 @implementation LightningDamage
 
@@ -18,12 +19,12 @@
 
 - (id) initLightningDamageFrom:(CGPoint)from to:(CGPoint)to
 {
-	if ((self = [super initDamageFrom:from to:to])) {
+	if ((self = [super init])) {
 		
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Lightning B1 01.png"] retain];
 		[self addChild:sprite_];
         
-		CGFloat theta = [self getAngleFrom:from to:to];
+		CGFloat theta = [UtilFuncs getAngleFrom:from to:to];
 		theta = CC_RADIANS_TO_DEGREES(theta);
 		theta = 90 - theta;
 		

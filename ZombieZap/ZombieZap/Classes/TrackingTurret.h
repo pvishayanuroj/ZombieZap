@@ -39,7 +39,4 @@
 
 - (void) attackingRoutine;
 
-/** Angle from point a to point b. Returns values between -pi/2 and 3*pi/2 increasing in a CCW direction. The right is considered 0 degrees. */
-- (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b;
-
 @end

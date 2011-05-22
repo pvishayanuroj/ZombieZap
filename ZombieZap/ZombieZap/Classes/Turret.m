@@ -11,6 +11,7 @@
 #import "Grid.h"
 #import "GameManager.h"
 #import "TargetedAction.h"
+#import "UtilFuncs.h"
 
 @implementation Turret
 
@@ -75,13 +76,6 @@ static NSUInteger countID = 0;
 	isFiring_ = NO;
 }
 
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
-{
-	CGFloat t1 = a.x - b.x;
-	CGFloat t2 = a.y - b.y;
-	return t1*t1 + t2*t2;
-}
-
 - (void) update:(ccTime)dt
 {
 	[self targettingRoutine];
@@ -96,7 +90,7 @@ static NSUInteger countID = 0;
     // If turret currently has a target that isn't dead
 	if (target_) {
 		if (!target_.isDead) {
-			distance = [self distanceNoRoot:target_.position b:self.position];
+			distance = [UtilFuncs distanceNoRoot:target_.position b:self.position];
             // If target is still within range
 			if (distance < rangeSquared_) {
 				return;
@@ -116,7 +110,7 @@ static NSUInteger countID = 0;
 
 		// Zombies that are dying are not taken out of the manager array yet, so we need to double check
 		if (!z.isDead) {
-			distance = [self distanceNoRoot:z.position b:self.position];
+			distance = [UtilFuncs distanceNoRoot:z.position b:self.position];
 			if (distance < rangeSquared_ && distance < shortestDistance) {
 				shortestDistance = distance;
 				closestZombie = z;

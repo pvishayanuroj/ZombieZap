@@ -10,6 +10,8 @@
 		DA149C121387F4A1005F7E0F /* RedLaserDamage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149C111387F4A1005F7E0F /* RedLaserDamage.m */; };
 		DA149C151387F4E2005F7E0F /* LightningDamage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149C141387F4E2005F7E0F /* LightningDamage.m */; };
 		DA149C171387FB25005F7E0F /* red_laser.png in Resources */ = {isa = PBXBuildFile; fileRef = DA149C161387FB25005F7E0F /* red_laser.png */; };
+		DA2AA5C613897BD400AF98BD /* GunDamage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2AA5C513897BD200AF98BD /* GunDamage.m */; };
+		DA2AA5CA13897C5F00AF98BD /* UtilFuncs.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2AA5C913897C5B00AF98BD /* UtilFuncs.m */; };
 		DA73878B1380642800B1BF88 /* Tesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878A1380642800B1BF88 /* Tesla.m */; };
 		DA73878F1380644E00B1BF88 /* SuperTesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878E1380644E00B1BF88 /* SuperTesla.m */; };
 		DA7387951380647B00B1BF88 /* Gatling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7387941380647A00B1BF88 /* Gatling.m */; };
@@ -280,6 +282,10 @@
 		DA149C131387F4E2005F7E0F /* LightningDamage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningDamage.h; sourceTree = "<group>"; };
 		DA149C141387F4E2005F7E0F /* LightningDamage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningDamage.m; sourceTree = "<group>"; };
 		DA149C161387FB25005F7E0F /* red_laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_laser.png; sourceTree = "<group>"; };
+		DA2AA5C413897BD000AF98BD /* GunDamage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GunDamage.h; sourceTree = "<group>"; };
+		DA2AA5C513897BD200AF98BD /* GunDamage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GunDamage.m; sourceTree = "<group>"; };
+		DA2AA5C813897C5800AF98BD /* UtilFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilFuncs.h; sourceTree = "<group>"; };
+		DA2AA5C913897C5B00AF98BD /* UtilFuncs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilFuncs.m; sourceTree = "<group>"; };
 		DA7387891380642700B1BF88 /* Tesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesla.h; sourceTree = "<group>"; };
 		DA73878A1380642800B1BF88 /* Tesla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tesla.m; sourceTree = "<group>"; };
 		DA73878D1380644E00B1BF88 /* SuperTesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperTesla.h; sourceTree = "<group>"; };
@@ -743,6 +749,8 @@
 				DA149C111387F4A1005F7E0F /* RedLaserDamage.m */,
 				DA149C131387F4E2005F7E0F /* LightningDamage.h */,
 				DA149C141387F4E2005F7E0F /* LightningDamage.m */,
+				DA2AA5C413897BD000AF98BD /* GunDamage.h */,
+				DA2AA5C513897BD200AF98BD /* GunDamage.m */,
 			);
 			name = Damage;
 			sourceTree = "<group>";
@@ -805,6 +813,8 @@
 				DA8F2C5C137F6D630081CF2A /* Constants.h */,
 				DA8F2C61137F6D630081CF2A /* Debugging.h */,
 				DA8F2C64137F6D630081CF2A /* Enums.h */,
+				DA2AA5C813897C5800AF98BD /* UtilFuncs.h */,
+				DA2AA5C913897C5B00AF98BD /* UtilFuncs.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1800,6 +1810,8 @@
 				DA7387A11380651600B1BF88 /* BlueLaser.m in Sources */,
 				DA149C121387F4A1005F7E0F /* RedLaserDamage.m in Sources */,
 				DA149C151387F4E2005F7E0F /* LightningDamage.m in Sources */,
+				DA2AA5C613897BD400AF98BD /* GunDamage.m in Sources */,
+				DA2AA5CA13897C5F00AF98BD /* UtilFuncs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

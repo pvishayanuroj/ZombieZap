@@ -38,19 +38,4 @@
 	//NSLog(@"%@ RC: %d\n", self, [self retainCount]);	
 }
 
-// Returns values between -pi/2 and 3*pi/2
-- (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b
-{
-	// Interesting note, floats can divide by zero
-	CGFloat tempX = b.x - a.x;
-	CGFloat tempY = b.y - a.y;
-	
-	CGFloat radians = atan(tempY/tempX);
-	
-	if (b.x < a.x)
-		radians	+= M_PI;
-	
-	return radians;
-}
-
 @end

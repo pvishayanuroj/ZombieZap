@@ -13,6 +13,7 @@
 #import "Grid.h"
 #import "GameManager.h"
 #import "TargetedAction.h"
+#import "UtilFuncs.h"
 
 @implementation Zombie
 
@@ -101,6 +102,11 @@ static NSUInteger countID = 0;
 - (void) update:(ccTime)dt
 {
 	eyes_.position = self.position;
+    
+#if DEBUG_ZOMBIESBENIGN
+    return;
+#endif
+    
 	[self targettingRoutine];
 	[self attackingRoutine];
 }
@@ -156,20 +162,6 @@ static NSUInteger countID = 0;
 	
 }
 
-- (CGFloat) euclideanDistance:(CGPoint)a b:(CGPoint)b
-{
-	CGFloat t1 = a.x - b.x;
-	CGFloat t2 = a.y - b.y;
-	return sqrt(t1*t1 + t2*t2);
-}
-
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
-{
-	CGFloat t1 = a.x - b.x;
-	CGFloat t2 = a.y - b.y;
-	return t1*t1 + t2*t2;
-}
-
 - (void) turnTowards:(CGPoint)pos
 {
 	CGPoint res = ccpSub(pos, self.position);
@@ -217,7 +209,7 @@ static NSUInteger countID = 0;
 			storedTarget_ = nil;
 		}
 		// If there's a tower, see if it's in range. If it's in range, set target
-		CGFloat dist = [self distanceNoRoot:self.position b:storedTarget_.position];		
+		CGFloat dist = [UtilFuncs distanceNoRoot:self.position b:storedTarget_.position];		
 		if (dist < rangeSquared_) {
 			target_ = storedTarget_;
 			[storedTarget_ release];
@@ -272,7 +264,7 @@ static NSUInteger countID = 0;
 	[self showWalking];
 	
 	CGPoint pos = [[Grid grid] gridToPixel:currentDest_];	
-	CGFloat dist = [self euclideanDistance:self.position b:pos];
+	CGFloat dist = [UtilFuncs euclideanDistance:self.position b:pos];
 	
 	CCFiniteTimeAction *move = [CCMoveTo actionWithDuration:dist/moveRate_ position:pos];
 	CCFiniteTimeAction *done = [CCCallFunc actionWithTarget:self selector:@selector(reachedNext)];	

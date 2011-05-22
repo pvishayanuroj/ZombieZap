@@ -9,6 +9,7 @@
 #import "RedLaserDamage.h"
 #import "Turret.h"
 #import "Zombie.h"
+#import "UtilFuncs.h"
 
 @implementation RedLaserDamage
 
@@ -41,16 +42,13 @@
     return self;
 }
 
-- (void) positionBeam
+- (void) dealloc
 {
-    CGFloat theta = [self getAngleFrom:turret_.position to:target_.position];
-    theta = CC_RADIANS_TO_DEGREES(theta);
-    theta = 180 - theta;
+	[sprite_ release];    
+    [turret_ release];
+    [target_ release];
     
-    CGFloat dist = ccpDistance(turret_.position, target_.position);
-    self.position = ccpMidpoint(turret_.position, target_.position);
-    self.rotation = theta;
-    self.scaleX = dist/sprite_.contentSize.width;         
+    [super dealloc];
 }
 
 - (void) update:(ccTime)dt
@@ -60,7 +58,7 @@
     }
     else {
         // Check target distance
-        CGFloat distance = [self distanceNoRoot:target_.position b:turret_.position];
+        CGFloat distance = [UtilFuncs distanceNoRoot:target_.position b:turret_.position];
         // If target still in range, stay on target
         if (distance < rangeSquared_) {    
             [self positionBeam];
@@ -71,20 +69,16 @@
     }
 }
 
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
+- (void) positionBeam
 {
-	CGFloat t1 = a.x - b.x;
-	CGFloat t2 = a.y - b.y;
-	return t1*t1 + t2*t2;
-}
-
-- (void) dealloc
-{
-	[sprite_ release];    
-    [turret_ release];
-    [target_ release];
+    CGFloat theta = [UtilFuncs getAngleFrom:turret_.position to:target_.position];
+    theta = CC_RADIANS_TO_DEGREES(theta);
+    theta = 180 - theta;
     
-    [super dealloc];
+    CGFloat dist = ccpDistance(turret_.position, target_.position);
+    self.position = ccpMidpoint(turret_.position, target_.position);
+    self.rotation = theta;
+    self.scaleX = dist/sprite_.contentSize.width;         
 }
 
 @end

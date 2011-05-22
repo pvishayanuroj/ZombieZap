@@ -31,6 +31,4 @@
 
 - (void) positionBeam;
 
-- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b;
-
 @end
