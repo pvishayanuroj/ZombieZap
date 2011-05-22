@@ -13,4 +13,8 @@
     
 }
 
++ (id) gunDamageFrom:(CGPoint)from to:(CGPoint)to;
+
+- (id) initGunDamageFrom:(CGPoint)from to:(CGPoint)to;
+
 @end

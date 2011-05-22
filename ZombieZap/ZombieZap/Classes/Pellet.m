@@ -7,7 +7,8 @@
 //
 
 #import "Pellet.h"
-
+#import "GameManager.h"
+#import "Zombie.h"
 
 @implementation Pellet
 
@@ -36,6 +37,22 @@
 	[sprite_ release];    
     
     [super dealloc];
+}
+
+- (void) attackingRoutine
+{
+	if (attackTimer_ > 0) {
+		attackTimer_--;
+	}
+	
+	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
+		if (attackTimer_ == 0) {
+			[[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position];
+			[target_ takeDamage:damage_];
+			attackTimer_ = attackSpeed_;
+		}
+	}
 }
 
 @end

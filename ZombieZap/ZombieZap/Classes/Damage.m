@@ -10,26 +10,6 @@
 
 @implementation Damage
 
-+ (id) damageFrom:(CGPoint)from to:(CGPoint)to
-{
-	return [[[self alloc] initDamageFrom:from to:to] autorelease];
-}
-
-- (id) initDamageFrom:(CGPoint)from to:(CGPoint)to
-{
-	if ((self = [super init])) {
-				
-
-        
-	}
-	return self;
-}
-
-- (void) dealloc
-{	
-	[super dealloc];
-}
-
 - (void) finish
 {		
 	// Remove ourself from the game layer

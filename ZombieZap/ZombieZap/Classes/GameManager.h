@@ -74,7 +74,6 @@
 - (void) addLaserWithPos:(Pair *)pos level:(NSUInteger)level;
 
 - (void) addTurret:(Turret *)turret withPos:(Pair *)pos;
-//- (void) addTurretWithPos:(Pair *)pos;
 
 - (void) removeTurret:(Turret *)turret;
 
@@ -99,6 +98,8 @@
 - (void) addLightningDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
 - (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
+
+- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
 - (CGPoint) getLayerOffset;
 

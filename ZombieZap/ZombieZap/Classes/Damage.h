@@ -15,10 +15,6 @@
 	
 }
 
-+ (id) damageFrom:(CGPoint)from to:(CGPoint)to;
-
-- (id) initDamageFrom:(CGPoint)from to:(CGPoint)to;
-
 - (void) finish;
 
 @end

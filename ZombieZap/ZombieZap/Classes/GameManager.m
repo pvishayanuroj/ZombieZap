@@ -20,6 +20,7 @@
 #import "Damage.h"
 #import "LightningDamage.h"
 #import "RedLaserDamage.h"
+#import "GunDamage.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
@@ -357,6 +358,14 @@ static GameManager *_gameManager = nil;
 	NSAssert(gameLayer_ != nil, @"Trying to add Lightning Damage without a registered Game Layer");
 	
 	Damage *damage = [LightningDamage lightningDamageFrom:from to:to];
+	[eyesLayer_ addChild:damage z:kDamage];
+}
+
+- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add Gun Damage without a registered Game Layer");
+	
+	Damage *damage = [GunDamage gunDamageFrom:from to:to];
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 
