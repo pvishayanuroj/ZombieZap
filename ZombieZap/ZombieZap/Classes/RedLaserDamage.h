@@ -8,13 +8,29 @@
 
 #import "Damage.h"
 
+@class Turret;
+@class Zombie;
 
 @interface RedLaserDamage : Damage {
+ 
+    Turret *turret_;
+    
+    Zombie *target_;
+    
+    CGFloat rangeSquared_;
+    
+    NSUInteger timer_;
+    
+    NSUInteger maxTime_;
     
 }
 
-+ (id) redLaserDamageFrom:(CGPoint)from to:(CGPoint)to;
++ (id) redLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
 
-- (id) initRedLaserDamageFrom:(CGPoint)from to:(CGPoint)to;
+- (id) initRedLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
+
+- (void) positionBeam;
+
+- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b;
 
 @end

@@ -28,6 +28,10 @@
 		spriteDrawOffset_ = CGPointMake(0, 12);
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
         
+		range_ = 128;
+        rangeSquared_ = range_*range_;
+		attackSpeed_ = 60;        
+        
     }
     return self;
 }
@@ -49,7 +53,7 @@
 	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
-			[[GameManager gameManager] addRedLaserDamageFromPos:self.position to:target_.position];
+            [[GameManager gameManager] addRedLaserDamageFromPos:self to:target_ range:rangeSquared_ maxTime:attackSpeed_*0.75];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
 		}

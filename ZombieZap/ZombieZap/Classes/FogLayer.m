@@ -14,8 +14,6 @@
 #import "GameManager.h"
 #import "Spotlight.h"
 
-#import "Debugging.h"
-
 @implementation FogLayer
 
 @synthesize mutableFog = mutableFog_;

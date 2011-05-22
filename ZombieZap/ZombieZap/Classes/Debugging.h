@@ -8,6 +8,8 @@
 
 #define DEBUG_NOENEMIES 0
 
-#define DEBUG_NOFOG 1
+#define DEBUG_NOFOG 0
 
 #define DEBUG_NOBASESPRITE 0
+
+#define DEBUG_NOEGRID 1

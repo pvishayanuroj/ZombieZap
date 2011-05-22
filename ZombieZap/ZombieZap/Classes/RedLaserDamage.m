@@ -7,38 +7,82 @@
 //
 
 #import "RedLaserDamage.h"
-
+#import "Turret.h"
+#import "Zombie.h"
 
 @implementation RedLaserDamage
 
-+ (id) redLaserDamageFrom:(CGPoint)from to:(CGPoint)to
++ (id) redLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
 {
-	return [[[self alloc] initRedLaserDamageFrom:from to:to] autorelease];
+    return [[[self alloc] initRedLaserDamageFrom:turret to:target range:rangeSquared maxTime:maxTime] autorelease];
 }
 
-- (id) initRedLaserDamageFrom:(CGPoint)from to:(CGPoint)to
+- (id) initRedLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
 {
-	if ((self = [super initDamageFrom:from to:to])) {
+	if ((self = [super init])) {
 		
+        turret_ = [turret retain];
+        target_ = [target retain];
+        
 		sprite_ = [[CCSprite spriteWithFile:@"red_laser.png"] retain];
 		[self addChild:sprite_];
         
-		CGFloat theta = [self getAngleFrom:from to:to];
-		theta = CC_RADIANS_TO_DEGREES(theta);
-		theta = 180 - theta;
-		
-		CGFloat dist = ccpDistance(from, to);
-		self.position = ccpMidpoint(from, to);
-		self.rotation = theta;
-		self.scaleX = dist/sprite_.contentSize.width;        
+        self.scaleY = 1.5f;
+        
+        rangeSquared_ = rangeSquared;
+        maxTime_ = maxTime;
+        timer_ = 0;
+        
+        [self positionBeam];        
+
+		[self schedule:@selector(update:) interval:1.0/60.0];					        
         
     }
     return self;
 }
 
+- (void) positionBeam
+{
+    CGFloat theta = [self getAngleFrom:turret_.position to:target_.position];
+    theta = CC_RADIANS_TO_DEGREES(theta);
+    theta = 180 - theta;
+    
+    CGFloat dist = ccpDistance(turret_.position, target_.position);
+    self.position = ccpMidpoint(turret_.position, target_.position);
+    self.rotation = theta;
+    self.scaleX = dist/sprite_.contentSize.width;         
+}
+
+- (void) update:(ccTime)dt
+{    
+    if (turret_.isDead || target_.isDead || ++timer_ > maxTime_) {
+        [super finish];
+    }
+    else {
+        // Check target distance
+        CGFloat distance = [self distanceNoRoot:target_.position b:turret_.position];
+        // If target still in range, stay on target
+        if (distance < rangeSquared_) {    
+            [self positionBeam];
+        }
+        else {
+            [super finish];
+        }
+    }
+}
+
+- (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b
+{
+	CGFloat t1 = a.x - b.x;
+	CGFloat t2 = a.y - b.y;
+	return t1*t1 + t2*t2;
+}
+
 - (void) dealloc
 {
 	[sprite_ release];    
+    [turret_ release];
+    [target_ release];
     
     [super dealloc];
 }

@@ -21,4 +21,6 @@
 
 - (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b;
 
+- (void) finish;
+
 @end

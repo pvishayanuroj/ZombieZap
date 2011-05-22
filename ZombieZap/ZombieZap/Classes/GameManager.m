@@ -149,6 +149,11 @@ static GameManager *_gameManager = nil;
 	[gameLayer_ addChild:light z:kTower];
 	[towerLocations_ setObject:light forKey:pos];	
 	
+#if DEBUG_NOEGRID
+    [light powerOn];
+    return;
+#endif
+    
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
 		[self addWireWithPos:pos delegate:light];
@@ -280,13 +285,14 @@ static GameManager *_gameManager = nil;
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
 	
-	// Create the turret
-	//Turret *turret = [Turret turretWithPos:pos];
-	//TrackingTurret *turret = [TrackingTurret trackingTurretWithPos:pos];
-	
 	[towerLocations_ setObject:turret forKey:pos];
 	[gameLayer_ addChild:turret z:kTower];
 	
+#if DEBUG_NOEGRID
+    [turret powerOn];
+    return;
+#endif
+    
 	// Add a wire associated with this position if there isn't already one
 	if (![[ElectricGrid electricGrid] wireAtGrid:pos]) {
 		[self addWireWithPos:pos delegate:turret];
@@ -354,11 +360,11 @@ static GameManager *_gameManager = nil;
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 
-- (void) addRedLaserDamageFromPos:(CGPoint)from to:(CGPoint)to
+- (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add Red Laser Damage without a registered Game Layer");    
     
-	Damage *damage = [RedLaserDamage redLaserDamageFrom:from to:to];
+	Damage *damage = [RedLaserDamage redLaserDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];
 	[eyesLayer_ addChild:damage z:kDamage];    
 }
 

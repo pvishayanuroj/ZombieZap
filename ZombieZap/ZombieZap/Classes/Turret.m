@@ -25,14 +25,6 @@ static NSUInteger countID = 0;
 {
 	if ((self = [super initTowerWithPos:startPos])) {
 		
-        /*
-		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Laser Turret L1 02.png"] retain];	
-		[self addChild:sprite_];		
-		
-		// Take care of any offset
-		spriteDrawOffset_ = CGPointMake(0, 12);
-		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		
-		*/
 		unitID_ = countID++;
 		
 		// Tower attributes
@@ -101,9 +93,11 @@ static NSUInteger countID = 0;
 	NSSet *zombies = [[GameManager gameManager] zombies];
 	CGFloat distance;
 
+    // If turret currently has a target that isn't dead
 	if (target_) {
 		if (!target_.isDead) {
 			distance = [self distanceNoRoot:target_.position b:self.position];
+            // If target is still within range
 			if (distance < rangeSquared_) {
 				return;
 			}
@@ -117,12 +111,12 @@ static NSUInteger countID = 0;
 	Zombie *closestZombie = nil;
 	CGFloat shortestDistance = rangeSquared_;
 	
+    // Look for a new target
 	for (Zombie *z in zombies) {
 
 		// Zombies that are dying are not taken out of the manager array yet, so we need to double check
 		if (!z.isDead) {
 			distance = [self distanceNoRoot:z.position b:self.position];
-			//NSLog(@"(%2.0f, %2.0f) to (%2.0f, %2.0f) - - Rdist: %6.2f\n", z.position.x, z.position.y, self.position.x, self.position.y, sqrt(distance));		
 			if (distance < rangeSquared_ && distance < shortestDistance) {
 				shortestDistance = distance;
 				closestZombie = z;
@@ -130,6 +124,7 @@ static NSUInteger countID = 0;
 		}
 	}
 		
+    // If we found a target (there may be none in range)
 	if (closestZombie) {
 		target_ = closestZombie;
 		[target_ retain];

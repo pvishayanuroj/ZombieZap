@@ -98,7 +98,7 @@
 
 - (void) addLightningDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
-- (void) addRedLaserDamageFromPos:(CGPoint)from to:(CGPoint)to;
+- (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
 
 - (CGPoint) getLayerOffset;
 
