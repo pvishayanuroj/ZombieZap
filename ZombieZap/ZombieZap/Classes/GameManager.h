@@ -96,7 +96,9 @@
 
 - (void) addHomeWithPos:(Pair *)pos;
 
-- (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to;
+- (void) addLightningDamageFromPos:(CGPoint)from to:(CGPoint)to;
+
+- (void) addRedLaserDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
 - (CGPoint) getLayerOffset;
 

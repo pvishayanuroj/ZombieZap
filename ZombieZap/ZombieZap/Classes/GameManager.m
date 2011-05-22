@@ -18,6 +18,8 @@
 #import "Wire.h"
 #import "Home.h"
 #import "Damage.h"
+#import "LightningDamage.h"
+#import "RedLaserDamage.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
@@ -344,12 +346,20 @@ static GameManager *_gameManager = nil;
 	[[ElectricGrid electricGrid] setPowerNode:w2];
 }
 
-- (void) addDamageFromPos:(CGPoint)from to:(CGPoint)to
+- (void) addLightningDamageFromPos:(CGPoint)from to:(CGPoint)to
 {
-	NSAssert(gameLayer_ != nil, @"Trying to add a Damage without a registered Game Layer");
+	NSAssert(gameLayer_ != nil, @"Trying to add Lightning Damage without a registered Game Layer");
 	
-	Damage *damage = [Damage damageFrom:from to:to];
+	Damage *damage = [LightningDamage lightningDamageFrom:from to:to];
 	[eyesLayer_ addChild:damage z:kDamage];
+}
+
+- (void) addRedLaserDamageFromPos:(CGPoint)from to:(CGPoint)to
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add Red Laser Damage without a registered Game Layer");    
+    
+	Damage *damage = [RedLaserDamage redLaserDamageFrom:from to:to];
+	[eyesLayer_ addChild:damage z:kDamage];    
 }
 
 - (CGPoint) getLayerOffset

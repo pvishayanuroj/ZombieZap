@@ -8,6 +8,8 @@
 
 #import "SuperTesla.h"
 #import "Pair.h"
+#import "GameManager.h"
+#import "Zombie.h"
 
 @implementation SuperTesla
 
@@ -56,5 +58,22 @@
 	[sprite_ stopAllActions];
 	[sprite_ runAction:idleAnimation_];	
 }
+
+- (void) attackingRoutine
+{
+	if (attackTimer_ > 0) {
+		attackTimer_--;
+	}
+	
+	// Only attack if we have a target, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && !isDead_) {
+		if (attackTimer_ == 0) {
+			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
+			[target_ takeDamage:damage_];
+			attackTimer_ = attackSpeed_;
+		}
+	}
+}
+
 
 @end

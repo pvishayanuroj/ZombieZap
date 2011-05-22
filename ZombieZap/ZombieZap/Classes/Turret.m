@@ -135,6 +135,7 @@ static NSUInteger countID = 0;
 		[target_ retain];
 	}
 }
+
 - (void) attackingRoutine
 {
 	if (attackTimer_ > 0) {
@@ -144,8 +145,7 @@ static NSUInteger countID = 0;
 	// Only attack if we have a target, we have power, we aren't dead, and our attack timer has expired
 	if (target_ && hasPower_ && !isDead_) {
 		if (attackTimer_ == 0) {
-			//[self showAttacking];
-			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
+			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
 		}

@@ -124,7 +124,7 @@
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			//[self showAttacking];
-			[[GameManager gameManager] addDamageFromPos:self.position to:target_.position];
+			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
 			[target_ takeDamage:damage_];
 			attackTimer_ = attackSpeed_;
 		}

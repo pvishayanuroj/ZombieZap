@@ -7,7 +7,6 @@
 //
 
 #import "Damage.h"
-#import "TargetedAction.h"
 
 @implementation Damage
 
@@ -19,28 +18,16 @@
 - (id) initDamageFrom:(CGPoint)from to:(CGPoint)to
 {
 	if ((self = [super init])) {
-		
-		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Lightning B1 01.png"] retain];
-		[self addChild:sprite_];		
-		
-		CGFloat theta = [self getAngleFrom:from to:to];
-		theta = CC_RADIANS_TO_DEGREES(theta);
-		theta = 90 - theta;
-		
-		CGFloat dist = ccpDistance(from, to);
-		self.position = ccpMidpoint(from, to);
-		self.rotation = theta;
-		self.scale = dist/sprite_.contentSize.width;
-		
-		CCAnimation *animation = [[CCAnimationCache sharedAnimationCache] animationByName:@"Lightning B1"];		
-		CCAction *damageAnimation = [CCAnimate actionWithAnimation:animation];
-		
-		TargetedAction *damage = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)damageAnimation];
-		CCFiniteTimeAction *done = [CCCallFunc actionWithTarget:self selector:@selector(finish)];
-		
-		[self runAction:[CCSequence actions:damage, done, nil]];		
+				
+
+        
 	}
 	return self;
+}
+
+- (void) dealloc
+{	
+	[super dealloc];
 }
 
 - (void) finish
@@ -64,13 +51,6 @@
 		radians	+= M_PI;
 	
 	return radians;
-}
-
-- (void) dealloc
-{
-	[sprite_ release];
-	
-	[super dealloc];
 }
 
 @end
