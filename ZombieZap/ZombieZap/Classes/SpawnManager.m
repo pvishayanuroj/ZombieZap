@@ -58,6 +58,7 @@ static SpawnManager *_spawnManager = nil;
 	Pair *startPos;
 	Pair *objective;
 	CGFloat interval;
+    NSUInteger pathNum;
 	
 	// Go through all spawns in the plist (dictionary objects)	
 	for (id obj in spawn_array) {
@@ -65,14 +66,15 @@ static SpawnManager *_spawnManager = nil;
 		startPos = [self parsePair:[obj objectForKey:@"Start"]];
 		interval = [[obj objectForKey:@"Interval"] floatValue];
 		objective = [self parsePair:[obj objectForKey:@"Objective"]];
+        pathNum = [[obj objectForKey:@"Path Number"] unsignedIntegerValue];
 		
 		// Create the spawn object
-		spawn = [Spawn spawn:interval location:startPos obj:objective];
+		spawn = [Spawn spawn:interval location:startPos obj:objective pathNum:pathNum];
 		[spawns_ addObject:spawn];		
 	}
 	
 	// Do A* pathfinding pregame
-	[self precalculatePaths];
+	//[self precalculatePaths];
 	
 	// Add these to the game layer
 	[self activateSpawns];

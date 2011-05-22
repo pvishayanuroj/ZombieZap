@@ -175,6 +175,18 @@
 	return [Pair pair:x second:y-1];
 }
 
+- (NSArray *) getAdjacentPairs
+{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:4];
+    
+    [array addObject:[self topPair]];
+    [array addObject:[self bottomPair]];
+    [array addObject:[self leftPair]];
+    [array addObject:[self rightPair]];    
+    
+    return array;
+}
+
 - (void) invertPair
 {
 	x *= -1;

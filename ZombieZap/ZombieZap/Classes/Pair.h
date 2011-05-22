@@ -159,6 +159,12 @@
 - (Pair *) bottomPair;
 
 /**
+    Method to return all neighboring pairs (no diagonals)
+    @returns An array of all four adjacent pairs
+ */
+- (NSArray *) getAdjacentPairs;
+
+/**
 	Method to multiply a pair's x and y values by -1
  */
 - (void) invertPair;

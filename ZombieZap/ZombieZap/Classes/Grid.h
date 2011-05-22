@@ -125,4 +125,6 @@
 
 - (void) addPathToObjective:(NSArray *)path;
 
+- (Pair *) getNextStep:(NSUInteger)pathNum current:(Pair *)current prev:(Pair *)prev;
+
 @end

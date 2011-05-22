@@ -66,7 +66,7 @@ static Grid *_grid = nil;
 - (void) loadElevation:(NSString *)fileName
 {
 	Pair *pair;
-	NSNumber *elevation;
+	NSNumber *n;
 	NSInteger val;
 	NSUInteger x, y;
 	NSUInteger count = 0;
@@ -109,10 +109,10 @@ static Grid *_grid = nil;
 			
 			// Create the pair and store it along with elevation
 			pair = [Pair pair:x second:y];
-			elevation = [NSNumber numberWithInt:val];
+			n = [NSNumber numberWithUnsignedInteger:(NSUInteger)val];
 			
 			[keys addObject:pair];
-			[vals addObject:elevation];
+			[vals addObject:n];
 		}
 		
 		count++;
@@ -252,6 +252,32 @@ static Grid *_grid = nil;
 		
 		[objectiveMap_ setObject:value forKey:key];
 	}
+}
+
+- (Pair *) getNextStep:(NSUInteger)pathNum current:(Pair *)current prev:(Pair *)prev
+{
+    NSNumber *n;
+    NSUInteger val;
+    
+    // Get all pairs
+    NSArray *neighbors = [current getAdjacentPairs];
+    
+    // For all neighbors, get the neighbor that matches the bitwise path number
+    // If a previous cell is given, ignore that, and ignore out of bounds cells
+    for (Pair *p in neighbors) {
+        if (prev && [prev isEqual:p]) {
+            continue;
+        }
+        n = [terrain_ objectForKey:p];
+        if (n) {
+            val = [n unsignedIntegerValue];
+            if ((val & pathNum) == pathNum) {
+                return p;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 - (void) dealloc

@@ -35,7 +35,7 @@
 		self.isTouchEnabled = YES;
 		
 		Grid *grid = [Grid grid];
-		[grid setGridWithMap:@"map_32"];
+		[grid setGridWithMap:@"map_32_path"];
 		[self addChild:grid.mapImage z:0];
 		
 		[[GameManager gameManager] registerGameLayer:self];

@@ -24,6 +24,9 @@
 
 	/** The tile that the zombie is currently walking to */
 	Pair *currentDest_;
+    
+    /** The tile that the zombie was previously on */
+    Pair *prevDest_;
 
 	/** Stored walking animation (this is RepeatForever action) */
 	CCAction *walkingAnimation_;

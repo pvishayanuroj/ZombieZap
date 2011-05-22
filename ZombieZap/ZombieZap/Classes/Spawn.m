@@ -9,21 +9,27 @@
 #import "Spawn.h"
 #import "Pair.h"
 #import "GameManager.h"
+#import "Grid.h"
 
 @implementation Spawn
 
 @synthesize startPos = startPos_;
 @synthesize objective = objective_;
 
-+ (id) spawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj
++ (id) spawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj pathNum:(NSUInteger)pathNum
 {
-	return [[[self alloc] initSpawn:interval location:location obj:obj] autorelease];
+	return [[[self alloc] initSpawn:interval location:location obj:obj pathNum:pathNum] autorelease];
 }
 
-- (id) initSpawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj
+- (id) initSpawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj pathNum:(NSUInteger)pathNum
 {
 	if ((self = [super init])) {
 		
+        // Make sure the path number exists at the start location
+        NSUInteger val = [[[[Grid grid] terrain] objectForKey:location] unsignedIntegerValue];
+        
+        NSAssert((val & pathNum) == pathNum, ([NSString stringWithFormat:@"Path number %d does not exist at %@", pathNum, location]));
+        
 		startPos_ = [location retain];
 		objective_ = [obj retain];
 		[self schedule:@selector(update:) interval:interval];			

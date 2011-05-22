@@ -65,6 +65,7 @@ static NSUInteger countID = 0;
 		[self initActions];
 		
 		currentDest_ = [startPos retain];
+        prevDest_ = nil;
 		targetCell_ = [[Pair pair:-1 second:-1] retain];
 		[self reachedNext];		
 		
@@ -129,24 +130,24 @@ static NSUInteger countID = 0;
 
 - (void) reachedNext
 {
-	// Check if the goal was reached
-	if ([currentDest_ isEqual:objective_]) {
+    // Determine the next tile to move to
+    Pair *next = [[Grid grid] getNextStep:4 current:currentDest_ prev:prevDest_];
+    
+    // If nil, this means the end was reached
+    if (!next) {
 		[self stopAllActions];
-		[self zombieDeath];
-	}
-	else {
-		// Determine the next place tile to move to
-		Pair *next = [[[Grid grid] objectiveMap] objectForKey:currentDest_];
-		
-		if (!next) {
-			next = [Pair pair];
-		}
-		
+		[self zombieDeath];        
+    }
+    // Otherwise normal case, follow the path laid out
+    else {		
+        [prevDest_ release];
+        prevDest_ = [currentDest_ retain];
+        
 		[currentDest_ release];
 		currentDest_ = nil;
 		
-		[self moveTo:next];	
-	}
+		[self moveTo:next];	        
+    }
 }
 
 - (void) moveTo:(Pair *)dest
@@ -158,8 +159,7 @@ static NSUInteger countID = 0;
 	CCFiniteTimeAction *done = [CCCallFunc actionWithTarget:self selector:@selector(reachedNext)];
 	currentDest_ = [dest retain];	
 	
-	[self runAction:[CCSequence actions:move, done, nil]];
-	
+	[self runAction:[CCSequence actions:move, done, nil]];	
 }
 
 - (void) turnTowards:(CGPoint)pos
@@ -344,6 +344,7 @@ static NSUInteger countID = 0;
 	
 	[targetCell_ release];
 	[currentDest_ release];	
+    [prevDest_ release];
 	
 	[storedTarget_ release];
 	[target_ release];

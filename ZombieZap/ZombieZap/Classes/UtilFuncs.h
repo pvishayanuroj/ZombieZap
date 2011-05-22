@@ -16,8 +16,10 @@
  */
 + (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b;
 
+/** Returns the Euclidean distance between two points */
 + (CGFloat) euclideanDistance:(CGPoint)a b:(CGPoint)b;
 
+/** Returns the Euclidean distance between two points without square rooting */
 + (CGFloat) distanceNoRoot:(CGPoint)a b:(CGPoint)b;
 
 @end

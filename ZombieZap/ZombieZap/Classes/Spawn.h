@@ -20,8 +20,8 @@
 @property(nonatomic, readonly) Pair *startPos;
 @property(nonatomic, readonly) Pair *objective;
 
-+ (id) spawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj;
++ (id) spawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj pathNum:(NSUInteger)pathNum;
 
-- (id) initSpawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj;
+- (id) initSpawn:(CGFloat)interval location:(Pair *)location obj:(Pair *)obj pathNum:(NSUInteger)pathNum;
 
 @end
