@@ -216,70 +216,63 @@ static GameManager *_gameManager = nil;
 	[zombies_ removeObject:zombie];
 }
 
-- (void) addTeslaWithPos:(Pair *)pos level:(NSUInteger)level
+- (void) addTurretType:(NSString *)type withPos:(Pair *)pos level:(NSUInteger)level
 {
-    NSAssert(gameLayer_ != nil, @"Trying to add a Tesla Turret without a registered Game Layer");
+    NSAssert(gameLayer_ != nil, @"Trying to add a Turret without a registered Game Layer");
     
-    Turret *turret;
-    switch (level) {
-        case 1:
-            turret = [Taser taserWithPos:pos];
-            break;
-        case 2:
-            turret = [Tesla teslaWithPos:pos];
-            break;
-        case 3:
-            turret = [SuperTesla superTeslaWithPos:pos];
-            break;
-        default:
-            break;
+    Turret *turret = nil;
+    
+    if ([type isEqualToString:@"Tesla"]) {
+        switch (level) {
+            case 1:
+                turret = [Taser taserWithPos:pos];
+                break;
+            case 2:
+                turret = [Tesla teslaWithPos:pos];
+                break;
+            case 3:
+                turret = [SuperTesla superTeslaWithPos:pos];
+                break;
+            default:
+                break;
+        }        
+    }
+    else if ([type isEqualToString:@"Gun"]) {
+        switch (level) {
+            case 1:
+                turret = [Pellet pelletWithPos:pos];
+                break;
+            case 2:
+                turret = [Gatling gatlingWithPos:pos];
+                break;
+            case 3:
+                turret = [Rail railWithPos:pos];
+                break;
+            default:
+                break;
+        }        
+    }
+    else if ([type isEqualToString:@"Laser"]) {
+        switch (level) {
+            case 1:
+                turret = [RedLaser redLaserWithPos:pos];
+                break;
+            case 2:
+                turret = [GreenLaser greenLaserWithPos:pos];
+                break;
+            case 3:
+                turret = [BlueLaser blueLaserWithPos:pos];
+                break;
+            default:
+                break;
+        }        
+    }
+    else {
+        NSAssert(NO, ([NSString stringWithFormat:@"Invalid turret type: %@", type]));
     }
     
-    [self addTurret:turret withPos:pos];
-}
-
-- (void) addGunWithPos:(Pair *)pos level:(NSUInteger)level
-{
-    NSAssert(gameLayer_ != nil, @"Trying to add a Gun Turret without a registered Game Layer");
-    
-    Turret *turret;
-    switch (level) {
-        case 1:
-            turret = [Pellet pelletWithPos:pos];
-            break;
-        case 2:
-            turret = [Gatling gatlingWithPos:pos];
-            break;
-        case 3:
-            turret = [Rail railWithPos:pos];
-            break;
-        default:
-            break;
-    }
-    
-    [self addTurret:turret withPos:pos];
-}
-
-- (void) addLaserWithPos:(Pair *)pos level:(NSUInteger)level
-{
-    NSAssert(gameLayer_ != nil, @"Trying to add a Laser Turret without a registered Game Layer");
-    
-    Turret *turret;
-    switch (level) {
-        case 1:
-            turret = [RedLaser redLaserWithPos:pos];
-            break;
-        case 2:
-            turret = [GreenLaser greenLaserWithPos:pos];
-            break;
-        case 3:
-            turret = [BlueLaser blueLaserWithPos:pos];
-            break;
-        default:
-            break;
-    }
-    
-    [self addTurret:turret withPos:pos];
+    NSAssert(turret != nil, ([NSString stringWithFormat:@"Invalid tech level %d for turret type %@", level, type]));
+    [self addTurret:turret withPos:pos];    
 }
 
 - (void) addTurret:(Turret *)turret withPos:(Pair *)pos
@@ -399,11 +392,11 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ on];	
 }
 
-- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)delegate
+- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withUpgrade:(BOOL)upgrade withDelegate:(id <UnitMenuLayerDelegate>)delegate
 {
 	NSAssert(unitMenuLayer_ != nil, @"Trying to toggle unit menu without a registered Unit Menu Layer");			
 	
-	[unitMenuLayer_ toggleOn:pos withRange:range withDelegate:delegate];
+	[unitMenuLayer_ toggleOn:pos withRange:range withUpgrade:upgrade withDelegate:delegate];
 }
 
 - (void) toggleUnitOff

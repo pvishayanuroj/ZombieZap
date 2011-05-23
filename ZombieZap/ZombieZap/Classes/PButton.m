@@ -171,13 +171,13 @@
 			[[GameManager gameManager] addLightWithPos:location radius:SPOTLIGHT_RADIUS];
 			break;
 		case B_TASER:
-			[[GameManager gameManager] addTeslaWithPos:location level:1];			
+			[[GameManager gameManager] addTurretType:@"Tesla" withPos:location level:1];			
 			break;
 		case B_GUN:
-			[[GameManager gameManager] addGunWithPos:location level:1];			
+			[[GameManager gameManager] addTurretType:@"Gun" withPos:location level:1];			
 			break;
 		case B_LASER:
-			[[GameManager gameManager] addLaserWithPos:location level:1];			
+			[[GameManager gameManager] addTurretType:@"Laser" withPos:location level:1];			
 			break;            
 		default:
 			break;

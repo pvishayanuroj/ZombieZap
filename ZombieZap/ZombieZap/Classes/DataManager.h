@@ -26,6 +26,7 @@
 	
 	NSInteger parts_;
 	
+    NSMutableDictionary *techLevels_;
 }
 
 + (DataManager *) dataManager;

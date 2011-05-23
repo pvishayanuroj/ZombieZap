@@ -34,7 +34,13 @@
 
 	/** Whether or not the tower has its menu up */		
 	BOOL isToggled_;
-	
+
+	/** Tech level of this tower */	
+    NSUInteger techLevel_;
+
+	/** Universal type of this tower */	    
+    NSString *towerType_;
+    
 	/** Tower's ID number */	
 	NSUInteger unitID_;	
 }

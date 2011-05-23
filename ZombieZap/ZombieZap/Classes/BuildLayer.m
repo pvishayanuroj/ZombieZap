@@ -72,7 +72,6 @@
 		
 		// Determine whether to show red or green
 		TerrainType terrain = [[Grid grid] terrainAtGrid:p];
-		//if (terrain == TERR_IMPASS || terrain == TERR_NOBUILD) {
 		if (terrain != TERR_PASS) {
 			color = redGrid_;
 			allowable = NO;

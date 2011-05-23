@@ -22,13 +22,13 @@
 
 }
 
-@property (nonatomic, assign) <UnitMenuLayerDelegate> delegate;
+@property (nonatomic, assign) id <UnitMenuLayerDelegate> delegate;
 
 - (void) rangeOn:(Pair *)pos;
 
 - (void) rangeOff;
 
-- (void) toggleOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)d;
+- (void) toggleOn:(Pair *)pos withRange:(BOOL)range withUpgrade:(BOOL)upgrade withDelegate:(id <UnitMenuLayerDelegate>)d;
 
 - (void) toggleOff;
 

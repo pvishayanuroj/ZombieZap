@@ -172,7 +172,7 @@ static NSUInteger countID = 0;
 {
 	if ([self containsTouchLocation:touch])	{
 		if (!isToggled_) {
-			[[GameManager gameManager] toggleUnitOn:gridPos_ withRange:YES withDelegate:self];	
+			[[GameManager gameManager] toggleUnitOn:gridPos_ withRange:YES withUpgrade:YES withDelegate:self];	
 			isToggled_ = YES;
 		}
 		else {
@@ -191,9 +191,6 @@ static NSUInteger countID = 0;
 - (void) dealloc
 {
 	NSLog(@"%@ dealloc'd", self);	
-	
-	//[sprite_ release];
-	[gridPos_ release];
 	
 	[attackingAnimation_ release];
 	[dyingAnimation_ release];

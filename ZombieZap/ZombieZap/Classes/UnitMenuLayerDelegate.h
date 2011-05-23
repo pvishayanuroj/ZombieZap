@@ -12,4 +12,6 @@
 
 - (void) unitSold;
 
+- (void) unitUpgraded;
+
 @end

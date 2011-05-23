@@ -21,12 +21,16 @@
 {
     if ((self = [super initTrackingTurretWithPos:pos filename:@"Laser Turret L1"])) {
         
+        towerType_ = [[NSString stringWithString:@"Laser"] retain];        
+        
 		sprite_ = [[CCSprite spriteWithSpriteFrameName:@"Laser Turret L1 01.png"] retain];	
 		[self addChild:sprite_];		
 		
 		// Take care of any offset
 		spriteDrawOffset_ = CGPointMake(0, 12);
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
+     
+        techLevel_ = 1;
         
 		range_ = 128;
         rangeSquared_ = range_*range_;
@@ -39,6 +43,7 @@
 - (void) dealloc
 {
 	[sprite_ release];    
+    [towerType_ release];
     
     [super dealloc];
 }

@@ -67,11 +67,7 @@
 
 - (void) removeZombie:(Zombie *)zombie;
 
-- (void) addTeslaWithPos:(Pair *)pos level:(NSUInteger)level;
-
-- (void) addGunWithPos:(Pair *)pos level:(NSUInteger)level;
-
-- (void) addLaserWithPos:(Pair *)pos level:(NSUInteger)level;
+- (void) addTurretType:(NSString *)type withPos:(Pair *)pos level:(NSUInteger)level;
 
 - (void) addTurret:(Turret *)turret withPos:(Pair *)pos;
 
@@ -109,7 +105,7 @@
 
 - (void) turnLightsOn;
 
-- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)delegate;
+- (void) toggleUnitOn:(Pair *)pos withRange:(BOOL)range withUpgrade:(BOOL)upgrade withDelegate:(id <UnitMenuLayerDelegate>)delegate;
 
 - (void) toggleUnitOff;
 

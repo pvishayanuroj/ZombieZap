@@ -51,7 +51,7 @@
 	rangeSprite_.visible = NO;
 }
 
-- (void) toggleOn:(Pair *)pos withRange:(BOOL)range withDelegate:(id <UnitMenuLayerDelegate>)d
+- (void) toggleOn:(Pair *)pos withRange:(BOOL)range withUpgrade:(BOOL)upgrade withDelegate:(id <UnitMenuLayerDelegate>)d
 {	
 	if (unitMenu_) {
 		[self forceToggleOff];
@@ -70,11 +70,11 @@
 	[m1 setIsEnabled:NO];
 	[buttons addObject:m1];		
 	
-	/*
-	 CCMenuItemImage *m2 = [CCMenuItemImage itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png" target:self selector:nil]; 
-	 [m2 setIsEnabled:NO];
-	 [buttons addObject:m2];				
-	 */
+    if (upgrade) {
+        CCMenuItemImage *m2 = [CCMenuItemImage itemFromNormalImage:@"upgrade_button.png" selectedImage:@"upgrade_button.png" target:self selector:@selector(upgrade)]; 
+        [m2 setIsEnabled:NO];
+        [buttons addObject:m2];				        
+    }
 	
 	unitMenu_ = [[UnitMenu unitMenuWithHUDButtons:buttons] retain];	
 	unitMenu_.position = [[Grid grid] gridToPixel:pos];		
@@ -106,6 +106,13 @@
 	}
 	
 	[self toggleOff];
+}
+
+- (void) upgrade
+{
+    if (delegate_) {
+        [delegate_ unitUpgraded];
+    }
 }
 
 @end

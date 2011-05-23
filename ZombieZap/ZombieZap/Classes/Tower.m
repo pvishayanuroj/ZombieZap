@@ -34,6 +34,8 @@
 
 - (void) dealloc
 {
+    [gridPos_ release];
+    
 	[super dealloc];
 }
 
@@ -92,6 +94,12 @@
 - (void) unitSold
 {
 	[self preTowerDeath];
+}
+
+- (void) unitUpgraded
+{
+    [self preTowerDeath];
+    [[GameManager gameManager] addTurretType:towerType_ withPos:gridPos_ level:techLevel_+1];
 }
 
 - (void) preTowerDeath
