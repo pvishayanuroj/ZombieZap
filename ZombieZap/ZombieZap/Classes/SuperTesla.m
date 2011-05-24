@@ -10,6 +10,7 @@
 #import "Pair.h"
 #import "GameManager.h"
 #import "Zombie.h"
+#import "Enums.h"
 
 @implementation SuperTesla
 
@@ -74,7 +75,7 @@
 	if (target_ && hasPower_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
-			[target_ takeDamage:damage_];
+			[target_ takeDamage:damage_ damageType:D_TESLA];
 			attackTimer_ = attackSpeed_;
 		}
 	}

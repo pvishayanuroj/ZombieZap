@@ -9,6 +9,7 @@
 #import "Pellet.h"
 #import "GameManager.h"
 #import "Zombie.h"
+#import "Enums.h"
 
 @implementation Pellet
 
@@ -53,7 +54,7 @@
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			[[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position];
-			[target_ takeDamage:damage_];
+			[target_ takeDamageNoAnimation:damage_ damageType:D_GUN];
 			attackTimer_ = attackSpeed_;
 		}
 	}

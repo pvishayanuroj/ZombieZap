@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "Enums.h"
 
 @class Pair;
 @class Tower;
@@ -122,7 +123,11 @@
 
 - (void) doneAttacking;
 
-- (void) takeDamage:(CGFloat)damage;
+- (void) takeDamage:(CGFloat)damage damageType:(DamageType)type;
+
+- (void) takeDamageNoAnimation:(CGFloat)damage damageType:(DamageType)type;
+
+- (void) takeDamage:(CGFloat)damage damageType:(DamageType)type animated:(BOOL)animated;
 
 - (void) stopAllActions;
 

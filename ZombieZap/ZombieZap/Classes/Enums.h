@@ -50,6 +50,12 @@ typedef enum {
     L_BLUE
 } LaserColor;
 
+typedef enum {
+    D_TESLA,
+    D_GUN,
+    D_LASER
+} DamageType;
+
 enum {
 	W_UP = 1,
 	W_DOWN = 2,

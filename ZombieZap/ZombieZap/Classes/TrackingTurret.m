@@ -10,6 +10,7 @@
 #import "GameManager.h"
 #import "Zombie.h"
 #import "UtilFuncs.h"
+#import "Enums.h"
 
 @implementation TrackingTurret
 
@@ -126,24 +127,10 @@
 		if (attackTimer_ == 0) {
 			//[self showAttacking];
 			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
-			[target_ takeDamage:damage_];
+			[target_ takeDamage:damage_ damageType:D_TESLA];
 			attackTimer_ = attackSpeed_;
 		}
 	}
-}
-
-- (CGFloat) getAngleFrom:(CGPoint)a to:(CGPoint)b
-{
-	// Interesting note, floats can divide by zero
-	CGFloat tempX = b.x - a.x;
-	CGFloat tempY = b.y - a.y;
-	
-	CGFloat radians = atan(tempY/tempX);
-	
-	if (b.x < a.x)
-		radians	+= M_PI;
-	
-	return radians;
 }
 
 - (void) dealloc

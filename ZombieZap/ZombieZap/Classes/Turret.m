@@ -12,6 +12,7 @@
 #import "GameManager.h"
 #import "TargetedAction.h"
 #import "UtilFuncs.h"
+#import "Enums.h"
 
 @implementation Turret
 
@@ -135,7 +136,7 @@ static NSUInteger countID = 0;
 	if (target_ && hasPower_ && !isDead_) {
 		if (attackTimer_ == 0) {
 			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
-			[target_ takeDamage:damage_];
+			[target_ takeDamage:damage_ damageType:D_TESLA];
 			attackTimer_ = attackSpeed_;
 		}
 	}

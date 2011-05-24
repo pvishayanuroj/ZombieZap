@@ -285,7 +285,17 @@ static NSUInteger countID = 0;
 	[self runAction:[CCSequence actions:move, done, nil]];	
 }
 
-- (void) takeDamage:(CGFloat)damage
+- (void) takeDamage:(CGFloat)damage damageType:(DamageType)type
+{
+    [self takeDamage:damage damageType:type animated:YES];
+}
+
+- (void) takeDamageNoAnimation:(CGFloat)damage damageType:(DamageType)type
+{
+    [self takeDamage:damage damageType:type animated:NO];
+}
+
+- (void) takeDamage:(CGFloat)damage damageType:(DamageType)type animated:(BOOL)animated
 {
 	NSAssert(HP_ >= 0, @"Zombie is dead, should not be taking damage");
 
@@ -316,16 +326,24 @@ static NSUInteger countID = 0;
 		// Show the death animation, then deal with death
 		animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];
 		method = [CCCallFunc actionWithTarget:self selector:@selector(zombieDeath)];
+        
+        [self runAction:[CCSequence actions:animation, method, nil]];	        
 	}
 	// Zombie just takes damage
 	else {
 		// Show the taking damage animation, then resume walking
 		isTakingDamage_ = YES;
-		animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];
+
 		method = [CCCallFunc actionWithTarget:self selector:@selector(resumeWalking)];	
+        
+        if (animated) {
+            animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
+            [self runAction:[CCSequence actions:animation, method, nil]];	               
+        }
+        else {
+            [self runAction:[CCSequence actions:method, nil]];	               
+        }
 	}
-	
-	[self runAction:[CCSequence actions:animation, method, nil]];	
 }
 
 - (void) stopAllActions

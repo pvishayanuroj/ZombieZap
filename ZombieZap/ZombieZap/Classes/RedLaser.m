@@ -9,6 +9,7 @@
 #import "RedLaser.h"
 #import "GameManager.h"
 #import "Zombie.h"
+#import "Enums.h"
 
 @implementation RedLaser
 
@@ -59,7 +60,7 @@
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
             [[GameManager gameManager] addLaserBeamDamageFromPos:self to:target_ range:rangeSquared_ maxTime:attackSpeed_*0.75 color:L_RED];
-			[target_ takeDamage:damage_];
+			[target_ takeDamageNoAnimation:damage_ damageType:D_LASER];
 			attackTimer_ = attackSpeed_;
 		}
 	}
