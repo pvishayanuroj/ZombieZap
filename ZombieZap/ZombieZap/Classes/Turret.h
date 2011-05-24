@@ -37,7 +37,10 @@
 	
 	/** True if turret is firing */	
 	BOOL isFiring_;
-	
+
+	/** The draw offset of the damage sprite for when this tower fires */		
+    CGPoint damageDrawOffset_;
+    
 	/** How much damage this turret does */	
 	CGFloat damage_;
 	

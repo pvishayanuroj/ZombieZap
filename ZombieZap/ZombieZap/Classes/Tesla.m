@@ -29,6 +29,7 @@
 		[self addChild:sprite_];		
 		
 		// Take care of any offset
+        damageDrawOffset_ = CGPointMake(0, 24);        
 		spriteDrawOffset_ = CGPointMake(0, 12);
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
         
@@ -74,7 +75,7 @@
 	// Only attack if we have a target, we have power, we aren't dead, and our attack timer has expired
 	if (target_ && hasPower_ && !isDead_) {
 		if (attackTimer_ == 0) {
-			[[GameManager gameManager] addLightningDamageFromPos:self.position to:target_.position];
+			[[GameManager gameManager] addLightningDamageFromPos:ccpAdd(self.position, damageDrawOffset_) to:target_.position];
 			[target_ takeDamage:damage_ damageType:D_TESLA];
 			attackTimer_ = attackSpeed_;
 		}

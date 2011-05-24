@@ -10,6 +10,7 @@
 #import "GameManager.h"
 #import "Zombie.h"
 #import "Enums.h"
+#import "UtilFuncs.h"
 
 @implementation Pellet
 
@@ -53,11 +54,30 @@
 	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
+            
+            /* placement test
+            CGFloat degrees;
+            NSInteger xOffset, yOffset;
+            [self getPlacement:self.position b:target_.position deg:&degrees x:&xOffset y:&yOffset];
+            CGPoint offset = CGPointMake(xOffset, yOffset);
+            */
+            
 			[[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position];
 			[target_ takeDamageNoAnimation:damage_ damageType:D_GUN];
 			attackTimer_ = attackSpeed_;
 		}
 	}
+}
+
+- (void) getPlacement:(CGPoint)a b:(CGPoint)b deg:(CGFloat *)deg x:(NSInteger *)x y:(NSInteger *)y
+{
+	// Get the angle between the unit and the enemy
+	CGFloat radians = [UtilFuncs getAngleFrom:a to:b];
+	
+	// Because + rotation goes CW for some reason	
+	*deg = -CC_RADIANS_TO_DEGREES(radians);	
+	*x = (NSInteger)(25 * cos(radians));
+	*y = (NSInteger)(25 * sin(radians));		
 }
 
 @end

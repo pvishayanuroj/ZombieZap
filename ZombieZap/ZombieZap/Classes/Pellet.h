@@ -17,4 +17,6 @@
 
 - (id) initPelletWithPos:(Pair *)pos;
 
+- (void) getPlacement:(CGPoint)a b:(CGPoint)b deg:(CGFloat *)deg x:(NSInteger *)x y:(NSInteger *)y;
+
 @end

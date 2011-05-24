@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ZombieZap/Classes/Pellet.m"
-         timestampString = "327930885.925906"
+         timestampString = "327935027.757682"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "23"
-         endingLineNumber = "23"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "-initPelletWithPos:"
          landmarkType = "5">
       </FileBreakpoint>
