@@ -15,7 +15,7 @@
 {
 	if ((self = [super init])) {
 		
-		genRateLabel_ = [[CCLabelAtlas labelWithString:@"0" charMapFile:@"fps_images.png" itemWidth:16 itemHeight:24 startCharMap:'.'] retain];		
+		genRateLabel_ = [[CCLabelAtlas labelWithString:@"0" charMapFile:@"black_sevenseg.png" itemWidth:25 itemHeight:32 startCharMap:'0'] retain];		
 		genRateLabel_.position = CGPointMake(390, 170);
 		
 		powerLabel_ = [[CCLabelTTF labelWithString:@"0 kWh (-0)" fontName:@"Marker Felt" fontSize:12] retain];

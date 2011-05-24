@@ -12,6 +12,7 @@
 		DA2AA5C613897BD400AF98BD /* GunDamage.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2AA5C513897BD200AF98BD /* GunDamage.m */; };
 		DA2AA5CA13897C5F00AF98BD /* UtilFuncs.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2AA5C913897C5B00AF98BD /* UtilFuncs.m */; };
 		DA2AA5CC138980DC00AF98BD /* muzzle_flash_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2AA5CB138980DC00AF98BD /* muzzle_flash_1.png */; };
+		DA35044F138BDC7F00CBA2F9 /* black_sevenseg.png in Resources */ = {isa = PBXBuildFile; fileRef = DA35044E138BDC7F00CBA2F9 /* black_sevenseg.png */; };
 		DA73878B1380642800B1BF88 /* Tesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878A1380642800B1BF88 /* Tesla.m */; };
 		DA73878F1380644E00B1BF88 /* SuperTesla.m in Sources */ = {isa = PBXBuildFile; fileRef = DA73878E1380644E00B1BF88 /* SuperTesla.m */; };
 		DA7387951380647B00B1BF88 /* Gatling.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7387941380647A00B1BF88 /* Gatling.m */; };
@@ -291,6 +292,7 @@
 		DA2AA5C813897C5800AF98BD /* UtilFuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilFuncs.h; sourceTree = "<group>"; };
 		DA2AA5C913897C5B00AF98BD /* UtilFuncs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilFuncs.m; sourceTree = "<group>"; };
 		DA2AA5CB138980DC00AF98BD /* muzzle_flash_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muzzle_flash_1.png; sourceTree = "<group>"; };
+		DA35044E138BDC7F00CBA2F9 /* black_sevenseg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_sevenseg.png; sourceTree = "<group>"; };
 		DA7387891380642700B1BF88 /* Tesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesla.h; sourceTree = "<group>"; };
 		DA73878A1380642800B1BF88 /* Tesla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tesla.m; sourceTree = "<group>"; };
 		DA73878D1380644E00B1BF88 /* SuperTesla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperTesla.h; sourceTree = "<group>"; };
@@ -1264,6 +1266,7 @@
 		DA8F2CCF137F6DC80081CF2A /* Game Art */ = {
 			isa = PBXGroup;
 			children = (
+				DA35044E138BDC7F00CBA2F9 /* black_sevenseg.png */,
 				DA76BE14138B553500F4B07B /* blue_laser.png */,
 				DA76BE15138B553500F4B07B /* green_laser.png */,
 				DA76BE09138B26E800F4B07B /* hp_bar_background.png */,
@@ -1695,6 +1698,7 @@
 				DA76BE0C138B26E800F4B07B /* hp_bar.png in Resources */,
 				DA76BE16138B553500F4B07B /* blue_laser.png in Resources */,
 				DA76BE17138B553500F4B07B /* green_laser.png in Resources */,
+				DA35044F138BDC7F00CBA2F9 /* black_sevenseg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
