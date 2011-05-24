@@ -21,6 +21,7 @@
 #import "LightningDamage.h"
 #import "LaserBeamDamage.h"
 #import "GunDamage.h"
+#import "Projectile.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
@@ -367,6 +368,14 @@ static GameManager *_gameManager = nil;
 	NSAssert(gameLayer_ != nil, @"Trying to add Gun Damage without a registered Game Layer");
 	
 	Damage *damage = [GunDamage gunDamageFrom:from to:to duration:duration];
+	[eyesLayer_ addChild:damage z:kDamage];
+}
+
+- (void) addProjectileFromPos:(CGPoint)from to:(Zombie *)target totalDamage:(CGFloat)damageAmt
+{
+	NSAssert(gameLayer_ != nil, @"Trying to add a Projectile without a registered Game Layer");
+	
+	Damage *damage = [Projectile projectileFrom:from to:target totalDamage:damageAmt];
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 

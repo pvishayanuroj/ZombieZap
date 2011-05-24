@@ -102,6 +102,8 @@
 
 - (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration;
 
+- (void) addProjectileFromPos:(CGPoint)from to:(Zombie *)target totalDamage:(CGFloat)damageAmt;
+
 - (void) addHPBars:(CCSprite *)hpBar hpBarBack:(CCSprite *)hpBarBack;
 
 - (CGPoint) getLayerOffset;

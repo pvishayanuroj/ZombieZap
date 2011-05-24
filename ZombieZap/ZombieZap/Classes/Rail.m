@@ -7,7 +7,7 @@
 //
 
 #import "Rail.h"
-
+#import "GameManager.h"
 
 @implementation Rail
 
@@ -30,6 +30,13 @@
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
         
         techLevel_ = 3;        
+        
+		// Tower attributes
+		range_ = 128;
+		attackSpeed_ = 30;
+		damage_ = 10.0f;        
+        
+        rangeSquared_ = range_ * range_;
     }
     return self;
 }
@@ -40,6 +47,23 @@
     [towerType_ release];
     
     [super dealloc];
+}
+
+- (void) attackingRoutine
+{
+	if (attackTimer_ > 0) {
+		attackTimer_--;
+	}
+	
+	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
+		if (attackTimer_ == 0) {
+            
+			[[GameManager gameManager] addProjectileFromPos:self.position to:target_ totalDamage:damage_];
+			//[target_ takeDamageNoAnimation:damage_ damageType:D_GUN];
+			attackTimer_ = attackSpeed_;
+		}
+	}
 }
 
 @end
