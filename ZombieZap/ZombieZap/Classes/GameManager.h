@@ -100,7 +100,7 @@
 
 - (void) addLaserBeamDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damageAmt color:(LaserColor)color;
 
-- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to;
+- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration;
 
 - (void) addHPBars:(CCSprite *)hpBar hpBarBack:(CCSprite *)hpBarBack;
 

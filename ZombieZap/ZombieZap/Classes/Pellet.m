@@ -61,7 +61,7 @@
             CGPoint offset = CGPointMake(xOffset, yOffset);
             */
             
-			[[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position];
+			[[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position duration:0.03f];
 			[target_ takeDamageNoAnimation:damage_ damageType:D_GUN];
 			attackTimer_ = attackSpeed_;
 		}

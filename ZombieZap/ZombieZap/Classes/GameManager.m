@@ -362,11 +362,11 @@ static GameManager *_gameManager = nil;
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 
-- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to
+- (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add Gun Damage without a registered Game Layer");
 	
-	Damage *damage = [GunDamage gunDamageFrom:from to:to];
+	Damage *damage = [GunDamage gunDamageFrom:from to:to duration:duration];
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 

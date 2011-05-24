@@ -13,8 +13,8 @@
     
 }
 
-+ (id) gunDamageFrom:(CGPoint)from to:(CGPoint)to;
++ (id) gunDamageFrom:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration;
 
-- (id) initGunDamageFrom:(CGPoint)from to:(CGPoint)to;
+- (id) initGunDamageFrom:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration;
 
 @end

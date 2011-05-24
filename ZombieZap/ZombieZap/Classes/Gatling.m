@@ -7,7 +7,8 @@
 //
 
 #import "Gatling.h"
-
+#import "GameManager.h"
+#import "Zombie.h"
 
 @implementation Gatling
 
@@ -30,6 +31,13 @@
 		sprite_.position = ccpAdd(sprite_.position, spriteDrawOffset_);		        
         
         techLevel_ = 2;        
+        
+        numSubAttacks_ = 7;
+        subAttackSpeed_ = 6;
+        subAttackTimer_ = 0;
+        subAttackNum_ = 0;
+        
+        tickDamage_ = damage_/numSubAttacks_;
     }
     return self;
 }
@@ -41,5 +49,37 @@
     
     [super dealloc];
 }
+
+- (void) attackingRoutine
+{
+	if (attackTimer_ > 0) {
+		attackTimer_--;
+	}
+    if (subAttackTimer_ > 0) {
+        subAttackTimer_--;
+    }
+	
+	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
+	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
+		if (attackTimer_ == 0) {
+            if (subAttackTimer_ == 0) {
+                // If there are still subattacks to make
+                if (subAttackNum_ < numSubAttacks_) {
+                    subAttackNum_++;                    
+                    [[GameManager gameManager] addGunDamageFromPos:self.position to:target_.position duration:0.02f];
+                    [target_ takeDamageNoAnimation:tickDamage_ damageType:D_GUN];
+                    subAttackTimer_ = subAttackSpeed_;
+                }
+                // Finished with subattacks, reset the main timer and reset subattack variables
+                else {
+                    attackTimer_ = attackSpeed_;                
+                    subAttackTimer_ = 0;
+                    subAttackNum_ = 0;
+                }                
+            }
+		}
+	}
+}
+
 
 @end

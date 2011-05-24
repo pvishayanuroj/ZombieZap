@@ -11,12 +11,12 @@
 
 @implementation GunDamage
 
-+ (id) gunDamageFrom:(CGPoint)from to:(CGPoint)to
++ (id) gunDamageFrom:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration
 {
-	return [[[self alloc] initGunDamageFrom:from to:to] autorelease];
+	return [[[self alloc] initGunDamageFrom:from to:to duration:duration] autorelease];
 }
 
-- (id) initGunDamageFrom:(CGPoint)from to:(CGPoint)to
+- (id) initGunDamageFrom:(CGPoint)from to:(CGPoint)to duration:(CGFloat)duration
 {
 	if ((self = [super init])) {
 		
@@ -30,7 +30,7 @@
 		self.rotation = theta;
         self.scale = 0.6f;
         
-        CCFiniteTimeAction *delay = [CCDelayTime actionWithDuration:0.05f];
+        CCFiniteTimeAction *delay = [CCDelayTime actionWithDuration:duration];
         CCFiniteTimeAction *done = [CCCallFunc actionWithTarget:self selector:@selector(finish)];        
 		
 		[self runAction:[CCSequence actions:delay, done, nil]];	        

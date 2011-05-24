@@ -11,6 +11,15 @@
 
 @interface Gatling : TrackingTurret {
     
+    NSUInteger subAttackTimer_;
+    
+    NSUInteger subAttackSpeed_;
+    
+    NSUInteger subAttackNum_;
+    
+    NSUInteger numSubAttacks_;
+    
+    CGFloat tickDamage_;
 }
 
 + (id) gatlingWithPos:(Pair *)pos;
