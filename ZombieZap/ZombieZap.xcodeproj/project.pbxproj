@@ -23,6 +23,9 @@
 		DA766F2E1387E8A6004E0E13 /* gun_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2B1387E89F004E0E13 /* gun_button.png */; };
 		DA766F2F1387E8A6004E0E13 /* laser_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2C1387E8A0004E0E13 /* laser_button.png */; };
 		DA766F301387E8A6004E0E13 /* upgrade_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DA766F2D1387E8A2004E0E13 /* upgrade_button.png */; };
+		DA76BE0B138B26E800F4B07B /* hp_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA76BE09138B26E800F4B07B /* hp_bar_background.png */; };
+		DA76BE0C138B26E800F4B07B /* hp_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = DA76BE0A138B26E800F4B07B /* hp_bar.png */; };
+		DA76BE10138B2E0800F4B07B /* HPBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76BE0F138B2E0800F4B07B /* HPBarLayer.m */; };
 		DA8F2AD9137F6C9B0081CF2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */; };
 		DA8F2ADB137F6C9B0081CF2A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */; };
 		DA8F2ADD137F6C9B0081CF2A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8F2ADC137F6C9B0081CF2A /* OpenAL.framework */; };
@@ -305,6 +308,10 @@
 		DA766F2B1387E89F004E0E13 /* gun_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gun_button.png; sourceTree = "<group>"; };
 		DA766F2C1387E8A0004E0E13 /* laser_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser_button.png; sourceTree = "<group>"; };
 		DA766F2D1387E8A2004E0E13 /* upgrade_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_button.png; sourceTree = "<group>"; };
+		DA76BE09138B26E800F4B07B /* hp_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hp_bar_background.png; sourceTree = "<group>"; };
+		DA76BE0A138B26E800F4B07B /* hp_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hp_bar.png; sourceTree = "<group>"; };
+		DA76BE0E138B2E0700F4B07B /* HPBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPBarLayer.h; sourceTree = "<group>"; };
+		DA76BE0F138B2E0800F4B07B /* HPBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPBarLayer.m; sourceTree = "<group>"; };
 		DA8F2AD4137F6C9B0081CF2A /* ZombieZap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieZap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F2AD8137F6C9B0081CF2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA8F2ADA137F6C9B0081CF2A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1227,6 +1234,8 @@
 				DA8F2C70137F6D630081CF2A /* Generator.m */,
 				DA8F2C71137F6D630081CF2A /* GeneratorLayer.h */,
 				DA8F2C72137F6D630081CF2A /* GeneratorLayer.m */,
+				DA76BE0E138B2E0700F4B07B /* HPBarLayer.h */,
+				DA76BE0F138B2E0800F4B07B /* HPBarLayer.m */,
 				DA8F2C75137F6D630081CF2A /* Home.h */,
 				DA8F2C76137F6D630081CF2A /* Home.m */,
 				DA8F2C77137F6D630081CF2A /* HUDLayer.h */,
@@ -1283,6 +1292,8 @@
 		DA8F2CCF137F6DC80081CF2A /* Game Art */ = {
 			isa = PBXGroup;
 			children = (
+				DA76BE09138B26E800F4B07B /* hp_bar_background.png */,
+				DA76BE0A138B26E800F4B07B /* hp_bar.png */,
 				DA2AA5CB138980DC00AF98BD /* muzzle_flash_1.png */,
 				DA149C161387FB25005F7E0F /* red_laser.png */,
 				DA8F2CD0137F6DC80081CF2A /* black_frame.png */,
@@ -1658,6 +1669,8 @@
 				DA766F301387E8A6004E0E13 /* upgrade_button.png in Resources */,
 				DA149C171387FB25005F7E0F /* red_laser.png in Resources */,
 				DA2AA5CC138980DC00AF98BD /* muzzle_flash_1.png in Resources */,
+				DA76BE0B138B26E800F4B07B /* hp_bar_background.png in Resources */,
+				DA76BE0C138B26E800F4B07B /* hp_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1816,6 +1829,7 @@
 				DA149C151387F4E2005F7E0F /* LightningDamage.m in Sources */,
 				DA2AA5C613897BD400AF98BD /* GunDamage.m in Sources */,
 				DA2AA5CA13897C5F00AF98BD /* UtilFuncs.m in Sources */,
+				DA76BE10138B2E0800F4B07B /* HPBarLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

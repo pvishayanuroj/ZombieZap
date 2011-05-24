@@ -19,6 +19,7 @@
 #import "Enums.h"
 #import "UnitMenuLayer.h"
 #import "HUDLayer.h"
+#import "HPBarLayer.h"
 #import "DataManager.h"
 
 @implementation GameScene
@@ -54,6 +55,9 @@
 		UnitMenuLayer *unitMenuLayer = [UnitMenuLayer node];
 		[self addChild:unitMenuLayer z:kUnitMenuLayer];
 		
+		HPBarLayer *hpBarLayer = [HPBarLayer node];
+		[self addChild:hpBarLayer z:kHPBarLayer];        
+        
 		[self addButtons:buildLayer];
 		
 		[self addChild:[DataManager dataManager]];

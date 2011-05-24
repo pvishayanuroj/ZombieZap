@@ -49,7 +49,8 @@ static NSUInteger countID = 0;
 		
 		// Zombie attributes
 		moveRate_ = 20.0f;
-		HP_ = 10.0f;
+        maxHP_ = 10.0f;
+		HP_ = maxHP_;
 		attackSpeed_ = 30;
 		range_ = 15;
 		damage_ = 1;
@@ -64,6 +65,16 @@ static NSUInteger countID = 0;
 		
 		[self initActions];
 		
+        // For HP bar
+        hpBar_ = [[CCSprite spriteWithFile:@"hp_bar.png"] retain];
+        hpBarBack_ = [[CCSprite spriteWithFile:@"hp_bar_background.png"] retain];
+        hpBar_.anchorPoint = CGPointZero;
+        hpBarBack_.anchorPoint = CGPointZero;
+        hpBar_.visible = NO;
+        hpBarBack_.visible = NO;
+        hpDrawOffset_ = CGPointMake(-10, 14);
+        [[GameManager gameManager] addHPBars:hpBar_ hpBarBack:hpBarBack_];
+        
 		currentDest_ = [startPos retain];
         prevDest_ = nil;
 		targetCell_ = [[Pair pair:-1 second:-1] retain];
@@ -103,6 +114,8 @@ static NSUInteger countID = 0;
 - (void) update:(ccTime)dt
 {
 	eyes_.position = self.position;
+    hpBarBack_.position = ccpAdd(self.position, hpDrawOffset_);
+    hpBar_.position = ccpAdd(self.position, hpDrawOffset_);    
     
 #if DEBUG_ZOMBIESBENIGN
     return;
@@ -281,12 +294,22 @@ static NSUInteger countID = 0;
 	
 	// Subtract health points
 	HP_ -= damage;
-	
+    
+    if (!hpBar_.visible) {
+        hpBarBack_.visible = YES;
+        hpBar_.visible = YES;
+    }
+    
+    hpBar_.scaleX = HP_/maxHP_;
+    
 	// Stop walking
 	[self stopAllActions];	
 	
 	// Zombie dies from hit
 	if (HP_ <= 0) {
+        hpBarBack_.visible = NO;
+        hpBar_.visible = NO;
+        
 		// Set ourselves to dead
 		isDead_ = YES;
 		
@@ -336,7 +359,9 @@ static NSUInteger countID = 0;
 	[sprite_ release];
 	[eyes_ release];
 	[objective_ release];
-	
+	[hpBar_ release];
+    [hpBarBack_ release];
+    
 	[walkingAnimation_ release];
 	[attackingAnimation_ release];
 	[dyingAnimation_ release];

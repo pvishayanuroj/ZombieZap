@@ -29,6 +29,7 @@
 #import "CCTexture2DMutable.h"
 #import "TrackingTurret.h"
 #import "UnitMenuLayer.h"
+#import "HPBarLayer.h"
 #import "Generator.h"
 #import "Taser.h"
 #import "Tesla.h"
@@ -96,6 +97,7 @@ static GameManager *_gameManager = nil;
 	[fogLayer_ release];
 	[eyesLayer_ release];
 	[unitMenuLayer_ release];
+    [hpBarLayer_ release];
 	[generator_ release];
 	
 	[super dealloc];
@@ -129,6 +131,13 @@ static GameManager *_gameManager = nil;
 	[unitMenuLayer_ retain];
 }
 
+- (void) registerHPBarLayer:(HPBarLayer *)hpBarLayer
+{
+	NSAssert(hpBarLayer_ == nil, @"Trying to register an HP Bar Layer when one already exists");	
+	hpBarLayer_ = hpBarLayer;
+	[hpBarLayer_ retain];
+}
+
 - (void) registerGenerator:(Generator *)generator
 {
 	NSAssert(generator_ == nil, @"Trying to register a Generator when one already exists");		
@@ -139,6 +148,7 @@ static GameManager *_gameManager = nil;
 {
 	fogLayer_.position = position;
 	eyesLayer_.position = position;
+    hpBarLayer_.position = position;
 	unitMenuLayer_.position = position;
 }
 
@@ -368,6 +378,14 @@ static GameManager *_gameManager = nil;
     
 	Damage *damage = [RedLaserDamage redLaserDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];
 	[eyesLayer_ addChild:damage z:kDamage];    
+}
+
+- (void) addHPBars:(CCSprite *)hpBar hpBarBack:(CCSprite *)hpBarBack
+{
+    NSAssert(hpBarLayer_ != nil, @"Trying to add an HP Bar without a registered HP Bar Layer");        
+    
+    [hpBarLayer_ addChild:hpBarBack z:0];
+    [hpBarLayer_ addChild:hpBar z:1];
 }
 
 - (CGPoint) getLayerOffset

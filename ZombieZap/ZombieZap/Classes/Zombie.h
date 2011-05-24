@@ -17,6 +17,16 @@
 	/** Sprite representing the zombie */
 	CCSprite *sprite_;
 
+    /** Sprite showing how much HP the zombie has left (green part) */
+    CCSprite *hpBar_;
+    
+    /** Sprite for the background of the HP bar (red part) */
+    CCSprite *hpBarBack_;
+
+    /** The fixed drawing offset for the HP bars relative to the zombie sprite */
+    CGPoint hpDrawOffset_;
+    
+    /** Object representing the glowing eyes of the zombie */
 	ZombieEyes *eyes_;
 	
 	/** Where the zombie will move to (not currently used) */
@@ -73,7 +83,10 @@
 	
 	/** Zombie's health points */	
 	CGFloat HP_;
-	
+
+	/** Zombie's starting health points */	
+	CGFloat maxHP_;	
+    
 	/** Zombie's ID number */		
 	NSUInteger unitID_;
 }

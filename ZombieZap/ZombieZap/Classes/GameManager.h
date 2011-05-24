@@ -17,6 +17,7 @@
 @class FogLayer;
 @class EyesLayer;
 @class UnitMenuLayer;
+@class HPBarLayer;
 @class Spotlight;
 @class Light;
 @class Wire;
@@ -31,6 +32,8 @@
 	EyesLayer *eyesLayer_;
 	
 	UnitMenuLayer *unitMenuLayer_;
+    
+    HPBarLayer *hpBarLayer_;
 	
 	NSMutableSet *zombies_;
 	
@@ -58,6 +61,8 @@
 - (void) registerEyesLayer:(EyesLayer *)eyesLayer;
 
 - (void) registerUnitMenuLayer:(UnitMenuLayer *)unitMenuLayer;
+
+- (void) registerHPBarLayer:(HPBarLayer *)hpBarLayer;
 
 - (void) registerGenerator:(Generator *)generator;
 
@@ -96,6 +101,8 @@
 - (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
 
 - (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to;
+
+- (void) addHPBars:(CCSprite *)hpBar hpBarBack:(CCSprite *)hpBarBack;
 
 - (CGPoint) getLayerOffset;
 
