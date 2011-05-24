@@ -53,8 +53,8 @@ enum {
 
 enum {
 	kWire = 1,
-	kTower = 2,
-	kZombie = 3,
+	kZombie = 2,    
+	kTower = 3,
 	kDamage = 4,
 	kHome = 10	
 };
