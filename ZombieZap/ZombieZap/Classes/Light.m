@@ -57,12 +57,21 @@ static NSUInteger countID = 0;
 	return self;
 }
 
+- (void) preTowerDeath
+{
+	NSAssert(spotlight_ != nil, ([NSString stringWithFormat:@"Trying to remove a non-existant spotlight for %@", self]));	    
+    
+    [[GameManager gameManager] removeSpotlight:spotlight_];
+	[spotlight_ release];
+	spotlight_ = nil;            
+    
+    [super preTowerDeath];
+}
+
 - (void) towerDeath
 {		
 	// Remove ourself from the list
 	[[GameManager gameManager] removeLight:self];
-	
-	[super towerDeath];
 }
 
 - (void) powerOn

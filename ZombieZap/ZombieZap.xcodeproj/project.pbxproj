@@ -821,6 +821,8 @@
 				DA8F2C8E137F6D630081CF2A /* Triplet.m */,
 				DA8F2C7D137F6D630081CF2A /* Pair.h */,
 				DA8F2C7E137F6D630081CF2A /* Pair.m */,
+				DA8F2C7B137F6D630081CF2A /* MutableTextureExtension.h */,
+				DA8F2C7C137F6D630081CF2A /* MutableTextureExtension.m */,
 				DA8F2C87137F6D630081CF2A /* TargetedAction.h */,
 				DA8F2C88137F6D630081CF2A /* TargetedAction.m */,
 				DA8F2C5C137F6D630081CF2A /* Constants.h */,
@@ -1218,48 +1220,14 @@
 		DA8F2C51137F6D630081CF2A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DA9578B0138B5E8400548822 /* Misc Objects */,
+				DA9578AF138B5E0300548822 /* Layers & Scenes */,
+				DA2C369D137F86AC0099B124 /* Pathfinding */,
 				DA149C0E1387F462005F7E0F /* Damage */,
 				DAACD31B138032D800E7D5BD /* Zombie */,
 				DAACD3191380323700E7D5BD /* Towers */,
 				DA2C369F137F86E40099B124 /* Utilities */,
 				DA2C369E137F86CA0099B124 /* Singletons */,
-				DA2C369D137F86AC0099B124 /* Pathfinding */,
-				DA8F2C5A137F6D630081CF2A /* BuildLayer.h */,
-				DA8F2C5B137F6D630081CF2A /* BuildLayer.m */,
-				DA8F2C65137F6D630081CF2A /* EyesLayer.h */,
-				DA8F2C66137F6D630081CF2A /* EyesLayer.m */,
-				DA8F2C67137F6D630081CF2A /* FogLayer.h */,
-				DA8F2C68137F6D630081CF2A /* FogLayer.m */,
-				DA8F2C69137F6D630081CF2A /* GameLayer.h */,
-				DA8F2C6A137F6D630081CF2A /* GameLayer.m */,
-				DA8F2C6D137F6D630081CF2A /* GameScene.h */,
-				DA8F2C6E137F6D630081CF2A /* GameScene.m */,
-				DA8F2C6F137F6D630081CF2A /* Generator.h */,
-				DA8F2C70137F6D630081CF2A /* Generator.m */,
-				DA8F2C71137F6D630081CF2A /* GeneratorLayer.h */,
-				DA8F2C72137F6D630081CF2A /* GeneratorLayer.m */,
-				DA76BE0E138B2E0700F4B07B /* HPBarLayer.h */,
-				DA76BE0F138B2E0800F4B07B /* HPBarLayer.m */,
-				DA8F2C75137F6D630081CF2A /* Home.h */,
-				DA8F2C76137F6D630081CF2A /* Home.m */,
-				DA8F2C77137F6D630081CF2A /* HUDLayer.h */,
-				DA8F2C78137F6D630081CF2A /* HUDLayer.m */,
-				DA8F2C7B137F6D630081CF2A /* MutableTextureExtension.h */,
-				DA8F2C7C137F6D630081CF2A /* MutableTextureExtension.m */,
-				DA8F2C7F137F6D630081CF2A /* PButton.h */,
-				DA8F2C80137F6D630081CF2A /* PButton.m */,
-				DA8F2C81137F6D630081CF2A /* Spawn.h */,
-				DA8F2C82137F6D630081CF2A /* Spawn.m */,
-				DA8F2C85137F6D630081CF2A /* Spotlight.h */,
-				DA8F2C86137F6D630081CF2A /* Spotlight.m */,
-				DA8F2C91137F6D630081CF2A /* UnitMenu.h */,
-				DA8F2C92137F6D630081CF2A /* UnitMenu.m */,
-				DA8F2C93137F6D630081CF2A /* UnitMenuLayer.h */,
-				DA8F2C94137F6D630081CF2A /* UnitMenuLayer.m */,
-				DA8F2C95137F6D630081CF2A /* UnitMenuLayerDelegate.h */,
-				DA8F2C96137F6D630081CF2A /* Wire.h */,
-				DA8F2C97137F6D630081CF2A /* Wire.m */,
-				DA8F2C98137F6D630081CF2A /* WireDelegate.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1467,6 +1435,54 @@
 			);
 			name = ZSS;
 			path = Resources/ZSS;
+			sourceTree = "<group>";
+		};
+		DA9578AF138B5E0300548822 /* Layers & Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C5A137F6D630081CF2A /* BuildLayer.h */,
+				DA8F2C5B137F6D630081CF2A /* BuildLayer.m */,
+				DA8F2C65137F6D630081CF2A /* EyesLayer.h */,
+				DA8F2C66137F6D630081CF2A /* EyesLayer.m */,
+				DA8F2C67137F6D630081CF2A /* FogLayer.h */,
+				DA8F2C68137F6D630081CF2A /* FogLayer.m */,
+				DA8F2C77137F6D630081CF2A /* HUDLayer.h */,
+				DA8F2C78137F6D630081CF2A /* HUDLayer.m */,
+				DA8F2C95137F6D630081CF2A /* UnitMenuLayerDelegate.h */,
+				DA8F2C93137F6D630081CF2A /* UnitMenuLayer.h */,
+				DA8F2C94137F6D630081CF2A /* UnitMenuLayer.m */,
+				DA8F2C71137F6D630081CF2A /* GeneratorLayer.h */,
+				DA8F2C72137F6D630081CF2A /* GeneratorLayer.m */,
+				DA76BE0E138B2E0700F4B07B /* HPBarLayer.h */,
+				DA76BE0F138B2E0800F4B07B /* HPBarLayer.m */,
+				DA8F2C69137F6D630081CF2A /* GameLayer.h */,
+				DA8F2C6A137F6D630081CF2A /* GameLayer.m */,
+				DA8F2C6D137F6D630081CF2A /* GameScene.h */,
+				DA8F2C6E137F6D630081CF2A /* GameScene.m */,
+			);
+			name = "Layers & Scenes";
+			sourceTree = "<group>";
+		};
+		DA9578B0138B5E8400548822 /* Misc Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DA8F2C6F137F6D630081CF2A /* Generator.h */,
+				DA8F2C70137F6D630081CF2A /* Generator.m */,
+				DA8F2C75137F6D630081CF2A /* Home.h */,
+				DA8F2C76137F6D630081CF2A /* Home.m */,
+				DA8F2C7F137F6D630081CF2A /* PButton.h */,
+				DA8F2C80137F6D630081CF2A /* PButton.m */,
+				DA8F2C81137F6D630081CF2A /* Spawn.h */,
+				DA8F2C82137F6D630081CF2A /* Spawn.m */,
+				DA8F2C85137F6D630081CF2A /* Spotlight.h */,
+				DA8F2C86137F6D630081CF2A /* Spotlight.m */,
+				DA8F2C91137F6D630081CF2A /* UnitMenu.h */,
+				DA8F2C92137F6D630081CF2A /* UnitMenu.m */,
+				DA8F2C98137F6D630081CF2A /* WireDelegate.h */,
+				DA8F2C96137F6D630081CF2A /* Wire.h */,
+				DA8F2C97137F6D630081CF2A /* Wire.m */,
+			);
+			name = "Misc Objects";
 			sourceTree = "<group>";
 		};
 		DAACD3191380323700E7D5BD /* Towers */ = {
