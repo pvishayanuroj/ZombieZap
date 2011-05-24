@@ -71,6 +71,14 @@ enum {
 	kHome = 10	
 };
 
+/** Which objects receive touches first (smaller = more priority) */
+enum {
+	kTouchPriorityTower = 1,
+    kTouchPriorityGenerator = 0,
+	kTouchPriorityPButton = 0    
+};
+
+/** Z-depth for cocos2d layers */
 enum {
 	kGameLayer = 0,
     kHPBarLayer = 1,
@@ -81,3 +89,8 @@ enum {
 	kHUDLayer = 6,
 	kGeneratorLayer = 7
 };
+
+
+
+
+

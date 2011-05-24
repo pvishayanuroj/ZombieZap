@@ -9,7 +9,6 @@
 #import "Pellet.h"
 #import "GameManager.h"
 #import "Zombie.h"
-#import "Enums.h"
 #import "UtilFuncs.h"
 
 @implementation Pellet

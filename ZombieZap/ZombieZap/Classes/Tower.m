@@ -41,7 +41,7 @@
 
 - (void) onEnter
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:kTouchPriorityTower swallowsTouches:YES];
 	[super onEnter];
 }
 

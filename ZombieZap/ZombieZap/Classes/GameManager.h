@@ -7,7 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "Enums.h"
 #import "WireDelegate.h"
 #import "UnitMenuLayerDelegate.h"
 

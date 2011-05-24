@@ -7,7 +7,6 @@
 //
 
 #import "UnitMenu.h"
-#import "Constants.h"
 #import "Pair.h"
 
 @implementation UnitMenu

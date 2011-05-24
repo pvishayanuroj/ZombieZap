@@ -9,7 +9,6 @@
 #import "GreenLaser.h"
 #import "GameManager.h"
 #import "Zombie.h"
-#import "Enums.h"
 
 @implementation GreenLaser
 

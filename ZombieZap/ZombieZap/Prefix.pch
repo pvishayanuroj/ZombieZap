@@ -13,5 +13,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Debugging.h"
+#import "Enums.h"
+#import "Constants.h"
 
 #endif

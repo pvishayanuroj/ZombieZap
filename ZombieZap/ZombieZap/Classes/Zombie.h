@@ -7,7 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "Enums.h"
 
 @class Pair;
 @class Tower;

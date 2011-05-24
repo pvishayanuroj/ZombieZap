@@ -24,7 +24,6 @@
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
-#import "Constants.h"
 #import "CCTexture2DMutable.h"
 #import "TrackingTurret.h"
 #import "UnitMenuLayer.h"

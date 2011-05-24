@@ -10,7 +10,6 @@
 #import "Grid.h"
 #import "Pair.h"
 #import "GameManager.h"
-#import "Constants.h"
 
 @implementation Home
 

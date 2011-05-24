@@ -10,7 +10,6 @@
 #import "Pair.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
-#import "Enums.h"
 
 @implementation Wire
 

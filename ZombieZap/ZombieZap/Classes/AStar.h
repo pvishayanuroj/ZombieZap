@@ -6,8 +6,6 @@
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#import "Enums.h"
-
 @class Pair;
 @class ASNode;
 @class AStarHeap;

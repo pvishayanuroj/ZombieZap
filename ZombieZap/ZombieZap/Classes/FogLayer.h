@@ -7,8 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "Constants.h"
-#import "Enums.h"
 
 //@class CCMutableTexture2D;
 @class CCTexture2DMutable;

@@ -20,8 +20,6 @@
 #import "FogLayer.h"
 #import "EyesLayer.h"
 
-#import "Enums.h"
-
 @implementation GameLayer
 
 /**

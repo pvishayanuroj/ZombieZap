@@ -11,7 +11,6 @@
 #import "Pair.h"
 #import "GameManager.h"
 #import "BuildLayer.h"
-#import "Constants.h"
 
 @implementation PButton
 
@@ -57,7 +56,7 @@
 
 - (void) onEnter
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:kTouchPriorityPButton swallowsTouches:YES];
 	[super onEnter];
 }
 

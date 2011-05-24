@@ -7,8 +7,6 @@
 //
 
 #import "cocos2d.h"
-#import "Enums.h"
-#import "Constants.h"
 
 @class Pair;
 
