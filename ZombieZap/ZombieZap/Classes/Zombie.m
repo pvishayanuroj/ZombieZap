@@ -341,6 +341,8 @@ static NSUInteger countID = 0;
 	[[GameManager gameManager] removeZombie:self];
 	
 	[eyes_ removeFromParentAndCleanup:YES];
+    [hpBarBack_ removeFromParentAndCleanup:YES];
+    [hpBar_ removeFromParentAndCleanup:YES];
 	
 	// Remove ourself from the game layer
 	[self removeFromParentAndCleanup:YES];

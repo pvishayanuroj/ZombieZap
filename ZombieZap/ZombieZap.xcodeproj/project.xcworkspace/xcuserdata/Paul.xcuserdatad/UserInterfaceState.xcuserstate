@@ -9820,10 +9820,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>327892903.28293502</real>
-		<string>{1168, 857}</string>
-		<string>{1732, 0}</string>
-		<string>-initZombieWithPos:</string>
+		<real>327894256.68722099</real>
+		<string>{7821, 869}</string>
+		<string>{8962, 0}</string>
+		<string>-zombieDeath</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -23313,9 +23313,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327892903.27987301</real>
-		<string>{1168, 857}</string>
-		<string>{1732, 0}</string>
+		<real>327894256.67604202</real>
+		<string>{7821, 869}</string>
+		<string>{8962, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27162,7 +27162,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1918</integer>
+					<integer>530</integer>
 				</dict>
 			</array>
 		</dict>
@@ -27416,7 +27416,7 @@
 				<integer>1934</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>327892837.33247399</real>
+			<real>327894251.67392302</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -27427,7 +27427,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 9:20 PM</string>
+		<string>Today at 9:44 PM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
