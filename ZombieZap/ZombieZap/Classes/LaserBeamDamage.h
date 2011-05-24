@@ -19,19 +19,21 @@
     
     CGFloat rangeSquared_;
     
+    CGFloat tickDamage_;
+    
     NSUInteger timer_;
     
     NSUInteger maxTime_;    
     
 }
 
-+ (id) redLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
++ (id) redLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage;
 
-+ (id) greenLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
++ (id) greenLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage;
 
-+ (id) blueLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
++ (id) blueLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage;
 
-- (id) initLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime filename:(NSString *)filename;
+- (id) initLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage filename:(NSString *)filename;
 
 - (void) positionBeam;
 

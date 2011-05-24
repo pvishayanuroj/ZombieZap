@@ -53,8 +53,7 @@
 	// Only attack if we have a target that's lined up, we have power, we aren't dead, and our attack timer has expired
 	if (target_ && hasPower_ && isLinedUp_ && !isDead_) {
 		if (attackTimer_ == 0) {
-            [[GameManager gameManager] addLaserBeamDamageFromPos:self to:target_ range:rangeSquared_ maxTime:attackSpeed_*0.75 color:L_BLUE];
-			[target_ takeDamageNoAnimation:damage_ damageType:D_LASER];
+            [[GameManager gameManager] addLaserBeamDamageFromPos:self to:target_ range:rangeSquared_ maxTime:attackSpeed_*0.75 totalDamage:damage_ color:L_BLUE];
 			attackTimer_ = attackSpeed_;
 		}
 	}

@@ -305,45 +305,71 @@ static NSUInteger countID = 0;
 	// Subtract health points
 	HP_ -= damage;
     
+    // HP Bar management
     if (!hpBar_.visible) {
         hpBarBack_.visible = YES;
         hpBar_.visible = YES;
     }
-    
     hpBar_.scaleX = HP_/maxHP_;
     
-	// Stop walking
-	[self stopAllActions];	
-	
 	// Zombie dies from hit
 	if (HP_ <= 0) {
+        
+        [self stopAllActions];
+        
         hpBarBack_.visible = NO;
         hpBar_.visible = NO;
         
 		// Set ourselves to dead
 		isDead_ = YES;
 		
-		// Show the death animation, then deal with death
-		animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];
-		method = [CCCallFunc actionWithTarget:self selector:@selector(zombieDeath)];
+		// Show the correct death animation, then deal with death
+        switch (type) {
+            case D_TESLA:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];                
+                break;
+            case D_GUN:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];
+                break;
+            case D_LASER:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];                
+                break;
+            default:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)dyingAnimation_];                
+                break;
+        }
         
+		method = [CCCallFunc actionWithTarget:self selector:@selector(zombieDeath)];
         [self runAction:[CCSequence actions:animation, method, nil]];	        
 	}
-	// Zombie just takes damage
-	else {
-		// Show the taking damage animation, then resume walking
-		isTakingDamage_ = YES;
-
-		method = [CCCallFunc actionWithTarget:self selector:@selector(resumeWalking)];	
+	// Show the zombie taking damage if there's an animation to play
+	else if (animated) {
         
-        if (animated) {
-            animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
-            [self runAction:[CCSequence actions:animation, method, nil]];	               
-        }
-        else {
-            [self runAction:[CCSequence actions:method, nil]];	               
-        }
-	}
+        [self stopAllActions];
+    
+        // Show the taking damage animation, then resume walking
+        isTakingDamage_ = YES;
+        
+        // Show the correct taking damage animation
+        switch (type) {
+            case D_TESLA:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
+                break;
+            case D_GUN:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
+                break;
+            case D_LASER:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
+                break;
+            default:
+                animation = [TargetedAction actionWithTarget:sprite_ actionIn:(CCFiniteTimeAction *)takingDmgAnimation_];   
+                break;
+        }        
+        
+        // The walking animation must be reset after the taking damage animation is shown        
+        method = [CCCallFunc actionWithTarget:self selector:@selector(resumeWalking)];	            
+        [self runAction:[CCSequence actions:animation, method, nil]];	               
+	}    
 }
 
 - (void) stopAllActions

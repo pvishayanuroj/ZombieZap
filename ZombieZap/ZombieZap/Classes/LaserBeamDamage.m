@@ -10,25 +10,26 @@
 #import "Turret.h"
 #import "Zombie.h"
 #import "UtilFuncs.h"
+#import "Enums.h"
 
 @implementation LaserBeamDamage
 
-+ (id) redLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
++ (id) redLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage
 {
-    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"red_laser.png"] autorelease];
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damage filename:@"red_laser.png"] autorelease];
 }
 
-+ (id) greenLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
++ (id) greenLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage
 {
-    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"green_laser.png"] autorelease];
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damage filename:@"green_laser.png"] autorelease];
 }
 
-+ (id) blueLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
++ (id) blueLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage
 {
-    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"blue_laser.png"] autorelease];
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damage filename:@"blue_laser.png"] autorelease];
 }
 
-- (id) initLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime filename:(NSString *)filename
+- (id) initLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damage filename:(NSString *)filename
 {
 	if ((self = [super init])) {
 		
@@ -40,6 +41,7 @@
         
         self.scaleY = 1.5f;
         
+        tickDamage_ = damage/maxTime;
         rangeSquared_ = rangeSquared;
         maxTime_ = maxTime;
         timer_ = 0;
@@ -71,6 +73,7 @@
         CGFloat distance = [UtilFuncs distanceNoRoot:target_.position b:turret_.position];
         // If target still in range, stay on target
         if (distance < rangeSquared_) {    
+            [target_ takeDamageNoAnimation:tickDamage_ damageType:D_LASER];
             [self positionBeam];
         }
         else {

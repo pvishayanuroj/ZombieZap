@@ -371,7 +371,7 @@ static GameManager *_gameManager = nil;
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 
-- (void) addLaserBeamDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime color:(LaserColor)color
+- (void) addLaserBeamDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime totalDamage:(CGFloat)damageAmt color:(LaserColor)color
 {
 	NSAssert(gameLayer_ != nil, @"Trying to add Laser Beam Damage without a registered Game Layer");    
     
@@ -379,13 +379,13 @@ static GameManager *_gameManager = nil;
     
     switch (color) {
         case L_RED:
-            damage = [LaserBeamDamage redLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];
+            damage = [LaserBeamDamage redLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damageAmt];
             break;
         case L_GREEN:
-            damage = [LaserBeamDamage greenLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];            
+            damage = [LaserBeamDamage greenLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damageAmt];            
             break;
         case L_BLUE:
-            damage = [LaserBeamDamage blueLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];            
+            damage = [LaserBeamDamage blueLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime totalDamage:damageAmt];            
             break;
     }
     
