@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "Enums.h"
 #import "WireDelegate.h"
 #import "UnitMenuLayerDelegate.h"
 
@@ -98,7 +99,7 @@
 
 - (void) addLightningDamageFromPos:(CGPoint)from to:(CGPoint)to;
 
-- (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime;
+- (void) addLaserBeamDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime color:(LaserColor)color;
 
 - (void) addGunDamageFromPos:(CGPoint)from to:(CGPoint)to;
 

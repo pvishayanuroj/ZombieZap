@@ -44,6 +44,12 @@ typedef enum {
 	D_HORIZONTAL
 } DirectionType;
 
+typedef enum {
+    L_RED,
+    L_GREEN,
+    L_BLUE
+} LaserColor;
+
 enum {
 	W_UP = 1,
 	W_DOWN = 2,
@@ -68,5 +74,4 @@ enum {
 	kBuildLayer = 5,
 	kHUDLayer = 6,
 	kGeneratorLayer = 7
-
 };

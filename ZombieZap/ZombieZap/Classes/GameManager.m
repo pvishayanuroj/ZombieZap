@@ -19,12 +19,11 @@
 #import "Home.h"
 #import "Damage.h"
 #import "LightningDamage.h"
-#import "RedLaserDamage.h"
+#import "LaserBeamDamage.h"
 #import "GunDamage.h"
 #import "Grid.h"
 #import "ElectricGrid.h"
 #import "Pair.h"
-#import "Enums.h"
 #import "Constants.h"
 #import "CCTexture2DMutable.h"
 #import "TrackingTurret.h"
@@ -372,11 +371,24 @@ static GameManager *_gameManager = nil;
 	[eyesLayer_ addChild:damage z:kDamage];
 }
 
-- (void) addRedLaserDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
+- (void) addLaserBeamDamageFromPos:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime color:(LaserColor)color
 {
-	NSAssert(gameLayer_ != nil, @"Trying to add Red Laser Damage without a registered Game Layer");    
+	NSAssert(gameLayer_ != nil, @"Trying to add Laser Beam Damage without a registered Game Layer");    
     
-	Damage *damage = [RedLaserDamage redLaserDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];
+    Damage *damage;
+    
+    switch (color) {
+        case L_RED:
+            damage = [LaserBeamDamage redLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];
+            break;
+        case L_GREEN:
+            damage = [LaserBeamDamage greenLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];            
+            break;
+        case L_BLUE:
+            damage = [LaserBeamDamage blueLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime];            
+            break;
+    }
+    
 	[eyesLayer_ addChild:damage z:kDamage];    
 }
 

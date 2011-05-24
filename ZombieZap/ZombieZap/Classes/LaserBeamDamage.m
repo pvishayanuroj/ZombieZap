@@ -1,31 +1,41 @@
 //
-//  RedLaserDamage.m
+//  LaserBeamDamage.m
 //  ZombieZap
 //
-//  Created by Paul Vishayanuroj on 5/21/11.
+//  Created by Paul Vishayanuroj on 5/23/11.
 //  Copyright 2011 Paul Vishayanuroj. All rights reserved.
 //
 
-#import "RedLaserDamage.h"
+#import "LaserBeamDamage.h"
 #import "Turret.h"
 #import "Zombie.h"
 #import "UtilFuncs.h"
 
-@implementation RedLaserDamage
+@implementation LaserBeamDamage
 
-+ (id) redLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
++ (id) redLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
 {
-    return [[[self alloc] initRedLaserDamageFrom:turret to:target range:rangeSquared maxTime:maxTime] autorelease];
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"red_laser.png"] autorelease];
 }
 
-- (id) initRedLaserDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
++ (id) greenLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
+{
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"green_laser.png"] autorelease];
+}
+
++ (id) blueLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime
+{
+    return [[[self alloc] initLaserBeamDamageFrom:turret to:target range:rangeSquared maxTime:maxTime filename:@"blue_laser.png"] autorelease];
+}
+
+- (id) initLaserBeamDamageFrom:(Turret *)turret to:(Zombie *)target range:(CGFloat)rangeSquared maxTime:(NSUInteger)maxTime filename:(NSString *)filename
 {
 	if ((self = [super init])) {
 		
         turret_ = [turret retain];
         target_ = [target retain];
         
-		sprite_ = [[CCSprite spriteWithFile:@"red_laser.png"] retain];
+		sprite_ = [[CCSprite spriteWithFile:filename] retain];
 		[self addChild:sprite_];
         
         self.scaleY = 1.5f;
@@ -35,7 +45,7 @@
         timer_ = 0;
         
         [self positionBeam];        
-
+        
 		[self schedule:@selector(update:) interval:1.0/60.0];					        
         
     }
