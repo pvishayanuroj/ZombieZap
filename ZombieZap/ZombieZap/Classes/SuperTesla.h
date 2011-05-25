@@ -12,7 +12,11 @@
 @interface SuperTesla : Turret {
     
 	/** Stored idle animation (this is RepeatForever action) */
-	CCAction *idleAnimation_;        
+	CCAction *idleAnimation_;     
+    
+    NSMutableArray *targets_;
+    
+    NSUInteger maxTargets_;
     
 }
 
